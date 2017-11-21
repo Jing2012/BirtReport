@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mapper>
+	<select id="sql">
+	select i.i_name as 机构名称,
+      tr_type.description as 业务种类,
+      ii.CORE_SYS_CUSTOMER_CODE as 客户号,
+      ii.i_fullname as 客户全称,
+      tr.setdate as 结算日期,
+      tr.orddate as 交易日期,
+	  TRIM(to_char(cast(tr.ordcount as decimal(31,6)),'999,999,999,990.99')) as 票面总额,
+      TRIM(to_char(cast(tr.ordamount as decimal(31,6)),'999,999,999,990.99')) as 结算金额,
+      TRIM(to_char(cast(tr.bnd_aiamount as decimal(31,6)),'999,999,999,990.99')) as 总应计利息,
+      tr.operator as 执行人,
+      tr.trader as 交易确认人,
+      'T+' || to_char(tr.setdays) 清算速度,
+      tr.intordid as 成交单编号
+  FROM TTRD_OTC_TRADE tr
+  left join TTRD_INSTRUMENT
+  right on tr.i_code = right.i_code
+  LEFT JOIN ttrd_auth_user u
+    on tr.operator_id = u.user_id
+  LEFT JOIN TTRD_INSTITUTION i
+    ON u.i_id = TO_CHAR(i.i_id)
+  left join ttrd_institution ii
+    on tr.partyid = ii.i_id
+  LEFT JOIN ttrd_trade_type tr_type
+    on tr.trdtype = tr_type.trd_type
+  where tr.sysordid = #{sysOrdId}
+    and tr.ref_sysordid is null 
+	</select>
+</mapper>

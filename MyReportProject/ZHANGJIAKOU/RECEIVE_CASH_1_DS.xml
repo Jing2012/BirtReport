@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mapper>
+	<select id="sql">
+    select t.inst_id, t.inst_type, t.trd_type, t.h_i_code as i_code, t.h_a_type as a_type, t.h_m_type as m_type, 
+    t.state, t.party_name, t.real_set_date, 
+	i.i_name, s.secu_acct_id, s.opr_state as secu_inst_state,c.opr_state as cash_inst_state,
+	TRIM(to_char(cast(tt.amount as decimal(31,6)),'999,999,999,990.99')) as 余额,
+	TRIM(to_char(cast(a.due_ai as decimal(31,6)),'999,999,999,990.99')) as 应收利息,
+	CASE WHEN T.TRD_TYPE = '0134210' THEN TRIM(to_char(cast(ASECU.REAL_AI as decimal(31,6)),'999,999,999,990.99'))
+    WHEN T.TRD_TYPE &lt;&gt; '0134210' THEN TRIM(to_char(cast(-1 * ASECU.REAL_AI as decimal(31,6)),'999,999,999,990.99')) 
+    END AS 实收利息, 
+	CASE WHEN T.TRD_TYPE = '0134210' AND t.inst_type = '3' AND LENGTH(ASECU.MEMO) > 0 AND NVL(INSTR(ASECU.MEMO, '#'), 0) = 0 
+	THEN TRIM(to_char(cast(-to_number(ASECU.MEMO) as decimal(31,6)),'999,999,999,990.99')) 
+	WHEN T.TRD_TYPE &lt;&gt; '0134210' AND t.inst_type = '3' AND LENGTH(ASECU.MEMO) > 0 AND NVL(INSTR(ASECU.MEMO, '#'), 0) = 0 
+	THEN TRIM(to_char(cast(ASECU.MEMO as decimal(31,6)),'999,999,999,990.99')) 
+	END AS 应计利息,
+	tt.currency as 币种,
+	acc.bank_code, acc.bank_name as 开户行,
+	acc.accname as 名称
+    from ttrd_set_instruction t
+    left join ttrd_set_instruction_secu s
+		on t.ref_secu_inst_id = s.secu_inst_id
+    left join ttrd_set_instruction_cash c
+		on t.ref_cash_inst_id = c.cash_inst_id
+    left join ttrd_acc_secu_ext e
+		on s.ext_secu_acct_id = e.accid
+    left join ttrd_instrument i on i.i_code = t.h_i_code and i.a_type = t.h_a_type and i.m_type = t.h_m_type
+    left join(select INST_ID,A_TYPE,DIRECTION, SECU_ACCT_ID,REAL_CP,ESTD_CP,ESTD_AI,REAL_AI,MEMO from TTRD_SET_INSTRUCTION_SECU
+              union
+              select INST_ID,A_TYPE,DIRECTION, SECU_ACCT_ID,REAL_CP,ESTD_CP,ESTD_AI,REAL_AI,MEMO from TTRD_SET_INSTRUCTION_SECU_HIS) ASECU
+	on ASECU.INST_ID = t.INST_ID	  
+    left join (select bal.ext_cash_acct_id,sum(bal.amount) as amount,currency
+		from ttrd_blc_cash_obj bal where bal.beg_date=#{bizDate}
+		and bal.set_date = '1900-01-01' group by ext_cash_acct_id,currency) tt
+    on (tt.ext_cash_acct_id||'_'||tt.currency) = t.h_i_code
+    
+    left join (select aso.ext_secu_acct_id,
+               sum(aso.ai+nvl(inst.real_ai,0)) as ai,
+               sum(aso.due_ai+nvl(inst.due_ai,0)) as due_ai,
+               sum(aso.real_amount+nvl(inst.amount,0)) as real_amount
+        from vtrd_accounting_secu_obj aso
+        left join ttrd_instrument istmt 
+            on istmt.i_code=aso.i_code and istmt.a_type=aso.a_type and istmt.m_type=aso.m_type
+        left join vtrd_inst_secu_reviewed inst 
+            on aso.i_code=inst.i_code and aso.a_type=inst.a_type and aso.m_type=inst.m_type
+			and aso.ext_secu_acct_id=inst.ext_secu_acct_id and aso.secu_acct_id=inst.secu_acct_id
+			and aso.beg_date=inst.set_date
+        where aso.beg_date = #{bizDate1}
+        and istmt.p_type in ('0300','0304','0305')
+        group by aso.ext_secu_acct_id) a
+        on a.ext_secu_acct_id = tt.ext_cash_acct_id
+    left join ttrd_acc_cash_ext acc 
+		on acc.accid = tt.ext_cash_acct_id
+	
+    where t.inst_id = #{inst_id}
+	</select>
+</mapper>

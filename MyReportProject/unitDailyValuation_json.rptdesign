@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.0.v201306041519 Build &lt;4.3.0.v20130613-1152></property>
+    <property name="units">in</property>
+    <property name="theme">xir_j2ee.defaultTheme</property>
+    <property name="iconFile">/templates/first_report.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.firstreport</property>
+    <property name="layoutPreference">fixed layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="dsUrl" id="470">
+            <text-property name="promptText">dsUrl</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <script-data-source name="ds" id="473">
+            <method name="open"><![CDATA[// This will track your current row later on
+count = 0;
+controller = new Packages.com.actuate.json.JSONParser();
+// Load the JSON Source
+controller.loadData(params['dsUrl']);
+// Calculate the total rows we will have
+totalCount = controller.getChildCount("data")]]></method>
+        </script-data-source>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="unitDailyValuation" id="452">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">begDate</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">cashAccId</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">unitId</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">accName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">assetRealAmount</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">assetFv</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">prduRealAmount</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">prduFv</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">feeAiYf</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">feeAiGd</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">fee1AiFd</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">fee2AiFd</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">dif</property>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">begDate</property>
+                </structure>
+                <structure>
+                    <property name="columnName">cashAccId</property>
+                </structure>
+                <structure>
+                    <property name="columnName">unitId</property>
+                </structure>
+                <structure>
+                    <property name="columnName">accName</property>
+                </structure>
+                <structure>
+                    <property name="columnName">assetRealAmount</property>
+                </structure>
+                <structure>
+                    <property name="columnName">assetFv</property>
+                </structure>
+                <structure>
+                    <property name="columnName">prduRealAmount</property>
+                </structure>
+                <structure>
+                    <property name="columnName">prduFv</property>
+                </structure>
+                <structure>
+                    <property name="columnName">feeAiYf</property>
+                </structure>
+                <structure>
+                    <property name="columnName">feeAiGd</property>
+                </structure>
+                <structure>
+                    <property name="columnName">fee1AiFd</property>
+                </structure>
+                <structure>
+                    <property name="columnName">fee2AiFd</property>
+                </structure>
+                <structure>
+                    <property name="columnName">dif</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">begDate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">cashAccId</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">unitId</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">accName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">assetRealAmount</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">assetFv</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">prduRealAmount</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">prduFv</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">feeAiYf</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">feeAiGd</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">fee1AiFd</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">fee2AiFd</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">dif</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ds</property>
+            <method name="fetch"><![CDATA[if (count < totalCount) {
+	row["begDate"] = controller.getValue("data", "begDate", count);
+	row["cashAccId"] = controller.getValue("data", "cashAccId", count);
+	row["unitId"] = controller.getValue("data", "unitId", count);
+	row["accName"] = controller.getValue("data", "accName", count);
+	row["assetRealAmount"] = controller.getValue("data", "assetRealAmount", count);
+	row["assetFv"] = controller.getValue("data", "assetFv", count);
+	row["prduRealAmount"] = controller.getValue("data", "prduRealAmount", count);
+	row["prduFv"] = controller.getValue("data", "prduFv", count);
+	row["feeAiYf"] = controller.getValue("data", "feeAiYf", count);
+	row["feeAiGd"] = controller.getValue("data", "feeAiGd", count);
+	row["fee1AiFd"] = controller.getValue("data", "fee1AiFd", count);
+	row["fee2AiFd"] = controller.getValue("data", "fee2AiFd", count);
+	row["dif"] = controller.getValue("data", "dif", count);
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="110">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="246">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="247">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="NewTableStyle" id="254">
+            <property name="borderBottomStyle">groove</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">groove</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">groove</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">groove</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="rightMargin">0.375in</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="538">
+            <property name="fontSize">x-large</property>
+            <property name="fontWeight">bold</property>
+            <text-property name="text">理财业务单元估值日报</text-property>
+        </label>
+        <grid id="539">
+            <property name="height">1.4166666666666667in</property>
+            <column id="540"/>
+            <column id="541"/>
+            <column id="542"/>
+            <column id="543"/>
+            <column id="544"/>
+            <column id="545"/>
+            <column id="546"/>
+            <column id="547"/>
+            <column id="548"/>
+            <row id="549">
+                <property name="height">0.59375in</property>
+                <cell id="550">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">2</property>
+                    <property name="verticalAlign">middle</property>
+                    <label id="588">
+                        <text-property name="text">查询日期</text-property>
+                    </label>
+                </cell>
+                <cell id="551">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">2</property>
+                    <property name="verticalAlign">middle</property>
+                    <label id="601">
+                        <text-property name="text">理财业务单元名称</text-property>
+                    </label>
+                </cell>
+                <cell id="552">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <property name="verticalAlign">middle</property>
+                    <label id="597">
+                        <text-property name="text">资产端</text-property>
+                    </label>
+                </cell>
+                <cell id="554">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <property name="verticalAlign">middle</property>
+                    <label id="598">
+                        <text-property name="text">产品端</text-property>
+                    </label>
+                </cell>
+                <cell id="556">
+                    <property name="verticalAlign">middle</property>
+                    <label id="599">
+                        <text-property name="text">费用</text-property>
+                    </label>
+                </cell>
+                <cell id="557">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <property name="verticalAlign">middle</property>
+                    <label id="600">
+                        <text-property name="text">管理人报酬</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="559">
+                <property name="height">0.4895833333333333in</property>
+                <cell id="562">
+                    <label id="603">
+                        <text-property name="text">资产规模(元)</text-property>
+                    </label>
+                </cell>
+                <cell id="563">
+                    <label id="604">
+                        <text-property name="text">资产估值(元)</text-property>
+                    </label>
+                </cell>
+                <cell id="564">
+                    <label id="605">
+                        <text-property name="text">理财产品规模(元)</text-property>
+                    </label>
+                </cell>
+                <cell id="565">
+                    <label id="606">
+                        <text-property name="text">理财产品估值(元)</text-property>
+                    </label>
+                </cell>
+                <cell id="566">
+                    <label id="607">
+                        <text-property name="text">应用费用(元)</text-property>
+                    </label>
+                </cell>
+                <cell id="567">
+                    <label id="608">
+                        <text-property name="text">管理人固定管理费(元)</text-property>
+                    </label>
+                </cell>
+                <cell id="568">
+                    <label id="609">
+                        <text-property name="text">管理人浮动管理费(元)</text-property>
+                    </label>
+                </cell>
+            </row>
+        </grid>
+        <table id="650">
+            <property name="dataSet">unitDailyValuation</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">begDate</property>
+                    <text-property name="displayName">begDate</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["begDate"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">cashAccId</property>
+                    <text-property name="displayName">cashAccId</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["cashAccId"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">unitId</property>
+                    <text-property name="displayName">unitId</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["unitId"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">accName</property>
+                    <text-property name="displayName">accName</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["accName"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">assetRealAmount</property>
+                    <text-property name="displayName">assetRealAmount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["assetRealAmount"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">assetFv</property>
+                    <text-property name="displayName">assetFv</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["assetFv"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">prduRealAmount</property>
+                    <text-property name="displayName">prduRealAmount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["prduRealAmount"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">prduFv</property>
+                    <text-property name="displayName">prduFv</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["prduFv"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">feeAiYf</property>
+                    <text-property name="displayName">feeAiYf</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["feeAiYf"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">feeAiGd</property>
+                    <text-property name="displayName">feeAiGd</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["feeAiGd"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">fee1AiFd</property>
+                    <text-property name="displayName">fee1AiFd</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["fee1AiFd"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">fee2AiFd</property>
+                    <text-property name="displayName">fee2AiFd</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["fee2AiFd"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">dif</property>
+                    <text-property name="displayName">dif</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["dif"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <column id="681"/>
+            <column id="682"/>
+            <column id="683"/>
+            <column id="684"/>
+            <column id="685"/>
+            <column id="686"/>
+            <column id="687"/>
+            <column id="688"/>
+            <column id="689"/>
+            <detail>
+                <row id="661">
+                    <cell id="662">
+                        <property name="paddingTop">0pt</property>
+                        <data id="772">
+                            <property name="resultSetColumn">begDate</property>
+                        </data>
+                    </cell>
+                    <cell id="663">
+                        <data id="773">
+                            <property name="resultSetColumn">accName</property>
+                        </data>
+                    </cell>
+                    <cell id="664">
+                        <data id="774">
+                            <property name="resultSetColumn">assetRealAmount</property>
+                        </data>
+                    </cell>
+                    <cell id="665">
+                        <data id="775">
+                            <property name="resultSetColumn">assetFv</property>
+                        </data>
+                    </cell>
+                    <cell id="666">
+                        <data id="776">
+                            <property name="resultSetColumn">prduRealAmount</property>
+                        </data>
+                    </cell>
+                    <cell id="667">
+                        <data id="777">
+                            <property name="resultSetColumn">prduFv</property>
+                        </data>
+                    </cell>
+                    <cell id="668">
+                        <data id="778">
+                            <property name="resultSetColumn">feeAiYf</property>
+                        </data>
+                    </cell>
+                    <cell id="669">
+                        <data id="779">
+                            <property name="resultSetColumn">feeAiGd</property>
+                        </data>
+                    </cell>
+                    <cell id="670">
+                        <data id="780">
+                            <property name="resultSetColumn">fee1AiFd</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>

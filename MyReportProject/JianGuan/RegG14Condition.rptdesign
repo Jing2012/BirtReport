@@ -1,0 +1,1118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">birt.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="beg_da1te" id="82">
+            <text-property name="promptText">查询日期</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">Formatter.format(new Date(),'yyyy-MM-dd')</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="134"
+ extends="xir_j2ee.XIR"/>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="83">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">date1</property>
+                    <property name="paramName">beg_da1te</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">BEG_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">ISSUER_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">T_PATH</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">T_CODE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">TYCJ</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">TYJK</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">CFTY</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">BD</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">TDMDZT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">MRFS</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">NODE_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">I_LR_INST_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">BEG_DATE</property>
+                    <property name="nativeName">BEG_DATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">ISSUER_ID</property>
+                    <property name="nativeName">ISSUER_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">T_PATH</property>
+                    <property name="nativeName">T_PATH</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">T_CODE</property>
+                    <property name="nativeName">T_CODE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">TYCJ</property>
+                    <property name="nativeName">TYCJ</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">TYJK</property>
+                    <property name="nativeName">TYJK</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">CFTY</property>
+                    <property name="nativeName">CFTY</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">BD</property>
+                    <property name="nativeName">BD</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">TDMDZT</property>
+                    <property name="nativeName">TDMDZT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">MRFS</property>
+                    <property name="nativeName">MRFS</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">NODE_NAME</property>
+                    <property name="nativeName">NODE_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">I_LR_INST_CODE</property>
+                    <property name="nativeName">I_LR_INST_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[WITH ACCOUNTING_OBJ AS (SELECT BEG_DATE,
+      ISSUER_ID,
+      T_PATH,
+      T_CODE,
+      sum(decode(P_CLASS, '同业拆借拆出', COST, null)) "TYCJ" , 
+      sum(decode(P_CLASS, '同业借款借出', COST, null)) "TYJK" ,    
+      sum(decode(P_CLASS, '存放同业定期', COST, null)) "CFTY" ,
+      sum(decode(P_CLASS, '国债', COST,'地方政府债',COST,'央行票据',COST,'政策性银行普通金融债',COST,
+      '政策性银行混合资本债',COST,'政策性银行次级债',COST,'商业银行普通金融债券',COST,'商业银行混合资本债',COST,'商业银行次级债',COST,'保险公司债',COST,'证券公司债',COST,'证券公司短期融资券',COST,'企业债',COST,'一般公司债',COST,'短期融资券',COST,'中期票据'
+      ,COST,'可转债',COST,'可分离转债存债',COST,'可交换债',COST,'定向工具',COST,'资产支持证券',COST,'国际机构债券',COST,'私募债',COST,'其它金融机构债',COST,'政府支持机构债',COST,'其他',COST, null)) "BD" ,
+      sum(decode(P_CLASS, '同业存单',COST,'保证收益型理财产品',COST,'保本浮动收益型理财产品',COST,'非保本浮动收益型理财产品',COST,'信托产品',COST,'信托受益权',COST,'信贷资产',COST,'保本固定收益凭证'
+      ,COST,'资管计划收益权',COST,'资产管理计划',COST,'信贷资产流转',COST,'应收融资租赁款',COST,'其他金融资产',COST, null)) "TDMDZT" ,
+      sum(decode(P_CLASS, '债券质押式逆回购', COST,'债券买断式逆回购',COST, null)) "MRFS"
+FROM       (SELECT C.BEG_DATE,
+       BOND.ISSUER_ID,
+       INSTITUTION.I_FULLNAME,
+       INSTITUTION.T_CODE,
+       INSTITUTION.I_LR_INST_CODE,
+       SUBSTR(INSTITUTION.T_PATH, 1, INSTR(INSTITUTION.T_PATH, '.') - 1) AS T_PATH,
+       BOND.P_CLASS,
+       ABS(C.REAL_CP+C.DUE_CP)/10000 AS COST 
+        FROM  (SELECT *
+          FROM TTRD_ACCOUNTING_SECU_OBJ
+         WHERE A_TYPE IN ('SPT_BD',
+                          'SPT_ABS')
+        UNION
+        SELECT *
+          FROM TTRD_ACCOUNTING_SECU_OBJ_HIS
+         WHERE A_TYPE IN ('SPT_BD',
+                          'SPT_ABS')) C
+  INNER JOIN (SELECT A.ACCID, A.ACCNAME, A.ACTING_TYPE, B.TYPENAME
+               FROM TTRD_ACC_SECU A
+               LEFT JOIN TTRD_ACCTG_ACCOUNT_TYPE B
+                 ON A.ACTING_TYPE = B.TYPEID
+              WHERE A.ACTING_TYPE IN  ('1','2','3')
+             /*交易性金融资产*/
+             ) AA
+    ON C.SECU_ACCT_ID = AA.ACCID
+  LEFT JOIN TBND BOND
+    ON C.I_CODE = BOND.I_CODE
+  LEFT JOIN TTRD_INSTITUTION INSTITUTION
+    ON BOND.ISSUER_ID=INSTITUTION.I_ID 
+    WHERE C.REAL_AMOUNT<>0 
+    
+    UNION ALL
+    SELECT C.BEG_DATE,
+       TRADE.PARTYID,
+       INSTITUTION.I_FULLNAME,
+       INSTITUTION.T_CODE,
+       INSTITUTION.I_LR_INST_CODE,
+       SUBSTR(INSTITUTION.T_PATH, 1, INSTR(INSTITUTION.T_PATH, '.') - 1) AS T_PATH,
+       CASHLB.P_CLASS,
+       ABS(C.REAL_CP+C.DUE_CP)/10000 AS COST           
+      FROM (SELECT *
+          FROM TTRD_ACCOUNTING_SECU_OBJ
+         WHERE A_TYPE ='SPT_LBS'
+        UNION
+        SELECT *
+          FROM TTRD_ACCOUNTING_SECU_OBJ_HIS
+         WHERE A_TYPE ='SPT_LBS') C
+  INNER JOIN (SELECT A.ACCID, A.ACCNAME, A.ACTING_TYPE, B.TYPENAME
+               FROM TTRD_ACC_SECU A
+               LEFT JOIN TTRD_ACCTG_ACCOUNT_TYPE B
+                 ON A.ACTING_TYPE = B.TYPEID
+              WHERE A.ACTING_TYPE = '116'
+             /*其他类*/
+             ) AA
+    ON C.SECU_ACCT_ID = AA.ACCID
+  LEFT JOIN TTRD_CASHLB CASHLB
+    ON C.I_CODE = CASHLB.I_CODE
+  LEFT JOIN TTRD_OTC_TRADE TRADE 
+  ON C.TRADE_ID=TRADE.INTORDID
+  LEFT JOIN TTRD_INSTITUTION INSTITUTION
+    ON TRADE.PARTYID=INSTITUTION.I_ID 
+   WHERE TRADE.TRDTYPE IN ('0121100','0122100','0125100','0123100') AND C.REAL_AMOUNT<>0
+   
+   UNION ALL
+   SELECT C.BEG_DATE,
+       TRADE.PARTYID,
+       INSTITUTION.I_FULLNAME,
+       INSTITUTION.T_CODE,
+       INSTITUTION.I_LR_INST_CODE,
+       SUBSTR(INSTITUTION.T_PATH, 1, INSTR(INSTITUTION.T_PATH, '.') - 1) AS T_PATH,
+       CASHLB.P_CLASS,
+       ABS(C.REAL_CP+C.DUE_CP)/10000 AS COST      
+   FROM (SELECT *
+          FROM TTRD_ACCOUNTING_SECU_OBJ
+         WHERE A_TYPE ='SPT_LBS'
+        UNION ALL
+        SELECT *
+          FROM TTRD_ACCOUNTING_SECU_OBJ_HIS
+         WHERE A_TYPE ='SPT_LBS') C
+  INNER JOIN (SELECT A.ACCID, A.ACCNAME, A.ACTING_TYPE, B.TYPENAME
+               FROM TTRD_ACC_SECU A
+               LEFT JOIN TTRD_ACCTG_ACCOUNT_TYPE B
+                 ON A.ACTING_TYPE = B.TYPEID
+              WHERE A.ACTING_TYPE IN  ('1','2','3','4')
+             ) AA
+    ON C.SECU_ACCT_ID = AA.ACCID
+  LEFT JOIN TTRD_CASHLB CASHLB
+    ON C.I_CODE = CASHLB.I_CODE
+  LEFT JOIN TTRD_OTC_TRADE TRADE 
+  ON C.TRADE_ID=TRADE.INTORDID
+  LEFT JOIN TTRD_INSTITUTION INSTITUTION
+    ON TRADE.PARTYID=INSTITUTION.I_ID  
+    WHERE C.REAL_AMOUNT<>0 
+       UNION ALL
+    SELECT C.BEG_DATE,
+       TRADE.PARTYID,
+       INSTITUTION.I_FULLNAME,
+       INSTITUTION.T_CODE,
+       INSTITUTION.I_LR_INST_CODE,
+       SUBSTR(INSTITUTION.T_PATH, 1, INSTR(INSTITUTION.T_PATH, '.') - 1) AS T_PATH,
+       OUTRIGHT.P_CLASS,
+       ABS(C.REAL_CP+C.DUE_CP)/10000 AS COST           
+      FROM (SELECT *
+          FROM TTRD_ACCOUNTING_SECU_OBJ
+        UNION
+        SELECT *
+          FROM TTRD_ACCOUNTING_SECU_OBJ_HIS) C
+  INNER JOIN (SELECT A.ACCID, A.ACCNAME, A.ACTING_TYPE, B.TYPENAME
+               FROM TTRD_ACC_SECU A
+               LEFT JOIN TTRD_ACCTG_ACCOUNT_TYPE B
+                 ON A.ACTING_TYPE = B.TYPEID
+              WHERE A.ACTING_TYPE = '297'
+             /*其他类*/
+             ) AA
+    ON C.SECU_ACCT_ID = AA.ACCID
+  LEFT JOIN TTRD_OUTRIGHT OUTRIGHT
+    ON C.I_CODE = OUTRIGHT.I_CODE
+  LEFT JOIN TTRD_OTC_TRADE TRADE 
+  ON C.TRADE_ID=TRADE.INTORDID
+  LEFT JOIN TTRD_INSTITUTION INSTITUTION
+    ON TRADE.PARTYID=INSTITUTION.I_ID 
+   WHERE TRADE.TRDTYPE IN ('0220100') AND C.REAL_AMOUNT<>0) 
+    GROUP BY BEG_DATE,
+      ISSUER_ID,
+      T_CODE,
+      T_PATH)
+    SELECT OBJ.*,NODE.NODE_NAME,INSTITUTION.I_LR_INST_CODE FROM ACCOUNTING_OBJ OBJ
+      LEFT JOIN TREE_NODE_INFO NODE 
+      ON OBJ.T_CODE=NODE.NODE_ID
+      LEFT JOIN TTRD_INSTITUTION INSTITUTION
+      ON NODE.NODE_NAME=INSTITUTION.I_FULLNAME
+       WHERE OBJ.BEG_DATE=? AND 
+          OBJ.T_PATH NOT IN ('境内非金融企业','境外非金融企业') ]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="orientation">landscape</property>
+            <property name="height">210mm</property>
+            <property name="width">380mm</property>
+            <property name="showHeaderOnFirst">false</property>
+            <property name="showFooterOnLast">false</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="4">
+            <property name="fontFamily">"宋体"</property>
+            <property name="overflow">visible</property>
+            <property name="width">98%</property>
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">I_LR_INST_CODE</property>
+                    <text-property name="displayName">I_LR_INST_CODE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["I_LR_INST_CODE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CFTY</property>
+                    <text-property name="displayName">CFTY</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CFTY"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">TYJK</property>
+                    <text-property name="displayName">TYJK</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TYJK"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">TYCJ</property>
+                    <text-property name="displayName">TYCJ</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TYCJ"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">MRFS</property>
+                    <text-property name="displayName">MRFS</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MRFS"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">BD</property>
+                    <text-property name="displayName">BD</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["BD"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">TDMDZT</property>
+                    <text-property name="displayName">TDMDZT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TDMDZT"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">扣除结算性同业存款和风险权重为零资产后的融出余额</property>
+                    <expression name="expression" type="javascript">row["CFTY"]+row["TYJK"]+row["TYCJ"]+row["MRFS"]</expression>
+                    <property name="dataType">decimal</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">合计</property>
+                    <expression name="expression" type="javascript">row["BD"]+row["TDMDZT"]</expression>
+                    <property name="dataType">decimal</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">报告期内最高风险额</property>
+                    <expression name="expression" type="javascript">row["扣除结算性同业存款和风险权重为零资产后的融出余额"]+row["合计"]</expression>
+                    <property name="dataType">decimal</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">序号</property>
+                    <expression name="expression" type="javascript">row.__rownum+1</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">查询日期</property>
+                    <expression name="expression" type="javascript">'查询日期：'+params["beg_da1te"].value</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">NODE_NAME</property>
+                    <text-property name="displayName">NODE_NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NODE_NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="sort">
+                <structure>
+                    <expression name="key" type="javascript">row["扣除结算性同业存款和风险权重为零资产后的融出余额"]</expression>
+                    <property name="direction">desc</property>
+                    <property name="strength">-1</property>
+                </structure>
+            </list-property>
+            <column id="44">
+                <property name="style">data-cell</property>
+            </column>
+            <column id="45"/>
+            <column id="46"/>
+            <column id="47"/>
+            <column id="48"/>
+            <column id="49"/>
+            <column id="50"/>
+            <column id="51"/>
+            <column id="52"/>
+            <column id="53"/>
+            <column id="54"/>
+            <column id="55"/>
+            <header>
+                <row id="106">
+                    <property name="style">data-cell</property>
+                    <property name="fontWeight">bold</property>
+                    <cell id="107">
+                        <property name="colSpan">12</property>
+                        <property name="rowSpan">1</property>
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <label id="132">
+                            <property name="fontSize">14pt</property>
+                            <text-property name="text">同业融资情况表</text-property>
+                        </label>
+                    </cell>
+                </row>
+                <row id="119">
+                    <property name="style">data-cell</property>
+                    <property name="fontWeight">bold</property>
+                    <cell id="120">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                    </cell>
+                    <cell id="121">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                    </cell>
+                    <cell id="122">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                    </cell>
+                    <cell id="123">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                    </cell>
+                    <cell id="124">
+                        <property name="colSpan">4</property>
+                        <property name="rowSpan">1</property>
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <data id="133">
+                            <property name="resultSetColumn">查询日期</property>
+                        </data>
+                    </cell>
+                    <cell id="128">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                    </cell>
+                    <cell id="129">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                    </cell>
+                    <cell id="130">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                    </cell>
+                    <cell id="131">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                    </cell>
+                </row>
+                <row id="56">
+                    <property name="style">data-cell</property>
+                    <property name="fontWeight">bold</property>
+                    <cell id="57">
+                        <property name="colSpan">9</property>
+                        <property name="rowSpan">1</property>
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="104">
+                            <text-property name="text">同业融资业务</text-property>
+                        </label>
+                    </cell>
+                    <cell id="66">
+                        <property name="colSpan">3</property>
+                        <property name="rowSpan">1</property>
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="105">
+                            <text-property name="text">同业投资业务</text-property>
+                        </label>
+                    </cell>
+                </row>
+                <row id="5">
+                    <property name="fontWeight">bold</property>
+                    <cell id="6">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="69">
+                            <text-property name="text">序号</text-property>
+                        </label>
+                    </cell>
+                    <cell id="7">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="70">
+                            <text-property name="text">金融机构名称</text-property>
+                        </label>
+                    </cell>
+                    <cell id="8">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="71">
+                            <text-property name="text">金融机构代码</text-property>
+                        </label>
+                    </cell>
+                    <cell id="9">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="72">
+                            <text-property name="text">报告期内最高风险额</text-property>
+                        </label>
+                    </cell>
+                    <cell id="10">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="73">
+                            <text-property name="text">同业拆借</text-property>
+                        </label>
+                    </cell>
+                    <cell id="11">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="74">
+                            <text-property name="text">同业借款</text-property>
+                        </label>
+                    </cell>
+                    <cell id="12">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="75">
+                            <text-property name="text">存放同业</text-property>
+                        </label>
+                    </cell>
+                    <cell id="13">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="76">
+                            <text-property name="text">买入返售</text-property>
+                        </label>
+                    </cell>
+                    <cell id="14">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="77">
+                            <text-property name="text">扣除结算性同业存款和风险权重为零资产后的融出余额</text-property>
+                        </label>
+                    </cell>
+                    <cell id="15">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="78">
+                            <text-property name="text">合计</text-property>
+                        </label>
+                    </cell>
+                    <cell id="16">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="79">
+                            <text-property name="text">持有的同业发行的债券</text-property>
+                        </label>
+                    </cell>
+                    <cell id="17">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="80">
+                            <text-property name="text">投资特定目的载体</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="18">
+                    <property name="textAlign">center</property>
+                    <cell id="19">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="103">
+                            <property name="resultSetColumn">序号</property>
+                        </data>
+                    </cell>
+                    <cell id="20">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="135">
+                            <property name="resultSetColumn">NODE_NAME</property>
+                        </data>
+                    </cell>
+                    <cell id="21">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="87">
+                            <property name="resultSetColumn">I_LR_INST_CODE</property>
+                        </data>
+                    </cell>
+                    <cell id="22">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="102">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">报告期内最高风险额</property>
+                        </data>
+                    </cell>
+                    <cell id="23">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="93">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">TYCJ</property>
+                        </data>
+                    </cell>
+                    <cell id="24">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="91">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">TYJK</property>
+                        </data>
+                    </cell>
+                    <cell id="25">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="89">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">CFTY</property>
+                        </data>
+                    </cell>
+                    <cell id="26">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="95">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">MRFS</property>
+                        </data>
+                    </cell>
+                    <cell id="27">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="100">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">row["扣除结算性同业存款和风险权重为零资产后的融出余额"]=='0'</expression>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">扣除结算性同业存款和风险权重为零资产后的融出余额</property>
+                        </data>
+                    </cell>
+                    <cell id="28">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="101">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">row["合计"]=='0'</expression>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">合计</property>
+                        </data>
+                    </cell>
+                    <cell id="29">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="97">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">BD</property>
+                        </data>
+                    </cell>
+                    <cell id="30">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="99">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">TDMDZT</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="31">
+                    <cell id="32">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                    <cell id="33">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                    <cell id="34">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                    <cell id="35">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                    <cell id="36">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                    <cell id="37">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                    <cell id="38">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                    <cell id="39">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                    <cell id="40">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                    <cell id="41">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                    <cell id="42">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                    <cell id="43">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

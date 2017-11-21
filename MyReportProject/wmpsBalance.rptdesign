@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.0.v201306041519 Build &lt;4.3.0.v20130613-1152></property>
+    <property name="units">in</property>
+    <property name="theme">xir_j2ee.defaultTheme</property>
+    <property name="iconFile">/templates/first_report.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.firstreport</property>
+    <property name="layoutPreference">fixed layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="dsUrl" id="470">
+            <text-property name="promptText">dsUrl</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <script-data-source name="ds" id="473">
+            <method name="open"><![CDATA[// This will track your current row later on
+count = 0;
+controller = new Packages.com.actuate.json.JSONParser();
+// Load the JSON Source
+controller.loadData(params['dsUrl']);
+// Calculate the total rows we will have
+totalCount = controller.getChildCount("data")]]></method>
+        </script-data-source>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="wmpsBalance" id="856">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">current_date</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">i_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">unit_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">raise_start_date</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">start_date</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">mtr_date</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">ytm</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">fee_rate</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">sum_fee</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">real_amount</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">income</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">channel_fee</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">left_day</property>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">current_date</property>
+                </structure>
+                <structure>
+                    <property name="columnName">i_name</property>
+                </structure>
+                <structure>
+                    <property name="columnName">unit_name</property>
+                </structure>
+                <structure>
+                    <property name="columnName">raise_start_date</property>
+                </structure>
+                <structure>
+                    <property name="columnName">start_date</property>
+                </structure>
+                <structure>
+                    <property name="columnName">mtr_date</property>
+                </structure>
+                <structure>
+                    <property name="columnName">ytm</property>
+                </structure>
+                <structure>
+                    <property name="columnName">fee_rate</property>
+                </structure>
+                <structure>
+                    <property name="columnName">sum_fee</property>
+                </structure>
+                <structure>
+                    <property name="columnName">real_amount</property>
+                </structure>
+                <structure>
+                    <property name="columnName">income</property>
+                </structure>
+                <structure>
+                    <property name="columnName">channel_fee</property>
+                </structure>
+                <structure>
+                    <property name="columnName">left_day</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">current_date</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">i_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">unit_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">raise_start_date</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">start_date</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">mtr_date</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">ytm</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">fee_rate</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">sum_fee</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">real_amount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">income</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">channel_fee</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">left_day</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ds</property>
+            <method name="fetch"><![CDATA[if (count < totalCount) {
+	for(var key in row){
+		var value = controller.getValue("data", key, count);
+		if(value!=null &amp;&amp; value!=''){
+		    row[key] = value;
+		}
+	}
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="110">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="246">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="247">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="NewTableStyle" id="254">
+            <property name="borderBottomStyle">groove</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">groove</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">groove</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">groove</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="rightMargin">0.375in</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="538">
+            <property name="fontSize">x-large</property>
+            <property name="fontWeight">bold</property>
+            <text-property name="text">理财产品余额表</text-property>
+        </label>
+        <table id="873">
+            <property name="dataSet">wmpsBalance</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">i_name</property>
+                    <text-property name="displayName">i_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["i_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">unit_name</property>
+                    <text-property name="displayName">unit_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["unit_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">raise_start_date</property>
+                    <text-property name="displayName">raise_start_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["raise_start_date"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">start_date</property>
+                    <text-property name="displayName">start_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["start_date"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">mtr_date</property>
+                    <text-property name="displayName">mtr_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["mtr_date"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">ytm</property>
+                    <text-property name="displayName">ytm</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ytm"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">fee_rate</property>
+                    <text-property name="displayName">fee_rate</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["fee_rate"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">sum_fee</property>
+                    <text-property name="displayName">sum_fee</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sum_fee"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">real_amount</property>
+                    <text-property name="displayName">real_amount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["real_amount"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">income</property>
+                    <text-property name="displayName">income</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["income"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">channel_fee</property>
+                    <text-property name="displayName">channel_fee</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["channel_fee"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">left_day</property>
+                    <text-property name="displayName">left_day</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["left_day"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">current_date</property>
+                    <text-property name="displayName">current_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["current_date"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="916"/>
+            <column id="917"/>
+            <column id="918"/>
+            <column id="919"/>
+            <column id="920"/>
+            <column id="921"/>
+            <column id="922"/>
+            <column id="923"/>
+            <column id="924"/>
+            <column id="925"/>
+            <column id="926"/>
+            <column id="927"/>
+            <column id="928"/>
+            <header>
+                <row id="874">
+                    <cell id="875">
+                        <label id="929">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">日期</text-property>
+                        </label>
+                    </cell>
+                    <cell id="876">
+                        <label id="931">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">产品名称</text-property>
+                        </label>
+                    </cell>
+                    <cell id="877">
+                        <label id="933">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">理财业务单元名称</text-property>
+                        </label>
+                    </cell>
+                    <cell id="878">
+                        <label id="935">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">实际募集起始日</text-property>
+                        </label>
+                    </cell>
+                    <cell id="879">
+                        <label id="937">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">产品起始日期</text-property>
+                        </label>
+                    </cell>
+                    <cell id="880">
+                        <label id="939">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">产品终止日期</text-property>
+                        </label>
+                    </cell>
+                    <cell id="881">
+                        <label id="941">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">客户预期年化收益率(%)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="882">
+                        <label id="943">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">渠道管理费率(%)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="883">
+                        <label id="945">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">综合成本(%)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="884">
+                        <label id="947">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">产品余额(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="885">
+                        <label id="949">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">应计客户收益(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="886">
+                        <label id="951">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">渠道管理费余额(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="887">
+                        <label id="953">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">剩余期限(天)</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="888">
+                    <cell id="889">
+                        <data id="955">
+                            <property name="resultSetColumn">current_date</property>
+                        </data>
+                    </cell>
+                    <cell id="890">
+                        <data id="932">
+                            <property name="resultSetColumn">i_name</property>
+                        </data>
+                    </cell>
+                    <cell id="891">
+                        <data id="934">
+                            <property name="resultSetColumn">unit_name</property>
+                        </data>
+                    </cell>
+                    <cell id="892">
+                        <data id="936">
+                            <property name="resultSetColumn">raise_start_date</property>
+                        </data>
+                    </cell>
+                    <cell id="893">
+                        <data id="938">
+                            <property name="resultSetColumn">start_date</property>
+                        </data>
+                    </cell>
+                    <cell id="894">
+                        <data id="940">
+                            <property name="resultSetColumn">mtr_date</property>
+                        </data>
+                    </cell>
+                    <cell id="895">
+                        <data id="942">
+                            <property name="color">#FF0000</property>
+                            <structure name="numberFormat">
+                                <property name="category">Percent</property>
+                                <property name="pattern">###0.00%{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">ytm</property>
+                        </data>
+                    </cell>
+                    <cell id="896">
+                        <data id="944">
+                            <property name="color">#FF0000</property>
+                            <structure name="numberFormat">
+                                <property name="category">Percent</property>
+                                <property name="pattern">###0.00%{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">fee_rate</property>
+                        </data>
+                    </cell>
+                    <cell id="897">
+                        <data id="946">
+                            <property name="color">#FF0000</property>
+                            <structure name="numberFormat">
+                                <property name="category">Percent</property>
+                                <property name="pattern">###0.00%{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">sum_fee</property>
+                        </data>
+                    </cell>
+                    <cell id="898">
+                        <data id="948">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">real_amount</property>
+                        </data>
+                    </cell>
+                    <cell id="899">
+                        <data id="950">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">income</property>
+                        </data>
+                    </cell>
+                    <cell id="900">
+                        <data id="952">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">channel_fee</property>
+                        </data>
+                    </cell>
+                    <cell id="901">
+                        <data id="954">
+                            <property name="resultSetColumn">left_day</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>

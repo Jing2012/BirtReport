@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mapper>
+	<select id="sql">
+select  i.i_name as 机构名称,
+       tr_type.description as 业务种类,
+       tr.intordid as 成交单编号,
+       ii.CORE_SYS_CUSTOMER_CODE as 客户号,
+       ii.i_fullname as 客户全称,
+       tr.orddate as 交易日期,
+       tr.operator as 经办人,
+       'T+' || to_char(tr.setdays) 清算速度,
+       tr.bnd_settype as 结算方式,
+       right.u_i_code as 标的债券代码,
+       bb.b_name as 标的债券名称,
+       right.currency as 币种,
+       TRIM(to_char(cast(tr.ordcount /10000 as decimal(31,6)),'999,999,999,990.9999')) as 金额,
+       TRIM(to_char(cast(tr.ordcount /10000 as decimal(31,6)),'999,999,999,990.99')) as 票面金额,
+       right.fst_setdate as 首期结算日期,
+       right.end_setdate as 到期结算日期,
+       right.repo_trade_variety as 交易品种,
+       TRIM(to_char(cast(right.rate*100 as decimal(31,6)),'999,999,999,990.9999')) as 回购利率,
+       case
+			when INSTR(instrument.term,'D') > 0 then
+				REPLACE(instrument.term,'D','')
+			else
+                instrument.term
+		end as 回购期限,
+       TRIM(to_char(cast(e.fst_set_amount as decimal(31,6)),'999,999,999,990.99')) as 首期结算金额,
+       TRIM(to_char(cast(e.fst_set_aiamount as decimal(31,6)),'999,999,999,990.99')) as 首期总应计利息,
+       TRIM(to_char(cast(e.end_set_aiamount as decimal(31,6)),'999,999,999,990.99')) as 到期总应计利息,
+       TRIM(to_char(cast(right.fst_netprice as decimal(31,6)),'999,999,999,990.9999')) as 首期净价,
+       TRIM(to_char(cast(right.end_netprice as decimal(31,6)),'999,999,999,990.9999')) as 到期净价,
+       TRIM(to_char(cast(right.fst_fullprice as decimal(31,6)),'999,999,999,990.9999')) as 首期全价,
+       TRIM(to_char(cast(right.end_fullprice as decimal(31,6)),'999,999,999,990.9999'))  as 到期全价,
+       TRIM(to_char(cast(e.end_set_amount as decimal(31,6)),'999,999,999,990.99')) as 到期结算金额
+  FROM TTRD_OTC_TRADE tr
+  left join ttrd_outright
+ right on tr.i_code = right.i_code
+ left join ttrd_otc_trade_extend e 
+ on tr.sysordid = e.trd_id
+  left join ttrd_instrument instrument
+    on tr.i_code = instrument.i_code
+  LEFT JOIN ttrd_auth_user u
+    on tr.operator_id = u.user_id
+  LEFT JOIN TTRD_INSTITUTION i
+    ON u.i_id = TO_CHAR(i.i_id)
+  left join ttrd_institution ii
+    on tr.partyid = ii.i_id
+  LEFT JOIN ttrd_trade_type tr_type
+    on tr.trdtype = tr_type.trd_type
+  LEFT JOIN TBND bb
+    on right.u_i_code = bb.i_code
+   and right.u_m_type = bb.m_type
+   and right.u_a_type = bb.a_type
+  left join tinstrument_inst_grade inst_grade
+    on tr.i_code = bb.i_code
+   and tr.m_type = bb.m_type
+   and tr.a_type = bb.a_type
+  LEFT JOIN tinstrument_comp_grade com_grade
+    on i.i_id = com_grade.comp_id
+ where tr.sysordid = #{sysOrdId}
+   and tr.ref_sysordid is null
+
+	</select>
+</mapper>

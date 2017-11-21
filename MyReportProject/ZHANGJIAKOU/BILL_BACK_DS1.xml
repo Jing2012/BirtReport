@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mapper>
+	<select id="sql1">
+select  (select curr_date from ttrd_currdate) as 创建日期ITEM,
+       i.i_name as 机构名称ITEM,
+       tr_type.description as 业务种类ITEM,
+       tr.ord_id as 审批单号ITEM,
+       ii.CORE_SYS_CUSTOMER_CODE as 客户号ITEM,
+       ii.i_fullname as 客户全称ITEM,
+       tr.bnd_settype as 结算方式ITEM,
+       right.p_i_code as 票据代码ITEM,
+       instrument.i_name as 票据名称ITEM,
+       tr.a_type as 票据性质ITEM,
+       TRIM(to_char(cast(tr.ordcount/ 10000 as decimal(31,6)),'999,999,999,990.9999')) as 券面总额ITEM,
+       TRIM(to_char(cast(tr.ordcount as decimal(31,6)),'999,999,999,990.99')) as 票据面额ITEM,
+       TRIM(to_char(cast(tr.bnd_netprice as decimal(31,6)),'999,999,999,990.99')) as 净价金额ITEM,
+       tr.bnd_ytm * 100 as 到期收益率ITEM,
+       tr.setdate as 结算日期ITEM,
+       tr.orddate as 交易日期ITEM,
+       TRIM(to_char(cast(tr.ordamount as decimal(31,6)),'999,999,999,990.99')) as 结算金额ITEM,
+       TRIM(to_char(cast(tr.bnd_aiamount as decimal(31,6)),'999,999,999,990.99')) as 总应计利息ITEM,
+       tr.operator as 执行人ITEM,
+       tr.trader as 交易确认人ITEM,
+       'T+' || to_char(tr.setdays) 清算速度ITEM,
+       tr.intordid as 成交单编号ITEM,
+       secu.accname as 内部证券账户ITEM,
+       cash_ext.accname as 资金账户ITEM,
+       tr.trader as 交易员ITEM,
+       TRIM(to_char(cast(right.amount as decimal(31,6)),'999,999,999,990.9999')) as 票据面额ITEM,
+       right.discount as 折价率ITEM,
+       TRIM(to_char(cast(right.amount*(right.discount/100) as decimal(31,6)),'999,999,999,990.9999')) as 折价金额ITEM
+  FROM TTRD_OTC_TRADE tr
+  left join ttrd_pledgebond
+ right on tr.i_code = right.i_code
+  LEFT JOIN ttrd_auth_user u
+    on tr.operator_id = u.user_id
+  LEFT JOIN TTRD_INSTITUTION i
+    ON u.i_id = TO_CHAR(i.i_id)
+  left join ttrd_institution ii
+    on tr.partyid = ii.i_id
+  LEFT JOIN ttrd_trade_type tr_type
+    on tr.trdtype = tr_type.trd_type
+  LEFT JOIN TTRD_ACC_SECU secu
+    on tr.secu_accid = secu.accid
+  LEFT JOIN TTRD_ACC_CASH_EXT cash_ext
+    on tr.cash_ext_accid = cash_ext.accid
+  left  join ttrd_instrument instrument on right.p_i_code=instrument.i_code
+ where tr.ord_id = (select distinct trr.ord_id
+                      FROM TTRD_OTC_TRADE trr
+                     where trr.sysordid = #{sysOrdId})
+   and tr.ref_sysordid is null and  tr.ordstatus&lt;0
+	</select>
+</mapper>

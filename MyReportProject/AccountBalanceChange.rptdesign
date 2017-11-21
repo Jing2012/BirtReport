@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.0.v201306041519 Build &lt;4.3.0.v20130613-1152></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="dsUrl" id="150">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <script-data-source name="Data Source" id="149">
+            <method name="open"><![CDATA[// This will track your current row later on
+count = 0;
+controller = new Packages.com.actuate.json.JSONParser();
+// Load the JSON Source
+controller.loadData(params['dsUrl']);
+// Calculate the total rows we will have
+totalCount = controller.getChildCount("data")]]></method>
+        </script-data-source>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="Data Set" id="151">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">0</property>
+                    <property name="name">chgDate</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">accName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">tradeId</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">pClass</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">iCode</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">iName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">mtrDate</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">realAmount</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">realCp</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">realFee</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">aiCost</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">fv</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">ai</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">dueCp</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">dueAi</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">amrtYtm</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">amrtIr</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">amrtCost</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">chgFv</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">prftFv</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">prftTrd</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">prftIr</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">chgDate</property>
+                </structure>
+                <structure>
+                    <property name="columnName">accName</property>
+                </structure>
+                <structure>
+                    <property name="columnName">tradeId</property>
+                </structure>
+                <structure>
+                    <property name="columnName">pClass</property>
+                </structure>
+                <structure>
+                    <property name="columnName">iCode</property>
+                </structure>
+                <structure>
+                    <property name="columnName">iName</property>
+                </structure>
+                <structure>
+                    <property name="columnName">mtrDate</property>
+                </structure>
+                <structure>
+                    <property name="columnName">realAmount</property>
+                </structure>
+                <structure>
+                    <property name="columnName">realCp</property>
+                </structure>
+                <structure>
+                    <property name="columnName">realFee</property>
+                </structure>
+                <structure>
+                    <property name="columnName">aiCost</property>
+                </structure>
+                <structure>
+                    <property name="columnName">fv</property>
+                </structure>
+                <structure>
+                    <property name="columnName">ai</property>
+                </structure>
+                <structure>
+                    <property name="columnName">dueCp</property>
+                </structure>
+                <structure>
+                    <property name="columnName">dueAi</property>
+                </structure>
+                <structure>
+                    <property name="columnName">amrtYtm</property>
+                </structure>
+                <structure>
+                    <property name="columnName">amrtIr</property>
+                </structure>
+                <structure>
+                    <property name="columnName">amrtCost</property>
+                </structure>
+                <structure>
+                    <property name="columnName">chgFv</property>
+                </structure>
+                <structure>
+                    <property name="columnName">prftFv</property>
+                </structure>
+                <structure>
+                    <property name="columnName">prftTrd</property>
+                </structure>
+                <structure>
+                    <property name="columnName">prftIr</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">chgDate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">accName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">tradeId</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">pClass</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">iCode</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">iName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">mtrDate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">realAmount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">realCp</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">realFee</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">aiCost</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">fv</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">ai</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">dueCp</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">dueAi</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">amrtYtm</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">amrtIr</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">amrtCost</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">chgFv</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">prftFv</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">prftTrd</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">prftIr</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <method name="fetch"><![CDATA[if (count < totalCount) {
+	for(var key in row){
+		var value = controller.getValue("data", key, count);
+		if(value!=null &amp;&amp; value!=''){
+		    row[key] = value;
+		}
+	}
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="174">
+            <property name="fontSize">x-large</property>
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">核算变动查询报表</text-property>
+        </label>
+        <table id="7">
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">chgDate</property>
+                    <text-property name="displayName">chgDate</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["chgDate"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">accName</property>
+                    <text-property name="displayName">accName</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["accName"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">tradeId</property>
+                    <text-property name="displayName">tradeId</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["tradeId"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">pClass</property>
+                    <text-property name="displayName">pClass</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["pClass"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">iCode</property>
+                    <text-property name="displayName">iCode</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["iCode"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">iName</property>
+                    <text-property name="displayName">iName</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["iName"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">mtrDate</property>
+                    <text-property name="displayName">mtrDate</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["mtrDate"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">realAmount</property>
+                    <text-property name="displayName">realAmount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["realAmount"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">realCp</property>
+                    <text-property name="displayName">realCp</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["realCp"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">realFee</property>
+                    <text-property name="displayName">realFee</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["realFee"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">aiCost</property>
+                    <text-property name="displayName">aiCost</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["aiCost"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">fv</property>
+                    <text-property name="displayName">fv</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["fv"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">ai</property>
+                    <text-property name="displayName">ai</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ai"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">dueCp</property>
+                    <text-property name="displayName">dueCp</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["dueCp"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">dueAi</property>
+                    <text-property name="displayName">dueAi</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["dueAi"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">amrtYtm</property>
+                    <text-property name="displayName">amrtYtm</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["amrtYtm"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">amrtIr</property>
+                    <text-property name="displayName">amrtIr</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["amrtIr"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">amrtCost</property>
+                    <text-property name="displayName">amrtCost</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["amrtCost"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">chgFv</property>
+                    <text-property name="displayName">chgFv</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["chgFv"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">prftFv</property>
+                    <text-property name="displayName">prftFv</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["prftFv"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">prftTrd</property>
+                    <text-property name="displayName">prftTrd</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["prftTrd"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">prftIr</property>
+                    <text-property name="displayName">prftIr</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["prftIr"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <column id="77">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="78">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="79">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="80">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="81">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="82">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="83">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="84">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="85">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="86">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="87">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="88">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="89">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="90">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="91">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="92">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="93">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="94">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="95">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="96">
+                <property name="width">1.4375in</property>
+            </column>
+            <column id="97">
+                <property name="width">0.9583333333333334in</property>
+            </column>
+            <column id="98">
+                <property name="width">1.2in</property>
+            </column>
+            <header>
+                <row id="8">
+                    <cell id="9">
+                        <property name="colSpan">1</property>
+                        <property name="rowSpan">2</property>
+                        <label id="122">
+                            <text-property name="text">核算日期</text-property>
+                        </label>
+                    </cell>
+                    <cell id="10">
+                        <property name="colSpan">1</property>
+                        <property name="rowSpan">2</property>
+                        <label id="123">
+                            <text-property name="text">资产池</text-property>
+                        </label>
+                    </cell>
+                    <cell id="11">
+                        <property name="colSpan">1</property>
+                        <property name="rowSpan">2</property>
+                        <label id="124">
+                            <text-property name="text">交易号</text-property>
+                        </label>
+                    </cell>
+                    <cell id="12">
+                        <property name="colSpan">4</property>
+                        <property name="rowSpan">1</property>
+                        <label id="125">
+                            <text-property name="text">金融工具基本信息</text-property>
+                        </label>
+                    </cell>
+                    <cell id="16">
+                        <property name="colSpan">1</property>
+                        <property name="rowSpan">2</property>
+                        <label id="130">
+                            <text-property name="text">面额(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="17">
+                        <property name="colSpan">1</property>
+                        <property name="rowSpan">2</property>
+                        <label id="131">
+                            <text-property name="text">净价金额(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="18">
+                        <property name="colSpan">1</property>
+                        <property name="rowSpan">2</property>
+                        <label id="132">
+                            <text-property name="text">费用(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="19">
+                        <property name="colSpan">3</property>
+                        <property name="rowSpan">1</property>
+                        <label id="133">
+                            <text-property name="text">持仓基本信息(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="22">
+                        <property name="colSpan">2</property>
+                        <property name="rowSpan">1</property>
+                        <label id="137">
+                            <text-property name="text">应收未收(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="24">
+                        <property name="colSpan">3</property>
+                        <property name="rowSpan">1</property>
+                        <label id="140">
+                            <text-property name="text">摊销信息</text-property>
+                        </label>
+                    </cell>
+                    <cell id="27">
+                        <property name="colSpan">4</property>
+                        <property name="rowSpan">1</property>
+                        <label id="144">
+                            <text-property name="text">损益(元)</text-property>
+                        </label>
+                    </cell>
+                </row>
+                <row id="99">
+                    <cell id="103">
+                        <label id="126">
+                            <text-property name="text">资产类型</text-property>
+                        </label>
+                    </cell>
+                    <cell id="104">
+                        <label id="127">
+                            <text-property name="text">代码</text-property>
+                        </label>
+                    </cell>
+                    <cell id="105">
+                        <label id="128">
+                            <text-property name="text">名称</text-property>
+                        </label>
+                    </cell>
+                    <cell id="106">
+                        <label id="129">
+                            <text-property name="text">到期日</text-property>
+                        </label>
+                    </cell>
+                    <cell id="110">
+                        <label id="134">
+                            <text-property name="text">应计利息成本</text-property>
+                        </label>
+                    </cell>
+                    <cell id="111">
+                        <label id="135">
+                            <text-property name="text">公允价值</text-property>
+                        </label>
+                    </cell>
+                    <cell id="112">
+                        <label id="136">
+                            <text-property name="text">应计利息</text-property>
+                        </label>
+                    </cell>
+                    <cell id="113">
+                        <label id="138">
+                            <text-property name="text">本金</text-property>
+                        </label>
+                    </cell>
+                    <cell id="114">
+                        <label id="139">
+                            <text-property name="text">利息</text-property>
+                        </label>
+                    </cell>
+                    <cell id="115">
+                        <label id="141">
+                            <text-property name="text">实际利率(%)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="116">
+                        <label id="142">
+                            <text-property name="text">利息调整(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="117">
+                        <label id="143">
+                            <text-property name="text">摊销金额(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="118">
+                        <label id="145">
+                            <text-property name="text">公允价值变动</text-property>
+                        </label>
+                    </cell>
+                    <cell id="119">
+                        <label id="146">
+                            <text-property name="text">公允价值变动损益</text-property>
+                        </label>
+                    </cell>
+                    <cell id="120">
+                        <label id="147">
+                            <text-property name="text">买卖损益</text-property>
+                        </label>
+                    </cell>
+                    <cell id="121">
+                        <label id="148">
+                            <text-property name="text">利息收入</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="31">
+                    <cell id="32">
+                        <data id="152">
+                            <property name="resultSetColumn">chgDate</property>
+                        </data>
+                    </cell>
+                    <cell id="33">
+                        <data id="153">
+                            <property name="resultSetColumn">accName</property>
+                        </data>
+                    </cell>
+                    <cell id="34">
+                        <data id="154">
+                            <property name="resultSetColumn">tradeId</property>
+                        </data>
+                    </cell>
+                    <cell id="35">
+                        <data id="155">
+                            <property name="resultSetColumn">pClass</property>
+                        </data>
+                    </cell>
+                    <cell id="36">
+                        <data id="156">
+                            <property name="resultSetColumn">iCode</property>
+                        </data>
+                    </cell>
+                    <cell id="37">
+                        <data id="157">
+                            <property name="resultSetColumn">iName</property>
+                        </data>
+                    </cell>
+                    <cell id="38">
+                        <data id="158">
+                            <property name="resultSetColumn">mtrDate</property>
+                        </data>
+                    </cell>
+                    <cell id="39">
+                        <data id="159">
+                            <property name="resultSetColumn">realAmount</property>
+                        </data>
+                    </cell>
+                    <cell id="40">
+                        <data id="160">
+                            <property name="resultSetColumn">realCp</property>
+                        </data>
+                    </cell>
+                    <cell id="41">
+                        <data id="161">
+                            <property name="resultSetColumn">realFee</property>
+                        </data>
+                    </cell>
+                    <cell id="42">
+                        <data id="162">
+                            <property name="resultSetColumn">aiCost</property>
+                        </data>
+                    </cell>
+                    <cell id="43">
+                        <data id="163">
+                            <property name="resultSetColumn">fv</property>
+                        </data>
+                    </cell>
+                    <cell id="44">
+                        <data id="164">
+                            <property name="resultSetColumn">ai</property>
+                        </data>
+                    </cell>
+                    <cell id="45">
+                        <data id="165">
+                            <property name="resultSetColumn">dueCp</property>
+                        </data>
+                    </cell>
+                    <cell id="46">
+                        <data id="166">
+                            <property name="resultSetColumn">dueAi</property>
+                        </data>
+                    </cell>
+                    <cell id="47">
+                        <data id="167">
+                            <property name="resultSetColumn">amrtYtm</property>
+                        </data>
+                    </cell>
+                    <cell id="48">
+                        <data id="168">
+                            <property name="resultSetColumn">amrtIr</property>
+                        </data>
+                    </cell>
+                    <cell id="49">
+                        <data id="169">
+                            <property name="resultSetColumn">amrtCost</property>
+                        </data>
+                    </cell>
+                    <cell id="50">
+                        <data id="170">
+                            <property name="resultSetColumn">chgFv</property>
+                        </data>
+                    </cell>
+                    <cell id="51">
+                        <data id="171">
+                            <property name="resultSetColumn">prftFv</property>
+                        </data>
+                    </cell>
+                    <cell id="52">
+                        <data id="172">
+                            <property name="resultSetColumn">prftTrd</property>
+                        </data>
+                    </cell>
+                    <cell id="53">
+                        <data id="173">
+                            <property name="resultSetColumn">prftIr</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>

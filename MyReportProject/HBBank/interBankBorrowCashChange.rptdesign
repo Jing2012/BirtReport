@@ -1,0 +1,1133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="startdate" id="427">
+            <text-property name="promptText">填报日期</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="10"
+ extends="xir_j2ee.XIR">
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@127.0.0.1:1521:orcl</property>
+            <property name="odaUser">XIR_TRDJ</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">eHBhcg==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="interBankDS" id="11">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">EXE_MARKET</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">EXE_MARKET</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">EXE_MARKET</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TERM</property>
+                    <property name="alias">TERM</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TERM</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">TERM</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">AMOUNTINM</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">AMOUNTINM</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">AMOUNTINM</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">AMOUNTOUTM</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">AMOUNTOUTM</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">AMOUNTOUTM</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">COUPONINM</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">COUPONINM</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">COUPONINM</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">COUPONOUTM</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">COUPONOUTM</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">COUPONOUTM</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">AMOUNTINY</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">AMOUNTINY</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">AMOUNTINY</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">AMOUNTOUTY</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">AMOUNTOUTY</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">AMOUNTOUTY</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">COUPONINY</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">COUPONINY</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">COUPONINY</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">COUPONOUTY</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">COUPONOUTY</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">COUPONOUTY</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">startdate</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_2</property>
+                    <property name="paramName">startdate</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">2</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_3</property>
+                    <property name="paramName">startdate</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">3</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_4</property>
+                    <property name="paramName">startdate</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">4</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_5</property>
+                    <property name="paramName">startdate</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">5</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_6</property>
+                    <property name="paramName">startdate</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">6</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_7</property>
+                    <property name="paramName">startdate</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">7</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_8</property>
+                    <property name="paramName">startdate</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">8</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">EXE_MARKET</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">TERM</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">AMOUNTINM</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">AMOUNTOUTM</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">COUPONINM</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">COUPONOUTM</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">AMOUNTINY</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">AMOUNTOUTY</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">COUPONINY</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">COUPONOUTY</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">EXE_MARKET</property>
+                    <property name="nativeName">EXE_MARKET</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">TERM</property>
+                    <property name="nativeName">TERM</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">AMOUNTINM</property>
+                    <property name="nativeName">AMOUNTINM</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">AMOUNTOUTM</property>
+                    <property name="nativeName">AMOUNTOUTM</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">COUPONINM</property>
+                    <property name="nativeName">COUPONINM</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">COUPONOUTM</property>
+                    <property name="nativeName">COUPONOUTM</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">AMOUNTINY</property>
+                    <property name="nativeName">AMOUNTINY</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">AMOUNTOUTY</property>
+                    <property name="nativeName">AMOUNTOUTY</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">COUPONINY</property>
+                    <property name="nativeName">COUPONINY</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">COUPONOUTY</property>
+                    <property name="nativeName">COUPONOUTY</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[WITH TRADEVARIETY AS(
+  SELECT DICT_KEY,RTRIM(DICT_VALUE,'同业拆借') DICT_VALUE,
+  CASE WHEN DICT_KEY='IBO1Y' THEN 12 ELSE TO_NUMBER(RTRIM(DICT_VALUE,'个月天同业拆借')) END AS TERM_NUM,DICT_KEY_ORDER 
+  FROM TTRD_DICT_MULT_LANG WHERE DICT_SUB_TYPE ='lbLendRepoTradeVariety' ORDER BY DICT_KEY_ORDER
+),M0125101 AS(
+  SELECT T.I_CODE,T.EXE_MARKET, T.TRDTYPE,T.ORDAMOUNT,C.COUPON, ORDAMOUNT AMOUNTIN , 0 AMOUNTOUT,
+  TO_DATE(C.START_DATE,'YYYY-MM-DD') START_DATE,TO_DATE(C.MTR_DATE,'YYYY-MM-DD') MTR_DATE,
+  TO_DATE((SELECT MIN(CAL_DAY) FROM TCALENDAR_DATES WHERE CAL_DAY>=C.MTR_DATE AND CAL_FLAG=1),'YYYY-MM-DD') mtr_date_act
+  FROM TTRD_OTC_TRADE T INNER JOIN TTRD_CASHLB C 
+  ON T.I_CODE=C.I_CODE AND T.A_TYPE=C.A_TYPE AND T.M_TYPE=C.M_TYPE 
+  LEFT JOIN TRADEVARIETY V ON C.REPO_TRADE_VARIETY=V.DICT_KEY
+  WHERE T.TRDTYPE='0125101' AND T.EXE_MARKET='X_CNBD_OUT' AND T.ORDSTATUS=4 and t.insstatus='999'
+  AND T.SETDATE<=? AND T.SETDATE>=TO_CHAR(TRUNC(TO_DATE(?,'YYYY-MM-DD'),'MM'),'YYYY-MM-DD')
+),Y0125101 AS(
+  SELECT T.I_CODE,T.EXE_MARKET, T.TRDTYPE,T.ORDAMOUNT,C.COUPON, ORDAMOUNT AMOUNTIN , 0 AMOUNTOUT,
+  TO_DATE(C.START_DATE,'YYYY-MM-DD') START_DATE,TO_DATE(C.MTR_DATE,'YYYY-MM-DD') MTR_DATE,
+  TO_DATE((SELECT MIN(CAL_DAY) FROM TCALENDAR_DATES WHERE CAL_DAY>=C.MTR_DATE AND CAL_FLAG=1),'YYYY-MM-DD') mtr_date_act
+  FROM TTRD_OTC_TRADE T INNER JOIN TTRD_CASHLB C 
+  ON T.I_CODE=C.I_CODE AND T.A_TYPE=C.A_TYPE AND T.M_TYPE=C.M_TYPE 
+  LEFT JOIN TRADEVARIETY V ON C.REPO_TRADE_VARIETY=V.DICT_KEY
+  WHERE T.TRDTYPE='0125101' AND T.EXE_MARKET='X_CNBD_OUT' AND T.ORDSTATUS=4 and t.insstatus='999'
+  AND T.SETDATE<=? AND T.SETDATE>=TO_CHAR(TRUNC(TO_DATE(?,'YYYY-MM-DD'),'YY'),'YYYY-MM-DD')
+),ALLTERM AS (
+  SELECT A.*,B.START_DATE,MTR_DATE_ACT, CASE 
+       WHEN A.DICT_KEY IN ('IBO001','IBO007','IBO014','IBO021') 
+       THEN B.START_DATE+TERM_NUM
+       WHEN A.DICT_KEY IN ('IBO1M','IBO2M','IBO3M','IBO4M','IBO5M','IBO6M','IBO9M','IBO1Y') 
+       THEN ADD_MONTHS(B.START_DATE,TERM_NUM) END AS MTR_DATE
+  FROM TRADEVARIETY A,(SELECT DISTINCT START_DATE,MTR_DATE_ACT FROM Y0125101) B
+  order by start_date,MTR_DATE_ACT,dict_key
+), TERMM AS (
+  SELECT T.EXE_MARKET, 
+  CASE WHEN T.EXE_MARKET='X_CNBD_IN' THEN C.REPO_TRADE_VARIETY
+       WHEN T.EXE_MARKET='X_CNBD_OUT' AND (C.REPO_TRADE_VARIETY IN ('IBO001','IBO007','IBO014','IBO021') AND TO_DATE(C.START_DATE,'YYYY-MM-DD')+TERM_NUM< 
+         TO_DATE((SELECT MIN(CAL_DAY) FROM TCALENDAR_DATES WHERE CAL_DAY>=C.MTR_DATE AND CAL_FLAG=1),'YYYY-MM-DD') 
+         OR C.REPO_TRADE_VARIETY IN ('IBO1M','IBO2M','IBO3M','IBO4M','IBO5M','IBO6M','IBO9M','IBO1Y') AND ADD_MONTHS(TO_DATE(C.START_DATE,'YYYY-MM-DD'),TERM_NUM)<
+         TO_DATE((SELECT MIN(CAL_DAY) FROM TCALENDAR_DATES WHERE CAL_DAY>=C.MTR_DATE AND CAL_FLAG=1),'YYYY-MM-DD'))
+       THEN (SELECT DICT_KEY FROM TRADEVARIETY WHERE DICT_KEY_ORDER=(SELECT DICT_KEY_ORDER +1 FROM TRADEVARIETY WHERE DICT_KEY= C.REPO_TRADE_VARIETY)) 
+       ELSE C.REPO_TRADE_VARIETY END AS TERMTYPE,
+  T.TRDTYPE,C.COUPON,
+  TO_NUMBER(DECODE(T.EXE_MARKET,'X_CNBD_IN',REPO_TERM,'X_CNBD_OUT',TERM)) TERM,
+  DECODE(TRDTYPE,'0122101',ORDAMOUNT,0) AMOUNTIN,
+  DECODE(TRDTYPE,'0122100',ORDAMOUNT,0) AMOUNTOUT
+  FROM TTRD_OTC_TRADE T INNER JOIN TTRD_CASHLB C 
+  ON T.I_CODE=C.I_CODE AND T.A_TYPE=C.A_TYPE AND T.M_TYPE=C.M_TYPE 
+  LEFT JOIN TRADEVARIETY V ON C.REPO_TRADE_VARIETY=V.DICT_KEY
+  WHERE T.TRDTYPE IN ('0122101','0122100') AND T.ORDSTATUS=4 and t.insstatus='999'
+  AND T.SETDATE<=? AND T.SETDATE>=TO_CHAR(TRUNC(TO_DATE(?,'YYYY-MM-DD'),'MM'),'YYYY-MM-DD')
+  
+  UNION ALL
+  select EXE_MARKET,DICT_KEY,TRDTYPE,COUPON,b.MTR_DATE_ACT-b.start_DATE TERM,AMOUNTIN,AMOUNTOUT  
+  from m0125101 a 
+  left join (select * from (select  ROW_NUMBER() OVER(PARTITION BY start_date,mtr_date_act ORDER BY mtr_date) rm,t.* 
+         from ALLTERM t where MTR_DATE-MTR_DATE_ACT>=0) where rm=1) b on a.start_date=b.start_date and a.mtr_date_act=b.MTR_DATE_ACT
+
+  UNION ALL 
+  SELECT 'X_CNBD_IN',DICT_KEY,NULL,0,0,0,0 FROM TRADEVARIETY 
+  UNION ALL
+  SELECT 'X_CNBD_OUT',DICT_KEY,NULL,0,0,0,0 FROM TRADEVARIETY
+),TERMY AS (
+  SELECT T.EXE_MARKET, 
+  CASE WHEN T.EXE_MARKET='X_CNBD_IN' THEN C.REPO_TRADE_VARIETY
+       WHEN T.EXE_MARKET='X_CNBD_OUT' AND (C.REPO_TRADE_VARIETY IN ('IBO001','IBO007','IBO014','IBO021') AND TO_DATE(C.START_DATE,'YYYY-MM-DD')+TERM_NUM< 
+         TO_DATE((SELECT MIN(CAL_DAY) FROM TCALENDAR_DATES WHERE CAL_DAY>=C.MTR_DATE AND CAL_FLAG=1),'YYYY-MM-DD') 
+         OR C.REPO_TRADE_VARIETY IN ('IBO1M','IBO2M','IBO3M','IBO4M','IBO5M','IBO6M','IBO9M','IBO1Y') AND ADD_MONTHS(TO_DATE(C.START_DATE,'YYYY-MM-DD'),TERM_NUM)<
+         TO_DATE((SELECT MIN(CAL_DAY) FROM TCALENDAR_DATES WHERE CAL_DAY>=C.MTR_DATE AND CAL_FLAG=1),'YYYY-MM-DD'))
+       THEN (SELECT DICT_KEY FROM TRADEVARIETY WHERE DICT_KEY_ORDER=(SELECT DICT_KEY_ORDER +1 FROM TRADEVARIETY WHERE DICT_KEY= C.REPO_TRADE_VARIETY)) 
+       ELSE C.REPO_TRADE_VARIETY END AS TERMTYPE,
+  T.TRDTYPE,C.COUPON,
+  TO_NUMBER(DECODE(T.EXE_MARKET,'X_CNBD_IN',REPO_TERM,'X_CNBD_OUT',TERM)) TERM,
+  DECODE(TRDTYPE,'0122101',ORDAMOUNT,0) AMOUNTIN,
+  DECODE(TRDTYPE,'0122100',ORDAMOUNT,0) AMOUNTOUT
+  FROM TTRD_OTC_TRADE T INNER JOIN TTRD_CASHLB C 
+  ON T.I_CODE=C.I_CODE AND T.A_TYPE=C.A_TYPE AND T.M_TYPE=C.M_TYPE 
+  LEFT JOIN TRADEVARIETY V ON C.REPO_TRADE_VARIETY=V.DICT_KEY
+  WHERE T.TRDTYPE IN ('0122101','0122100') AND T.ORDSTATUS=4 and t.insstatus='999'
+  AND T.SETDATE<=? AND T.SETDATE>=TO_CHAR(TRUNC(TO_DATE(?,'YYYY-MM-DD'),'YY'),'YYYY-MM-DD')
+  UNION ALL
+  select EXE_MARKET,DICT_KEY,TRDTYPE,COUPON,b.MTR_DATE_ACT-b.start_DATE TERM,AMOUNTIN,AMOUNTOUT
+  from Y0125101 a 
+  left join (select * from (select  ROW_NUMBER() OVER(PARTITION BY start_date,mtr_date_act ORDER BY mtr_date) rm,t.* 
+         from ALLTERM t where MTR_DATE-MTR_DATE_ACT>=0) where rm=1) b on a.start_date=b.start_date and a.mtr_date_act=b.MTR_DATE_ACT
+
+),
+
+TERMPARTS AS (
+SELECT M.EXE_MARKET,M.TERMTYPE,M.AMOUNTOUTM,M.AMOUNTINM,M.COUPONOUTM,
+       M.COUPONINM,Y.AMOUNTOUTY,Y.AMOUNTINY,Y.COUPONOUTY,Y.COUPONINY 
+FROM (
+  SELECT EXE_MARKET, TERMTYPE,
+  NVL(SUM(AMOUNTOUT),0) AMOUNTOUTM,
+  NVL(SUM(AMOUNTIN),0) AMOUNTINM, 
+  NVL(DECODE(SUM(AMOUNTOUT*COUPON*TERM),0,0,SUM(AMOUNTOUT*COUPON*TERM)/SUM(AMOUNTOUT*TERM)),0) COUPONOUTM,
+  NVL(DECODE(SUM(AMOUNTIN* COUPON*TERM),0,0,SUM(AMOUNTIN* COUPON*TERM)/SUM(AMOUNTIN* TERM)),0) COUPONINM
+  FROM TERMM
+GROUP BY EXE_MARKET, TERMTYPE
+) M LEFT JOIN (
+  SELECT EXE_MARKET, TERMTYPE,
+  NVL(SUM(AMOUNTOUT),0) AMOUNTOUTY,
+  NVL(SUM(AMOUNTIN),0) AMOUNTINY, 
+  NVL(DECODE(SUM(AMOUNTOUT*COUPON*TERM),0,0,SUM(AMOUNTOUT*COUPON*TERM)/SUM(AMOUNTOUT*TERM)),0) COUPONOUTY,
+  NVL(DECODE(SUM(AMOUNTIN *COUPON*TERM),0,0,SUM(AMOUNTIN *COUPON*TERM)/SUM(AMOUNTIN *TERM)),0) COUPONINY
+  FROM TERMY
+GROUP BY EXE_MARKET,TERMTYPE) Y 
+ON M.EXE_MARKET=Y.EXE_MARKET AND M.TERMTYPE=Y.TERMTYPE
+),TERMSUM AS (
+SELECT M.EXE_MARKET,M.TERMTYPE,M.AMOUNTOUTM,M.AMOUNTINM,M.COUPONOUTM,
+       M.COUPONINM,Y.AMOUNTOUTY,Y.AMOUNTINY,Y.COUPONOUTY,Y.COUPONINY 
+FROM (
+  SELECT EXE_MARKET,'XJ' TERMTYPE,
+  SUM(AMOUNTOUT) AMOUNTOUTM,
+  SUM(AMOUNTIN) AMOUNTINM, 
+  DECODE(SUM(AMOUNTOUT*COUPON*TERM),0,0,SUM(AMOUNTOUT*COUPON*TERM)/SUM(AMOUNTOUT*TERM)) COUPONOUTM,
+  DECODE(SUM(AMOUNTIN* COUPON*TERM),0,0,SUM(AMOUNTIN* COUPON*TERM)/SUM(AMOUNTIN* TERM)) COUPONINM
+  FROM TERMM
+GROUP BY EXE_MARKET
+) M LEFT JOIN (
+  SELECT EXE_MARKET,'XJ' TERMTYPE,
+  SUM(AMOUNTOUT) AMOUNTOUTY,
+  SUM(AMOUNTIN) AMOUNTINY, 
+  DECODE(SUM(AMOUNTOUT*COUPON*TERM),0,0,SUM(AMOUNTOUT*COUPON*TERM)/SUM(AMOUNTOUT*TERM)) COUPONOUTY,
+  DECODE(SUM(AMOUNTIN *COUPON*TERM),0,0,SUM(AMOUNTIN *COUPON*TERM)/SUM(AMOUNTIN *TERM)) COUPONINY
+  FROM TERMY
+GROUP BY EXE_MARKET) Y 
+ON M.EXE_MARKET=Y.EXE_MARKET AND M.TERMTYPE=Y.TERMTYPE
+)
+SELECT DECODE(A.EXE_MARKET,'X_CNBD_IN','线上','X_CNBD_OUT','线下',NULL) EXE_MARKET,
+       DECODE(A.TERMTYPE,'XJ','小计',B.DICT_VALUE) TERM,
+       A.AMOUNTINM/10000 AMOUNTINM,A.AMOUNTOUTM/10000 AMOUNTOUTM,
+       ROUND(A.COUPONINM,6) COUPONINM,ROUND(A.COUPONOUTM,6) COUPONOUTM,
+       DECODE(A.AMOUNTINY/10000,NULL,0,A.AMOUNTINY/10000) AMOUNTINY,
+       DECODE(A.AMOUNTOUTY/10000,NULL,0,A.AMOUNTOUTY/10000) AMOUNTOUTY,
+       DECODE(A.COUPONINY,NULL,0,ROUND(A.COUPONINY,6)) COUPONINY,
+       DECODE(A.COUPONOUTY,NULL,0,ROUND(A.COUPONOUTY,6)) COUPONOUTY
+FROM (
+  SELECT * FROM TERMPARTS 
+  UNION ALL 
+  SELECT * FROM TERMSUM
+ ) A 
+ LEFT JOIN TRADEVARIETY B ON A.TERMTYPE=B.DICT_KEY 
+ ORDER BY A.EXE_MARKET, B.DICT_KEY_ORDER
+]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TERM</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TERM</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TERM</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CHAIOUT</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CHAIOUT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CHAIOUT</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CHAIIN</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CHAIIN</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CHAIIN</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CHAIOUT</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CHAIOUT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CHAIOUT</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CHAIIN</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CHAIIN</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CHAIIN</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="topMargin">10mm</property>
+            <property name="leftMargin">5mm</property>
+            <property name="bottomMargin">0mm</property>
+            <property name="rightMargin">5mm</property>
+            <property name="height">297mm</property>
+            <property name="width">230mm</property>
+            <property name="showHeaderOnFirst">false</property>
+            <property name="showFooterOnLast">false</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">0in</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="297">
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Column Binding</property>
+                    <expression name="expression" type="javascript">'填报时间：'+params["startdate"].value</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <column id="298"/>
+            <row id="299">
+                <property name="fontSize">11pt</property>
+                <property name="fontWeight">bold</property>
+                <property name="textAlign">center</property>
+                <property name="height">8mm</property>
+                <cell id="300">
+                    <property name="fontFamily">"宋体"</property>
+                    <property name="verticalAlign">middle</property>
+                    <label id="303">
+                        <text-property name="text">同业拆借市场资金融通业务统计月报表</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="348">
+                <cell id="349">
+                    <property name="fontFamily">"宋体"</property>
+                    <property name="verticalAlign">middle</property>
+                    <grid id="428">
+                        <column id="429"/>
+                        <column id="430"/>
+                        <column id="431"/>
+                        <row id="432">
+                            <property name="fontWeight">bold</property>
+                            <property name="verticalAlign">middle</property>
+                            <cell id="433">
+                                <label id="436">
+                                    <text-property name="text">填报单位：河北银行</text-property>
+                                </label>
+                            </cell>
+                            <cell id="434">
+                                <data id="438">
+                                    <property name="resultSetColumn">Column Binding</property>
+                                </data>
+                            </cell>
+                            <cell id="435">
+                                <label id="437">
+                                    <text-property name="text">单位：万元</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="301">
+                <cell id="302">
+                    <property name="fontFamily">"宋体"</property>
+                    <property name="verticalAlign">middle</property>
+                    <table id="304">
+                        <property name="dataSet">interBankDS</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">AMOUNTINM</property>
+                                <text-property name="displayName">AMOUNTINM</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["AMOUNTINM"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">AMOUNTINY</property>
+                                <text-property name="displayName">AMOUNTINY</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["AMOUNTINY"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">COUPONINM</property>
+                                <text-property name="displayName">COUPONINM</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["COUPONINM"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">COUPONINY</property>
+                                <text-property name="displayName">COUPONINY</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["COUPONINY"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">AMOUNTOUTM</property>
+                                <text-property name="displayName">AMOUNTOUTM</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["AMOUNTOUTM"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">AMOUNTOUTY</property>
+                                <text-property name="displayName">AMOUNTOUTY</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["AMOUNTOUTY"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">COUPONOUTM</property>
+                                <text-property name="displayName">COUPONOUTM</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["COUPONOUTM"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">COUPONOUTY</property>
+                                <text-property name="displayName">COUPONOUTY</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["COUPONOUTY"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">TERM</property>
+                                <text-property name="displayName">TERM</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["TERM"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">EXE_MARKET</property>
+                                <text-property name="displayName">EXE_MARKET</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["EXE_MARKET"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <column id="338">
+                            <property name="textAlign">center</property>
+                            <property name="width">16mm</property>
+                        </column>
+                        <column id="339">
+                            <property name="textAlign">center</property>
+                            <property name="width">16mm</property>
+                        </column>
+                        <column id="340">
+                            <property name="width">22mm</property>
+                        </column>
+                        <column id="341">
+                            <property name="width">22mm</property>
+                        </column>
+                        <column id="342">
+                            <property name="width">20mm</property>
+                        </column>
+                        <column id="343">
+                            <property name="width">20mm</property>
+                        </column>
+                        <column id="344">
+                            <property name="width">22mm</property>
+                        </column>
+                        <column id="345">
+                            <property name="width">22mm</property>
+                        </column>
+                        <column id="346">
+                            <property name="width">20mm</property>
+                        </column>
+                        <column id="347">
+                            <property name="width">20mm</property>
+                        </column>
+                        <header>
+                            <row id="350">
+                                <property name="fontWeight">bold</property>
+                                <cell id="351">
+                                    <property name="colSpan">2</property>
+                                    <property name="rowSpan">2</property>
+                                    <property name="fontSize">11pt</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="405">
+                                        <text-property name="text">同业拆借</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="353">
+                                    <property name="colSpan">4</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="361">
+                                        <text-property name="text">拆入</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="357">
+                                    <property name="colSpan">4</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="362">
+                                        <text-property name="text">拆出</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                            <row id="305">
+                                <property name="fontWeight">bold</property>
+                                <cell id="308">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="371">
+                                        <text-property name="text">发生额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="309">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="372">
+                                        <text-property name="text">年累计发生额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="310">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="373">
+                                        <text-property name="text">月加权平均利率</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="311">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="374">
+                                        <text-property name="text">年加权平均利率</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="312">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="375">
+                                        <text-property name="text">发生额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="313">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="376">
+                                        <text-property name="text">年累计发生额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="314">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="377">
+                                        <text-property name="text">月加权平均利率</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="315">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="378">
+                                        <text-property name="text">年加权平均利率</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <group id="381">
+                            <property name="groupName">upordown</property>
+                            <expression name="keyExpr" type="javascript">row["EXE_MARKET"]</expression>
+                            <structure name="toc">
+                                <expression name="expressionValue" type="javascript">row["EXE_MARKET"]</expression>
+                            </structure>
+                            <property name="hideDetail">false</property>
+                            <header>
+                                <row id="382">
+                                    <cell id="383">
+                                        <property name="drop">all</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">thin</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">thin</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">thin</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">thin</property>
+                                        <property name="verticalAlign">middle</property>
+                                        <data id="404">
+                                            <property name="resultSetColumn">EXE_MARKET</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="384">
+                                        <property name="verticalAlign">middle</property>
+                                    </cell>
+                                    <cell id="385">
+                                        <property name="verticalAlign">middle</property>
+                                    </cell>
+                                    <cell id="386">
+                                        <property name="verticalAlign">middle</property>
+                                    </cell>
+                                    <cell id="387">
+                                        <property name="verticalAlign">middle</property>
+                                    </cell>
+                                    <cell id="388">
+                                        <property name="verticalAlign">middle</property>
+                                    </cell>
+                                    <cell id="389">
+                                        <property name="verticalAlign">middle</property>
+                                    </cell>
+                                    <cell id="390">
+                                        <property name="verticalAlign">middle</property>
+                                    </cell>
+                                    <cell id="391">
+                                        <property name="verticalAlign">middle</property>
+                                    </cell>
+                                    <cell id="392">
+                                        <property name="verticalAlign">middle</property>
+                                    </cell>
+                                </row>
+                            </header>
+                        </group>
+                        <detail>
+                            <row id="316">
+                                <property name="height">6mm</property>
+                                <cell id="317">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                </cell>
+                                <cell id="318">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="379">
+                                        <property name="resultSetColumn">TERM</property>
+                                    </data>
+                                </cell>
+                                <cell id="319">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="363">
+                                        <property name="resultSetColumn">AMOUNTINM</property>
+                                    </data>
+                                </cell>
+                                <cell id="320">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="364">
+                                        <property name="resultSetColumn">AMOUNTINY</property>
+                                    </data>
+                                </cell>
+                                <cell id="321">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="365">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">###0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">COUPONINM</property>
+                                    </data>
+                                </cell>
+                                <cell id="322">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="366">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">###0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">COUPONINY</property>
+                                    </data>
+                                </cell>
+                                <cell id="323">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="367">
+                                        <property name="resultSetColumn">AMOUNTOUTM</property>
+                                    </data>
+                                </cell>
+                                <cell id="324">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="368">
+                                        <property name="resultSetColumn">AMOUNTOUTY</property>
+                                    </data>
+                                </cell>
+                                <cell id="325">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="369">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">###0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">COUPONOUTM</property>
+                                    </data>
+                                </cell>
+                                <cell id="326">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="370">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">###0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">COUPONOUTY</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                    </table>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mapper>
+	<select id="sql1">
+	select (select curr_date from ttrd_currdate) as 日期,
+       i.i_name as 机构名称,
+       tr.ord_id as 审批单号,
+       tr_type.description as 业务种类,
+       ii.CORE_SYS_CUSTOMER_CODE as 客户号,
+       ii.i_fullname as 客户全称,
+       dic.dict_value as 币种,
+       TRIM(to_char(cast((tr.ordamount)  as decimal(31,6)),'999,999,999,990.99')) as 金额,
+	   TRIM(to_char(cast((cashlb.mtr_set_amount) as decimal(31,6)),'999,999,999,990.99')) as 到期结算金额,
+       TRIM(to_char(cast(instrument.coupon * 100 as decimal(31,6)),'999,999,999,990.9999')) as 年利率,
+       TRIM(to_char(cast(cashlb.overdue_rate * 100 as decimal(31,6)),'999,999,999,990.9999')) as 逾期利率,
+       cashlb.start_date as 起息日期,
+       cashlb.mtr_date as 到期日期,
+       cashlb.term as 期限,
+       cashlb.i_name as 产品名称,
+       case
+         when instrument.payment_freq = '0D' then
+          '利随本清'
+         when instrument.payment_freq = '1Y' then
+          '每年一次'
+         when instrument.payment_freq = '6M' then
+          '半年一次'
+         when instrument.payment_freq = '3M' then
+          '每季一次'
+         when instrument.payment_freq = '1M' then
+          '每月一次'
+         when instrument.payment_freq = '-1' then
+          '不结息'
+       end as 付息频率,
+       cashlb.FIRST_PAYMENT_DATE as 首次付息日,
+	   case
+		 when cashlb.auto_redepo = '1' then
+		  '是'
+		 else
+		  '否'
+	   end as 自动转存,
+       tr.operator as 经办人,
+       fix_acc.acct_code as 定期账号,
+       fix_acc.acct_name as 定期账号名称,
+       fix_acc.core_acct_code as 核心账号,
+       fix_acc.core_acct_name as 核心账号名称,
+       branch.branch_code as 经办机构号,
+       branch.branch_name as 经办机构名称
+
+  FROM TTRD_OTC_TRADE tr
+
+  LEFT JOIN ttrd_auth_user u
+    on tr.operator_id = u.user_id
+  LEFT JOIN TTRD_INSTITUTION i
+    ON u.i_id = TO_CHAR(i.i_id)
+  left join ttrd_institution ii
+    on tr.partyid = ii.i_id
+  LEFT JOIN ttrd_trade_type tr_type
+    on tr.trdtype = tr_type.trd_type
+  left join ttrd_instrument instrument
+    on tr.i_code = instrument.i_code
+  left join ttrd_cashlb cashlb
+    on tr.i_code = cashlb.i_code
+  left join TTRD_FIXEDTERM_ACCOUNT fix_acc
+    on cashlb.acct_id = fix_acc.acct_id
+  left join ttrd_inst_branch branch
+    on tr.agreenumber = branch.branch_code
+  left join ttrd_dict_mult_lang dic
+    on instrument.currency = dic.dict_key
+	and dic.dict_sub_type='currency'
+ where tr.ord_id = (select distinct trr.ord_id
+                      FROM TTRD_OTC_TRADE trr
+                     where trr.sysordid = #{sysOrdId})
+   and tr.ref_sysordid is null and  tr.ordstatus&lt;0
+	</select>
+</mapper>

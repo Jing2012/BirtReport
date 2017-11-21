@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mapper>
+	<select id="sql">
+select i.i_name as 机构名称,
+       tr_type.description as 业务种类,
+       ii.CORE_SYS_CUSTOMER_CODE as 客户号,
+       ii.i_fullname as 客户全称,
+       tr.bnd_settype as 结算方式,
+       tr.i_name as 项目资产代码,
+       TRIM(to_char(cast(tr.ordcount as decimal(31,6)),'999,999,999,990.99')) as 票面总额,
+       tr.bnd_ytm * 100 as 到期收益率,
+       TRIM(to_char(cast(tr.bnd_netprice as decimal(31,6)),'999,999,999,990.99')) as 净价金额,
+       tr.setdate as 结算日期,
+       tr.orddate as 交易日期,
+       TRIM(to_char(cast(tr.ordamount as decimal(31,6)),'999,999,999,990.99')) as 结算金额,
+       TRIM(to_char(cast(tr.bnd_aiamount as decimal(31,6)),'999,999,999,990.99')) as 总应计利息,
+       tr.operator as 执行人,
+       tr.trader as 交易确认人,
+	   instrument.p_class as 产品分类,
+       'T+' || to_char(tr.setdays) 清算速度,
+       tr.intordid as 成交单编号,
+       risk.p_name as 信用风险,
+       cashlb.issuer as 实际用信人,
+       cashlb.start_date as 起息日,
+       cashlb.mtr_date as 到期日,
+       case
+         when cashlb.payment_freq = '0D' then
+          '利随本清'
+         when cashlb.payment_freq = '1Y' then
+          '每年一次'
+         when cashlb.payment_freq = '6M' then
+          '半年一次'
+         when cashlb.payment_freq = '3M' then
+          '每季一次'
+         when cashlb.payment_freq = '1M' then
+          '每月一次'
+         when cashlb.payment_freq = '-1' then
+          '不结息'
+       end as 付息频率,
+       xmltype.getStringVal(xmltype.extract(
+       		extension.columns_ext,'/FVS/FV[@id="biz_honour"]/v/text()'))
+       as 兑付日,
+       xmltype.getStringVal(xmltype.extract(
+       		extension.columns_ext,'/FVS/FV[@id="biz_creditweight"]/v/text()'))
+       as 授信权重
+  FROM TTRD_OTC_TRADE tr
+  left join ttrd_instrument instrument
+    on tr.i_code = instrument.i_code
+  LEFT JOIN ttrd_auth_user u
+    on tr.operator_id = u.user_id
+  LEFT JOIN TTRD_INSTITUTION i
+    ON u.i_id = TO_CHAR(i.i_id)
+  left join ttrd_institution ii
+    on tr.partyid = ii.i_id
+  LEFT JOIN ttrd_trade_type tr_type
+    on tr.trdtype = tr_type.trd_type
+  left join TTRD_CREDIT_RISK_REVIEW risk
+    on risk.review_no = tr.seatno_cp
+  left join TTRD_CASHLB cashlb
+    on cashlb.i_code = tr.i_code
+    and cashlb.m_type = tr.m_type
+   	and cashlb.a_type = tr.a_type
+  left join ttrd_otc_biz_extension extension
+    on extension.biz_id = (tr.i_code || ',' || tr.a_type || ',' || tr.m_type)
+    and extension.biz_tablename = 'TTRD_CASHLB'
+ where tr.sysordid = #{sysOrdId}
+   and tr.ref_sysordid is null
+	</select>
+</mapper>

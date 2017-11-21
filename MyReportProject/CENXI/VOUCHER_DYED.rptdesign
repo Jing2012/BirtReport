@@ -1,0 +1,1746 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="author">lifeng.wu</property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <text-property name="title">岑溪农商周期分录合并打印模板</text-property>
+    <list-property name="includeScripts">
+        <property>xir_birt.js</property>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">birt.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="printNo" id="238">
+            <text-property name="promptText">打印号</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">''</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="4"
+ extends="xir_j2ee.XIR">
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@191.168.1.106:1521:xirjava</property>
+            <property name="odaUser">xir_trdxm</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">eHBhcg==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="bkEntryDS" id="144">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">printNo</property>
+                    <property name="paramName">printNo</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ENTRY_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">ENTRY_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">FLOW_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">CORE_ACCT_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">CORE_ACCT_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">SUBJ_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">INNER_ACCT_SN</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">DEBIT_CREDIT_FLAG</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">RED_BLUE_FLAG</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">STEP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">VALUE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">I_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">P_TYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">P_TYPE_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">P_CLASS</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">ACCTYPE_FLAG</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">T_TYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">STEP_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">P_TYPE_GRP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">ENTRY_ID</property>
+                    <property name="nativeName">ENTRY_ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">ENTRY_DATE</property>
+                    <property name="nativeName">ENTRY_DATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">FLOW_ID</property>
+                    <property name="nativeName">FLOW_ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">CORE_ACCT_CODE</property>
+                    <property name="nativeName">CORE_ACCT_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">CORE_ACCT_NAME</property>
+                    <property name="nativeName">CORE_ACCT_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">SUBJ_CODE</property>
+                    <property name="nativeName">SUBJ_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">INNER_ACCT_SN</property>
+                    <property name="nativeName">INNER_ACCT_SN</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">DEBIT_CREDIT_FLAG</property>
+                    <property name="nativeName">DEBIT_CREDIT_FLAG</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">RED_BLUE_FLAG</property>
+                    <property name="nativeName">RED_BLUE_FLAG</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">STEP</property>
+                    <property name="nativeName">STEP</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">VALUE</property>
+                    <property name="nativeName">VALUE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">I_CODE</property>
+                    <property name="nativeName">I_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">P_TYPE</property>
+                    <property name="nativeName">P_TYPE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">P_TYPE_NAME</property>
+                    <property name="nativeName">P_TYPE_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">P_CLASS</property>
+                    <property name="nativeName">P_CLASS</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">ACCTYPE_FLAG</property>
+                    <property name="nativeName">ACCTYPE_FLAG</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">T_TYPE</property>
+                    <property name="nativeName">T_TYPE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">STEP_NAME</property>
+                    <property name="nativeName">STEP_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">P_TYPE_GRP</property>
+                    <property name="nativeName">P_TYPE_GRP</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[--CHG_ID关联记账变动，找到ACCTG_OBJ_ID对应的核算对象
+SELECT 
+	DT.*, 
+	DICT.DICT_VALUE AS STEP_NAME, 
+	CASE WHEN P_TYPE = '0121' THEN 
+		'0121' 
+	WHEN P_TYPE = '0134' AND (T_TYPE = '银行系统内-省联社' OR T_TYPE = '银行系统内-其他联社') THEN 
+		'0134_1' 
+	WHEN P_TYPE = '0134' AND (T_TYPE = '银行系统外') THEN 
+		'0134_2'
+	WHEN P_TYPE = '0134' AND T_TYPE <> '银行系统内-省联社' AND T_TYPE <> '银行系统内-其他联社' AND T_TYPE <>'银行系统外' THEN 
+		'0134_3'
+	WHEN P_TYPE = '0100' AND P_CLASS = '保本理财' THEN 
+		'0100_1'
+	WHEN P_TYPE = '0100' AND P_CLASS = '买入返售其他金融资产' THEN 
+		'0100_2'
+	WHEN P_TYPE = '0100' AND P_CLASS <> '保本理财' AND P_CLASS <> '买入返售其他金融资产' THEN 
+		'0100_3'
+	WHEN P_TYPE = '0000' AND ACCTYPE_FLAG = 0 THEN 
+		'0000_1'
+	WHEN P_TYPE = '0000' AND ACCTYPE_FLAG > 0 THEN 
+		'0000_2' 
+	END AS P_TYPE_GRP 
+FROM (
+	SELECT 
+		E.ENTRY_ID, 
+		E.ENTRY_DATE, 
+		E.FLOW_ID, 
+		E.CORE_ACCT_CODE, 
+		COALESCE(E.CORE_ACCT_NAME,ACTING_ENTRY_NAME_3) AS CORE_ACCT_NAME, 
+		E.SUBJ_CODE, 
+		E.INNER_ACCT_SN, 
+		E.DEBIT_CREDIT_FLAG, 
+		E.RED_BLUE_FLAG, 
+		E.STEP, 
+		E.VALUE, 
+		INSTM.I_CODE, 
+		INSTM.P_TYPE, 
+		PT.P_TYPE_NAME, 
+		INSTM.P_CLASS, 
+		INSTR((SELECT ','||P_VALUE||',' FROM TPARA WHERE P_CODE='BONDRIGHTACCOUNTYPES'),','||ACCS.ACTING_TYPE||',') AS ACCTYPE_FLAG, 
+		SUBSTR(INSTU.T_PATH, 0, INSTR(INSTU.T_PATH, '.') - 1) AS T_TYPE 
+	FROM TTRD_BOOKKEEPING_ENTRY_HIS E
+	JOIN TTRD_SETTLE_PRINT_LOG L 
+		ON L.FLOW_ID = E.FLOW_ID 
+	JOIN TTRD_BOOKKEEPING_SECU_CHG_HIS C 
+		ON C.CHG_ID = E.CHG_ID 
+	JOIN TTRD_ACCOUNTING_SECU_OBJ_HIS O 
+		ON O.OBJ_ID = C.ACCTG_OBJ_ID 
+		AND O.BEG_DATE = C.CHG_DATE 
+	JOIN TTRD_INSTRUMENT INSTM 
+		ON INSTM.I_CODE = O.I_CODE 
+		AND INSTM.A_TYPE = O.A_TYPE 
+		AND INSTM.M_TYPE = O.M_TYPE 
+	JOIN TTRD_ACC_SECU ACCS 
+		ON ACCS.ACCID = O.SECU_ACCT_ID 
+	LEFT JOIN TTRD_P_TYPE PT 
+		ON PT.P_TYPE = INSTM.P_TYPE 
+	LEFT JOIN TTRD_INSTITUTION INSTU 
+		ON INSTU.I_ID = INSTM.PARTY_ID 
+	LEFT JOIN TTRD_ACCOUNTING_ENTRY_DEF F ON  E.SUBJ_CODE=F.ACTING_CODE
+	WHERE L.PRINT_NO = ? AND E.INST_ID = -1 
+) DT 
+LEFT JOIN TTRD_DICT_MULT_LANG DICT 
+	ON DICT.DICT_SUB_TYPE = 'bkpStep' AND DICT.DICT_KEY = DT.STEP 
+ORDER BY FLOW_ID, STEP, DEBIT_CREDIT_FLAG ]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>1</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>1</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>1</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="bkInfoDS" id="153">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">printNo</property>
+                    <property name="paramName">printNo</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue" type="javascript">params["printNo"].value</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">RN</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">INNER_ACCT_SN</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">P_TYPE_GRP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">RN</property>
+                    <property name="nativeName">RN</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">INNER_ACCT_SN</property>
+                    <property name="nativeName">INNER_ACCT_SN</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">P_TYPE_GRP</property>
+                    <property name="nativeName">P_TYPE_GRP</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[--CHG_ID关联记账变动，找到ACCTG_OBJ_ID对应的核算对象
+SELECT 
+	ROW_NUMBER() OVER(ORDER BY INNER_ACCT_SN, P_TYPE_GRP) AS RN, 
+	D.*
+FROM (
+	SELECT 
+		DISTINCT 
+		INNER_ACCT_SN, 
+		CASE WHEN P_TYPE = '0121' THEN 
+			'0121' 
+		WHEN P_TYPE = '0134' AND (T_TYPE = '银行系统内-省联社' OR T_TYPE = '银行系统内-其他联社') THEN 
+			'0134_1' 
+		WHEN P_TYPE = '0134' AND (T_TYPE = '银行系统外') THEN 
+			'0134_2'
+		WHEN P_TYPE = '0134' AND T_TYPE <> '银行系统内-省联社' AND T_TYPE <> '银行系统内-其他联社' AND T_TYPE <>'银行系统外' THEN 
+			'0134_3'
+		WHEN P_TYPE = '0100' AND P_CLASS = '保本理财' THEN 
+			'0100_1'
+		WHEN P_TYPE = '0100' AND P_CLASS = '买入返售其他金融资产' THEN 
+			'0100_2'
+		WHEN P_TYPE = '0100' AND P_CLASS <> '保本理财' AND P_CLASS <> '买入返售其他金融资产' THEN 
+			'0100_3'
+		WHEN P_TYPE = '0000' AND ACCTYPE_FLAG = 0 THEN 
+			'0000_1'
+		WHEN P_TYPE = '0000' AND ACCTYPE_FLAG > 0 THEN 
+			'0000_2' 
+		END AS P_TYPE_GRP 
+	FROM (
+		SELECT 
+			E.INNER_ACCT_SN, 
+			INSTM.P_TYPE, 
+			PT.P_TYPE_NAME, 
+			INSTM.P_CLASS, 
+			INSTR((SELECT ','||P_VALUE||',' FROM TPARA WHERE P_CODE='BONDRIGHTACCOUNTYPES'),','||ACCS.ACTING_TYPE||',') AS ACCTYPE_FLAG, 
+			SUBSTR(INSTU.T_PATH, 0, INSTR(INSTU.T_PATH, '.') - 1) AS T_TYPE 
+		FROM TTRD_BOOKKEEPING_ENTRY_HIS E 
+		JOIN TTRD_SETTLE_PRINT_LOG L 
+			ON L.FLOW_ID = E.FLOW_ID 
+		JOIN TTRD_BOOKKEEPING_SECU_CHG_HIS C 
+			ON C.CHG_ID = E.CHG_ID 
+		JOIN TTRD_ACCOUNTING_SECU_OBJ_HIS O 
+			ON O.OBJ_ID = C.ACCTG_OBJ_ID 
+			AND O.BEG_DATE = C.CHG_DATE 
+		JOIN TTRD_INSTRUMENT INSTM 
+			ON INSTM.I_CODE = O.I_CODE 
+			AND INSTM.A_TYPE = O.A_TYPE 
+			AND INSTM.M_TYPE = O.M_TYPE 
+		JOIN TTRD_ACC_SECU ACCS 
+			ON ACCS.ACCID = O.SECU_ACCT_ID 
+		LEFT JOIN TTRD_P_TYPE PT 
+			ON PT.P_TYPE = INSTM.P_TYPE 
+		LEFT JOIN TTRD_INSTITUTION INSTU 
+			ON INSTU.I_ID = INSTM.PARTY_ID 
+		WHERE L.PRINT_NO = ? AND E.INST_ID = -1 
+	)
+) D]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>1</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>1</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>1</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="bkEntryMergedDS" id="154">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">printNo</property>
+                    <property name="paramName">printNo</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">INNER_ACCT_SN</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">P_TYPE_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">P_TYPE_GRP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">SUBJ_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">CORE_ACCT_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">CORE_ACCT_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">VALUE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">MIN_STEP</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">AVG_STEP</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">STEP_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">INNER_ACCT_SN</property>
+                    <property name="nativeName">INNER_ACCT_SN</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">P_TYPE_NAME</property>
+                    <property name="nativeName">P_TYPE_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">P_TYPE_GRP</property>
+                    <property name="nativeName">P_TYPE_GRP</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">SUBJ_CODE</property>
+                    <property name="nativeName">SUBJ_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">CORE_ACCT_CODE</property>
+                    <property name="nativeName">CORE_ACCT_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">CORE_ACCT_NAME</property>
+                    <property name="nativeName">CORE_ACCT_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">VALUE</property>
+                    <property name="nativeName">VALUE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">MIN_STEP</property>
+                    <property name="nativeName">MIN_STEP</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">AVG_STEP</property>
+                    <property name="nativeName">AVG_STEP</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">STEP_NAME</property>
+                    <property name="nativeName">STEP_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[--CHG_ID关联记账变动，找到ACCTG_OBJ_ID对应的核算对象
+--MIN_STEP取最小步骤，与AVG_STEP比较，相等则取最小步骤的名称
+SELECT 
+	G.*, 
+	DICT.DICT_VALUE AS STEP_NAME 
+FROM (
+	SELECT 
+		INNER_ACCT_SN, 
+		P_TYPE_NAME, 
+		P_TYPE_GRP, 
+		SUBJ_CODE, 
+		CORE_ACCT_CODE, 
+		CORE_ACCT_NAME, 
+		SUM((DEBIT_VALUE - CREDIT_VALUE) * RED_BLUE_DIR) AS VALUE, 
+		MIN(STEP) AS MIN_STEP, 
+		AVG(STEP) AS AVG_STEP 
+	FROM (
+		SELECT 
+			INNER_ACCT_SN, 
+			P_TYPE_NAME, 
+			SUBJ_CODE, 
+			CORE_ACCT_CODE, 
+			CORE_ACCT_NAME, 
+			DEBIT_VALUE, 
+			CREDIT_VALUE, 
+			RED_BLUE_DIR, 
+			TO_NUMBER(STEP) AS STEP, 
+			CASE WHEN P_TYPE = '0121' THEN 
+				'0121' 
+			WHEN P_TYPE = '0134' AND (T_TYPE = '银行系统内-省联社' OR T_TYPE = '银行系统内-其他联社') THEN 
+				'0134_1'  
+			WHEN P_TYPE = '0134' AND (T_TYPE = '银行系统外') THEN 
+				'0134_2' 
+			WHEN P_TYPE = '0134' AND T_TYPE <> '银行系统内-省联社' AND T_TYPE <> '银行系统内-其他联社' AND T_TYPE <>'银行系统外' THEN 
+				'0134_3'
+			WHEN P_TYPE = '0100' AND P_CLASS = '保本理财' THEN 
+				'0100_1' 
+			WHEN P_TYPE = '0100' AND P_CLASS = '买入返售其他金融资产' THEN 
+				'0100_2' 
+			WHEN P_TYPE = '0100' AND P_CLASS <> '保本理财' AND P_CLASS <> '买入返售其他金融资产' THEN 
+				'0100_3' 
+			WHEN P_TYPE = '0000' AND ACCTYPE_FLAG = 0 THEN 
+				'0000_1' 
+			WHEN P_TYPE = '0000' AND ACCTYPE_FLAG > 0 THEN 
+				'0000_2' 
+			END AS P_TYPE_GRP  
+		FROM (
+			SELECT 
+				E.ENTRY_ID, 
+				E.FLOW_ID, 
+				E.CORE_ACCT_CODE, 
+				COALESCE(E.CORE_ACCT_NAME,ACTING_ENTRY_NAME_3) AS CORE_ACCT_NAME, 
+				E.SUBJ_CODE, 
+				E.INNER_ACCT_SN, 
+				E.DEBIT_CREDIT_FLAG, 
+				E.RED_BLUE_FLAG, 
+				E.STEP, 
+				CASE WHEN E.DEBIT_CREDIT_FLAG = '1' THEN 
+					VALUE 
+				ELSE 0 END DEBIT_VALUE,
+				CASE WHEN E.DEBIT_CREDIT_FLAG = '2' THEN 
+					VALUE 
+				ELSE 0 END CREDIT_VALUE, 
+				CASE WHEN E.RED_BLUE_FLAG = '2' THEN 
+					-1 
+				ELSE 1 END AS RED_BLUE_DIR, 
+				INSTM.P_TYPE, 
+				PT.P_TYPE_NAME, 
+				INSTM.P_CLASS, 
+				INSTR((SELECT ','||P_VALUE||',' FROM TPARA WHERE P_CODE='BONDRIGHTACCOUNTYPES'),','||ACCS.ACTING_TYPE||',') AS ACCTYPE_FLAG, 
+				SUBSTR(INSTU.T_PATH, 0, INSTR(INSTU.T_PATH, '.') - 1) AS T_TYPE 
+			FROM TTRD_BOOKKEEPING_ENTRY_HIS E
+			JOIN TTRD_SETTLE_PRINT_LOG L 
+				ON L.FLOW_ID = E.FLOW_ID 
+			JOIN TTRD_BOOKKEEPING_SECU_CHG_HIS C 
+				ON C.CHG_ID = E.CHG_ID 
+			JOIN TTRD_ACCOUNTING_SECU_OBJ_HIS O 
+				ON O.OBJ_ID = C.ACCTG_OBJ_ID 
+				AND O.BEG_DATE = C.CHG_DATE 
+			JOIN TTRD_INSTRUMENT INSTM 
+				ON INSTM.I_CODE = O.I_CODE 
+				AND INSTM.A_TYPE = O.A_TYPE 
+				AND INSTM.M_TYPE = O.M_TYPE 
+			JOIN TTRD_ACC_SECU ACCS 
+				ON ACCS.ACCID = O.SECU_ACCT_ID 
+			LEFT JOIN TTRD_P_TYPE PT 
+				ON PT.P_TYPE = INSTM.P_TYPE 
+			LEFT JOIN TTRD_INSTITUTION INSTU 
+				ON INSTU.I_ID = INSTM.PARTY_ID
+			LEFT JOIN TTRD_ACCOUNTING_ENTRY_DEF F ON  E.SUBJ_CODE=F.ACTING_CODE 
+			WHERE L.PRINT_NO = ? AND E.INST_ID = -1 
+		)
+	) 
+	GROUP BY INNER_ACCT_SN, P_TYPE_NAME, P_TYPE_GRP, SUBJ_CODE, CORE_ACCT_CODE, CORE_ACCT_NAME 
+) G 
+LEFT JOIN TTRD_DICT_MULT_LANG DICT 
+	ON DICT.DICT_SUB_TYPE = 'bkpStep' AND DICT.DICT_KEY = TO_CHAR(G.MIN_STEP) 
+ORDER BY INNER_ACCT_SN, P_TYPE_GRP, VALUE DESC ]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>1</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>1</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>1</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="topMargin">10mm</property>
+            <property name="leftMargin">10mm</property>
+            <property name="bottomMargin">10mm</property>
+            <property name="rightMargin">10mm</property>
+            <property name="showHeaderOnFirst">false</property>
+            <property name="showFooterOnLast">true</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">10mm</property>
+            <page-footer>
+                <grid id="392">
+                    <property name="width">185mm</property>
+                    <column id="393"/>
+                    <column id="394"/>
+                    <row id="395">
+                        <cell id="396"/>
+                        <cell id="397">
+                            <property name="textAlign">right</property>
+                            <grid id="381">
+                                <property name="textAlign">center</property>
+                                <property name="width">15mm</property>
+                                <column id="382"/>
+                                <column id="383"/>
+                                <column id="384"/>
+                                <row id="385">
+                                    <cell id="386">
+                                        <property name="verticalAlign">middle</property>
+                                        <auto-text id="387">
+                                            <property name="type">page-number</property>
+                                        </auto-text>
+                                    </cell>
+                                    <cell id="388">
+                                        <property name="verticalAlign">middle</property>
+                                        <text id="389">
+                                            <property name="contentType">plain</property>
+                                            <text-property name="content"><![CDATA[/]]></text-property>
+                                        </text>
+                                    </cell>
+                                    <cell id="390">
+                                        <property name="verticalAlign">middle</property>
+                                        <auto-text id="391">
+                                            <property name="type">total-page</property>
+                                        </auto-text>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table name="记账凭证" id="145">
+            <property name="fontFamily">"宋体"</property>
+            <property name="overflow">hidden</property>
+            <property name="dataSet">bkInfoDS</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">INNER_ACCT_SN</property>
+                    <text-property name="displayName">核心财管标志</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["INNER_ACCT_SN"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">D_P_TYPE_GRP</property>
+                    <text-property name="displayName">分组产品类型</text-property>
+                    <expression name="expression" type="javascript">if (dataSetRow["P_TYPE_GRP"] == '0121') {&#13;
+		'存放同业定期'&#13;
+} else if (dataSetRow["P_TYPE_GRP"] == '0134_1' || dataSetRow["P_TYPE_GRP"] == '0134_2' || dataSetRow["P_TYPE_GRP"] == '0134_3') { &#13;
+		'同业存放定期'&#13;
+} else if (dataSetRow["P_TYPE_GRP"] == '0100_1' || dataSetRow["P_TYPE_GRP"] == '0100_2' || dataSetRow["P_TYPE_GRP"] == '0100_3') {&#13;
+		'利率型项目'&#13;
+} else if (dataSetRow["P_TYPE_GRP"] == '0000_1') {&#13;
+		'债券投资'&#13;
+} else if (dataSetRow["P_TYPE_GRP"] == '0000_2') {&#13;
+		'同业存单发行'&#13;
+} else {&#13;
+		''&#13;
+}</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">P_TYPE_GRP</property>
+                    <expression name="expression" type="javascript">dataSetRow["P_TYPE_GRP"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">D_SYSDATE</property>
+                    <text-property name="displayName">业务日期</text-property>
+                    <expression name="expression" type="javascript">Formatter.format(new Date(), 'yyyy年MM月dd日')</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">RN</property>
+                    <text-property name="displayName">分组序号</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RN"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">1</property>
+            <column id="152"/>
+            <detail>
+                <row id="148">
+                    <cell id="149">
+                        <list name="合并分录记账" id="6">
+                            <property name="pageBreakAfter">auto</property>
+                            <property name="overflow">auto</property>
+                            <header>
+                                <grid id="7">
+                                    <property name="marginTop">5mm</property>
+                                    <property name="marginLeft">3mm</property>
+                                    <property name="width">180mm</property>
+                                    <column id="8"/>
+                                    <column id="9"/>
+                                    <column id="10">
+                                        <property name="width">40mm</property>
+                                    </column>
+                                    <row id="11">
+                                        <property name="height">10mm</property>
+                                        <cell id="12">
+                                            <property name="colSpan">3</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="color">black</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <label id="17">
+                                                <property name="fontSize">16pt</property>
+                                                <property name="fontWeight">bold</property>
+                                                <property name="textAlign">center</property>
+                                                <text-property name="text">岑溪农商行内部转账记账凭证</text-property>
+                                            </label>
+                                        </cell>
+                                    </row>
+                                    <row id="13">
+                                        <property name="height">6mm</property>
+                                        <cell id="14">
+                                            <property name="color">black</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <data id="236">
+                                                <property name="resultSetColumn">D_P_TYPE_GRP</property>
+                                            </data>
+                                        </cell>
+                                        <cell id="15">
+                                            <property name="color">black</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <data id="243">
+                                                <property name="resultSetColumn">D_SYSDATE</property>
+                                            </data>
+                                        </cell>
+                                        <cell id="16">
+                                            <property name="color">black</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <text id="379">
+                                                <property name="contentType">html</property>
+                                                <text-property name="content"><![CDATA[NO: <VALUE-OF>params["printNo"].value</VALUE-OF>-<VALUE-OF>row["RN"]</VALUE-OF>]]></text-property>
+                                            </text>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </header>
+                            <detail>
+                                <table name="合并记账分录Table" id="20">
+                                    <property name="marginLeft">3mm</property>
+                                    <property name="pageBreakAfter">auto</property>
+                                    <property name="overflow">auto</property>
+                                    <property name="width">180mm</property>
+                                    <property name="dataSet">bkEntryMergedDS</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">CORE_ACCT_CODE</property>
+                                            <text-property name="displayName">CORE_ACCT_CODE</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["SUBJ_CODE"] +&#13;
+' ' + &#13;
+dataSetRow["CORE_ACCT_NAME"]</expression>
+                                            <property name="dataType">string</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">DEBIT_CREDIT_FLAG</property>
+                                            <text-property name="displayName">借贷</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["VALUE"] > 0 ? '借' : '贷'</expression>
+                                            <property name="dataType">string</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">VALUE</property>
+                                            <text-property name="displayName">金额</text-property>
+                                            <expression name="expression" type="javascript">Math.abs(dataSetRow["VALUE"])</expression>
+                                            <property name="dataType">decimal</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">INNER_ACCT_SN</property>
+                                            <text-property name="displayName">合并分录核心财管标志</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["INNER_ACCT_SN"]</expression>
+                                            <property name="dataType">string</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">P_TYPE_GRP</property>
+                                            <text-property name="displayName">产品类型分组</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["P_TYPE_GRP"]</expression>
+                                            <property name="dataType">string</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">PTYPENAME</property>
+                                            <expression name="expression" type="javascript">row._outer["D_P_TYPE_GRP"] &#13;
++ (dataSetRow["AVG_STEP"] == dataSetRow["MIN_STEP"] ? dataSetRow["STEP_NAME"] : '')</expression>
+                                            <property name="dataType">string</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="pageBreakInterval">25</property>
+                                    <list-property name="filter">
+                                        <structure>
+                                            <property name="operator">eq</property>
+                                            <expression name="expr" type="javascript">row["INNER_ACCT_SN"]</expression>
+                                            <simple-property-list name="value1">
+                                                <value>row._outer["INNER_ACCT_SN"]</value>
+                                            </simple-property-list>
+                                            <property name="updateAggregation">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="operator">eq</property>
+                                            <expression name="expr" type="javascript">row["P_TYPE_GRP"]</expression>
+                                            <simple-property-list name="value1">
+                                                <value>row._outer["P_TYPE_GRP"]</value>
+                                            </simple-property-list>
+                                            <property name="updateAggregation">true</property>
+                                        </structure>
+                                    </list-property>
+                                    <column id="36">
+                                        <property name="width">80mm</property>
+                                    </column>
+                                    <column id="37">
+                                        <property name="width">55mm</property>
+                                    </column>
+                                    <column id="38">
+                                        <property name="width">15mm</property>
+                                    </column>
+                                    <column id="39">
+                                        <property name="width">30mm</property>
+                                    </column>
+                                    <header>
+                                        <row id="21">
+                                            <property name="height">6mm</property>
+                                            <cell id="22">
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <label id="40">
+                                                    <text-property name="text">账号</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="23">
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <label id="41">
+                                                    <text-property name="text">摘要</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="24">
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <label id="42">
+                                                    <text-property name="text">借/贷</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="25">
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <label id="43">
+                                                    <text-property name="text">金额</text-property>
+                                                </label>
+                                            </cell>
+                                        </row>
+                                    </header>
+                                    <detail>
+                                        <row id="26">
+                                            <property name="height">8mm</property>
+                                            <cell id="27">
+                                                <property name="style">data-cell</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <data id="217">
+                                                    <property name="resultSetColumn">CORE_ACCT_CODE</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="28">
+                                                <property name="style">data-cell</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <data id="370">
+                                                    <property name="resultSetColumn">PTYPENAME</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="29">
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="textAlign">center</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <data id="219">
+                                                    <property name="resultSetColumn">DEBIT_CREDIT_FLAG</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="30">
+                                                <property name="style">data-cell</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="textAlign">right</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <data id="220">
+                                                    <structure name="numberFormat">
+                                                        <property name="category">Fixed</property>
+                                                        <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                                    </structure>
+                                                    <property name="resultSetColumn">VALUE</property>
+                                                </data>
+                                            </cell>
+                                        </row>
+                                    </detail>
+                                    <footer>
+                                        <row id="44">
+                                            <property name="height">6mm</property>
+                                            <cell id="45">
+                                                <property name="colSpan">4</property>
+                                                <property name="rowSpan">1</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <grid id="49">
+                                                    <column id="50">
+                                                        <property name="textAlign">center</property>
+                                                        <property name="width">20mm</property>
+                                                    </column>
+                                                    <column id="51"/>
+                                                    <row id="52">
+                                                        <cell id="53">
+                                                            <label id="55">
+                                                                <text-property name="text">备注：</text-property>
+                                                            </label>
+                                                        </cell>
+                                                        <cell id="54"/>
+                                                    </row>
+                                                </grid>
+                                            </cell>
+                                        </row>
+                                        <row id="245">
+                                            <property name="height">6mm</property>
+                                            <cell id="246">
+                                                <property name="colSpan">4</property>
+                                                <property name="rowSpan">1</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <grid id="106">
+                                                    <column id="107">
+                                                        <property name="width">15mm</property>
+                                                    </column>
+                                                    <column id="108"/>
+                                                    <column id="109">
+                                                        <property name="width">15mm</property>
+                                                    </column>
+                                                    <column id="110"/>
+                                                    <column id="111">
+                                                        <property name="width">20mm</property>
+                                                    </column>
+                                                    <column id="112"/>
+                                                    <row id="113">
+                                                        <cell id="114">
+                                                            <label id="115">
+                                                                <text-property name="text">柜员</text-property>
+                                                            </label>
+                                                        </cell>
+                                                        <cell id="116"/>
+                                                        <cell id="117">
+                                                            <label id="118">
+                                                                <text-property name="text">复核</text-property>
+                                                            </label>
+                                                        </cell>
+                                                        <cell id="119"/>
+                                                        <cell id="120"/>
+                                                        <cell id="122"/>
+                                                    </row>
+                                                </grid>
+                                            </cell>
+                                        </row>
+                                    </footer>
+                                </table>
+                            </detail>
+                        </list>
+                        <list name="明细分录记账" id="155">
+                            <property name="pageBreakAfter">always</property>
+                            <property name="pageBreakBefore">always</property>
+                            <header>
+                                <grid id="156">
+                                    <property name="marginTop">5mm</property>
+                                    <property name="marginLeft">3mm</property>
+                                    <property name="width">180mm</property>
+                                    <column id="157"/>
+                                    <column id="158"/>
+                                    <column id="159">
+                                        <property name="width">40mm</property>
+                                    </column>
+                                    <row id="160">
+                                        <property name="height">10mm</property>
+                                        <cell id="161">
+                                            <property name="colSpan">3</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <label id="162">
+                                                <property name="fontSize">16pt</property>
+                                                <property name="fontWeight">bold</property>
+                                                <property name="textAlign">center</property>
+                                                <text-property name="text">岑溪农商行内部转账记账凭证(明细)</text-property>
+                                            </label>
+                                        </cell>
+                                    </row>
+                                    <row id="163">
+                                        <property name="height">6mm</property>
+                                        <cell id="164">
+                                            <property name="verticalAlign">middle</property>
+                                            <data id="237">
+                                                <property name="resultSetColumn">D_P_TYPE_GRP</property>
+                                            </data>
+                                        </cell>
+                                        <cell id="165">
+                                            <property name="verticalAlign">middle</property>
+                                        </cell>
+                                        <cell id="166">
+                                            <property name="verticalAlign">middle</property>
+                                            <text id="380">
+                                                <property name="contentType">html</property>
+                                                <text-property name="content"><![CDATA[NO: <VALUE-OF>params["printNo"].value</VALUE-OF>-<VALUE-OF>row["RN"]</VALUE-OF>]]></text-property>
+                                            </text>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </header>
+                            <detail>
+                                <table name="明细记账分录Table" id="169">
+                                    <property name="marginLeft">3mm</property>
+                                    <property name="pageBreakAfter">auto</property>
+                                    <property name="overflow">auto</property>
+                                    <property name="width">180mm</property>
+                                    <property name="dataSet">bkEntryDS</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">CORE_ACCT_CODE</property>
+                                            <text-property name="displayName">CORE_ACCT_CODE</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["SUBJ_CODE"] +&#13;
+' ' + &#13;
+dataSetRow["CORE_ACCT_NAME"]</expression>
+                                            <property name="dataType">string</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">CORE_ACCT_NAME</property>
+                                            <text-property name="displayName">CORE_ACCT_NAME</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["P_TYPE_NAME"] + dataSetRow["STEP_NAME"] + '\n' &#13;
++ dataSetRow["I_CODE"]</expression>
+                                            <property name="dataType">string</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">DEBIT_CREDIT_FLAG</property>
+                                            <text-property name="displayName">借贷</text-property>
+                                            <expression name="expression" type="javascript">getDebitCreditFlagName(dataSetRow["DEBIT_CREDIT_FLAG"])</expression>
+                                            <property name="dataType">string</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">VALUE</property>
+                                            <text-property name="displayName">金额</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["VALUE"]</expression>
+                                            <property name="dataType">decimal</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">INNER_ACCT_SN</property>
+                                            <text-property name="displayName">明细分录核心财管标志</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["INNER_ACCT_SN"]</expression>
+                                            <property name="dataType">string</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">P_TYPE_GRP</property>
+                                            <text-property name="displayName">产品类型分组</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["P_TYPE_GRP"]</expression>
+                                            <property name="dataType">string</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">FLOW_ID</property>
+                                            <text-property name="displayName">FLOW_ID</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["FLOW_ID"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">ENTRY_DATE</property>
+                                            <text-property name="displayName">ENTRY_DATE</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["ENTRY_DATE"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">Column Binding</property>
+                                            <text-property name="displayName">STEP_NAME</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["P_TYPE_NAME"] + dataSetRow["STEP_NAME"]</expression>
+                                            <property name="dataType">string</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">Column Binding_1</property>
+                                            <text-property name="displayName">I_CODE</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["I_CODE"]</expression>
+                                            <property name="dataType">string</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="pageBreakInterval">25</property>
+                                    <list-property name="filter">
+                                        <structure>
+                                            <property name="operator">eq</property>
+                                            <expression name="expr" type="javascript">row["INNER_ACCT_SN"]</expression>
+                                            <simple-property-list name="value1">
+                                                <value>row._outer["INNER_ACCT_SN"]</value>
+                                            </simple-property-list>
+                                            <property name="updateAggregation">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="operator">eq</property>
+                                            <expression name="expr" type="javascript">row["P_TYPE_GRP"]</expression>
+                                            <simple-property-list name="value1">
+                                                <value>row._outer["P_TYPE_GRP"]</value>
+                                            </simple-property-list>
+                                            <property name="updateAggregation">true</property>
+                                        </structure>
+                                    </list-property>
+                                    <column id="193">
+                                        <property name="width">80mm</property>
+                                    </column>
+                                    <column id="194">
+                                        <property name="width">55mm</property>
+                                    </column>
+                                    <column id="195">
+                                        <property name="width">15mm</property>
+                                    </column>
+                                    <column id="196">
+                                        <property name="width">30mm</property>
+                                    </column>
+                                    <header>
+                                        <row id="170">
+                                            <property name="height">6mm</property>
+                                            <cell id="171">
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <label id="172">
+                                                    <text-property name="text">账号</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="173">
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <label id="174">
+                                                    <text-property name="text">摘要</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="175">
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <label id="176">
+                                                    <text-property name="text">借/贷</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="177">
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <label id="178">
+                                                    <text-property name="text">金额</text-property>
+                                                </label>
+                                            </cell>
+                                        </row>
+                                    </header>
+                                    <detail>
+                                        <row id="287">
+                                            <property name="height">18mm</property>
+                                            <cell id="288">
+                                                <property name="colSpan">4</property>
+                                                <property name="rowSpan">1</property>
+                                                <property name="style">data-cell</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <grid id="292">
+                                                    <column id="293">
+                                                        <property name="width">80mm</property>
+                                                    </column>
+                                                    <column id="294">
+                                                        <property name="width">55mm</property>
+                                                    </column>
+                                                    <column id="295">
+                                                        <property name="width">15mm</property>
+                                                    </column>
+                                                    <column id="296">
+                                                        <property name="width">30mm</property>
+                                                    </column>
+                                                    <row id="297">
+                                                        <property name="height">6mm</property>
+                                                        <cell id="298">
+                                                            <property name="colSpan">4</property>
+                                                            <property name="rowSpan">1</property>
+                                                            <property name="verticalAlign">middle</property>
+                                                            <grid id="350">
+                                                                <property name="verticalAlign">middle</property>
+                                                                <column id="351">
+                                                                    <property name="width">20mm</property>
+                                                                </column>
+                                                                <column id="352">
+                                                                    <property name="width">50mm</property>
+                                                                </column>
+                                                                <column id="353">
+                                                                    <property name="width">25mm</property>
+                                                                </column>
+                                                                <column id="354"/>
+                                                                <row id="355">
+                                                                    <cell id="356">
+                                                                        <property name="verticalAlign">middle</property>
+                                                                        <label id="361">
+                                                                            <text-property name="text">流水号：</text-property>
+                                                                        </label>
+                                                                    </cell>
+                                                                    <cell id="357">
+                                                                        <property name="verticalAlign">middle</property>
+                                                                        <data id="364">
+                                                                            <property name="resultSetColumn">FLOW_ID</property>
+                                                                        </data>
+                                                                    </cell>
+                                                                    <cell id="358">
+                                                                        <property name="verticalAlign">middle</property>
+                                                                        <label id="360">
+                                                                            <text-property name="text">记账日期：</text-property>
+                                                                        </label>
+                                                                    </cell>
+                                                                    <cell id="359">
+                                                                        <property name="verticalAlign">middle</property>
+                                                                        <data id="365">
+                                                                            <property name="resultSetColumn">ENTRY_DATE</property>
+                                                                        </data>
+                                                                    </cell>
+                                                                </row>
+                                                            </grid>
+                                                        </cell>
+                                                    </row>
+                                                    <row id="302">
+                                                        <property name="height">12mm</property>
+                                                        <cell id="303">
+                                                            <property name="borderBottomStyle">solid</property>
+                                                            <property name="borderBottomWidth">thin</property>
+                                                            <property name="borderLeftStyle">solid</property>
+                                                            <property name="borderLeftWidth">thin</property>
+                                                            <property name="borderRightStyle">solid</property>
+                                                            <property name="borderRightWidth">thin</property>
+                                                            <property name="borderTopStyle">solid</property>
+                                                            <property name="borderTopWidth">thin</property>
+                                                            <property name="verticalAlign">middle</property>
+                                                            <data id="221">
+                                                                <property name="resultSetColumn">CORE_ACCT_CODE</property>
+                                                            </data>
+                                                        </cell>
+                                                        <cell id="304">
+                                                            <property name="borderBottomStyle">solid</property>
+                                                            <property name="borderBottomWidth">thin</property>
+                                                            <property name="borderLeftStyle">solid</property>
+                                                            <property name="borderLeftWidth">thin</property>
+                                                            <property name="borderRightStyle">solid</property>
+                                                            <property name="borderRightWidth">thin</property>
+                                                            <property name="borderTopStyle">solid</property>
+                                                            <property name="borderTopWidth">thin</property>
+                                                            <property name="verticalAlign">middle</property>
+                                                            <grid id="398">
+                                                                <column id="399"/>
+                                                                <row id="400">
+                                                                    <property name="textAlign">left</property>
+                                                                    <property name="verticalAlign">middle</property>
+                                                                    <property name="height">6mm</property>
+                                                                    <cell id="401">
+                                                                        <data id="404">
+                                                                            <property name="resultSetColumn">Column Binding</property>
+                                                                        </data>
+                                                                    </cell>
+                                                                </row>
+                                                                <row id="402">
+                                                                    <property name="textAlign">left</property>
+                                                                    <property name="verticalAlign">middle</property>
+                                                                    <property name="height">6mm</property>
+                                                                    <cell id="403">
+                                                                        <data id="405">
+                                                                            <property name="resultSetColumn">Column Binding_1</property>
+                                                                        </data>
+                                                                    </cell>
+                                                                </row>
+                                                            </grid>
+                                                        </cell>
+                                                        <cell id="305">
+                                                            <property name="borderBottomStyle">solid</property>
+                                                            <property name="borderBottomWidth">thin</property>
+                                                            <property name="borderLeftStyle">solid</property>
+                                                            <property name="borderLeftWidth">thin</property>
+                                                            <property name="borderRightStyle">solid</property>
+                                                            <property name="borderRightWidth">thin</property>
+                                                            <property name="borderTopStyle">solid</property>
+                                                            <property name="borderTopWidth">thin</property>
+                                                            <property name="textAlign">center</property>
+                                                            <property name="verticalAlign">middle</property>
+                                                            <data id="224">
+                                                                <property name="resultSetColumn">DEBIT_CREDIT_FLAG</property>
+                                                            </data>
+                                                        </cell>
+                                                        <cell id="306">
+                                                            <property name="borderBottomStyle">solid</property>
+                                                            <property name="borderBottomWidth">thin</property>
+                                                            <property name="borderLeftStyle">solid</property>
+                                                            <property name="borderLeftWidth">thin</property>
+                                                            <property name="borderRightStyle">solid</property>
+                                                            <property name="borderRightWidth">thin</property>
+                                                            <property name="borderTopStyle">solid</property>
+                                                            <property name="borderTopWidth">thin</property>
+                                                            <property name="textAlign">right</property>
+                                                            <property name="verticalAlign">middle</property>
+                                                            <data id="225">
+                                                                <structure name="numberFormat">
+                                                                    <property name="category">Fixed</property>
+                                                                    <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                                                </structure>
+                                                                <property name="resultSetColumn">VALUE</property>
+                                                            </data>
+                                                        </cell>
+                                                    </row>
+                                                </grid>
+                                            </cell>
+                                        </row>
+                                    </detail>
+                                    <footer>
+                                        <row id="251">
+                                            <property name="fontFamily">"宋体"</property>
+                                            <property name="height">6mm</property>
+                                            <cell id="252">
+                                                <property name="colSpan">4</property>
+                                                <property name="rowSpan">1</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <grid id="261">
+                                                    <column id="262">
+                                                        <property name="textAlign">center</property>
+                                                        <property name="width">20mm</property>
+                                                    </column>
+                                                    <column id="263"/>
+                                                    <row id="264">
+                                                        <cell id="265">
+                                                            <label id="266">
+                                                                <text-property name="text">备注：</text-property>
+                                                            </label>
+                                                        </cell>
+                                                        <cell id="267"/>
+                                                    </row>
+                                                </grid>
+                                            </cell>
+                                        </row>
+                                        <row id="256">
+                                            <property name="height">6mm</property>
+                                            <cell id="257">
+                                                <property name="colSpan">4</property>
+                                                <property name="rowSpan">1</property>
+                                                <property name="verticalAlign">middle</property>
+                                                <property name="whiteSpace">nowrap</property>
+                                                <grid id="268">
+                                                    <column id="269">
+                                                        <property name="width">15mm</property>
+                                                    </column>
+                                                    <column id="270"/>
+                                                    <column id="271">
+                                                        <property name="width">15mm</property>
+                                                    </column>
+                                                    <column id="272"/>
+                                                    <column id="273">
+                                                        <property name="width">20mm</property>
+                                                    </column>
+                                                    <column id="274"/>
+                                                    <row id="275">
+                                                        <cell id="276">
+                                                            <label id="277">
+                                                                <text-property name="text">柜员</text-property>
+                                                            </label>
+                                                        </cell>
+                                                        <cell id="278"/>
+                                                        <cell id="279">
+                                                            <label id="280">
+                                                                <text-property name="text">复核</text-property>
+                                                            </label>
+                                                        </cell>
+                                                        <cell id="281"/>
+                                                        <cell id="282">
+                                                            <label id="283">
+                                                                <text-property name="text">流水号</text-property>
+                                                            </label>
+                                                        </cell>
+                                                        <cell id="284"/>
+                                                    </row>
+                                                </grid>
+                                            </cell>
+                                        </row>
+                                    </footer>
+                                </table>
+                            </detail>
+                        </list>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>

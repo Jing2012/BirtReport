@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mapper>
+	<select id="sql">
+select i.i_name as 机构名称,
+       tr_type.description as 业务种类,
+       ii.CORE_SYS_CUSTOMER_CODE as 客户号,
+       ii.i_fullname as 客户全称,
+       dic.dict_value as 币种,
+	   instrument.p_class as 产品分类,
+       TRIM(to_char(cast(tr.ordamount as decimal(31,6)),'999,999,999,990.99')) as 金额,
+	   TRIM(to_char(cast((cashlb.mtr_set_amount) as decimal(31,6)),'999,999,999,990.99')) as 到期结算金额,
+       cashlb.start_date as 起息日期,
+       instrument.mtr_date as 到期日期,
+	   cashlb.i_name as 产品名称,
+       case
+		 when cashlb.daycount = 'Actual/360' then
+		  'A/360'
+		 when cashlb.daycount = 'Actual/365' then
+		  'A/365F'
+		 when cashlb.daycount = 'Actual/365 (Fixed)' then
+		  'A/365'
+		 when cashlb.daycount = 'Actual/Actual (ISMA)' then
+		  'A/A(ISMA)'
+		 when cashlb.daycount = '30/360 (Bond Basis)' then
+		  '30/360'
+		 else
+		  'A/365'
+	end as 计息基准,
+	   'T+' || to_char(tr.setdays) 清算速度,
+       tr.setdate as 结算日期,
+		case
+           when INSTR(instrument.term,'D') > 0 then
+              REPLACE(instrument.term,'D','')
+           when INSTR(instrument.term,'W') > 0 then
+                 REPLACE(instrument.term,'W','')
+           when INSTR(instrument.term,'M') > 0 then
+                REPLACE(instrument.term,'M','')
+           when INSTR(instrument.term,'Y') > 0 then
+                REPLACE(instrument.term,'Y','')
+           else
+                ''
+       end as 期限天数,
+       TRIM(to_char(cast(cashlb.coupon * 100  as decimal(31,6)),'990.9999')) as 年利率,
+       TRIM(to_char(cast(cashlb.overdue_rate * 100  as decimal(31,6)),'990.9999')) as 逾期利率,
+       case
+         when instrument.payment_freq = '0D' then
+          '利随本清'
+         when instrument.payment_freq = '1Y' then
+          '每年一次'
+         when instrument.payment_freq = '6M' then
+          '半年一次'
+         when instrument.payment_freq = '3M' then
+          '每季一次'
+         when instrument.payment_freq = '1M' then
+          '每月一次'
+         when instrument.payment_freq = '-1' then
+          '不结息'
+       end as 付息频率,
+	   case
+           when cashlb.PAYMENT_CONV = 'Following' then
+              '下一交易日'
+           when cashlb.PAYMENT_CONV = 'Unadjusted' then
+                 '不调整'
+           else
+                ''
+       end as 支付调整,
+       tr.operator as 经办人,
+	    case
+         when tr.exe_market = 'X_CNBD_IN' then
+          '场内'
+         when tr.exe_market = 'X_CNBD_OUT' then
+          '场外'
+       end as 交易市场,
+	   TRIM(to_char(cast(cashlb.mtr_set_amount as decimal(31,6)),'999,999,999,990.99')) as 到期结算金额,
+	   cashlb.repo_term as 实际占款天数,
+		cashlb.repo_trade_variety as 交易品种,
+	    tr.intordid as 成交单编号
+  FROM TTRD_OTC_TRADE tr
+  LEFT JOIN ttrd_auth_user u
+    on tr.operator_id = u.user_id
+  LEFT JOIN TTRD_INSTITUTION i
+    ON u.i_id = TO_CHAR(i.i_id)
+  left join ttrd_institution ii
+    on tr.partyid = ii.i_id
+  LEFT JOIN ttrd_trade_type tr_type
+    on tr.trdtype = tr_type.trd_type
+  left join ttrd_instrument instrument
+    on tr.i_code = instrument.i_code
+  left join ttrd_cashlb cashlb
+    on tr.i_code = cashlb.i_code
+  left join ttrd_dict_mult_lang dic
+    on instrument.currency = dic.dict_key
+	and dic.dict_sub_type='currency'
+ where tr.sysordid = #{sysOrdId}
+   and tr.ref_sysordid is null
+	</select>
+</mapper>

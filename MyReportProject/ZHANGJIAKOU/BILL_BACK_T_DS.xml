@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mapper>
+	<select id="sql">
+	select i.i_name as 机构名称,
+       tr_type.description as 业务种类,
+       ii.CORE_SYS_CUSTOMER_CODE as 客户号,
+       ii.i_fullname as 客户全称,
+       tr.i_name as 产品名称,
+       tr.a_type as 债券性质,
+       TRIM(to_char(cast(tr.ordcount as decimal(31,6)),'999,999,999,990.99')) as 结算金额,
+       TRIM(to_char(cast(tr.bnd_ytm * 100 as decimal(31,6)),'999,999,999,990.9999')) as 回购利率,
+       tr.orddate as 交易日期,
+       TRIM(to_char(cast(tr.ordamount as decimal(31,6)),'999,999,999,990.99')) as 回购金额,
+       tr.operator as 执行人,
+       tr.trader as 交易确认人,
+       'T+' || to_char(tr.setdays) 清算速度,
+       tr.intordid as 成交单编号,
+       case
+			 when cashlb.daycount = 'Actual/360' then
+			  'A/360'
+			 when cashlb.daycount = 'Actual/365' then
+			  'A/365F'
+			 when cashlb.daycount = 'Actual/365 (Fixed)' then
+			  'A/365'
+			 when cashlb.daycount = 'Actual/Actual (ISMA)' then
+			  'A/A(ISMA)'
+			 when cashlb.daycount = '30/360 (Bond Basis)' then
+			  '30/360'
+			 else
+			  'A/365'
+		end as 计息基准,
+       cashlb.start_date as 首期结算日期,
+       TRIM(to_char(cast(cashlb.fst_set_amount as decimal(31,6)),'999,999,999,990.99')) as 首期结算金额,
+       cashlb.mtr_date as 到期结算日期,
+       TRIM(to_char(cast(cashlb.mtr_set_amount as decimal(31,6)),'999,999,999,990.99')) as 到期结算金额,
+       substr(tr.i_name,1,instr(tr.i_name,'日')-1) as 回购期限
+  FROM TTRD_OTC_TRADE tr
+  left join ttrd_cashlb cashlb
+  on tr.i_code = cashlb.i_code
+  LEFT JOIN ttrd_auth_user u
+    on tr.operator_id = u.user_id
+  LEFT JOIN TTRD_INSTITUTION i
+    ON u.i_id = TO_CHAR(i.i_id)
+  left join ttrd_institution ii
+    on tr.partyid = ii.i_id
+  LEFT JOIN ttrd_trade_type tr_type
+    on tr.trdtype = tr_type.trd_type
+ where tr.sysordid = #{sysOrdId} and tr.ref_sysordid is null
+	</select>
+</mapper>

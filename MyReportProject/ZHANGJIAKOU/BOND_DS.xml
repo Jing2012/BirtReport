@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mapper>
+	<select id="sql1">
+select (select curr_date from ttrd_currdate) as 创建日期,
+       i.i_name as 机构名称,
+       tr_type.description as 业务种类,
+       tr.ord_id as 审批单号,
+       ii.CORE_SYS_CUSTOMER_CODE as 客户号,
+       ii.i_fullname as 客户全称,
+       tr.i_code as 债券代码,
+       TRIM(to_char(cast(tr.ordcount/100 as decimal(31,6)),'999,999,999,990.99')) as 券面总额,
+       TRIM(to_char(cast(tr.bnd_netprice as decimal(31,6)),'999,999,999,990.9999')) as 净价,
+       TRIM(to_char(cast(tr.bnd_netprice*tr.ordcount as decimal(31,6)),'999,999,999,990.99')) as 净价金额,
+       TRIM(to_char(cast(tr.ordprice as decimal(31,6)),'999,999,999,990.9999')) as 全价,
+       TRIM(to_char(cast(tr.ordamount / 1 as decimal(31,6)),'999,999,999,990.99')) as 全价金额,
+       tr.orddate as 交易日期,
+       TRIM(to_char(cast(tr.ordamount / 1 as decimal(31,6)),'999,999,999,990.99')) as 结算金额,
+       TRIM(to_char(cast(tr.bnd_ytm*100 as decimal(31,6)),'999,999,999,990.9999')) as 到期收益率,
+      case
+         when tr.bnd_settype = '0000' then
+          '券款对付(DVP)'
+         when tr.bnd_settype = '0001' then
+          '券款对付(DVP)'
+         when tr.bnd_settype = '0002' then
+          '券款对付(DVP)'
+         when tr.bnd_settype = '0003' then
+          '券款对付(DVP)'
+         when tr.bnd_settype = '0004' then
+          '券款对付(DVP)'
+         when tr.bnd_settype = '0005' then
+          '券款对付(DVP)'
+         when tr.bnd_settype = '0006' then
+          '券款对付(DVP)'
+         when tr.bnd_settype = '0007' then
+          '券款对付(DVP)'
+         else
+          '未知'
+       end as 结算方式,
+       TRIM(to_char(cast(tr.bnd_aiamount as decimal(31,6)),'999,999,999,990.99')) as 总应计利息,
+       TRIM(to_char(cast(tr.ordprice-tr.bnd_netprice as decimal(31,6)),'999,999,999,990.9999')) as 应计利息,
+       tr.operator as 经办人,
+       'T+' || to_char(tr.setdays) 清算速度,
+       tr.intordid as 成交单编号,
+       tb.b_name as 债券名称,
+       tb.p_class as 债券性质,
+       tb.b_issuer as 债券发行人,
+       tb.b_issue_date as 发行日期,
+       tb.b_start_date as 起息日期,
+       tb.b_mtr_date as 到期日期,
+       tb.b_list_date as 上市流通日,
+       case
+           when INSTR(tb.b_term,'D') > 0 then
+              REPLACE(tb.b_term,'D','日')
+           when INSTR(tb.b_term,'W') > 0 then
+                 REPLACE(tb.b_term,'W','周')
+           when INSTR(tb.b_term,'M') > 0 then
+                REPLACE(tb.b_term,'M','月')
+           when INSTR(tb.b_term,'Y') > 0 then
+                REPLACE(tb.b_term,'Y','年')
+           else
+                ''
+       end as 债券期限,
+       case
+           when tb.b_pay_freq = '0D' then
+              '利随本清'
+           when tb.b_pay_freq = '1Y' then
+                 '每年一次'
+           when tb.b_pay_freq = '6M' then
+                '半年一次'
+           when tb.b_pay_freq = '3M' then
+                '每季一次'
+           when tb.b_pay_freq = '1M' then
+                '每月一次'
+           when tb.b_pay_freq = '-1' then
+                '不结息'
+           else
+                ''
+       end as 付息频率,
+       case
+           when tb.b_pay_bizday_convertion = 'Following' then
+              '下一交易日'
+           when tb.b_pay_bizday_convertion = 'Unadjusted' then
+                 '不调整'
+           else
+                ''
+       end as 付息方式,
+       case
+           when tb.b_coupon_type = '1' then
+              TRIM(to_char(cast(nvl(tb.b_coupon,0)*100 as decimal(31,6)),'999,999,999,990.9999'))
+           else
+                ''
+       end as 票面利率,
+        case
+           when tb.b_coupon_type = '2' then
+              CONCAT(nvl(tb.b_coupon,0)*10000,'')
+           else
+                ''
+       end as 利差,
+       tir.r_name as 基准利率,
+       g.b_grade as 债券主体评级
+
+  FROM TTRD_OTC_TRADE tr
+  LEFT JOIN ttrd_auth_user u
+    on tr.operator_id = u.user_id
+  LEFT JOIN TTRD_INSTITUTION i
+    ON u.i_id = TO_CHAR(i.i_id)
+  left join ttrd_institution ii
+    on tr.partyid = ii.i_id
+  left join tbnd tb
+	on tb.i_code = tr.i_code
+		AND tb.a_type = tr.a_type
+		AND tb.m_type = tr.m_type
+    left join tir tir
+    on tir.i_code=tb.i_code_bench
+    and tir.a_type = tb.a_type_bench
+    and tir.m_type = tb.m_type_bench
+    left join (select tig.i_code,tere.b_grade 
+					from TINSTRUMENT_INST_GRADE tig,TBND_EXT_RATING_ENUM tere 
+					where tig.grade = tere.b_grade_number) g on tb.i_code = g.i_code
+  LEFT JOIN  ttrd_trade_type tr_type
+    on tr.trdtype = tr_type.trd_type
+ where tr.ord_id = (select distinct trr.ord_id
+                      FROM TTRD_OTC_TRADE trr
+                     where trr.sysordid = #{sysOrdId})
+   and tr.ref_sysordid is null and  tr.ordstatus&lt;0
+
+	</select>
+</mapper>

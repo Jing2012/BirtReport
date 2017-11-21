@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.0.v201306041519 Build &lt;4.3.0.v20130613-1152></property>
+    <list-property name="includeScripts">
+        <property>xir_birt.js</property>
+    </list-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">484</property>
+            <expression name="value" type="javascript">var arr = params['wIds'].value.split(',');&#13;
+var sql = 'select * from (select t.w_id, t.i_name,t.inner_code,t.i_code,t.i_id,t.raise_start_date,t.raise_mtr_date,t.start_date,t.mtr_date,abs(b.volume) as volume,row_number() over(partition by t.i_code,t.a_type,t.m_type order by b.beg_date desc) as num from ttrd_wmps_define t left join ttrd_blc_secu_obj b on t.i_code = b.i_code and t.a_type = b.a_type and t.m_type = b.m_type';&#13;
+ if(arr[0] == "-1"){&#13;
+ &#13;
+ }&#13;
+ else{&#13;
+      sql = sql + ' where t.W_ID in ( ';&#13;
+     for(var i=0; i&lt;arr.length; i++) {&#13;
+        sql = sql + arr[i] + ',';&#13;
+    }&#13;
+    sql = sql.substring(0,sql.length-1);&#13;
+    sql = sql + ')';&#13;
+}&#13;
+sql = sql + ') m where m.num = 1';&#13;
+this.queryText = sql;</expression>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">484</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">484</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="wIds" id="494">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="497"
+ extends="xir_j2ee.XIR"/>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="wmpsDefineIssue" id="484">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">I_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">I_NAME</text-property>
+                    <text-property name="heading">I_NAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">INNER_CODE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">INNER_CODE</text-property>
+                    <text-property name="heading">INNER_CODE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">I_CODE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">I_CODE</text-property>
+                    <text-property name="heading">I_CODE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">I_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">I_ID</text-property>
+                    <text-property name="heading">I_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">RAISE_START_DATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">RAISE_START_DATE</text-property>
+                    <text-property name="heading">RAISE_START_DATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">RAISE_MTR_DATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">RAISE_MTR_DATE</text-property>
+                    <text-property name="heading">RAISE_MTR_DATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">START_DATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">START_DATE</text-property>
+                    <text-property name="heading">START_DATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">MTR_DATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">MTR_DATE</text-property>
+                    <text-property name="heading">MTR_DATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">VOLUME</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">VOLUME</text-property>
+                    <text-property name="heading">VOLUME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">NUM</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">NUM</text-property>
+                    <text-property name="heading">NUM</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">I_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">INNER_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">I_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">I_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">RAISE_START_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">RAISE_MTR_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">START_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">MTR_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">VOLUME</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">NUM</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">I_NAME</property>
+                    <property name="nativeName">I_NAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">INNER_CODE</property>
+                    <property name="nativeName">INNER_CODE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">I_CODE</property>
+                    <property name="nativeName">I_CODE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">I_ID</property>
+                    <property name="nativeName">I_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">RAISE_START_DATE</property>
+                    <property name="nativeName">RAISE_START_DATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">RAISE_MTR_DATE</property>
+                    <property name="nativeName">RAISE_MTR_DATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">START_DATE</property>
+                    <property name="nativeName">START_DATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">MTR_DATE</property>
+                    <property name="nativeName">MTR_DATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">VOLUME</property>
+                    <property name="nativeName">VOLUME</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">NUM</property>
+                    <property name="nativeName">NUM</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select * from (select t.i_name,t.inner_code,t.i_code,t.i_id,t.raise_start_date,t.raise_mtr_date,t.start_date,t.mtr_date,b.volume,
+row_number() over(partition by t.i_code,t.a_type,t.m_type order by b.beg_date desc) as num
+from ttrd_wmps_define t left join ttrd_blc_secu_obj b on t.i_code = b.i_code and t.a_type = b.a_type and t.m_type = b.m_type 
+) m where m.num = 1]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2"/>
+    </page-setup>
+    <body>
+        <table id="435">
+            <property name="dataSet">wmpsDefineIssue</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">I_NAME</property>
+                    <text-property name="displayName">I_NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["I_NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">INNER_CODE</property>
+                    <text-property name="displayName">INNER_CODE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["INNER_CODE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">I_CODE</property>
+                    <text-property name="displayName">I_CODE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["I_CODE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">I_ID</property>
+                    <text-property name="displayName">I_ID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["I_ID"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">RAISE_START_DATE</property>
+                    <text-property name="displayName">RAISE_START_DATE</text-property>
+                    <expression name="expression" type="javascript">getFormatDate(dataSetRow["RAISE_START_DATE"])</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">RAISE_MTR_DATE</property>
+                    <text-property name="displayName">RAISE_MTR_DATE</text-property>
+                    <expression name="expression" type="javascript">getFormatDate(dataSetRow["RAISE_MTR_DATE"])</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">START_DATE</property>
+                    <text-property name="displayName">START_DATE</text-property>
+                    <expression name="expression" type="javascript">getFormatDate(dataSetRow["START_DATE"])</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">MTR_DATE</property>
+                    <text-property name="displayName">MTR_DATE</text-property>
+                    <expression name="expression" type="javascript">getFormatDate(dataSetRow["MTR_DATE"])</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">VOLUME</property>
+                    <text-property name="displayName">VOLUME</text-property>
+                    <expression name="expression" type="javascript">getDecimalFromInt(dataSetRow["VOLUME"],2)</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <column id="466">
+                <property name="width">1.5in</property>
+            </column>
+            <column id="467">
+                <property name="width">1.5in</property>
+            </column>
+            <column id="468">
+                <property name="width">1.5in</property>
+            </column>
+            <column id="469">
+                <property name="width">1.5in</property>
+            </column>
+            <column id="470">
+                <property name="width">1.5in</property>
+            </column>
+            <column id="471">
+                <property name="width">1.5in</property>
+            </column>
+            <column id="472">
+                <property name="width">1.5in</property>
+            </column>
+            <column id="473">
+                <property name="width">1.5in</property>
+            </column>
+            <column id="474">
+                <property name="width">1.5in</property>
+            </column>
+            <header>
+                <row id="436">
+                    <cell id="437">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="475">
+                            <property name="backgroundColor">#B5B5FF</property>
+                            <property name="fontSize">12pt</property>
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">产品名称</text-property>
+                        </label>
+                    </cell>
+                    <cell id="438">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="476">
+                            <property name="backgroundColor">#B5B5FF</property>
+                            <property name="fontSize">12pt</property>
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">行内标识码</text-property>
+                        </label>
+                    </cell>
+                    <cell id="439">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="477">
+                            <property name="backgroundColor">#B5B5FF</property>
+                            <property name="fontSize">12pt</property>
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">理财产品代码</text-property>
+                        </label>
+                    </cell>
+                    <cell id="440">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="478">
+                            <property name="backgroundColor">#B5B5FF</property>
+                            <property name="fontSize">12pt</property>
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">发行机构代码</text-property>
+                        </label>
+                    </cell>
+                    <cell id="441">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="479">
+                            <property name="backgroundColor">#B5B5FF</property>
+                            <property name="fontSize">12pt</property>
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">募集起始日期</text-property>
+                        </label>
+                    </cell>
+                    <cell id="442">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="480">
+                            <property name="backgroundColor">#B5B5FF</property>
+                            <property name="fontSize">12pt</property>
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">募集结束日期</text-property>
+                        </label>
+                    </cell>
+                    <cell id="443">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="481">
+                            <property name="backgroundColor">#B5B5FF</property>
+                            <property name="fontSize">12pt</property>
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">产品起始日期</text-property>
+                        </label>
+                    </cell>
+                    <cell id="444">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="482">
+                            <property name="backgroundColor">#B5B5FF</property>
+                            <property name="fontSize">12pt</property>
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">产品终止日期</text-property>
+                        </label>
+                    </cell>
+                    <cell id="445">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="483">
+                            <property name="backgroundColor">#B5B5FF</property>
+                            <property name="fontSize">12pt</property>
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">实际募集金额</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="446">
+                    <cell id="447">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="485">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">I_NAME</property>
+                        </data>
+                    </cell>
+                    <cell id="448">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="486">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">INNER_CODE</property>
+                        </data>
+                    </cell>
+                    <cell id="449">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="487">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">I_CODE</property>
+                        </data>
+                    </cell>
+                    <cell id="450">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="488">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">I_ID</property>
+                        </data>
+                    </cell>
+                    <cell id="451">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="489">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">RAISE_START_DATE</property>
+                        </data>
+                    </cell>
+                    <cell id="452">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="490">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">RAISE_MTR_DATE</property>
+                        </data>
+                    </cell>
+                    <cell id="453">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="491">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">START_DATE</property>
+                        </data>
+                    </cell>
+                    <cell id="454">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="492">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">MTR_DATE</property>
+                        </data>
+                    </cell>
+                    <cell id="455">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="493">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">VOLUME</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>

@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <list-property name="includeScripts">
+        <property>xir_birt.js</property>
+    </list-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">33</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">33</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">33</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">birt.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="sys_institutionCheckTree" id="31">
+            <text-property name="promptText">部门</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="begDate" id="29" extends="xir_j2ee.begDate"/>
+        <scalar-parameter name="endDate" id="30" extends="xir_j2ee.endDate">
+            <text-property name="promptText">截止日期</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">yyyy-MM-dd</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="28"
+ extends="xir_j2ee.XIR">
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@191.168.1.104:1521:orcl</property>
+            <property name="odaUser">xir_trdx</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">eG1ueHBhcg==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="rptDS" id="33">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">i_id_1</property>
+                    <property name="paramName">sys_institutionCheckTree</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">begDate_1</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">2</property>
+                    <expression name="defaultValue" type="javascript">Formatter.format(BirtDateTime.addDay(params["begDate"].value, -1), 'yyyy-MM-dd')</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">endDate_1</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">3</property>
+                    <expression name="defaultValue" type="javascript">Formatter.format(params["endDate"].value, 'yyyy-MM-dd')</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">begDate_2</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">4</property>
+                    <expression name="defaultValue" type="javascript">Formatter.format(BirtDateTime.addDay(params["begDate"].value, -1), 'yyyy-MM-dd')</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">endDate_2</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">5</property>
+                    <expression name="defaultValue" type="javascript">Formatter.format(params["endDate"].value, 'yyyy-MM-dd')</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">lastDate_1</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">6</property>
+                    <expression name="defaultValue" type="javascript">Formatter.format(BirtDateTime.addDay(params["begDate"].value, -1), 'yyyy-MM-dd')</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">lastDate_2</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">7</property>
+                    <expression name="defaultValue" type="javascript">Formatter.format(BirtDateTime.addDay(params["begDate"].value, -1), 'yyyy-MM-dd')</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">begDate_3</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">8</property>
+                    <expression name="defaultValue" type="javascript">Formatter.format(BirtDateTime.addDay(params["begDate"].value, -1), 'yyyy-MM-dd')</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">endDate_3</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">9</property>
+                    <expression name="defaultValue" type="javascript">Formatter.format(params["endDate"].value, 'yyyy-MM-dd')</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">SECU_ACCT_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">ACCNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">TOTAL_AMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">TOTAL_PRFT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">SECU_ACCT_ID</property>
+                    <property name="nativeName">SECU_ACCT_ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">ACCNAME</property>
+                    <property name="nativeName">ACCNAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">TOTAL_AMOUNT</property>
+                    <property name="nativeName">TOTAL_AMOUNT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">TOTAL_PRFT</property>
+                    <property name="nativeName">TOTAL_PRFT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[--查询日期从开始日前一天开始
+WITH IDS AS(
+    SELECT ? ID FROM DUAL
+),
+IDS_ARRAY AS(
+    SELECT REGEXP_SUBSTR(ID,'[^,]+',1,LEVEL) ID FROM IDS CONNECT BY LEVEL<=LENGTH(ID)-LENGTH(REPLACE(ID,',',''))+1
+),
+ACCOUNTING_SECU_OBJ AS (
+	SELECT
+		ASOBJ.BEG_DATE, 
+		ASOBJ.OBJ_ID, 
+		ASOBJ.TRADE_ID, 
+		ASOBJ.SECU_ACCT_ID, 
+		(ASOBJ.REAL_AMOUNT + ASOBJ.DUE_AMOUNT) AS REAL_AMOUNT, 
+		ASOBJ.PRFT_IR_AI AS PRFT_IR, 
+		ACCS.ACCNAME 
+	FROM TTRD_ACCOUNTING_SECU_OBJ ASOBJ 
+	JOIN TTRD_ACC_SECU ACCS
+		ON ACCS.ACCID = ASOBJ.SECU_ACCT_ID 
+		JOIN TTRD_INSTRUMENT INSTM
+		ON INSTM.I_CODE = ASOBJ.I_CODE 
+		AND INSTM.A_TYPE = ASOBJ.A_TYPE 
+		AND INSTM.M_TYPE = ASOBJ.M_TYPE 
+	WHERE ACCS.I_ID in(select ID from IDS_ARRAY) 
+		AND ASOBJ.BEG_DATE >= ? AND ASOBJ.BEG_DATE <= ? 
+		AND INSTM.P_TYPE NOT IN ('0141')
+	UNION ALL 
+	SELECT
+		ASOBJ.BEG_DATE, 
+		ASOBJ.OBJ_ID, 
+		ASOBJ.TRADE_ID, 
+		ASOBJ.SECU_ACCT_ID, 
+		(ASOBJ.REAL_AMOUNT + ASOBJ.DUE_AMOUNT) AS REAL_AMOUNT, 
+		ASOBJ.PRFT_IR_AI AS PRFT_IR, 
+		ACCS.ACCNAME 
+	FROM TTRD_ACCOUNTING_SECU_OBJ_HIS ASOBJ 
+	JOIN TTRD_ACC_SECU ACCS
+		ON ACCS.ACCID = ASOBJ.SECU_ACCT_ID 
+	JOIN TTRD_INSTRUMENT INSTM
+		ON INSTM.I_CODE = ASOBJ.I_CODE 
+		AND INSTM.A_TYPE = ASOBJ.A_TYPE 
+		AND INSTM.M_TYPE = ASOBJ.M_TYPE 
+	WHERE ACCS.I_ID in(select ID from IDS_ARRAY) 
+		AND ASOBJ.BEG_DATE >= ? AND ASOBJ.BEG_DATE <= ? 
+		AND INSTM.P_TYPE NOT IN ('0141')
+) 
+SELECT 
+	SECU_ACCT_ID, 
+	ACCNAME, 
+	SUM(TOTAL_AMOUNT - MIN_REAL_AMOUNT) AS TOTAL_AMOUNT, 
+	SUM(MAX_PRFT_IR - MIN_PRFT_IR) AS TOTAL_PRFT 
+FROM (
+	SELECT 
+		GOBJ.*, 
+		CASE WHEN GOBJ.MIN_DATE = ? THEN 
+			MINOBJ.PRFT_IR
+		ELSE 0 END AS MIN_PRFT_IR, 
+		CASE WHEN GOBJ.MIN_DATE = ? THEN 
+			MINOBJ.REAL_AMOUNT 
+		ELSE 0 END AS MIN_REAL_AMOUNT, 
+		MAXOBJ.PRFT_IR AS MAX_PRFT_IR, 
+		COBJ.DAYCOUNT 
+	FROM (
+		SELECT 
+			MIN(BEG_DATE) AS MIN_DATE, 
+			MAX(BEG_DATE) AS MAX_DATE, 
+			SUM(REAL_AMOUNT) AS TOTAL_AMOUNT, 
+			OBJ_ID, 
+			TRADE_ID, 
+			SECU_ACCT_ID, 
+			ACCNAME 
+		FROM ACCOUNTING_SECU_OBJ 
+		GROUP BY OBJ_ID, TRADE_ID, SECU_ACCT_ID, ACCNAME
+	) GOBJ 
+	JOIN ACCOUNTING_SECU_OBJ MINOBJ 
+		ON MINOBJ.OBJ_ID = GOBJ.OBJ_ID 
+		AND MINOBJ.BEG_DATE = GOBJ.MIN_DATE 
+	JOIN ACCOUNTING_SECU_OBJ MAXOBJ 
+		ON MAXOBJ.OBJ_ID = GOBJ.OBJ_ID 
+		AND MAXOBJ.BEG_DATE = GOBJ.MAX_DATE 
+	JOIN (
+		SELECT 
+			OBJ_ID, COUNT(OBJ_ID) AS DAYCOUNT
+		FROM ACCOUNTING_SECU_OBJ 
+		WHERE BEG_DATE > ? AND BEG_DATE <= ? AND ABS(REAL_AMOUNT) > 0.01 
+		GROUP BY OBJ_ID 
+	) COBJ 
+		ON COBJ.OBJ_ID = GOBJ.OBJ_ID 
+) 
+GROUP BY SECU_ACCT_ID, ACCNAME 
+]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>1</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>1</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>1</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="topMargin">10mm</property>
+            <property name="leftMargin">10mm</property>
+            <property name="bottomMargin">10mm</property>
+            <property name="rightMargin">10mm</property>
+            <property name="showHeaderOnFirst">false</property>
+            <property name="showFooterOnLast">false</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">0in</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table name="日均余额查询-内部证券账户" id="4">
+            <property name="fontFamily">"宋体"</property>
+            <property name="marginTop">5mm</property>
+            <property name="marginLeft">5mm</property>
+            <property name="width">180mm</property>
+            <property name="dataSet">rptDS</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">ACCNAME</property>
+                    <text-property name="displayName">内部证券账户名称</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ACCNAME"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">AVE_AMOUNT</property>
+                    <text-property name="displayName">日均余额</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TOTAL_AMOUNT"] / (BirtDateTime.diffDay(params["begDate"].value, params["endDate"].value) + 1)</expression>
+                    <property name="dataType">decimal</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">TOTAL_PRFT</property>
+                    <text-property name="displayName">应计利息</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TOTAL_PRFT"]</expression>
+                    <property name="dataType">decimal</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">AVE_RATE</property>
+                    <text-property name="displayName">平均利率</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TOTAL_PRFT"] / dataSetRow["TOTAL_AMOUNT"] &#13;
+* (isLeapYear(BirtDateTime.year(params["endDate"].value)) ? 366 : 365) * 100</expression>
+                    <property name="dataType">decimal</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <column id="20">
+                <property name="width">80mm</property>
+            </column>
+            <column id="21">
+                <property name="width">35mm</property>
+            </column>
+            <column id="22">
+                <property name="width">35mm</property>
+            </column>
+            <column id="23">
+                <property name="width">30mm</property>
+            </column>
+            <header>
+                <row id="5">
+                    <property name="height">8mm</property>
+                    <cell id="6">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="24">
+                            <text-property name="text">内部证券账户</text-property>
+                        </label>
+                    </cell>
+                    <cell id="7">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="25">
+                            <text-property name="text">日均余额（元）</text-property>
+                        </label>
+                    </cell>
+                    <cell id="8">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="26">
+                            <text-property name="text">应计利息（元）</text-property>
+                        </label>
+                    </cell>
+                    <cell id="9">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="27">
+                            <text-property name="text">加权收益率（%）</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="10">
+                    <property name="height">6mm</property>
+                    <cell id="11">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="34">
+                            <property name="resultSetColumn">ACCNAME</property>
+                        </data>
+                    </cell>
+                    <cell id="12">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">right</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="35">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">AVE_AMOUNT</property>
+                        </data>
+                    </cell>
+                    <cell id="13">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">right</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="36">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">TOTAL_PRFT</property>
+                        </data>
+                    </cell>
+                    <cell id="14">
+                        <property name="style">data-cell</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">right</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="37">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">###0.0000{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">AVE_RATE</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>

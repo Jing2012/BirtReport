@@ -1,0 +1,1363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.0.v201405191524 Build &lt;4.4.0.v20140606-1451></property>
+    <property name="units">in</property>
+    <property name="theme">xir_j2ee.defaultTheme</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="JSONURL" id="1095">
+            <text-property name="promptText">JSONURL</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <script-data-source name="ds" id="1096"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="Data Set" id="1097">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">SECUACC</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">INVESTTYPE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">ICODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">ATYPE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">MTYPE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">INAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">PCLASS</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">ENTRYDATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">GRPID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">REALAMOUNT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">FLOW_ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">SUBJ_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">CORE_ACCT_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">VALUE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">BKKPG_ORG_ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">RED_BLUE_FLAG_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">DEBIT_CREDIT_FLAG_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">CORE_ACCT_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">SECUACC</property>
+                </structure>
+                <structure>
+                    <property name="columnName">INVESTTYPE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">ICODE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">ATYPE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">MTYPE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">INAME</property>
+                </structure>
+                <structure>
+                    <property name="columnName">PCLASS</property>
+                </structure>
+                <structure>
+                    <property name="columnName">ENTRYDATE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">GRPID</property>
+                </structure>
+                <structure>
+                    <property name="columnName">REALAMOUNT</property>
+                </structure>
+                <structure>
+                    <property name="columnName">FLOW_ID</property>
+                </structure>
+                <structure>
+                    <property name="columnName">SUBJ_CODE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">CORE_ACCT_CODE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">VALUE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">BKKPG_ORG_ID</property>
+                </structure>
+                <structure>
+                    <property name="columnName">RED_BLUE_FLAG_NAME</property>
+                </structure>
+                <structure>
+                    <property name="columnName">DEBIT_CREDIT_FLAG_NAME</property>
+                </structure>
+                <structure>
+                    <property name="columnName">CORE_ACCT_NAME</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">SECUACC</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">INVESTTYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">ICODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">ATYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">MTYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">INAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">PCLASS</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">ENTRYDATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">GRPID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">REALAMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">FLOW_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">SUBJ_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">CORE_ACCT_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">VALUE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">BKKPG_ORG_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">RED_BLUE_FLAG_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">DEBIT_CREDIT_FLAG_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">CORE_ACCT_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ds</property>
+            <method name="open"><![CDATA[var JSONURL = params["JSONURL"];
+
+count = 0;
+jsonData = new Packages.com.actuate.json.JSONParser();
+jsonData.loadData(JSONURL);
+totalCount = jsonData.getChildCount("data");]]></method>
+            <method name="fetch"><![CDATA[if (count < totalCount) {
+	row["SECUACC"] = jsonData.getValue("data", "SECUACC", count);
+	row["INVESTTYPE"] = jsonData.getValue("data", "INVESTTYPE", count);
+	row["ICODE"] = jsonData.getValue("data", "ICODE", count);
+	row["ATYPE"] = jsonData.getValue("data", "ATYPE", count);
+	row["MTYPE"] = jsonData.getValue("data", "MTYPE", count);
+	row["INAME"] = jsonData.getValue("data", "INAME", count);
+	row["PCLASS"] = jsonData.getValue("data", "PCLASS", count);
+	row["ENTRYDATE"] = jsonData.getValue("data", "ENTRYDATE", count);
+	row["GRPID"] = jsonData.getValue("data", "GRPID", count);
+	row["REALAMOUNT"] = jsonData.getValue("data", "REALAMOUNT", count);
+	row["FLOW_ID"] = jsonData.getValue("data", "FLOW_ID", count);
+	row["SUBJ_CODE"] = jsonData.getValue("data", "SUBJ_CODE", count);
+	row["CORE_ACCT_CODE"] = jsonData.getValue("data", "CORE_ACCT_CODE", count);
+	row["VALUE"] = jsonData.getValue("data", "VALUE", count);
+	row["BKKPG_ORG_ID"] = jsonData.getValue("data", "BKKPG_ORG_ID", count);
+	row["RED_BLUE_FLAG_NAME"] = jsonData.getValue("data", "RED_BLUE_FLAG_NAME", count);
+	row["DEBIT_CREDIT_FLAG_NAME"] = jsonData.getValue("data", "DEBIT_CREDIT_FLAG_NAME", count);
+	row["CORE_ACCT_NAME"] = jsonData.getValue("data", "CORE_ACCT_NAME", count);
+	count++;
+	return true;
+}
+return false;]]></method>
+            <method name="close"><![CDATA[count = 0;
+totalCount = 0;
+jsonData = null;]]></method>
+        </script-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="Data Cube" id="1200">
+            <property name="dimensions">
+                <tabular-dimension name="Group" id="1201">
+                    <property name="defaultHierarchy">NewTabularHierarchy</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy" id="1202">
+                            <property name="levels">
+                                <tabular-level name="SECUACC" id="1203">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">SECUACC</property>
+                                </tabular-level>
+                                <tabular-level name="INVESTTYPE" id="1204">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">INVESTTYPE</property>
+                                </tabular-level>
+                                <tabular-level name="PCLASS" id="1205">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">PCLASS</property>
+                                </tabular-level>
+                                <tabular-level name="ICODE" id="1206">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">ICODE</property>
+                                </tabular-level>
+                                <tabular-level name="INAME" id="1207">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">INAME</property>
+                                </tabular-level>
+                                <tabular-level name="REALAMOUNT" id="1208">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">REALAMOUNT</property>
+                                </tabular-level>
+                                <tabular-level name="ENTRYDATE" id="1209">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">ENTRYDATE</property>
+                                </tabular-level>
+                                <tabular-level name="FLOW_ID" id="1210">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">FLOW_ID</property>
+                                </tabular-level>
+                                <tabular-level name="SUBJ_CODE" id="1211">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">SUBJ_CODE</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field" id="1212">
+                    <property name="measures">
+                        <tabular-measure name="CORE_ACCT_NAME" id="1213">
+                            <property name="function">first</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["CORE_ACCT_NAME"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+                <tabular-measure-group name="Summary Field1" id="1214">
+                    <property name="measures">
+                        <tabular-measure name="BKKPG_ORG_ID" id="1215">
+                            <property name="function">first</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["BKKPG_ORG_ID"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+                <tabular-measure-group name="Summary Field2" id="1216">
+                    <property name="measures">
+                        <tabular-measure name="CORE_ACCT_CODE" id="1217">
+                            <property name="function">first</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["CORE_ACCT_CODE"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+                <tabular-measure-group name="Summary Field3" id="1218">
+                    <property name="measures">
+                        <tabular-measure name="DEBIT_CREDIT_FLAG_NAME" id="1219">
+                            <property name="function">first</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["DEBIT_CREDIT_FLAG_NAME"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+                <tabular-measure-group name="Summary Field4" id="1221">
+                    <property name="measures">
+                        <tabular-measure name="RED_BLUE_FLAG_NAME" id="1222">
+                            <property name="function">first</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["RED_BLUE_FLAG_NAME"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+                <tabular-measure-group name="Summary Field5" id="1223">
+                    <property name="measures">
+                        <tabular-measure name="VALUE" id="1224">
+                            <property name="function">first</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["VALUE"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">Data Set</property>
+        </tabular-cube>
+    </cubes>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="rightMargin">0.22916666666666666in</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="741">
+            <property name="style">lable_title</property>
+            <text-property name="text">周期分录</text-property>
+        </label>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="1235">
+            <property name="cube">Data Cube</property>
+            <property name="measures">
+                <extended-item extensionName="MeasureView" id="1292">
+                    <property name="measure">CORE_ACCT_NAME</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1293">
+                            <property name="aggregationOnRow">Group/SUBJ_CODE</property>
+                            <property name="content">
+                                <data id="1294">
+                                    <property name="resultSetColumn">CORE_ACCT_NAME_Group/SUBJ_CODE</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1295">
+                            <property name="content">
+                                <label id="1296">
+                                    <text-property name="text">科目名称</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="1297">
+                    <property name="measure">BKKPG_ORG_ID</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1298">
+                            <property name="aggregationOnRow">Group/SUBJ_CODE</property>
+                            <property name="content">
+                                <data id="1299">
+                                    <property name="resultSetColumn">BKKPG_ORG_ID_Group/SUBJ_CODE</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1300">
+                            <property name="content">
+                                <label id="1301">
+                                    <text-property name="text">账号机构码</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="1302">
+                    <property name="measure">CORE_ACCT_CODE</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1303">
+                            <property name="aggregationOnRow">Group/SUBJ_CODE</property>
+                            <property name="content">
+                                <data id="1304">
+                                    <property name="resultSetColumn">CORE_ACCT_CODE_Group/SUBJ_CODE</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1305">
+                            <property name="content">
+                                <label id="1306">
+                                    <text-property name="text">内部账账号</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="1307">
+                    <property name="measure">DEBIT_CREDIT_FLAG_NAME</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1308">
+                            <property name="aggregationOnRow">Group/SUBJ_CODE</property>
+                            <property name="content">
+                                <data id="1309">
+                                    <property name="resultSetColumn">DEBIT_CREDIT_FLAG_NAME_Group/SUBJ_CODE</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1310">
+                            <property name="content">
+                                <label id="1311">
+                                    <text-property name="text">借贷标志</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="1312">
+                    <property name="measure">RED_BLUE_FLAG_NAME</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1313">
+                            <property name="aggregationOnRow">Group/SUBJ_CODE</property>
+                            <property name="content">
+                                <data id="1314">
+                                    <property name="resultSetColumn">RED_BLUE_FLAG_NAME_Group/SUBJ_CODE</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1315">
+                            <property name="content">
+                                <label id="1316">
+                                    <text-property name="text">红蓝字标志</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="1317">
+                    <property name="measure">VALUE</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1318">
+                            <property name="aggregationOnRow">Group/SUBJ_CODE</property>
+                            <property name="content">
+                                <data id="1319">
+                                    <structure name="numberFormat">
+                                        <property name="category">Currency</property>
+                                        <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <property name="resultSetColumn">VALUE_Group/SUBJ_CODE</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1320">
+                            <property name="content">
+                                <label id="1321">
+                                    <text-property name="text">发生值（元）</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="1237">
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="1322">
+                            <property name="dimension">Group</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View" id="1323">
+                                    <property name="level">Group/SECUACC</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1324">
+                                            <property name="content">
+                                                <data name="SECUACC" id="1325">
+                                                    <property name="resultSetColumn">SECUACC</property>
+                                                </data>
+                                            </property>
+                                            <property name="verticalAlign">middle</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View1" id="1327">
+                                    <property name="level">Group/INVESTTYPE</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1328">
+                                            <property name="content">
+                                                <data name="INVESTTYPE" id="1330">
+                                                    <property name="resultSetColumn">INVESTTYPE</property>
+                                                </data>
+                                            </property>
+                                            <property name="verticalAlign">middle</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View2" id="1332">
+                                    <property name="level">Group/PCLASS</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1333">
+                                            <property name="content">
+                                                <data name="PCLASS" id="1335">
+                                                    <property name="resultSetColumn">PCLASS</property>
+                                                </data>
+                                            </property>
+                                            <property name="verticalAlign">middle</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View3" id="1337">
+                                    <property name="level">Group/ICODE</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1338">
+                                            <property name="content">
+                                                <data name="ICODE" id="1340">
+                                                    <property name="resultSetColumn">ICODE</property>
+                                                </data>
+                                            </property>
+                                            <property name="verticalAlign">middle</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View4" id="1342">
+                                    <property name="level">Group/INAME</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1343">
+                                            <property name="content">
+                                                <data name="INAME" id="1345">
+                                                    <property name="resultSetColumn">INAME</property>
+                                                </data>
+                                            </property>
+                                            <property name="verticalAlign">middle</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View5" id="1347">
+                                    <property name="level">Group/REALAMOUNT</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1348">
+                                            <property name="content">
+                                                <data name="REALAMOUNT" id="1350">
+                                                    <structure name="numberFormat">
+                                                        <property name="category">Currency</property>
+                                                        <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                                    </structure>
+                                                    <property name="resultSetColumn">REALAMOUNT</property>
+                                                </data>
+                                            </property>
+                                            <property name="verticalAlign">middle</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View6" id="1352">
+                                    <property name="level">Group/ENTRYDATE</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1353">
+                                            <property name="content">
+                                                <data name="ENTRYDATE" id="1355">
+                                                    <property name="resultSetColumn">ENTRYDATE</property>
+                                                </data>
+                                            </property>
+                                            <property name="verticalAlign">middle</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View7" id="1357">
+                                    <property name="level">Group/FLOW_ID</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1358">
+                                            <property name="content">
+                                                <data name="FLOW_ID" id="1360">
+                                                    <property name="resultSetColumn">FLOW_ID</property>
+                                                </data>
+                                            </property>
+                                            <property name="verticalAlign">middle</property>
+                                            <property name="width">145px</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View8" id="1362">
+                                    <property name="level">Group/SUBJ_CODE</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1363">
+                                            <property name="content">
+                                                <data name="SUBJ_CODE" id="1365">
+                                                    <property name="resultSetColumn">SUBJ_CODE</property>
+                                                </data>
+                                            </property>
+                                            <property name="verticalAlign">middle</property>
+                                            <property name="width">115px</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="1236">
+                    <property name="content">
+                        <label id="1326">
+                            <text-property name="text">内部证券账户</text-property>
+                        </label>
+                    </property>
+                    <property name="width">459px</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1329">
+                    <property name="content">
+                        <label id="1331">
+                            <text-property name="text">投资类型</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1334">
+                    <property name="content">
+                        <label id="1336">
+                            <text-property name="text">产品类型</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1339">
+                    <property name="content">
+                        <label id="1341">
+                            <text-property name="text">资产代码</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1344">
+                    <property name="content">
+                        <label id="1346">
+                            <text-property name="text">资产名称</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1349">
+                    <property name="content">
+                        <label id="1351">
+                            <text-property name="text">余额(元)</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1354">
+                    <property name="content">
+                        <label id="1356">
+                            <text-property name="text">记账日期</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1359">
+                    <property name="content">
+                        <label id="1361">
+                            <text-property name="text">资金系统流水号</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="1364">
+                    <property name="content">
+                        <label id="1366">
+                            <text-property name="text">科目代码</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+            </property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">CORE_ACCT_NAME</property>
+                    <expression name="expression">measure["CORE_ACCT_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">BKKPG_ORG_ID</property>
+                    <expression name="expression">measure["BKKPG_ORG_ID"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_CODE</property>
+                    <expression name="expression">measure["CORE_ACCT_CODE"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">DEBIT_CREDIT_FLAG_NAME</property>
+                    <expression name="expression">measure["DEBIT_CREDIT_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">RED_BLUE_FLAG_NAME</property>
+                    <expression name="expression">measure["RED_BLUE_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">VALUE</property>
+                    <expression name="expression">measure["VALUE"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">SECUACC</property>
+                    <expression name="expression">dimension["Group"]["SECUACC"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_NAME_Group/SECUACC</property>
+                    <expression name="expression">measure["CORE_ACCT_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/SECUACC</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">BKKPG_ORG_ID_Group/SECUACC</property>
+                    <expression name="expression">measure["BKKPG_ORG_ID"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/SECUACC</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_CODE_Group/SECUACC</property>
+                    <expression name="expression">measure["CORE_ACCT_CODE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/SECUACC</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">DEBIT_CREDIT_FLAG_NAME_Group/SECUACC</property>
+                    <expression name="expression">measure["DEBIT_CREDIT_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/SECUACC</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">RED_BLUE_FLAG_NAME_Group/SECUACC</property>
+                    <expression name="expression">measure["RED_BLUE_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/SECUACC</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">VALUE_Group/SECUACC</property>
+                    <expression name="expression">measure["VALUE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/SECUACC</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">INVESTTYPE</property>
+                    <expression name="expression">dimension["Group"]["INVESTTYPE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_NAME_Group/INVESTTYPE</property>
+                    <expression name="expression">measure["CORE_ACCT_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/INVESTTYPE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">BKKPG_ORG_ID_Group/INVESTTYPE</property>
+                    <expression name="expression">measure["BKKPG_ORG_ID"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/INVESTTYPE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_CODE_Group/INVESTTYPE</property>
+                    <expression name="expression">measure["CORE_ACCT_CODE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/INVESTTYPE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">DEBIT_CREDIT_FLAG_NAME_Group/INVESTTYPE</property>
+                    <expression name="expression">measure["DEBIT_CREDIT_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/INVESTTYPE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">RED_BLUE_FLAG_NAME_Group/INVESTTYPE</property>
+                    <expression name="expression">measure["RED_BLUE_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/INVESTTYPE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">VALUE_Group/INVESTTYPE</property>
+                    <expression name="expression">measure["VALUE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/INVESTTYPE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">PCLASS</property>
+                    <expression name="expression">dimension["Group"]["PCLASS"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_NAME_Group/PCLASS</property>
+                    <expression name="expression">measure["CORE_ACCT_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/PCLASS</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">BKKPG_ORG_ID_Group/PCLASS</property>
+                    <expression name="expression">measure["BKKPG_ORG_ID"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/PCLASS</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_CODE_Group/PCLASS</property>
+                    <expression name="expression">measure["CORE_ACCT_CODE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/PCLASS</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">DEBIT_CREDIT_FLAG_NAME_Group/PCLASS</property>
+                    <expression name="expression">measure["DEBIT_CREDIT_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/PCLASS</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">RED_BLUE_FLAG_NAME_Group/PCLASS</property>
+                    <expression name="expression">measure["RED_BLUE_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/PCLASS</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">VALUE_Group/PCLASS</property>
+                    <expression name="expression">measure["VALUE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/PCLASS</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">ICODE</property>
+                    <expression name="expression">dimension["Group"]["ICODE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_NAME_Group/ICODE</property>
+                    <expression name="expression">measure["CORE_ACCT_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/ICODE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">BKKPG_ORG_ID_Group/ICODE</property>
+                    <expression name="expression">measure["BKKPG_ORG_ID"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/ICODE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_CODE_Group/ICODE</property>
+                    <expression name="expression">measure["CORE_ACCT_CODE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/ICODE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">DEBIT_CREDIT_FLAG_NAME_Group/ICODE</property>
+                    <expression name="expression">measure["DEBIT_CREDIT_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/ICODE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">RED_BLUE_FLAG_NAME_Group/ICODE</property>
+                    <expression name="expression">measure["RED_BLUE_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/ICODE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">VALUE_Group/ICODE</property>
+                    <expression name="expression">measure["VALUE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/ICODE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">INAME</property>
+                    <expression name="expression">dimension["Group"]["INAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_NAME_Group/INAME</property>
+                    <expression name="expression">measure["CORE_ACCT_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/INAME</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">BKKPG_ORG_ID_Group/INAME</property>
+                    <expression name="expression">measure["BKKPG_ORG_ID"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/INAME</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_CODE_Group/INAME</property>
+                    <expression name="expression">measure["CORE_ACCT_CODE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/INAME</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">DEBIT_CREDIT_FLAG_NAME_Group/INAME</property>
+                    <expression name="expression">measure["DEBIT_CREDIT_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/INAME</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">RED_BLUE_FLAG_NAME_Group/INAME</property>
+                    <expression name="expression">measure["RED_BLUE_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/INAME</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">VALUE_Group/INAME</property>
+                    <expression name="expression">measure["VALUE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/INAME</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">REALAMOUNT</property>
+                    <expression name="expression">dimension["Group"]["REALAMOUNT"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_NAME_Group/REALAMOUNT</property>
+                    <expression name="expression">measure["CORE_ACCT_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/REALAMOUNT</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">BKKPG_ORG_ID_Group/REALAMOUNT</property>
+                    <expression name="expression">measure["BKKPG_ORG_ID"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/REALAMOUNT</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_CODE_Group/REALAMOUNT</property>
+                    <expression name="expression">measure["CORE_ACCT_CODE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/REALAMOUNT</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">DEBIT_CREDIT_FLAG_NAME_Group/REALAMOUNT</property>
+                    <expression name="expression">measure["DEBIT_CREDIT_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/REALAMOUNT</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">RED_BLUE_FLAG_NAME_Group/REALAMOUNT</property>
+                    <expression name="expression">measure["RED_BLUE_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/REALAMOUNT</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">VALUE_Group/REALAMOUNT</property>
+                    <expression name="expression">measure["VALUE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/REALAMOUNT</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">ENTRYDATE</property>
+                    <expression name="expression">dimension["Group"]["ENTRYDATE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_NAME_Group/ENTRYDATE</property>
+                    <expression name="expression">measure["CORE_ACCT_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/ENTRYDATE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">BKKPG_ORG_ID_Group/ENTRYDATE</property>
+                    <expression name="expression">measure["BKKPG_ORG_ID"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/ENTRYDATE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_CODE_Group/ENTRYDATE</property>
+                    <expression name="expression">measure["CORE_ACCT_CODE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/ENTRYDATE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">DEBIT_CREDIT_FLAG_NAME_Group/ENTRYDATE</property>
+                    <expression name="expression">measure["DEBIT_CREDIT_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/ENTRYDATE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">RED_BLUE_FLAG_NAME_Group/ENTRYDATE</property>
+                    <expression name="expression">measure["RED_BLUE_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/ENTRYDATE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">VALUE_Group/ENTRYDATE</property>
+                    <expression name="expression">measure["VALUE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/ENTRYDATE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">FLOW_ID</property>
+                    <expression name="expression">dimension["Group"]["FLOW_ID"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_NAME_Group/FLOW_ID</property>
+                    <expression name="expression">measure["CORE_ACCT_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/FLOW_ID</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">BKKPG_ORG_ID_Group/FLOW_ID</property>
+                    <expression name="expression">measure["BKKPG_ORG_ID"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/FLOW_ID</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_CODE_Group/FLOW_ID</property>
+                    <expression name="expression">measure["CORE_ACCT_CODE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/FLOW_ID</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">DEBIT_CREDIT_FLAG_NAME_Group/FLOW_ID</property>
+                    <expression name="expression">measure["DEBIT_CREDIT_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/FLOW_ID</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">RED_BLUE_FLAG_NAME_Group/FLOW_ID</property>
+                    <expression name="expression">measure["RED_BLUE_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/FLOW_ID</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">VALUE_Group/FLOW_ID</property>
+                    <expression name="expression">measure["VALUE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/FLOW_ID</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">SUBJ_CODE</property>
+                    <expression name="expression">dimension["Group"]["SUBJ_CODE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_NAME_Group/SUBJ_CODE</property>
+                    <expression name="expression">measure["CORE_ACCT_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/SUBJ_CODE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">BKKPG_ORG_ID_Group/SUBJ_CODE</property>
+                    <expression name="expression">measure["BKKPG_ORG_ID"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/SUBJ_CODE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">CORE_ACCT_CODE_Group/SUBJ_CODE</property>
+                    <expression name="expression">measure["CORE_ACCT_CODE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/SUBJ_CODE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">DEBIT_CREDIT_FLAG_NAME_Group/SUBJ_CODE</property>
+                    <expression name="expression">measure["DEBIT_CREDIT_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/SUBJ_CODE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">RED_BLUE_FLAG_NAME_Group/SUBJ_CODE</property>
+                    <expression name="expression">measure["RED_BLUE_FLAG_NAME"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/SUBJ_CODE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+                <structure>
+                    <property name="name">VALUE_Group/SUBJ_CODE</property>
+                    <expression name="expression">measure["VALUE"]</expression>
+                    <property name="dataType">string</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/SUBJ_CODE</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">FIRST</property>
+                </structure>
+            </list-property>
+        </extended-item>
+    </body>
+</report>

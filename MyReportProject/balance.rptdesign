@@ -1,0 +1,1729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.6.0.v201606072122</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">6</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">6</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">6</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">fixed layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="queryCode" id="7">
+            <text-property name="promptText">代码</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="queryDate" id="8">
+            <text-property name="promptText">日期</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">y-MM-d</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="5">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@191.168.0.55:1521:orcl</property>
+            <property name="odaUser">XIR_TRDJ</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">eHBhcg==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="balance" id="6">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">I_CODE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">I_CODE</text-property>
+                    <text-property name="heading">I_CODE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">A_TYPE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">A_TYPE</text-property>
+                    <text-property name="heading">A_TYPE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">M_TYPE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">M_TYPE</text-property>
+                    <text-property name="heading">M_TYPE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">POSITIONSHARE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">POSITIONSHARE</text-property>
+                    <text-property name="heading">POSITIONSHARE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TRADEDATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TRADEDATE</text-property>
+                    <text-property name="heading">TRADEDATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ALLCOST</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">ALLCOST</text-property>
+                    <text-property name="heading">ALLCOST</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BONDNAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">BONDNAME</text-property>
+                    <text-property name="heading">BONDNAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">NETPRICE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">NETPRICE</text-property>
+                    <text-property name="heading">NETPRICE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ALLPRICE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">ALLPRICE</text-property>
+                    <text-property name="heading">ALLPRICE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">YTM</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">YTM</text-property>
+                    <text-property name="heading">YTM</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">DURATION</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">DURATION</text-property>
+                    <text-property name="heading">DURATION</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">COUPON</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">COUPON</text-property>
+                    <text-property name="heading">COUPON</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">EVALNETPRICE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">EVALNETPRICE</text-property>
+                    <text-property name="heading">EVALNETPRICE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">EVALYIELD</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">EVALYIELD</text-property>
+                    <text-property name="heading">EVALYIELD</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">EVALNETPRICEGANDL</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">EVALNETPRICEGANDL</text-property>
+                    <text-property name="heading">EVALNETPRICEGANDL</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">EVALNETALLPRICEGANDL</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">EVALNETALLPRICEGANDL</text-property>
+                    <text-property name="heading">EVALNETALLPRICEGANDL</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ALLPRICEGANDL</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">ALLPRICEGANDL</text-property>
+                    <text-property name="heading">ALLPRICEGANDL</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">EVAL.FULLPRICE*SS.REAL_VOLUME</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">EVAL.FULLPRICE*SS.REAL_VOLUME</text-property>
+                    <text-property name="heading">EVAL.FULLPRICE*SS.REAL_VOLUME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ISSUERGRADE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ISSUERGRADE</text-property>
+                    <text-property name="heading">ISSUERGRADE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TBNDGRAGE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TBNDGRAGE</text-property>
+                    <text-property name="heading">TBNDGRAGE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">MTRDATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">MTRDATE</text-property>
+                    <text-property name="heading">MTRDATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">NEXTPAYMENTDATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">NEXTPAYMENTDATE</text-property>
+                    <text-property name="heading">NEXTPAYMENTDATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">STRIKEDATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">STRIKEDATE</text-property>
+                    <text-property name="heading">STRIKEDATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TRADEMARKET</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TRADEMARKET</text-property>
+                    <text-property name="heading">TRADEMARKET</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">I_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">A_TYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">M_TYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">POSITIONSHARE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">TRADEDATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">ALLCOST</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">BONDNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">NETPRICE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">ALLPRICE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">YTM</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">DURATION</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">COUPON</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">EVALNETPRICE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">EVALYIELD</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">EVALNETPRICEGANDL</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">EVALNETALLPRICEGANDL</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">ALLPRICEGANDL</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">EVAL.FULLPRICE*SS.REAL_VOLUME</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">ISSUERGRADE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">TBNDGRAGE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">MTRDATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">NEXTPAYMENTDATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">STRIKEDATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">TRADEMARKET</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[var queryCode = reportContext.getParameterValue("queryCode");  
+var queryDate = reportContext.getParameterValue("queryDate");  
+ 
+if(queryCode != null &amp;&amp; queryCode.trim() != 'null' &amp;&amp; queryCode.trim() != ''){
+	this.queryText = this.queryText.replace('$code',"and i_code like '%"+queryCode+"%'");
+} else {
+    this.queryText = this.queryText.replace('$code',"");
+}
+
+this.queryText = this.queryText.replace('$date',"'"+queryDate.toString()+"'");
+]]></method>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">I_CODE</property>
+                    <property name="nativeName">I_CODE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">A_TYPE</property>
+                    <property name="nativeName">A_TYPE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">M_TYPE</property>
+                    <property name="nativeName">M_TYPE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">POSITIONSHARE</property>
+                    <property name="nativeName">POSITIONSHARE</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">TRADEDATE</property>
+                    <property name="nativeName">TRADEDATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">ALLCOST</property>
+                    <property name="nativeName">ALLCOST</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">BONDNAME</property>
+                    <property name="nativeName">BONDNAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">NETPRICE</property>
+                    <property name="nativeName">NETPRICE</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">ALLPRICE</property>
+                    <property name="nativeName">ALLPRICE</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">YTM</property>
+                    <property name="nativeName">YTM</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">DURATION</property>
+                    <property name="nativeName">DURATION</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">COUPON</property>
+                    <property name="nativeName">COUPON</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">EVALNETPRICE</property>
+                    <property name="nativeName">EVALNETPRICE</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">EVALYIELD</property>
+                    <property name="nativeName">EVALYIELD</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">EVALNETPRICEGANDL</property>
+                    <property name="nativeName">EVALNETPRICEGANDL</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">EVALNETALLPRICEGANDL</property>
+                    <property name="nativeName">EVALNETALLPRICEGANDL</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">ALLPRICEGANDL</property>
+                    <property name="nativeName">ALLPRICEGANDL</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">EVAL.FULLPRICE*SS.REAL_VOLUME</property>
+                    <property name="nativeName">EVAL.FULLPRICE*SS.REAL_VOLUME</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">ISSUERGRADE</property>
+                    <property name="nativeName">ISSUERGRADE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">TBNDGRAGE</property>
+                    <property name="nativeName">TBNDGRAGE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">MTRDATE</property>
+                    <property name="nativeName">MTRDATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">NEXTPAYMENTDATE</property>
+                    <property name="nativeName">NEXTPAYMENTDATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">STRIKEDATE</property>
+                    <property name="nativeName">STRIKEDATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">TRADEMARKET</property>
+                    <property name="nativeName">TRADEMARKET</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[
+select ss.i_code,
+       ss.a_type,
+       ss.m_type,
+       PositionShare, --持仓份额
+       TradeDate, --交易日期
+       AllCost, --全价成本
+       case
+           when b.b_name is not null then
+            b.b_name
+           else
+            tr.i_name
+       end as BondName, --名称
+       case
+           when b.b_name is not null then
+            ss.NetPrice
+           else
+            ss.AllCost
+       end as NetPrice, --净价
+       case
+           when b.b_name is not null then
+            ss.AllPrice
+           else
+            ss.AllCost
+       end as AllPrice, --全价
+       bsi.MK_YIELD as ytm, --到期收益率
+       bsi.MK_DURATION as duration, --久期
+       b.b_coupon * 100 as Coupon, --票面利率
+       eval.netprice as EvalNetPrice, --估值净价
+       eval.yield * 100 as EvalYield, --估值收益率(%)
+       case
+           when b.b_name is not null then
+            ss.NetPrice - eval.netprice
+           else
+            0
+       end as EvalNetPriceGAndL, --估值净价损益
+       case
+           when b.b_name is not null then
+            (ss.NetPrice - eval.netprice) * real_volume
+           else
+            0
+       end as EvalNetAllPriceGAndL, --估值损益
+       eval.fullprice as AllPriceGAndL, --估值全价
+       eval.fullprice * ss.real_volume, --估值全价价值
+       b.grade as IssuerGrade, --主体评级
+       bbb.b_grade as TbndGrage, --债项评级
+       b.b_mtr_date as MtrDate, --到期日
+       i.pi_paymentdate as NextPaymentDate, --下一个付息日
+       e.b_strike_date as StrikeDate, --行权日
+       case HOST_MARKET
+           when 'X_CNBD_ZZD' then
+            '中债登'
+           when 'X_CNBD_QSS' then
+            '上清所'
+           else
+            ''
+       end as TradeMarket --交易场所
+  from (select i_code,
+               a_type,
+               m_type,
+               sum(real_volume) real_volume,
+               sum(real_amount) / 10000 as PositionShare,
+               sum(real_cp_noamrt) / sum(real_volume) as NetPrice,
+               case
+                   when min(open_time) is not null and
+                        LENGTH(min(open_time)) > 10 then
+                    substr(min(open_time), 0, 10)
+                   else
+                    ''
+               end as TradeDate,
+               sum(real_cp_noamrt + ai_cost) / sum(real_volume) as AllPrice,
+               sum(real_cp_noamrt + ai_cost) as AllCost
+          from (select obj.*
+                  from (select *
+                          from ttrd_accounting_secu_obj
+                        union
+                        select * from ttrd_accounting_secu_obj_his) obj,
+                       ttrd_acc_secu a
+                 where obj.secu_acct_id = a.accid
+                   and obj.beg_date = $date
+                   $code
+                   and a.acting_type in ('12', '13', '14', '15', '16')) s
+         group by s.i_code, s.a_type, s.m_type) ss
+ inner join (select i_name, i_code, m_type, a_type from ttrd_instrument) tr on tr.i_code =
+                                                                               ss.i_code
+                                                                           and tr.m_type =
+                                                                               ss.m_type
+                                                                           and tr.a_type =
+                                                                               ss.a_type
+  left join (select *
+               from tbnd
+               left join (select *
+                           from (select row_number() over(partition by a.COMP_NAME order by a.BEG_DATE desc) num,
+                                        a.*
+                                   from TCOMPANY_RATING a) aa
+                          where aa.num = 1) aaa on aaa.comp_name =
+                                                   tbnd.b_issuer) b on b.i_code =
+                                                                       ss.i_code
+                                                                   and b.m_type =
+                                                                       ss.m_type
+                                                                   and b.a_type =
+                                                                       ss.a_type
+  left join VTRD_LIMIT_MK_BSI bsi on bsi.I_CODE = ss.i_code
+                                 and bsi.M_TYPE = ss.m_type
+                                 and bsi.A_TYPE = ss.a_type
+  left join tcb_bond_eval eval on eval.i_code = ss.i_code
+                              and eval.m_type = ss.m_type
+                              and eval.a_type = ss.a_type
+                              and eval.beg_date <= $date
+                              and eval.end_date > $date
+  left join (select *
+               from (select row_number() over(partition by a.i_code, a.m_type, a.a_type order by a.BEG_DATE desc) num,
+                            a.*
+                       from TBND_EXT_RATING a) aa
+              where aa.num = 1) bbb on bbb.i_code = ss.i_code
+                                   and bbb.m_type = ss.m_type
+                                   and bbb.a_type = ss.a_type
+  left join (select min(pi_paymentdate) pi_paymentdate,
+                    a_type,
+                    m_type,
+                    i_code
+               from TBSI_ABS_PAYMENTINFO info, TTRD_CURRDATE cur
+              where info.pi_paymentdate >= cur.curr_date
+              group by info.i_code, info.a_type, info.m_type) i on i.i_code =
+                                                                   ss.i_code
+                                                               and i.a_type =
+                                                                   ss.a_type
+                                                               and i.m_type =
+                                                                   ss.m_type
+  left join TBND_EXERCISE e on e.i_code = ss.i_code
+                           and e.m_type = ss.m_type
+                           and e.a_type = ss.a_type
+]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>I_CODE</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>I_CODE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>I_CODE</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>A_TYPE</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>A_TYPE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>A_TYPE</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>M_TYPE</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>M_TYPE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>M_TYPE</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>POSITIONSHARE</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>POSITIONSHARE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>POSITIONSHARE</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TRADEDATE</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TRADEDATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TRADEDATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ALLCOST</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ALLCOST</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ALLCOST</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>BONDNAME</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>BONDNAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>BONDNAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>NETPRICE</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>NETPRICE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>NETPRICE</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ALLPRICE</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ALLPRICE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ALLPRICE</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>YTM</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>YTM</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>YTM</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DURATION</design:name>
+              <design:position>11</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DURATION</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DURATION</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>COUPON</design:name>
+              <design:position>12</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>COUPON</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>COUPON</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>EVALNETPRICE</design:name>
+              <design:position>13</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>EVALNETPRICE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>EVALNETPRICE</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>EVALYIELD</design:name>
+              <design:position>14</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>EVALYIELD</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>EVALYIELD</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>EVALNETPRICEGANDL</design:name>
+              <design:position>15</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>EVALNETPRICEGANDL</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>EVALNETPRICEGANDL</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>EVALNETALLPRICEGANDL</design:name>
+              <design:position>16</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>EVALNETALLPRICEGANDL</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>EVALNETALLPRICEGANDL</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ALLPRICEGANDL</design:name>
+              <design:position>17</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ALLPRICEGANDL</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ALLPRICEGANDL</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>EVAL.FULLPRICE*SS.REAL_VOLUME</design:name>
+              <design:position>18</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>EVAL.FULLPRICE*SS.REAL_VOLUME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>EVAL.FULLPRICE*SS.REAL_VOLUME</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ISSUERGRADE</design:name>
+              <design:position>19</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ISSUERGRADE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ISSUERGRADE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TBNDGRAGE</design:name>
+              <design:position>20</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TBNDGRAGE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TBNDGRAGE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>MTRDATE</design:name>
+              <design:position>21</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>MTRDATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>MTRDATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>NEXTPAYMENTDATE</design:name>
+              <design:position>22</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>NEXTPAYMENTDATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>NEXTPAYMENTDATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>STRIKEDATE</design:name>
+              <design:position>23</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>STRIKEDATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>STRIKEDATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TRADEMARKET</design:name>
+              <design:position>24</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>3</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TRADEMARKET</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TRADEMARKET</design:label>
+            <design:formattingHints>
+              <design:displaySize>3</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="NewStyle9" id="167">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+            <property name="paddingTop">6pt</property>
+            <property name="paddingLeft">5pt</property>
+            <property name="paddingBottom">3pt</property>
+            <property name="paddingRight">5pt</property>
+            <property name="width">100px</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="rightMargin">8.229166666666666in</property>
+            <property name="height">11in</property>
+            <property name="width">35in</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="9">
+            <property name="width">19.354166666666668in</property>
+            <property name="dataSet">balance</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">I_CODE</property>
+                    <text-property name="displayName">I_CODE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["I_CODE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">A_TYPE</property>
+                    <text-property name="displayName">A_TYPE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["A_TYPE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">M_TYPE</property>
+                    <text-property name="displayName">M_TYPE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["M_TYPE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">POSITIONSHARE</property>
+                    <text-property name="displayName">POSITIONSHARE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["POSITIONSHARE"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">TRADEDATE</property>
+                    <text-property name="displayName">TRADEDATE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TRADEDATE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">ALLCOST</property>
+                    <text-property name="displayName">ALLCOST</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ALLCOST"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">BONDNAME</property>
+                    <text-property name="displayName">BONDNAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["BONDNAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">NETPRICE</property>
+                    <text-property name="displayName">NETPRICE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NETPRICE"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">ALLPRICE</property>
+                    <text-property name="displayName">ALLPRICE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ALLPRICE"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">YTM</property>
+                    <text-property name="displayName">YTM</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["YTM"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">DURATION</property>
+                    <text-property name="displayName">DURATION</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DURATION"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">COUPON</property>
+                    <text-property name="displayName">COUPON</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["COUPON"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">EVALNETPRICE</property>
+                    <text-property name="displayName">EVALNETPRICE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["EVALNETPRICE"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">EVALYIELD</property>
+                    <text-property name="displayName">EVALYIELD</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["EVALYIELD"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">EVALNETPRICEGANDL</property>
+                    <text-property name="displayName">EVALNETPRICEGANDL</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["EVALNETPRICEGANDL"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">EVALNETALLPRICEGANDL</property>
+                    <text-property name="displayName">EVALNETALLPRICEGANDL</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["EVALNETALLPRICEGANDL"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">ALLPRICEGANDL</property>
+                    <text-property name="displayName">ALLPRICEGANDL</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ALLPRICEGANDL"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">EVAL.FULLPRICE*SS.REAL_VOLUME</property>
+                    <text-property name="displayName">EVAL.FULLPRICE*SS.REAL_VOLUME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["EVAL.FULLPRICE*SS.REAL_VOLUME"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">ISSUERGRADE</property>
+                    <text-property name="displayName">ISSUERGRADE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ISSUERGRADE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">TBNDGRAGE</property>
+                    <text-property name="displayName">TBNDGRAGE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TBNDGRAGE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">MTRDATE</property>
+                    <text-property name="displayName">MTRDATE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MTRDATE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">NEXTPAYMENTDATE</property>
+                    <text-property name="displayName">NEXTPAYMENTDATE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NEXTPAYMENTDATE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">STRIKEDATE</property>
+                    <text-property name="displayName">STRIKEDATE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["STRIKEDATE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">TRADEMARKET</property>
+                    <text-property name="displayName">TRADEMARKET</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TRADEMARKET"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="133">
+                <property name="width">1.8in</property>
+            </column>
+            <column id="136">
+                <property name="width">1in</property>
+            </column>
+            <column id="171">
+                <property name="width">1.2in</property>
+            </column>
+            <column id="137">
+                <property name="width">1in</property>
+            </column>
+            <column id="139">
+                <property name="repeat">1</property>
+                <property name="width">2in</property>
+            </column>
+            <column id="144">
+                <property name="repeat">1</property>
+                <property name="width">1in</property>
+            </column>
+            <column id="142">
+                <property name="repeat">1</property>
+                <property name="width">1.2in</property>
+            </column>
+            <column id="141">
+                <property name="repeat">1</property>
+                <property name="width">1.1in</property>
+            </column>
+            <column id="138">
+                <property name="width">1.1in</property>
+            </column>
+            <column id="143">
+                <property name="width">1in</property>
+            </column>
+            <column id="145">
+                <property name="width">1in</property>
+            </column>
+            <column id="146">
+                <property name="width">2.2in</property>
+            </column>
+            <column id="147">
+                <property name="width">1.3in</property>
+            </column>
+            <column id="148">
+                <property name="width">1in</property>
+            </column>
+            <column id="149">
+                <property name="width">1in</property>
+            </column>
+            <column id="150">
+                <property name="width">1.3in</property>
+            </column>
+            <column id="151">
+                <property name="width">1in</property>
+            </column>
+            <column id="152">
+                <property name="width">1in</property>
+            </column>
+            <column id="153">
+                <property name="width">1in</property>
+            </column>
+            <column id="154">
+                <property name="width">1.3in</property>
+            </column>
+            <column id="155">
+                <property name="width">1in</property>
+            </column>
+            <column id="156">
+                <property name="width">1in</property>
+            </column>
+            <header>
+                <row id="10">
+                    <cell id="11">
+                        <property name="style">NewStyle9</property>
+                        <label id="12">
+                            <text-property name="text">代码	</text-property>
+                        </label>
+                    </cell>
+                    <cell id="17">
+                        <property name="style">NewStyle9</property>
+                        <label id="18">
+                            <text-property name="text">份额(万元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="168">
+                        <property name="style">NewStyle9</property>
+                        <label id="172">
+                            <text-property name="text">买入净价(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="19">
+                        <property name="style">NewStyle9</property>
+                        <label id="20">
+                            <text-property name="text">买入日期</text-property>
+                        </label>
+                    </cell>
+                    <cell id="23">
+                        <property name="style">NewStyle9</property>
+                        <label id="24">
+                            <text-property name="text">债券名称</text-property>
+                        </label>
+                    </cell>
+                    <cell id="33">
+                        <property name="style">NewStyle9</property>
+                        <label id="34">
+                            <text-property name="text">票面利率</text-property>
+                        </label>
+                    </cell>
+                    <cell id="29">
+                        <property name="style">NewStyle9</property>
+                        <label id="30">
+                            <text-property name="text">买入收益率(%)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="27">
+                        <property name="style">NewStyle9</property>
+                        <label id="28">
+                            <text-property name="text">买入全价(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="21">
+                        <property name="style">NewStyle9</property>
+                        <label id="22">
+                            <text-property name="text">全价成本(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="31">
+                        <property name="style">NewStyle9</property>
+                        <label id="32">
+                            <text-property name="text">久期(行权）</text-property>
+                        </label>
+                    </cell>
+                    <cell id="35">
+                        <property name="style">NewStyle9</property>
+                        <label id="36">
+                            <text-property name="text">估值净价(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="37">
+                        <property name="style">NewStyle9</property>
+                        <label id="38">
+                            <text-property name="text">估值收益率（中债收益率）</text-property>
+                        </label>
+                    </cell>
+                    <cell id="39">
+                        <property name="style">NewStyle9</property>
+                        <label id="40">
+                            <text-property name="text">估值净价损益(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="41">
+                        <property name="style">NewStyle9</property>
+                        <label id="42">
+                            <text-property name="text">估值损益(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="43">
+                        <property name="style">NewStyle9</property>
+                        <label id="44">
+                            <text-property name="text">估值全价(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="45">
+                        <property name="style">NewStyle9</property>
+                        <label id="46">
+                            <text-property name="text">估值全价价值(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="47">
+                        <property name="style">NewStyle9</property>
+                        <label id="48">
+                            <text-property name="text">主体评级</text-property>
+                        </label>
+                    </cell>
+                    <cell id="49">
+                        <property name="style">NewStyle9</property>
+                        <label id="50">
+                            <text-property name="text">债项评级</text-property>
+                        </label>
+                    </cell>
+                    <cell id="51">
+                        <property name="style">NewStyle9</property>
+                        <label id="52">
+                            <text-property name="text">到期日</text-property>
+                        </label>
+                    </cell>
+                    <cell id="53">
+                        <property name="style">NewStyle9</property>
+                        <label id="54">
+                            <text-property name="text">付息日（下一个）</text-property>
+                        </label>
+                    </cell>
+                    <cell id="55">
+                        <property name="style">NewStyle9</property>
+                        <label id="56">
+                            <text-property name="text">行权日</text-property>
+                        </label>
+                    </cell>
+                    <cell id="57">
+                        <property name="style">NewStyle9</property>
+                        <label id="58">
+                            <text-property name="text">交易场所</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="59">
+                    <cell id="60">
+                        <property name="style">NewStyle9</property>
+                        <data id="61">
+                            <property name="resultSetColumn">I_CODE</property>
+                        </data>
+                    </cell>
+                    <cell id="66">
+                        <property name="style">NewStyle9</property>
+                        <data id="67">
+                            <property name="resultSetColumn">POSITIONSHARE</property>
+                        </data>
+                    </cell>
+                    <cell id="169">
+                        <property name="style">NewStyle9</property>
+                        <data id="173">
+                            <property name="resultSetColumn">NETPRICE</property>
+                        </data>
+                    </cell>
+                    <cell id="68">
+                        <property name="style">NewStyle9</property>
+                        <data id="69">
+                            <property name="resultSetColumn">TRADEDATE</property>
+                        </data>
+                    </cell>
+                    <cell id="72">
+                        <property name="style">NewStyle9</property>
+                        <data id="73">
+                            <property name="resultSetColumn">BONDNAME</property>
+                        </data>
+                    </cell>
+                    <cell id="82">
+                        <property name="style">NewStyle9</property>
+                        <data id="83">
+                            <property name="resultSetColumn">COUPON</property>
+                        </data>
+                    </cell>
+                    <cell id="78">
+                        <property name="style">NewStyle9</property>
+                        <data id="79">
+                            <property name="resultSetColumn">YTM</property>
+                        </data>
+                    </cell>
+                    <cell id="76">
+                        <property name="style">NewStyle9</property>
+                        <data id="77">
+                            <property name="resultSetColumn">ALLPRICE</property>
+                        </data>
+                    </cell>
+                    <cell id="70">
+                        <property name="style">NewStyle9</property>
+                        <data id="71">
+                            <property name="resultSetColumn">ALLCOST</property>
+                        </data>
+                    </cell>
+                    <cell id="80">
+                        <property name="style">NewStyle9</property>
+                        <data id="81">
+                            <property name="resultSetColumn">DURATION</property>
+                        </data>
+                    </cell>
+                    <cell id="84">
+                        <property name="style">NewStyle9</property>
+                        <data id="85">
+                            <property name="resultSetColumn">EVALNETPRICE</property>
+                        </data>
+                    </cell>
+                    <cell id="86">
+                        <property name="style">NewStyle9</property>
+                        <data id="87">
+                            <property name="resultSetColumn">EVALYIELD</property>
+                        </data>
+                    </cell>
+                    <cell id="88">
+                        <property name="style">NewStyle9</property>
+                        <data id="89">
+                            <property name="resultSetColumn">EVALNETPRICEGANDL</property>
+                        </data>
+                    </cell>
+                    <cell id="90">
+                        <property name="style">NewStyle9</property>
+                        <data id="91">
+                            <property name="resultSetColumn">EVALNETALLPRICEGANDL</property>
+                        </data>
+                    </cell>
+                    <cell id="92">
+                        <property name="style">NewStyle9</property>
+                        <data id="93">
+                            <property name="resultSetColumn">ALLPRICEGANDL</property>
+                        </data>
+                    </cell>
+                    <cell id="94">
+                        <property name="style">NewStyle9</property>
+                        <data id="95">
+                            <property name="resultSetColumn">EVAL.FULLPRICE*SS.REAL_VOLUME</property>
+                        </data>
+                    </cell>
+                    <cell id="96">
+                        <property name="style">NewStyle9</property>
+                        <data id="97">
+                            <property name="resultSetColumn">ISSUERGRADE</property>
+                        </data>
+                    </cell>
+                    <cell id="98">
+                        <property name="style">NewStyle9</property>
+                        <data id="99">
+                            <property name="resultSetColumn">TBNDGRAGE</property>
+                        </data>
+                    </cell>
+                    <cell id="100">
+                        <property name="style">NewStyle9</property>
+                        <data id="101">
+                            <property name="resultSetColumn">MTRDATE</property>
+                        </data>
+                    </cell>
+                    <cell id="102">
+                        <property name="style">NewStyle9</property>
+                        <data id="103">
+                            <property name="resultSetColumn">NEXTPAYMENTDATE</property>
+                        </data>
+                    </cell>
+                    <cell id="104">
+                        <property name="style">NewStyle9</property>
+                        <data id="105">
+                            <property name="resultSetColumn">STRIKEDATE</property>
+                        </data>
+                    </cell>
+                    <cell id="106">
+                        <property name="style">NewStyle9</property>
+                        <data id="107">
+                            <property name="resultSetColumn">TRADEMARKET</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="108">
+                    <cell id="109"/>
+                    <cell id="112"/>
+                    <cell id="170"/>
+                    <cell id="113"/>
+                    <cell id="115"/>
+                    <cell id="120"/>
+                    <cell id="118"/>
+                    <cell id="117"/>
+                    <cell id="114"/>
+                    <cell id="119"/>
+                    <cell id="121"/>
+                    <cell id="122"/>
+                    <cell id="123"/>
+                    <cell id="124"/>
+                    <cell id="125"/>
+                    <cell id="126"/>
+                    <cell id="127"/>
+                    <cell id="128"/>
+                    <cell id="129"/>
+                    <cell id="130"/>
+                    <cell id="131"/>
+                    <cell id="132"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

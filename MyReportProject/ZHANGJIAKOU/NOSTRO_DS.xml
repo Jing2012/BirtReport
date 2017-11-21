@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mapper>
+	<select id="sql1">
+		select  (select curr_date from ttrd_currdate) as 日期,
+       i.i_name as 机构名称,
+       ii.org_id as 机构号,
+       tr.ord_id as 审批单号,
+       tr_type.description as 业务种类,
+       ii.CORE_SYS_CUSTOMER_CODE as 客户号,
+       ii.i_fullname as 客户全称,
+       dic.dict_value as 币种,
+       TRIM(to_char(cast((tr.ordamount) as decimal(31,6)),'999,999,999,990.99')) as 金额,
+       TRIM(to_char(cast(tr.bnd_ytm * 100 as decimal(31,6)),'999,999,999,990.9999')) as 年利率,
+       case
+         when cashExt.payment_freq = '0D' then
+          '利随本清'
+         when cashExt.payment_freq = '1Y' then
+          '每年一次'
+         when cashExt.payment_freq = '6M' then
+          '半年一次'
+         when cashExt.payment_freq = '3M' then
+          '每季一次'
+         when cashExt.payment_freq = '1M' then
+          '每月一次'
+         when cashExt.payment_freq = '-1' then
+          '不结息'
+       end as 付息频率,
+       tr.operator as 经办人,
+       tr.party_bank_name as 开户行名称,
+       tr.party_bank_code as 开户行号,
+       tr.party_acct_name as 活期账户名称,
+       tr.party_acct_code as 活期账户,
+       cash.accname as 内部账户,
+	    TRIM(to_char(cast(tr.due_cp as decimal(31,6)),'999,999,999,990.99')) as 应收本金,
+		TRIM(to_char(cast(tr.due_ai as decimal(31,6)),'999,999,999,990.99')) as 应收利息,
+		TRIM(to_char(cast((tr.due_cp+tr.due_ai) as decimal(31,6)),'999,999,999,990.99')) as 应收金额,
+		TRIM(to_char(cast(tr.real_cp as decimal(31,6)),'999,999,999,990.99')) as 实收本金,
+		TRIM(to_char(cast(tr.real_ai as decimal(31,6)),'999,999,999,990.99')) as 实收利息,
+		TRIM(to_char(cast(tr.ordamount as decimal(31,6)),'999,999,999,990.99')) as 实收金额,
+		'A/360' as 计息基准
+
+  FROM TTRD_OTC_TRADE tr
+  left join ttrd_acc_cash cash on tr.cp_cash_accid=cash.accid
+  left join ttrd_acc_cash_ext cashExt on tr.party_zzdacccode=cashExt.accid
+  LEFT JOIN ttrd_auth_user u
+    on tr.operator_id = u.user_id
+  LEFT JOIN TTRD_INSTITUTION i
+    ON u.i_id = TO_CHAR(i.i_id)
+  left join ttrd_institution ii
+    on tr.partyid = ii.i_id
+  LEFT JOIN ttrd_trade_type tr_type
+    on tr.trdtype = tr_type.trd_type
+  left join ttrd_instrument instrument
+    on tr.i_code = instrument.i_code
+  left join ttrd_dict_mult_lang dic
+    on instrument.currency = dic.dict_key
+	and dic.dict_sub_type='currency'
+ where tr.ord_id = (select distinct trr.ord_id
+                      FROM TTRD_OTC_TRADE trr
+                     where trr.sysordid = #{sysOrdId})
+   and tr.ref_sysordid is null and  tr.ordstatus&lt;0
+	</select>
+</mapper>

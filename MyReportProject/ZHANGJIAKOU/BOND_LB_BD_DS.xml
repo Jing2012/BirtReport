@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mapper>
+	<select id="sql">
+select TRIM(to_char(cast(lb.rate*100 as decimal(31,6)),'999,999,999,990.9999')) as 借贷费率,
+       TRIM(to_char(cast(lb.feeamount as decimal(31,6)),'999,999,999,990.99')) as 借贷费用,
+       lb.term as 实际占款天数,
+		case
+			 when lb.daycount = 'Actual/360' then
+			  'A/360'
+			 when lb.daycount = 'Actual/365' then
+			  'A/365F'
+			 when lb.daycount = 'Actual/365 (Fixed)' then
+			  'A/365'
+			 when lb.daycount = 'Actual/Actual (ISMA)' then
+			  'A/A(ISMA)'
+			 when lb.daycount = '30/360 (Bond Basis)' then
+			  '30/360'
+			 else
+			  'A/365'
+		end as 计息基准,
+       case
+        when lb.paykind = 0 then
+          '首期支付'
+         when lb.paykind = 1 then
+          '到期支付'
+         else
+          ''
+       end as 费用支付方式,
+       lb.fstsetdate as 首期结算日期,
+       case
+        when lb.fstsettype = '0005' then
+          '券券对付(BVB)'
+         when lb.fstsetdate = '0006' then
+          '券费对付(BVP)'
+         when lb.fstsetdate = '0007' then
+          '返券付费解券(BVBF)'
+         else
+          '未知'
+       end as 首期结算方式,
+       lb.endsetdate as 到期结算日期,
+       case
+        when lb.endsettype = '0005' then
+          '券券对付(BVB)'
+         when lb.endsettype = '0006' then
+          '券费对付(BVP)'
+         when lb.endsettype = '0007' then
+          '返券付费解券(BVBF)'
+         else
+          '未知'
+       end as 到期结算方式,
+	   (select curr_date from ttrd_currdate) as 日期,
+       tr.ord_id as 审批单号,
+       i.i_name as 机构名称,
+       tr_type.description as 业务种类,
+       ii.CORE_SYS_CUSTOMER_CODE as 客户号,
+       ii.i_fullname as 客户全称,
+       TRIM(to_char(cast(tr.ordcount/10000 as decimal(31,6)),'999,999,999,990.99')) as 券面总额,
+       tr.orddate as 交易日期,
+       TRIM(to_char(cast(tr.bnd_ytm*100 as decimal(31,6)),'999,999,999,990.9999')) as 到期收益率,
+       TRIM(to_char(cast(tr.bnd_aiamount as decimal(31,6)),'999,999,999,990.99')) as 总应计利息,
+       TRIM(to_char(cast(tr.ordprice-tr.bnd_netprice as decimal(31,6)),'999,999,999,990.9999')) as 应计利息,
+	   TRIM(to_char(cast(tr.bnd_netprice as decimal(31,6)),'999,999,999,990.9999')) as 净价,
+       TRIM(to_char(cast(tr.bnd_netprice*tr.ordcount as decimal(31,6)),'999,999,999,990.99')) as 净价金额,
+       TRIM(to_char(cast(tr.ordprice as decimal(31,6)),'999,999,999,990.9999')) as 全价,
+       TRIM(to_char(cast(tr.ordprice*tr.ordcount as decimal(31,6)),'999,999,999,990.99')) as 全价金额,
+	   TRIM(to_char(cast(tr.trdfee as decimal(31,6)),'999,999,999,990.99')) as 实际借贷费用,
+	   TRIM(to_char(cast(tr.ordamount / 1 as decimal(31,6)),'999,999,999,990.99')) as 现金交割金额,
+	   TRIM(to_char(cast(tr.terminate_amount as decimal(31,6)),'999,999,999,990.99')) as 费用金额,
+	   TRIM(to_char(cast(tr.ordamount+tr.terminate_amount as decimal(31,6)),'999,999,999,990.99')) as 结算金额,
+	   tr.i_code as 产品代码,
+	   tr.i_name as 产品名称,
+       tr.operator as 经办人,
+       'T+' || to_char(tr.setdays) 清算速度,
+       tr.intordid as 成交单编号,
+       tb.i_code as 债券代码,
+       tb.b_name as 债券名称,
+       tb.p_class as 债券性质,
+       tb.b_issuer as 债券发行人,
+       tb.b_issue_date as 发行日期,
+       tb.b_start_date as 起息日期,
+       tb.b_mtr_date as 到期日期,
+       tb.b_list_date as 上市流通日,
+       case
+           when INSTR(tb.b_term,'D') > 0 then
+              REPLACE(tb.b_term,'D','日')
+           when INSTR(tb.b_term,'W') > 0 then
+                 REPLACE(tb.b_term,'W','周')
+           when INSTR(tb.b_term,'M') > 0 then
+                REPLACE(tb.b_term,'M','月')
+           when INSTR(tb.b_term,'Y') > 0 then
+                REPLACE(tb.b_term,'Y','年')
+           else
+                ''
+       end as 债券期限,
+	   lb.REPO_TERM as 借贷期限,
+	   lb.REPO_TRADE_VARIETY as 交易品种,
+	   (case when tr.resolve = '1' then '仲裁' else '诉讼' end) as 争议解决方式,
+	(case when tr.ignore_flag = 'Y' then '是' else '否' end) as 质押券转换安排,
+       case
+           when tb.b_pay_freq = '0D' then
+              '利随本清'
+           when tb.b_pay_freq = '1Y' then
+                 '每年一次'
+           when tb.b_pay_freq = '6M' then
+                '半年一次'
+           when tb.b_pay_freq = '3M' then
+                '每季一次'
+           when tb.b_pay_freq = '1M' then
+                '每月一次'
+           when tb.b_pay_freq = '-1' then
+                '不结息'
+           else
+                ''
+       end as 付息频率,
+       case
+           when tb.b_pay_bizday_convertion = 'Following' then
+              '下一交易日'
+           when tb.b_pay_bizday_convertion = 'Unadjusted' then
+                 '不调整'
+           else
+                ''
+       end as 付息方式,
+       case
+           when tb.b_coupon_type = '1' then
+              TRIM(to_char(cast(nvl(tb.b_coupon,0)*100 as decimal(31,6)),'999,999,999,990.9999'))
+           else
+                ''
+       end as 票面利率,
+        case
+           when tb.b_coupon_type = '2' then
+              CONCAT(TRIM(to_char(cast(nvl(tb.b_coupon,0)*10000 as decimal(31,6)),'999,999,999,990.99')),'')
+           else
+                ''
+       end as 利差,
+       tir.r_name as 基准利率,
+       g.b_grade as 债券主体评级
+  FROM TTRD_OTC_TRADE tr
+  LEFT JOIN ttrd_auth_user u
+    on tr.operator_id = u.user_id
+  LEFT JOIN TTRD_INSTITUTION i
+    ON u.i_id = TO_CHAR(i.i_id)
+  left join ttrd_institution ii
+    on tr.partyid = ii.i_id
+   left join TTRD_LB lb
+   on lb.i_code = tr.i_code
+    AND lb.a_type = tr.a_type
+    AND lb.m_type = tr.m_type
+    left join tbnd tb
+  on tb.i_code = lb.u_i_code
+    AND tb.a_type = lb.u_a_type
+    AND tb.m_type = lb.u_m_type
+    left join tir tir
+    on tir.i_code=tb.i_code_bench
+    and tir.a_type = tb.a_type_bench
+    and tir.m_type = tb.m_type_bench
+    left join (select tig.i_code,tere.b_grade 
+          from TINSTRUMENT_INST_GRADE tig,TBND_EXT_RATING_ENUM tere 
+          where tig.grade = tere.b_grade_number) g on tb.i_code = g.i_code
+  LEFT JOIN  ttrd_trade_type tr_type
+    on tr.trdtype = tr_type.trd_type
+ where tr.ord_id = (select distinct trr.ord_id
+                      FROM TTRD_OTC_TRADE trr
+                     where trr.sysordid = #{sysOrdId})
+   and tr.ref_sysordid is null and  tr.ordstatus&lt;0
+	</select>
+</mapper>

@@ -1,0 +1,1287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="124"
+ extends="xir_j2ee.XIR">
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@127.0.0.1:1521:orcl</property>
+            <property name="odaUser">XIR_TRDJ</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">eHBhcg==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="bankHandleDS" id="125">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">SETMONTH</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">SETMONTH</text-property>
+                    <text-property name="heading">SETMONTH</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BUY1</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">BUY1</text-property>
+                    <text-property name="heading">BUY1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">SELL1</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">SELL1</text-property>
+                    <text-property name="heading">SELL1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BUY2</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">BUY2</text-property>
+                    <text-property name="heading">BUY2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">SELL2</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">SELL2</text-property>
+                    <text-property name="heading">SELL2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BUY3</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">BUY3</text-property>
+                    <text-property name="heading">BUY3</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">SELL3</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">SELL3</text-property>
+                    <text-property name="heading">SELL3</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">DMONTH</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">DMONTH</text-property>
+                    <text-property name="heading">DMONTH</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BALANCE1</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">BALANCE1</text-property>
+                    <text-property name="heading">BALANCE1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BALANCE2</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">BALANCE2</text-property>
+                    <text-property name="heading">BALANCE2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BALANCE3</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">BALANCE3</text-property>
+                    <text-property name="heading">BALANCE3</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BALANCE4</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">BALANCE4</text-property>
+                    <text-property name="heading">BALANCE4</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BALANCE5</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">BALANCE5</text-property>
+                    <text-property name="heading">BALANCE5</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BEGYEAR1</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">BEGYEAR1</text-property>
+                    <text-property name="heading">BEGYEAR1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BEGYEAR2</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">BEGYEAR2</text-property>
+                    <text-property name="heading">BEGYEAR2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BEGYEAR3</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">BEGYEAR3</text-property>
+                    <text-property name="heading">BEGYEAR3</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BEGYEAR4</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">BEGYEAR4</text-property>
+                    <text-property name="heading">BEGYEAR4</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">SETMONTH</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">BUY1</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">SELL1</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">BUY2</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">SELL2</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">BUY3</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">SELL3</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">DMONTH</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">BALANCE1</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">BALANCE2</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">BALANCE3</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">BALANCE4</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">BALANCE5</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">BEGYEAR1</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">BEGYEAR2</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">BEGYEAR3</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">BEGYEAR4</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">SETMONTH</property>
+                    <property name="nativeName">SETMONTH</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">BUY1</property>
+                    <property name="nativeName">BUY1</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">SELL1</property>
+                    <property name="nativeName">SELL1</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">BUY2</property>
+                    <property name="nativeName">BUY2</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">SELL2</property>
+                    <property name="nativeName">SELL2</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">BUY3</property>
+                    <property name="nativeName">BUY3</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">SELL3</property>
+                    <property name="nativeName">SELL3</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">DMONTH</property>
+                    <property name="nativeName">DMONTH</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">BALANCE1</property>
+                    <property name="nativeName">BALANCE1</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">BALANCE2</property>
+                    <property name="nativeName">BALANCE2</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">BALANCE3</property>
+                    <property name="nativeName">BALANCE3</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">BALANCE4</property>
+                    <property name="nativeName">BALANCE4</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">BALANCE5</property>
+                    <property name="nativeName">BALANCE5</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">BEGYEAR1</property>
+                    <property name="nativeName">BEGYEAR1</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">BEGYEAR2</property>
+                    <property name="nativeName">BEGYEAR2</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">BEGYEAR3</property>
+                    <property name="nativeName">BEGYEAR3</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">BEGYEAR4</property>
+                    <property name="nativeName">BEGYEAR4</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[--《03：货币市场收益统计表(表样）-3.xls》银行间市场成员持券及操作情况统计表
+with inday as(
+select trunc(to_date('2016-06-01','yyyy-mm-dd'),'year') indate from dual
+),days as(
+SELECT dmonth, MIN(dates) dates 
+FROM (
+    select to_char((select indate from inday)-1,'yyyy-mm-dd') dates,'00' dmonth from dual
+    union all
+    select to_char(last_day((select indate from inday)),'yyyy-mm-dd'),'01' from dual
+    union all
+    select to_char(last_day(add_months((select indate from inday),1)),'yyyy-mm-dd'),'02' from dual
+    union all
+    select to_char(last_day(add_months((select indate from inday),2)),'yyyy-mm-dd'),'03' from dual
+    union all
+    select to_char(last_day(add_months((select indate from inday),3)),'yyyy-mm-dd'),'04' from dual
+    union all
+    select to_char(last_day(add_months((select indate from inday),4)),'yyyy-mm-dd'),'05' from dual
+    union all
+    select to_char(last_day(add_months((select indate from inday),5)),'yyyy-mm-dd'),'06' from dual
+    union all
+    select to_char(last_day(add_months((select indate from inday),6)),'yyyy-mm-dd'),'07' from dual
+    union all
+    select to_char(last_day(add_months((select indate from inday),7)),'yyyy-mm-dd'),'08' from dual
+    union all
+    select to_char(last_day(add_months((select indate from inday),8)),'yyyy-mm-dd'),'09' from dual
+    union all
+    select to_char(last_day(add_months((select indate from inday),9)),'yyyy-mm-dd'),'10' from dual
+    union all
+    select to_char(last_day(add_months((select indate from inday),10)),'yyyy-mm-dd'),'11' from dual
+    union all
+    select to_char(last_day(add_months((select indate from inday),11)),'yyyy-mm-dd'),'12' from dual
+    UNION ALL
+    SELECT '2016-06-01',SUBSTR('2016-06-01',6,2) FROM dual
+) WHERE dates<='2016-06-01' GROUP BY dmonth 
+),obj as (
+SELECT dmonth,
+       SUM(balance1) balance1,
+       SUM(balance2) balance2,
+       SUM(balance3) balance3,
+       SUM(balance4) balance4,
+       SUM(balance5) balance5,
+       SUM(begyear1) begyear1,
+       SUM(begyear2) begyear2,
+       SUM(begyear3) begyear3,
+       SUM(begyear4) begyear4
+FROM(
+    SELECT days.dmonth,--tbnd.p_class,
+    SUM(DECODE(tbnd.p_class,'国债',real_cp+ai,0)) balance1,
+    SUM(DECODE(tbnd.p_class,'政策性金融债',real_cp+ai,0)) balance2,
+    SUM(DECODE(tbnd.p_class,'中央银行票据',real_cp+ai,0)) balance3,
+    SUM(DECODE(tbnd.p_class,'国债',0,'政策性金融债',0,'中央银行票据',0,real_cp+ai)) balance4,
+    SUM(real_cp+ai) balance5,
+    SUM(DECODE(days.dmonth,'00',DECODE(tbnd.p_class,'国债',real_cp+ai,0),0)) begyear1,
+    SUM(DECODE(days.dmonth,'00',DECODE(tbnd.p_class,'政策性金融债',real_cp+ai,0),0)) begyear2,
+    SUM(DECODE(days.dmonth,'00',DECODE(tbnd.p_class,'中央银行票据',real_cp+ai,0),0)) begyear3,
+    SUM(DECODE(days.dmonth,'00',real_cp+ai,0)) begyear4
+    from (SELECT * FROM ttrd_accounting_secu_obj_his
+          UNION ALL
+          SELECT * FROM ttrd_accounting_secu_obj) obj
+    inner join days on obj.beg_date=days.dates
+    INNER JOIN tbnd ON obj.i_code=tbnd.i_code AND obj.a_type=tbnd.a_type AND obj.m_type=tbnd.m_type
+    GROUP BY days.dmonth,tbnd.p_class
+) GROUP BY dmonth
+),trade as (
+SELECT setmonth,SUM(buy1) buy1,SUM(sell1) sell1,SUM(buy2) buy2,SUM(sell2) sell2,SUM(buy3) buy3,SUM(sell3) sell3
+FROM(
+    SELECT setmonth,
+           SUM(decode(p_class,'国债',DECODE(trdtype,'0000000',ordamount,0),0)) buy1,
+           SUM(decode(p_class,'国债',DECODE(trdtype,'0000001',ordamount,0),0)) sell1,
+           SUM(decode(p_class,'政策性金融债',DECODE(trdtype,'0000000',ordamount,0),0)) buy2,
+           SUM(decode(p_class,'政策性金融债',DECODE(trdtype,'0000001',ordamount,0),0)) sell2,
+           SUM(decode(p_class,'中央银行票据',DECODE(trdtype,'0000000',ordamount,0),0)) buy3,
+           SUM(decode(p_class,'中央银行票据',DECODE(trdtype,'0000001',ordamount,0),0)) sell3
+    FROM (
+        select substr(t.setdate,6,2) setmonth,t.trdtype,t.ordamount,tbnd.p_class
+        from ttrd_otc_trade t
+        INNER JOIN tbnd ON t.i_code=tbnd.i_code AND t.a_type=tbnd.a_type AND t.m_type=tbnd.m_type
+        where t.trdtype in ('0000000','0000001')
+          and t.setdate >=(SELECT dates FROM days WHERE dmonth='00') --and t.setdate <= '2016-06-27' 
+          and t.ordstatus=4 
+          and t.insstatus=999
+          and t.ref_type in(1,3)
+    )GROUP BY setmonth,p_class,trdtype
+)GROUP BY setmonth)
+SELECT * FROM trade LEFT JOIN obj ON trade.setmonth=obj.dmonth
+]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="topMargin">10mm</property>
+            <property name="leftMargin">10mm</property>
+            <property name="rightMargin">10mm</property>
+            <property name="height">210mm</property>
+            <property name="width">420mm</property>
+            <property name="showHeaderOnFirst">false</property>
+            <property name="showFooterOnLast">false</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">0in</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="4">
+            <property name="fontFamily">"宋体"</property>
+            <property name="verticalAlign">middle</property>
+            <column id="5"/>
+            <row id="6">
+                <property name="fontWeight">bold</property>
+                <property name="textAlign">center</property>
+                <property name="height">8mm</property>
+                <cell id="7">
+                    <property name="verticalAlign">middle</property>
+                    <label id="18">
+                        <text-property name="text">银行间市场成员持券及操作情况统计表</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="8">
+                <property name="textAlign">left</property>
+                <property name="verticalAlign">middle</property>
+                <property name="height">6mm</property>
+                <cell id="9">
+                    <property name="verticalAlign">middle</property>
+                    <label id="19">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">（　   　年   　季）</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="10">
+                <property name="textAlign">left</property>
+                <property name="verticalAlign">middle</property>
+                <property name="height">6mm</property>
+                <cell id="11">
+                    <property name="verticalAlign">middle</property>
+                    <label id="20">
+                        <text-property name="text">填报单位：柳州银行股份有限公司</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="12">
+                <property name="height">6mm</property>
+                <cell id="13">
+                    <property name="verticalAlign">middle</property>
+                    <grid id="218">
+                        <column id="219"/>
+                        <column id="220"/>
+                        <row id="221">
+                            <cell id="222">
+                                <label id="224">
+                                    <text-property name="text">市场成员单位：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="223">
+                                <property name="textAlign">right</property>
+                                <label id="225">
+                                    <text-property name="text">单位：万元</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="14">
+                <cell id="15">
+                    <property name="verticalAlign">middle</property>
+                    <table id="56">
+                        <property name="dataSet">bankHandleDS</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">BUY1</property>
+                                <text-property name="displayName">BUY1</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["BUY1"]/10000</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">BUY2</property>
+                                <text-property name="displayName">BUY2</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["BUY2"]/10000</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">BUY3</property>
+                                <text-property name="displayName">BUY3</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["BUY3"]/10000</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">SELL1</property>
+                                <text-property name="displayName">SELL1</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["SELL1"]/10000</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">SELL2</property>
+                                <text-property name="displayName">SELL2</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["SELL2"]/10000</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">SELL3</property>
+                                <text-property name="displayName">SELL3</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["SELL3"]/10000</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">BALANCE1</property>
+                                <text-property name="displayName">BALANCE1</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["BALANCE1"]/10000</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">BALANCE2</property>
+                                <text-property name="displayName">BALANCE2</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["BALANCE2"]/10000</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">BALANCE3</property>
+                                <text-property name="displayName">BALANCE3</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["BALANCE3"]/10000</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">BALANCE4</property>
+                                <text-property name="displayName">BALANCE4</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["BALANCE4"]/10000</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">BALANCE5</property>
+                                <text-property name="displayName">BALANCE5</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["BALANCE5"]/10000</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">BEGYEAR1</property>
+                                <text-property name="displayName">BEGYEAR1</text-property>
+                                <expression name="expression" type="javascript">(dataSetRow["BALANCE1"]-dataSetRow["BEGYEAR1"])/10000</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">BEGYEAR2</property>
+                                <text-property name="displayName">BEGYEAR2</text-property>
+                                <expression name="expression" type="javascript">(dataSetRow["BALANCE2"]-dataSetRow["BEGYEAR2"])/10000</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">BEGYEAR3</property>
+                                <text-property name="displayName">BEGYEAR3</text-property>
+                                <expression name="expression" type="javascript">(dataSetRow["BALANCE3"]-dataSetRow["BEGYEAR3"])/10000</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">BEGYEAR4</property>
+                                <text-property name="displayName">BEGYEAR4</text-property>
+                                <expression name="expression" type="javascript">(dataSetRow["BALANCE5"]-dataSetRow["BEGYEAR4"])/10000</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <column id="108"/>
+                        <column id="109"/>
+                        <column id="110"/>
+                        <column id="111"/>
+                        <column id="112"/>
+                        <column id="113"/>
+                        <column id="114"/>
+                        <column id="115"/>
+                        <column id="116"/>
+                        <column id="117"/>
+                        <column id="118"/>
+                        <column id="119"/>
+                        <column id="120"/>
+                        <column id="121"/>
+                        <column id="122"/>
+                        <column id="123"/>
+                        <header>
+                            <row id="143">
+                                <property name="height">6mm</property>
+                                <cell id="144">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">3</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="160">
+                                        <text-property name="text">月份</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="145">
+                                    <property name="colSpan">15</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="161">
+                                        <text-property name="text">持债量市场操作情况</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                            <row id="126">
+                                <property name="height">6mm</property>
+                                <cell id="128">
+                                    <property name="colSpan">4</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="163">
+                                        <text-property name="text">国债</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="132">
+                                    <property name="colSpan">4</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="164">
+                                        <text-property name="text">政策性金融债</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="136">
+                                    <property name="colSpan">4</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="165">
+                                        <text-property name="text">央行票据</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="140">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="178">
+                                        <text-property name="text">其他&#13;
+债券&#13;
+余额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="141">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="179">
+                                        <text-property name="text">全部&#13;
+债券&#13;
+余额&#13;
+合计</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="142">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="180">
+                                        <text-property name="text">较年初&#13;
+增减额</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                            <row id="57">
+                                <cell id="59">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="166">
+                                        <text-property name="text">累计买入</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="60">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="169">
+                                        <text-property name="text">累计卖出</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="61">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="172">
+                                        <text-property name="text">年(月)末&#13;
+余额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="62">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="175">
+                                        <text-property name="text">较年初增减额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="63">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="167">
+                                        <text-property name="text">累计买入</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="64">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="170">
+                                        <text-property name="text">累计卖出</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="65">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="173">
+                                        <text-property name="text">年(月)末&#13;
+余额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="66">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="176">
+                                        <text-property name="text">较年初增减额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="67">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="168">
+                                        <text-property name="text">累计买入</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="68">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="171">
+                                        <text-property name="text">累计卖出</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="69">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="174">
+                                        <text-property name="text">年(月)末&#13;
+余额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="70">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="177">
+                                        <text-property name="text">较年初增减额</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="74">
+                                <cell id="75">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                </cell>
+                                <cell id="76">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="181">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">BUY1</property>
+                                    </data>
+                                </cell>
+                                <cell id="77">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="184">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">SELL1</property>
+                                    </data>
+                                </cell>
+                                <cell id="78">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="187">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">BALANCE1</property>
+                                    </data>
+                                </cell>
+                                <cell id="79">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="192">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">BEGYEAR1</property>
+                                    </data>
+                                </cell>
+                                <cell id="80">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="182">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">BUY2</property>
+                                    </data>
+                                </cell>
+                                <cell id="81">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="185">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">SELL2</property>
+                                    </data>
+                                </cell>
+                                <cell id="82">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="188">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">BALANCE2</property>
+                                    </data>
+                                </cell>
+                                <cell id="83">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="193">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">BEGYEAR2</property>
+                                    </data>
+                                </cell>
+                                <cell id="84">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="183">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">BUY3</property>
+                                    </data>
+                                </cell>
+                                <cell id="85">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="186">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">SELL3</property>
+                                    </data>
+                                </cell>
+                                <cell id="86">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="189">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">BALANCE3</property>
+                                    </data>
+                                </cell>
+                                <cell id="87">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="194">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">BEGYEAR3</property>
+                                    </data>
+                                </cell>
+                                <cell id="88">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="190">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">BALANCE4</property>
+                                    </data>
+                                </cell>
+                                <cell id="89">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="191">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">BALANCE5</property>
+                                    </data>
+                                </cell>
+                                <cell id="90">
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="195">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">BEGYEAR4</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                    </table>
+                </cell>
+            </row>
+            <row id="16">
+                <cell id="17">
+                    <property name="verticalAlign">middle</property>
+                    <grid id="196">
+                        <column id="197"/>
+                        <column id="198"/>
+                        <column id="199"/>
+                        <column id="200"/>
+                        <column id="201"/>
+                        <column id="202"/>
+                        <column id="203"/>
+                        <column id="204"/>
+                        <row id="205">
+                            <property name="textAlign">left</property>
+                            <property name="verticalAlign">middle</property>
+                            <cell id="206">
+                                <label id="214">
+                                    <text-property name="text">负责人：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="207"/>
+                            <cell id="208">
+                                <label id="215">
+                                    <text-property name="text">复核人：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="209"/>
+                            <cell id="210">
+                                <label id="216">
+                                    <text-property name="text">填报人：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="211"/>
+                            <cell id="212">
+                                <label id="217">
+                                    <text-property name="text">联系电话：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="213"/>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>

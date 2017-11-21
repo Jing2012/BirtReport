@@ -1,0 +1,968 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.6.0.v201606072122</property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="sys_trader" id="4">
+            <text-property name="promptText">交易员</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="begdate" id="5">
+            <text-property name="promptText">开始日期</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">yyyy-MM-dd</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="enddate" id="6">
+            <text-property name="promptText">截止日期</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">yyyy-MM-dd</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="sys_currencyPairDict" id="7">
+            <text-property name="promptText">货币对</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="sys_fxTradTypeDict" id="8">
+            <text-property name="promptText">交易类型</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="9"
+ extends="xir_j2ee.XIR">
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.68.73.155:1521:orcl</property>
+            <property name="odaUser">XIR_TRDJ</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">eHBhcg==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="10">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">sys_trader</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_2</property>
+                    <property name="paramName">begdate</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">2</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_3</property>
+                    <property name="paramName">enddate</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">3</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_4</property>
+                    <property name="paramName">sys_currencyPairDict</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">4</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_5</property>
+                    <property name="paramName">sys_fxTradTypeDict</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">5</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">序号</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">成交编号</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">外部成交编号</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">交割日期</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">交易来源</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">交易对手</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">交易日期</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">货币对</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">业务类型</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">交割货币1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">交割货币1金额</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">交割货币2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">交割货币2金额</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">交易员</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">序号</property>
+                    <property name="nativeName">序号</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">成交编号</property>
+                    <property name="nativeName">成交编号</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">外部成交编号</property>
+                    <property name="nativeName">外部成交编号</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">交割日期</property>
+                    <property name="nativeName">交割日期</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">交易来源</property>
+                    <property name="nativeName">交易来源</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">交易对手</property>
+                    <property name="nativeName">交易对手</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">交易日期</property>
+                    <property name="nativeName">交易日期</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">货币对</property>
+                    <property name="nativeName">货币对</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">业务类型</property>
+                    <property name="nativeName">业务类型</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">交割货币1</property>
+                    <property name="nativeName">交割货币1</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">交割货币1金额</property>
+                    <property name="nativeName">交割货币1金额</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">交割货币2</property>
+                    <property name="nativeName">交割货币2</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">交割货币2金额</property>
+                    <property name="nativeName">交割货币2金额</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">交易员</property>
+                    <property name="nativeName">交易员</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[WITH inputparam AS(
+SELECT ? INOPERATOR,
+? begdate,
+? enddate,
+? currpare,
+? fxtrdtype FROM dual
+)
+SELECT 
+ROW_NUMBER() OVER(ORDER BY S.INTORDID DESC) AS 序号,
+INTORDID 成交编号,
+EXTORDID 外部成交编号,
+SETDATE 交割日期,
+SOURCE_TYPE 交易来源,
+I_FULLNAME 交易对手,
+ORDDATE 交易日期,
+I_CODE 货币对,
+TRDTYPE 业务类型,
+B_CURR 交割货币1,
+ORDCOUNT 交割货币1金额,
+Q_CURR 交割货币2,
+ORDAMOUNT 交割货币2金额,
+TRADER 交易员
+FROM (
+  SELECT
+  T.INTORDID,T.EXTORDID,
+  T.SETDATE,DECODE(SECU.ACTING_TYPE,27,'代客交易',DECODE(T.SOURCE_TYPE,1,'手工新建',2,'下行生成')) SOURCE_TYPE,
+  INST.I_FULLNAME,T.ORDDATE,T.I_CODE,
+  (SELECT DESCRIPTION FROM TTRD_TRADE_TYPE WHERE TRD_TYPE = T.TRDTYPE) TRDTYPE,
+  S.B_CURR,T.ORDCOUNT,S.Q_CURR,T.ORDAMOUNT,T.TRADER
+
+  FROM TTRD_OTC_TRADE T
+  INNER JOIN TFX S ON T.I_CODE = S.I_CODE AND T.A_TYPE = S.A_TYPE AND T.M_TYPE = S.M_TYPE
+  INNER JOIN TTRD_ACC_SECU SECU ON SECU.ACCID = T.SECU_ACCID
+  LEFT JOIN TTRD_INSTITUTION INST ON T.PARTYID = INST.I_ID,inputparam
+  WHERE T.ORDSTATUS=4 AND T.INSSTATUS=999 
+--AND SECU.I_ID='7516' --外汇机构
+  AND (decode(INOPERATOR,null,null,'null',null,'',null,INOPERATOR) is null OR T.OPERATOR IN(
+        SELECT regexp_substr(INOPERATOR,'[^,]+',1,ROWNUM) FROM dual
+        CONNECT BY ROWNUM<=LENGTH(INOPERATOR)-LENGTH(REPLACE(INOPERATOR,','))+1))--交易员参数
+  AND T.ORDDATE>=begdate
+  AND T.ORDDATE<=enddate
+  AND (decode(currpare,null,null,'null',null,'',null,currpare) is null OR T.i_code IN(
+        SELECT regexp_substr(currpare,'[^,]+',1,ROWNUM) FROM dual
+        CONNECT BY ROWNUM<=LENGTH(currpare)-LENGTH(REPLACE(currpare,','))+1))--货币对参数
+  AND (decode(fxtrdtype,null,null,'null',null,'',null,fxtrdtype) is null OR T.trdtype IN(
+        SELECT regexp_substr(fxtrdtype,'[^,]+',1,ROWNUM) FROM dual
+        CONNECT BY ROWNUM<=LENGTH(fxtrdtype)-LENGTH(REPLACE(fxtrdtype,','))+1))--业务类型参数
+  
+  UNION ALL
+  SELECT
+  T.INTORDID,
+  T.EXTORDID,
+  F.ENDSETDATE SETDATE,
+  DECODE(SECU.ACTING_TYPE,27,'代客交易',DECODE(T.SOURCE_TYPE,1,'手工新建',2,'下行生成')) SOURCE_TYPE,
+  PARTY.I_FULLNAME AS PARTYNAME,
+  T.ORDDATE,T.I_CODE,
+  (SELECT DESCRIPTION FROM TTRD_TRADE_TYPE WHERE TRD_TYPE = T.TRDTYPE) TRDTYPE,
+  F.B_CURR,
+  F.B_CURR_AMOUNT,
+  F.Q_CURR,
+  F.Q_CURR_AMOUNT,
+  T.TRADER
+  FROM TTRD_OTC_TRADE T
+  INNER JOIN TTRD_ACC_SECU SECU ON SECU.ACCID = T.SECU_ACCID
+  INNER JOIN TTRD_OTC_FX_FORWARD F ON T.I_CODE = F.I_CODE AND T.A_TYPE = F.A_TYPE AND T.M_TYPE = F.M_TYPE
+  LEFT JOIN TTRD_INSTITUTION PARTY ON T.PARTYID = PARTY.I_ID,inputparam
+  WHERE T.ORDSTATUS=4 AND T.INSSTATUS=999 
+  --AND SECU.I_ID='7516' --外汇机构
+  AND (decode(INOPERATOR,null,null,'null',null,'',null,INOPERATOR) is null OR T.OPERATOR IN(
+        SELECT regexp_substr(INOPERATOR,'[^,]+',1,ROWNUM) FROM dual
+        CONNECT BY ROWNUM<=LENGTH(INOPERATOR)-LENGTH(REPLACE(INOPERATOR,','))+1))--交易员参数
+  AND T.ORDDATE>=begdate
+  AND T.ORDDATE<=enddate
+  AND (decode(currpare,null,null,'null',null,'',null,currpare) is null OR T.i_code IN(
+        SELECT regexp_substr(currpare,'[^,]+',1,ROWNUM) FROM dual
+        CONNECT BY ROWNUM<=LENGTH(currpare)-LENGTH(REPLACE(currpare,','))+1))--货币对参数
+  AND (decode(fxtrdtype,null,null,'null',null,'',null,fxtrdtype) is null OR T.trdtype IN(
+        SELECT regexp_substr(fxtrdtype,'[^,]+',1,ROWNUM) FROM dual
+        CONNECT BY ROWNUM<=LENGTH(fxtrdtype)-LENGTH(REPLACE(fxtrdtype,','))+1))--业务类型参数
+        
+  UNION ALL
+  SELECT
+  T.INTORDID,T.EXTORDID,S.FAR_SETDATE,
+  DECODE(SECU.ACTING_TYPE,27,'代客交易',DECODE(T.SOURCE_TYPE,1,'手工新建',2,'下行生成')) SOURCE_TYPE,
+  INST.I_FULLNAME AS PARTYNAME,T.ORDDATE,T.I_CODE,
+  (SELECT DESCRIPTION FROM TTRD_TRADE_TYPE WHERE TRD_TYPE = T.TRDTYPE) TRDTYPE,
+  S.B_CURR,  S.FAR_B_CURR_AMOUNT,S.Q_CURR,S.FAR_Q_CURR_AMOUNT,
+  T.TRADER
+  FROM TTRD_OTC_TRADE T
+  INNER JOIN TTRD_OTC_FX_SWAP S ON T.I_CODE = S.I_CODE AND T.A_TYPE = S.A_TYPE AND T.M_TYPE = S.M_TYPE
+  INNER JOIN TTRD_ACC_SECU SECU ON SECU.ACCID = T.SECU_ACCID
+  LEFT JOIN TTRD_INSTITUTION INST ON T.PARTYID = INST.I_ID,inputparam
+  WHERE T.ORDSTATUS=4 AND T.INSSTATUS=999 
+  --AND SECU.I_ID='7516' --外汇机构
+  AND (decode(INOPERATOR,null,null,'null',null,'',null,INOPERATOR) is null OR T.OPERATOR IN(
+        SELECT regexp_substr(INOPERATOR,'[^,]+',1,ROWNUM) FROM dual
+        CONNECT BY ROWNUM<=LENGTH(INOPERATOR)-LENGTH(REPLACE(INOPERATOR,','))+1))--交易员参数
+  AND T.ORDDATE>=begdate
+  AND T.ORDDATE<=enddate
+  AND (decode(currpare,null,null,'null',null,'',null,currpare) is null OR T.i_code IN(
+        SELECT regexp_substr(currpare,'[^,]+',1,ROWNUM) FROM dual
+        CONNECT BY ROWNUM<=LENGTH(currpare)-LENGTH(REPLACE(currpare,','))+1))--货币对参数
+  AND (decode(fxtrdtype,null,null,'null',null,'',null,fxtrdtype) is null OR T.trdtype IN(
+        SELECT regexp_substr(fxtrdtype,'[^,]+',1,ROWNUM) FROM dual
+        CONNECT BY ROWNUM<=LENGTH(fxtrdtype)-LENGTH(REPLACE(fxtrdtype,','))+1))--业务类型参数
+  
+)S  
+  ]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="topMargin">10mm</property>
+            <property name="leftMargin">10mm</property>
+            <property name="rightMargin">10mm</property>
+            <property name="height">500mm</property>
+            <property name="width">500mm</property>
+            <property name="showHeaderOnFirst">false</property>
+            <property name="showFooterOnLast">false</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">0in</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="11">
+            <property name="fontFamily">"宋体"</property>
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">序号</property>
+                    <text-property name="displayName">序号</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["序号"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">成交编号</property>
+                    <text-property name="displayName">成交编号</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["成交编号"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">外部成交编号</property>
+                    <text-property name="displayName">外部成交编号</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["外部成交编号"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">交割日期</property>
+                    <text-property name="displayName">交割日期</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["交割日期"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">交易来源</property>
+                    <text-property name="displayName">交易来源</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["交易来源"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">交易对手</property>
+                    <text-property name="displayName">交易对手</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["交易对手"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">交易日期</property>
+                    <text-property name="displayName">交易日期</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["交易日期"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">货币对</property>
+                    <text-property name="displayName">货币对</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["货币对"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">业务类型</property>
+                    <text-property name="displayName">业务类型</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["业务类型"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">交割货币1</property>
+                    <text-property name="displayName">交割货币1</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["交割货币1"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">交割货币1金额</property>
+                    <text-property name="displayName">交割货币1金额</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["交割货币1金额"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">交割货币2</property>
+                    <text-property name="displayName">交割货币2</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["交割货币2"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">交割货币2金额</property>
+                    <text-property name="displayName">交割货币2金额</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["交割货币2金额"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">交易员</property>
+                    <text-property name="displayName">交易员</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["交易员"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="repeatHeader">false</property>
+            <property name="pageBreakInterval">0</property>
+            <column id="85"/>
+            <column id="86"/>
+            <column id="87"/>
+            <column id="88"/>
+            <column id="89"/>
+            <column id="90"/>
+            <column id="91"/>
+            <column id="92"/>
+            <column id="93"/>
+            <column id="94"/>
+            <column id="95"/>
+            <column id="96"/>
+            <column id="97"/>
+            <column id="98"/>
+            <header>
+                <row id="12">
+                    <cell id="13">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="14">
+                            <text-property name="text">序号</text-property>
+                        </label>
+                    </cell>
+                    <cell id="15">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="16">
+                            <text-property name="text">成交编号</text-property>
+                        </label>
+                    </cell>
+                    <cell id="17">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="18">
+                            <text-property name="text">外部成交编号</text-property>
+                        </label>
+                    </cell>
+                    <cell id="19">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="20">
+                            <text-property name="text">交割日期</text-property>
+                        </label>
+                    </cell>
+                    <cell id="21">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="22">
+                            <text-property name="text">交易来源</text-property>
+                        </label>
+                    </cell>
+                    <cell id="23">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="24">
+                            <text-property name="text">交易对手</text-property>
+                        </label>
+                    </cell>
+                    <cell id="25">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="26">
+                            <text-property name="text">交易日期</text-property>
+                        </label>
+                    </cell>
+                    <cell id="27">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="28">
+                            <text-property name="text">货币对</text-property>
+                        </label>
+                    </cell>
+                    <cell id="29">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="30">
+                            <text-property name="text">业务类型</text-property>
+                        </label>
+                    </cell>
+                    <cell id="31">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="32">
+                            <text-property name="text">交割货币1</text-property>
+                        </label>
+                    </cell>
+                    <cell id="33">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="34">
+                            <text-property name="text">交割货币1金额</text-property>
+                        </label>
+                    </cell>
+                    <cell id="35">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="36">
+                            <text-property name="text">交割货币2</text-property>
+                        </label>
+                    </cell>
+                    <cell id="37">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="38">
+                            <text-property name="text">交割货币2金额</text-property>
+                        </label>
+                    </cell>
+                    <cell id="39">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="40">
+                            <text-property name="text">交易员</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="41">
+                    <cell id="42">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="43">
+                            <property name="resultSetColumn">序号</property>
+                        </data>
+                    </cell>
+                    <cell id="44">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="45">
+                            <property name="resultSetColumn">成交编号</property>
+                        </data>
+                    </cell>
+                    <cell id="46">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="47">
+                            <property name="resultSetColumn">外部成交编号</property>
+                        </data>
+                    </cell>
+                    <cell id="48">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="49">
+                            <property name="resultSetColumn">交割日期</property>
+                        </data>
+                    </cell>
+                    <cell id="50">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="51">
+                            <property name="resultSetColumn">交易来源</property>
+                        </data>
+                    </cell>
+                    <cell id="52">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="53">
+                            <property name="resultSetColumn">交易对手</property>
+                        </data>
+                    </cell>
+                    <cell id="54">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="55">
+                            <property name="resultSetColumn">交易日期</property>
+                        </data>
+                    </cell>
+                    <cell id="56">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="57">
+                            <property name="resultSetColumn">货币对</property>
+                        </data>
+                    </cell>
+                    <cell id="58">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="59">
+                            <property name="resultSetColumn">业务类型</property>
+                        </data>
+                    </cell>
+                    <cell id="60">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="61">
+                            <property name="resultSetColumn">交割货币1</property>
+                        </data>
+                    </cell>
+                    <cell id="62">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="63">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">交割货币1金额</property>
+                        </data>
+                    </cell>
+                    <cell id="64">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="65">
+                            <property name="resultSetColumn">交割货币2</property>
+                        </data>
+                    </cell>
+                    <cell id="66">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="67">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">交割货币2金额</property>
+                        </data>
+                    </cell>
+                    <cell id="68">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="69">
+                            <property name="resultSetColumn">交易员</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>

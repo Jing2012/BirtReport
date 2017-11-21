@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <list-property name="includeScripts">
+        <property>xir_birt.js</property>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="mesg" id="832">
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="topMargin">0.5in</property>
+            <property name="leftMargin">0.5in</property>
+            <property name="bottomMargin">0.5in</property>
+            <property name="rightMargin">0.5in</property>
+            <property name="showHeaderOnFirst">false</property>
+            <property name="showFooterOnLast">false</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="4">
+            <property name="fontFamily">"宋体"</property>
+            <property name="borderBottomStyle">none</property>
+            <property name="borderLeftStyle">none</property>
+            <property name="borderRightStyle">none</property>
+            <property name="borderTopStyle">none</property>
+            <property name="marginTop">3mm</property>
+            <property name="marginLeft">3mm</property>
+            <property name="marginBottom">3mm</property>
+            <property name="marginRight">3mm</property>
+            <property name="verticalAlign">middle</property>
+            <property name="masterPage">Simple MasterPage</property>
+            <property name="pageBreakAfter">avoid</property>
+            <property name="pageBreakBefore">avoid</property>
+            <property name="pageBreakInside">avoid</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Json</property>
+                    <text-property name="displayName">Json</text-property>
+                    <expression name="expression" type="javascript">eval('('+decodeURIComponent(params["mesg"].value)+ ')')</expression>
+                    <property name="dataType">javaObject</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">20</property>
+                    <expression name="expression" type="javascript">row["Json"].S20</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">21</property>
+                    <expression name="expression" type="javascript">row["Json"].S21</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">22A</property>
+                    <expression name="expression" type="javascript">row["Json"].S22A</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">22C</property>
+                    <expression name="expression" type="javascript">row["Json"].S22C</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">82A</property>
+                    <expression name="expression" type="javascript">row["Json"].S82A</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">87A</property>
+                    <expression name="expression" type="javascript">row["Json"].S87A</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">30T</property>
+                    <expression name="expression" type="javascript">row["Json"].S30T</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">30V</property>
+                    <expression name="expression" type="javascript">row["Json"].S30V</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">36</property>
+                    <expression name="expression" type="javascript">row["Json"].S36.replace(",",".")</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">32B1</property>
+                    <expression name="expression" type="javascript">row["Json"].S32B.substr(0,3)</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">32B2</property>
+                    <expression name="expression" type="javascript">row["Json"].S32B.substr(3,row["Json"].S32B.length-3).replace(",",".")</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">57A</property>
+                    <expression name="expression" type="javascript">row["Json"].S57A1</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">33B1</property>
+                    <expression name="expression" type="javascript">row["Json"].S33B.substr(0,3)</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">33B2</property>
+                    <expression name="expression" type="javascript">row["Json"].S33B.substr(3,row["Json"].S33B.length-3).replace(",",".")</expression>
+                    <property name="dataType">float</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">53A</property>
+                    <expression name="expression" type="javascript">row["Json"].S53A</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">56A</property>
+                    <expression name="expression" type="javascript">row["Json"].S56A</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">57A2</property>
+                    <expression name="expression" type="javascript">row["Json"].S57A</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Input</property>
+                    <expression name="expression" type="javascript">row["Json"].input</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Output</property>
+                    <expression name="expression" type="javascript">row["Json"].output</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <column id="456">
+                <property name="width">220px</property>
+            </column>
+            <column id="72">
+                <property name="width">50px</property>
+            </column>
+            <column id="51">
+                <property name="width">130px</property>
+            </column>
+            <column id="81">
+                <property name="width">50px</property>
+            </column>
+            <column id="503">
+                <property name="width">220px</property>
+            </column>
+            <row id="9">
+                <property name="height">7mm</property>
+                <cell id="10">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">1</property>
+                    <property name="borderBottomStyle">dashed</property>
+                    <property name="borderBottomWidth">1px</property>
+                </cell>
+                <cell id="64">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">2</property>
+                    <property name="fontSize">11pt</property>
+                    <property name="textAlign">center</property>
+                    <property name="lineHeight">6mm</property>
+                    <property name="verticalAlign">middle</property>
+                    <text-data id="52">
+                        <expression name="valueExpr">"Printed from INPUT MESSAGE&lt;BR/>Instance Type and Transmission"</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="12">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">1</property>
+                    <property name="borderBottomStyle">dashed</property>
+                    <property name="borderBottomWidth">1px</property>
+                </cell>
+            </row>
+            <row id="14">
+                <property name="height">7mm</property>
+                <cell id="411">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">1</property>
+                </cell>
+                <cell id="17">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">1</property>
+                </cell>
+            </row>
+            <row id="771">
+                <cell id="772">
+                    <property name="colSpan">5</property>
+                    <property name="rowSpan">1</property>
+                    <grid id="779">
+                        <column id="780">
+                            <property name="width">255px</property>
+                        </column>
+                        <column id="781">
+                            <property name="width">11px</property>
+                        </column>
+                        <column id="782"/>
+                        <row id="783">
+                            <cell id="784">
+                                <label id="53">
+                                    <text-property name="text">Printed from input message Priority</text-property>
+                                </label>
+                            </cell>
+                            <cell id="785">
+                                <label id="795">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="786">
+                                <property name="verticalAlign">middle</property>
+                                <label id="798">
+                                    <text-property name="text">Normal</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="787">
+                            <cell id="788">
+                                <label id="54">
+                                    <text-property name="text">Message Output Reference</text-property>
+                                </label>
+                            </cell>
+                            <cell id="789">
+                                <label id="796">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="790">
+                                <data id="859">
+                                    <property name="resultSetColumn">Output</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="791">
+                            <cell id="792">
+                                <label id="55">
+                                    <text-property name="text">Correspondent Input Reference</text-property>
+                                </label>
+                            </cell>
+                            <cell id="793">
+                                <label id="797">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="794">
+                                <data id="858">
+                                    <property name="resultSetColumn">Input</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="34">
+                <property name="height">3.5mm</property>
+                <cell id="35">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <property name="borderBottomStyle">dashed</property>
+                    <property name="borderBottomWidth">1px</property>
+                </cell>
+                <cell id="49">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">2</property>
+                    <property name="fontSize">11pt</property>
+                    <property name="textAlign">center</property>
+                    <property name="lineHeight">6mm</property>
+                    <property name="verticalAlign">middle</property>
+                    <label id="57">
+                        <text-property name="text">Message Header</text-property>
+                    </label>
+                </cell>
+                <cell id="78">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <property name="borderBottomStyle">dashed</property>
+                    <property name="borderBottomWidth">1px</property>
+                </cell>
+            </row>
+            <row id="39">
+                <property name="height">3.5mm</property>
+                <cell id="416">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                </cell>
+                <cell id="79">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                </cell>
+            </row>
+            <row id="801">
+                <cell id="802">
+                    <property name="colSpan">5</property>
+                    <property name="rowSpan">1</property>
+                    <grid id="807">
+                        <column id="808">
+                            <property name="width">90px</property>
+                        </column>
+                        <column id="809">
+                            <property name="width">11px</property>
+                        </column>
+                        <column id="810"/>
+                        <row id="811">
+                            <cell id="812">
+                                <label id="813">
+                                    <text-property name="text">Swift Input</text-property>
+                                </label>
+                            </cell>
+                            <cell id="814">
+                                <label id="815">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="816">
+                                <label id="874">
+                                    <text-property name="text">FIN 300 Foreign Exchange Confirmation</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="818">
+                            <cell id="819">
+                                <label id="820">
+                                    <text-property name="text">Sender</text-property>
+                                </label>
+                            </cell>
+                            <cell id="821">
+                                <label id="822">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="823">
+                                <data id="860">
+                                    <property name="resultSetColumn">82A</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="825">
+                            <cell id="826">
+                                <label id="827">
+                                    <text-property name="text">Receiver</text-property>
+                                </label>
+                            </cell>
+                            <cell id="828">
+                                <label id="829">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="830">
+                                <data id="861">
+                                    <property name="resultSetColumn">87A</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="106">
+                <property name="height">3.5mm</property>
+                <cell id="107">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <property name="borderBottomStyle">dashed</property>
+                    <property name="borderBottomWidth">1px</property>
+                </cell>
+                <cell id="110">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">2</property>
+                    <property name="fontSize">11pt</property>
+                    <property name="textAlign">center</property>
+                    <property name="lineHeight">6mm</property>
+                    <property name="verticalAlign">middle</property>
+                    <label id="141">
+                        <text-property name="text">Message Text</text-property>
+                    </label>
+                </cell>
+                <cell id="111">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <property name="borderBottomStyle">dashed</property>
+                    <property name="borderBottomWidth">1px</property>
+                </cell>
+            </row>
+            <row id="130">
+                <property name="height">3.5mm</property>
+                <cell id="421">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                </cell>
+                <cell id="135">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                </cell>
+            </row>
+            <row id="544">
+                <cell id="545">
+                    <property name="colSpan">5</property>
+                    <property name="rowSpan">1</property>
+                    <grid id="554">
+                        <column id="555">
+                            <property name="width">35px</property>
+                        </column>
+                        <column id="556">
+                            <property name="width">10px</property>
+                        </column>
+                        <column id="557"/>
+                        <row id="558">
+                            <cell id="559">
+                                <label id="143">
+                                    <text-property name="text">15A</text-property>
+                                </label>
+                            </cell>
+                            <cell id="560">
+                                <label id="686">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="561">
+                                <label id="408">
+                                    <text-property name="text">New Sequence(A)</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="562">
+                            <cell id="563">
+                                <label id="152">
+                                    <text-property name="text">20</text-property>
+                                </label>
+                            </cell>
+                            <cell id="564">
+                                <label id="687">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="565">
+                                <label id="409">
+                                    <text-property name="text">Sender's Reference</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="566">
+                            <cell id="567"/>
+                            <cell id="568"/>
+                            <cell id="569">
+                                <data id="839">
+                                    <property name="resultSetColumn">20</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="570">
+                            <cell id="571">
+                                <label id="273">
+                                    <text-property name="text">21</text-property>
+                                </label>
+                            </cell>
+                            <cell id="572">
+                                <label id="691">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="573">
+                                <label id="504">
+                                    <text-property name="text">Related Reference</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="574">
+                            <cell id="575"/>
+                            <cell id="576"/>
+                            <cell id="577">
+                                <data id="840">
+                                    <property name="resultSetColumn">21</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="578">
+                            <cell id="579">
+                                <label id="274">
+                                    <text-property name="text">22A</text-property>
+                                </label>
+                            </cell>
+                            <cell id="580">
+                                <label id="692">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="581">
+                                <label id="505">
+                                    <text-property name="text">Type Of Operation</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="582">
+                            <cell id="583"/>
+                            <cell id="584"/>
+                            <cell id="585">
+                                <data id="842">
+                                    <property name="resultSetColumn">22A</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="586">
+                            <cell id="587">
+                                <label id="275">
+                                    <text-property name="text">22C</text-property>
+                                </label>
+                            </cell>
+                            <cell id="588">
+                                <label id="693">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="589">
+                                <label id="506">
+                                    <text-property name="text">Common Reference</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="590">
+                            <cell id="591"/>
+                            <cell id="592"/>
+                            <cell id="593">
+                                <data id="843">
+                                    <property name="resultSetColumn">22C</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="594">
+                            <cell id="595">
+                                <label id="276">
+                                    <text-property name="text">82A</text-property>
+                                </label>
+                            </cell>
+                            <cell id="596">
+                                <label id="694">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="597">
+                                <label id="507">
+                                    <text-property name="text">Party A - BIC</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="598">
+                            <cell id="599"/>
+                            <cell id="600"/>
+                            <cell id="601">
+                                <data id="845">
+                                    <property name="resultSetColumn">82A</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="602">
+                            <cell id="603">
+                                <label id="277">
+                                    <text-property name="text">87A</text-property>
+                                </label>
+                            </cell>
+                            <cell id="604">
+                                <label id="695">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="605">
+                                <label id="508">
+                                    <text-property name="text">Party B - BIC</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="606">
+                            <cell id="607"/>
+                            <cell id="608"/>
+                            <cell id="609">
+                                <data id="846">
+                                    <property name="resultSetColumn">87A</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="610">
+                            <cell id="611">
+                                <label id="278">
+                                    <text-property name="text">15B</text-property>
+                                </label>
+                            </cell>
+                            <cell id="612">
+                                <label id="696">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="613">
+                                <label id="509">
+                                    <text-property name="text">New Sequence(B)</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="618">
+                            <cell id="619">
+                                <label id="279">
+                                    <text-property name="text">30T</text-property>
+                                </label>
+                            </cell>
+                            <cell id="620">
+                                <label id="697">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="621">
+                                <label id="510">
+                                    <text-property name="text">Trade Date</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="622">
+                            <cell id="623"/>
+                            <cell id="624"/>
+                            <cell id="625">
+                                <data id="847">
+                                    <property name="resultSetColumn">30T</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="626">
+                            <cell id="627">
+                                <label id="280">
+                                    <text-property name="text">30V</text-property>
+                                </label>
+                            </cell>
+                            <cell id="628">
+                                <label id="698">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="629">
+                                <label id="511">
+                                    <text-property name="text">Value Date</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="630">
+                            <cell id="631"/>
+                            <cell id="632"/>
+                            <cell id="633">
+                                <data id="848">
+                                    <property name="resultSetColumn">30V</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="634">
+                            <cell id="635">
+                                <label id="369">
+                                    <text-property name="text">36</text-property>
+                                </label>
+                            </cell>
+                            <cell id="636">
+                                <label id="699">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="637">
+                                <label id="512">
+                                    <text-property name="text">Exchange Rate</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="638">
+                            <cell id="639"/>
+                            <cell id="640"/>
+                            <cell id="641">
+                                <data id="849">
+                                    <structure name="numberFormat">
+                                        <property name="category">Fixed</property>
+                                        <property name="pattern">#,##0.000000{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <property name="resultSetColumn">36</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="642">
+                            <cell id="643">
+                                <label id="370">
+                                    <text-property name="text">32B</text-property>
+                                </label>
+                            </cell>
+                            <cell id="644">
+                                <label id="700">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="645">
+                                <label id="521">
+                                    <text-property name="text">Currency,Amount</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="646">
+                            <cell id="647"/>
+                            <cell id="648"/>
+                            <cell id="649">
+                                <grid id="760">
+                                    <column id="761">
+                                        <property name="width">70px</property>
+                                    </column>
+                                    <column id="762">
+                                        <property name="width">11px</property>
+                                    </column>
+                                    <column id="763"/>
+                                    <row id="764">
+                                        <cell id="765">
+                                            <label id="766">
+                                                <text-property name="text">Currency</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="767">
+                                            <label id="768">
+                                                <text-property name="text">：</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="769">
+                                            <data id="850">
+                                                <property name="resultSetColumn">32B1</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                    <row id="879">
+                                        <cell id="880">
+                                            <label id="755">
+                                                <text-property name="text">Amount</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="881">
+                                            <label id="757">
+                                                <text-property name="text">：</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="882">
+                                            <text id="889">
+                                                <property name="contentType">html</property>
+                                                <text-property name="content"><![CDATA[#<VALUE-OF format="#,##0.00{RoundingMode=HALF_UP}">row["32B2"]</VALUE-OF>#]]></text-property>
+                                            </text>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                        <row id="654">
+                            <cell id="655">
+                                <label id="371">
+                                    <text-property name="text">57A</text-property>
+                                </label>
+                            </cell>
+                            <cell id="656">
+                                <label id="707">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="657">
+                                <label id="514">
+                                    <text-property name="text">Receiving Agent - FI BIC</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="658">
+                            <cell id="659"/>
+                            <cell id="660"/>
+                            <cell id="661">
+                                <data id="856">
+                                    <property name="resultSetColumn">57A</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="662">
+                            <cell id="663">
+                                <label id="372">
+                                    <text-property name="text">33B</text-property>
+                                </label>
+                            </cell>
+                            <cell id="664">
+                                <label id="708">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="665">
+                                <label id="515">
+                                    <text-property name="text">Currency,Amount</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="666">
+                            <cell id="667"/>
+                            <cell id="668"/>
+                            <cell id="669">
+                                <grid id="727">
+                                    <column id="728">
+                                        <property name="width">70px</property>
+                                    </column>
+                                    <column id="745">
+                                        <property name="width">11px</property>
+                                    </column>
+                                    <column id="729"/>
+                                    <row id="730">
+                                        <cell id="731">
+                                            <label id="733">
+                                                <text-property name="text">Currency</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="744">
+                                            <label id="746">
+                                                <text-property name="text">：</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="732">
+                                            <data id="855">
+                                                <property name="resultSetColumn">33B1</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                    <row id="875">
+                                        <cell id="876">
+                                            <label id="739">
+                                                <text-property name="text">Amount</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="877">
+                                            <label id="743">
+                                                <text-property name="text">：</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="878">
+                                            <text id="888">
+                                                <property name="contentType">html</property>
+                                                <text-property name="content"><![CDATA[#<VALUE-OF format="#,##0.00{RoundingMode=HALF_UP}">row["33B2"]</VALUE-OF>#]]></text-property>
+                                            </text>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                        <row id="674">
+                            <cell id="675">
+                                <label id="405">
+                                    <text-property name="text">53A</text-property>
+                                </label>
+                            </cell>
+                            <cell id="676">
+                                <label id="709">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="677">
+                                <label id="516">
+                                    <text-property name="text">Delivery Agent - FI BIC</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="678">
+                            <cell id="679"/>
+                            <cell id="680"/>
+                            <cell id="681">
+                                <data id="853">
+                                    <property name="resultSetColumn">53A</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="862">
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">if(row["Json"].S56A==undefined) {true}&#13;
+else {false}</expression>
+                                </structure>
+                            </list-property>
+                            <cell id="863">
+                                <label id="866">
+                                    <text-property name="text">56A</text-property>
+                                </label>
+                            </cell>
+                            <cell id="864">
+                                <label id="867">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="865">
+                                <label id="873">
+                                    <text-property name="text">Intermediary - FI BIC</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="868">
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">if(row["Json"].S56A==undefined) {true}&#13;
+else {false}</expression>
+                                </structure>
+                            </list-property>
+                            <cell id="869"/>
+                            <cell id="870"/>
+                            <cell id="871">
+                                <data id="872">
+                                    <property name="resultSetColumn">56A</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="682">
+                            <cell id="683">
+                                <label id="406">
+                                    <text-property name="text">57A</text-property>
+                                </label>
+                            </cell>
+                            <cell id="684">
+                                <label id="710">
+                                    <text-property name="text">：</text-property>
+                                </label>
+                            </cell>
+                            <cell id="685">
+                                <label id="517">
+                                    <text-property name="text">Receiving Agent - FI BIC</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="703">
+                            <cell id="704"/>
+                            <cell id="705"/>
+                            <cell id="706">
+                                <data id="852">
+                                    <property name="resultSetColumn">57A2</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="114">
+                <property name="height">3.5mm</property>
+                <cell id="115">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <property name="borderBottomStyle">dashed</property>
+                    <property name="borderBottomWidth">1px</property>
+                </cell>
+                <cell id="118">
+                    <property name="colSpan">1</property>
+                    <property name="rowSpan">2</property>
+                    <property name="fontSize">11pt</property>
+                    <property name="textAlign">center</property>
+                    <property name="verticalAlign">middle</property>
+                    <label id="142">
+                        <text-property name="text">Message Trailer</text-property>
+                    </label>
+                </cell>
+                <cell id="119">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <property name="borderBottomStyle">dashed</property>
+                    <property name="borderBottomWidth">1px</property>
+                </cell>
+            </row>
+            <row id="98">
+                <property name="height">3.5mm</property>
+                <cell id="455">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                </cell>
+                <cell id="103">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>

@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.6.0.v201606072122</property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="begdate" id="34">
+            <text-property name="promptText">日期</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">yyyy-MM-dd</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="4"
+ extends="xir_j2ee.XIR">
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.68.73.155:1521:orcl</property>
+            <property name="odaUser">XIR_TRDJ</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">eHBhcg==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="5">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">FLAG</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">FLAG</text-property>
+                    <text-property name="heading">FLAG</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">INDEX_CODE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">INDEX_CODE</text-property>
+                    <text-property name="heading">INDEX_CODE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">INDEX_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">INDEX_NAME</text-property>
+                    <text-property name="heading">INDEX_NAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">AMOUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">AMOUNT</text-property>
+                    <text-property name="heading">AMOUNT</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">begdate</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">FLAG</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">INDEX_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">INDEX_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">AMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">FLAG</property>
+                    <property name="nativeName">FLAG</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">INDEX_CODE</property>
+                    <property name="nativeName">INDEX_CODE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">INDEX_NAME</property>
+                    <property name="nativeName">INDEX_NAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">AMOUNT</property>
+                    <property name="nativeName">AMOUNT</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[with LOCALDEBIT as (
+	select '1' as FLAG,'34R50' as INDEX_CODE,'一、金融机构贷款核销额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '2' as FLAG,'34R51' as INDEX_CODE,'        其中：核销贷款转让差价' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '3' as FLAG,'34R52' as INDEX_CODE,'二、资产证券化贷款转让' as INDEX_NAME,NULL as AMOUNT FROM DUAL UNION ALL
+select '4' as FLAG,'34R53' as INDEX_CODE,'   （一）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '5' as FLAG,'34R54' as INDEX_CODE,'   （二）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '6' as FLAG,'34R55' as INDEX_CODE,'三、不同法人机构间贷款转让' as INDEX_NAME,NULL as AMOUNT FROM DUAL UNION ALL
+select '7' as FLAG,'34R56' as INDEX_CODE,'   （一）贷款转出' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '8' as FLAG,'34R57' as INDEX_CODE,'       1.向境内银行业存款类金融机构转出' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '9' as FLAG,'34R58' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '10' as FLAG,'34R59' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '11' as FLAG,'34R60' as INDEX_CODE,'       2.向境内银行业非存款类金融机构转出' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '12' as FLAG,'34R61' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '13' as FLAG,'34R62' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '14' as FLAG,'34R63' as INDEX_CODE,'       3.向境内证券业金融机构转出' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '15' as FLAG,'34R64' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '16' as FLAG,'34R65' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '17' as FLAG,'34R66' as INDEX_CODE,'       4.向境内保险业金融机构转出' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '18' as FLAG,'34R67' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '19' as FLAG,'34R68' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '20' as FLAG,'34R69' as INDEX_CODE,'       5.向境内交易及结算类金融机构转出' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '21' as FLAG,'34R70' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '22' as FLAG,'34R71' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '23' as FLAG,'34R72' as INDEX_CODE,'       6.向境内金融控股公司转出' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '24' as FLAG,'34R73' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '25' as FLAG,'34R74' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '26' as FLAG,'34R75' as INDEX_CODE,'       7.向境内特定目的载体转出' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '27' as FLAG,'34R76' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '28' as FLAG,'34R77' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '29' as FLAG,'34R78' as INDEX_CODE,'       8.向境内其他金融机构转出' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '30' as FLAG,'34R79' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '31' as FLAG,'34R80' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '32' as FLAG,'34R81' as INDEX_CODE,'       9.向境外金融机构转出' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '33' as FLAG,'34R82' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '34' as FLAG,'34R83' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '35' as FLAG,'34R84' as INDEX_CODE,'       10.向非金融企业转出' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '36' as FLAG,'34R85' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '37' as FLAG,'34R86' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '38' as FLAG,'34R1B' as INDEX_CODE,'       11. 向其他机构转出' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '39' as FLAG,'34R1C' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '40' as FLAG,'34R1D' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '41' as FLAG,'34R87' as INDEX_CODE,'   （二）贷款转入' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '42' as FLAG,'34R88' as INDEX_CODE,'       1.从境内银行业存款类金融机构转入' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '43' as FLAG,'34R89' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '44' as FLAG,'34R90' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '45' as FLAG,'34R91' as INDEX_CODE,'       2.从境内银行业非存款类金融机构转入' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '46' as FLAG,'34R92' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '47' as FLAG,'34R93' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '48' as FLAG,'34R94' as INDEX_CODE,'       3.从境内证券业金融机构转入' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '49' as FLAG,'34R95' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '50' as FLAG,'34R96' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '51' as FLAG,'34R97' as INDEX_CODE,'       4.从境内保险业金融机构转入' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '52' as FLAG,'34R98' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '53' as FLAG,'34R99' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '54' as FLAG,'34R0A' as INDEX_CODE,'       5.从境内交易及结算类金融机构转入' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '55' as FLAG,'34R0B' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '56' as FLAG,'34R0C' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '57' as FLAG,'34R0D' as INDEX_CODE,'       6.从境内金融控股公司转入' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '58' as FLAG,'34R0E' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '59' as FLAG,'34R0F' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '60' as FLAG,'34R0G' as INDEX_CODE,'       7.从境内特定目的载体转入' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '61' as FLAG,'34R0H' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '62' as FLAG,'34R0I' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '63' as FLAG,'34R0J' as INDEX_CODE,'       8.从境内其他金融机构转入' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '64' as FLAG,'34R0K' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '65' as FLAG,'34R0M' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '66' as FLAG,'34R0N' as INDEX_CODE,'       9.从境外金融机构转入' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '67' as FLAG,'34R0P' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '68' as FLAG,'34R0Q' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '69' as FLAG,'34R0R' as INDEX_CODE,'       10.从非金融企业转入' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '70' as FLAG,'34R0S' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '71' as FLAG,'34R0T' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '72' as FLAG,'34R1E' as INDEX_CODE,'       11. 从其他机构转入' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '73' as FLAG,'34R1F' as INDEX_CODE,'         （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '74' as FLAG,'34R1G' as INDEX_CODE,'         （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '75' as FLAG,'34R0U' as INDEX_CODE,'四、同一法人机构内贷款划转' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '76' as FLAG,'34R0V' as INDEX_CODE,'   1.向同一法人机构内其他单位转出贷款' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '77' as FLAG,'34R0W' as INDEX_CODE,'    （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '78' as FLAG,'34R0X' as INDEX_CODE,'    （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '79' as FLAG,'34R0Y' as INDEX_CODE,'   2.从同一法人机构内其他单位转入贷款' as INDEX_NAME,NULL AS  AMOUNT FROM DUAL UNION ALL
+select '80' as FLAG,'34R0Z' as INDEX_CODE,'    （1）贷款转让原值' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '81' as FLAG,'34R1A' as INDEX_CODE,'    （2）贷款转让协议金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '82' as FLAG,'34R1H' as INDEX_CODE,'五、政策性置换贷款金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '83' as FLAG,'34R1I' as INDEX_CODE,'    其中：地方政府债券置换贷款金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL 
+select '84' as FLAG,'34R1J' as INDEX_CODE,'附：地方政府债券投资金额 ' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '85' as FLAG,'34R1K' as INDEX_CODE,'        其中：定向承销置换债券投资金额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '86' as FLAG,'34R1M' as INDEX_CODE,'   地方政府债券投资余额' as INDEX_NAME,0 as AMOUNT FROM DUAL UNION ALL
+select '87' as FLAG,'34R1N' as INDEX_CODE,'        其中：定向承销置换债券投资余额' as INDEX_NAME,0 as AMOUNT FROM DUAL
+),
+inputdate as (select ? begdate from dual)
+select * from LOCALDEBIT where FLAG not in (84,85,86,87)
+union all
+select FLAG, INDEX_CODE, INDEX_NAME, (
+  SELECT SUM(T.ORDAMOUNT) 
+  FROM TTRD_OTC_TRADE T
+  INNER JOIN TTRD_INSTRUMENT I ON T.I_CODE=I.I_CODE AND T.A_TYPE=I.A_TYPE AND T.M_TYPE=I.M_TYPE
+  WHERE T.TRDTYPE='0000000' 
+  AND I.P_CLASS='地方政府债'
+  AND T.SETDATE >=(TO_CHAR(TRUNC(TO_DATE((select begdate from inputdate),'YYYY-MM-DD'),'YYYY'),'YYYY-MM-DD'))
+) AMOUNT from LOCALDEBIT where FLAG =84
+union all
+select * from LOCALDEBIT where FLAG=85
+union all
+select FLAG, INDEX_CODE, INDEX_NAME, (
+  SELECT SUM(T.real_amount+t.due_amount) 
+  FROM (SELECT i_code,a_type,m_type,real_amount,due_amount FROM Ttrd_Accounting_Secu_Obj WHERE beg_date=(select begdate from inputdate)
+        UNION ALL
+        SELECT i_code,a_type,m_type,real_amount,due_amount FROM Ttrd_Accounting_Secu_Obj_his WHERE beg_date=(select begdate from inputdate)) T
+  INNER JOIN TTRD_INSTRUMENT I ON T.I_CODE=I.I_CODE AND T.A_TYPE=I.A_TYPE AND T.M_TYPE=I.M_TYPE
+  WHERE I.P_CLASS='地方政府债'
+) AMOUNT from LOCALDEBIT where FLAG=86
+union all
+select * from LOCALDEBIT where FLAG=87
+
+
+
+
+
+]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>FLAG</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>38</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>FLAG</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>FLAG</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>INDEX_CODE</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>5</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>INDEX_CODE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>INDEX_CODE</design:label>
+            <design:formattingHints>
+              <design:displaySize>5</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>INDEX_NAME</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>50</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>INDEX_NAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>INDEX_NAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>50</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AMOUNT</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AMOUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AMOUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="topMargin">10mm</property>
+            <property name="leftMargin">10mm</property>
+            <property name="rightMargin">10mm</property>
+            <property name="showHeaderOnFirst">false</property>
+            <property name="showFooterOnLast">false</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="6">
+            <property name="fontFamily">"宋体"</property>
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">FLAG</property>
+                    <text-property name="displayName">FLAG</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FLAG"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">INDEX_CODE</property>
+                    <text-property name="displayName">INDEX_CODE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["INDEX_CODE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">INDEX_NAME</property>
+                    <text-property name="displayName">INDEX_NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["INDEX_NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">AMOUNT</property>
+                    <text-property name="displayName">AMOUNT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AMOUNT"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <property name="repeatHeader">false</property>
+            <property name="pageBreakInterval">0</property>
+            <column id="30">
+                <property name="width">20mm</property>
+            </column>
+            <column id="31">
+                <property name="width">30mm</property>
+            </column>
+            <column id="32">
+                <property name="width">90mm</property>
+            </column>
+            <column id="33">
+                <property name="width">45mm</property>
+            </column>
+            <header>
+                <row id="7">
+                    <cell id="8">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="9">
+                            <text-property name="text">序号</text-property>
+                        </label>
+                    </cell>
+                    <cell id="10">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="11">
+                            <text-property name="text">指标代码</text-property>
+                        </label>
+                    </cell>
+                    <cell id="12">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="13">
+                            <text-property name="text">指标名称</text-property>
+                        </label>
+                    </cell>
+                    <cell id="14">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="15">
+                            <text-property name="text">发生额</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="16">
+                    <cell id="17">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="18">
+                            <property name="resultSetColumn">FLAG</property>
+                        </data>
+                    </cell>
+                    <cell id="19">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="20">
+                            <property name="resultSetColumn">INDEX_CODE</property>
+                        </data>
+                    </cell>
+                    <cell id="21">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="22">
+                            <property name="resultSetColumn">INDEX_NAME</property>
+                        </data>
+                    </cell>
+                    <cell id="23">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="24">
+                            <structure name="numberFormat">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">AMOUNT</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>

@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">75</property>
+            <expression name="value" type="javascript">var query = "SELECT a.obj_id, a.beg_date, a.set_date, a.currency, a.amount, a.cash_acct_id, a.freeze_amount, a.usable_amount, b.accname, c.accname AS ext_accname, c.accid AS ext_accid, c.exhacc";&#13;
+var bizDate = params["bizDate"].value;&#13;
+var accId = params["accId"].value;&#13;
+var begDate = params["begDate"].value;&#13;
+var notShowNextDayBal = null;&#13;
+if(begDate == null || begDate == "") {&#13;
+	begDate = bizDate;&#13;
+}&#13;
+if(bizDate == begDate){&#13;
+	query = query + " FROM ttrd_blc_cash_obj a, ttrd_acc_cash b, ttrd_acc_cash_ext c";&#13;
+} else {&#13;
+	notShowNextDayBal = true;&#13;
+	query = query + " FROM ttrd_blc_cash_obj_his a, ttrd_acc_cash b, ttrd_acc_cash_ext c";&#13;
+}&#13;
+query = query + " WHERE a.cash_acct_id = b. accid AND a.ext_cash_acct_id = c.accid";&#13;
+if(accId != null &amp;&amp; accId != "") {&#13;
+	query = query + " AND a.cash_acct_id = '" + accId + "'";&#13;
+}&#13;
+if(notShowNextDayBal != null &amp;&amp; notShowNextDayBal != "") {&#13;
+	query = query + " AND a.beg_date = a.set_date";&#13;
+}&#13;
+if(begDate != null &amp;&amp; begDate != "") {&#13;
+	query = query + " AND a.beg_date = '" + begDate + "'" + " AND a.set_date = '" + begDate + "'";&#13;
+}&#13;
+query = query + " UNION";&#13;
+query = query + " SELECT max(a.obj_id), max(a.beg_date), max(a.set_date), max(a.currency), sum(a.amount), max(a.cash_acct_id), sum(a.freeze_amount), sum(a.usable_amount), max(b.accname), max(c.accname) AS ext_accname, max(c.accid) AS ext_accid, max(c.exhacc)";&#13;
+if(bizDate == begDate){&#13;
+	query = query + " FROM ttrd_blc_cash_obj a, ttrd_acc_cash b, ttrd_acc_cash_ext c";&#13;
+} else {&#13;
+	query = query + " FROM ttrd_blc_cash_obj_his a, ttrd_acc_cash b, ttrd_acc_cash_ext c";&#13;
+}&#13;
+query = query + " WHERE a.cash_acct_id = b. accid AND a.ext_cash_acct_id = c.accid";&#13;
+if(accId != null &amp;&amp; accId != "") {&#13;
+	query = query + " AND a.cash_acct_id = '" + accId + "'";&#13;
+}&#13;
+if(notShowNextDayBal != null &amp;&amp; notShowNextDayBal != "") {&#13;
+	query = query + " AND a.beg_date = a.set_date";&#13;
+}&#13;
+if(begDate != null &amp;&amp; notShowNextDayBal != "") {&#13;
+	query = query + " AND a.beg_date = '" + begDate + "'" + " AND a.set_date = '" + begDate + "'";&#13;
+}&#13;
+query = query + " GROUP BY a.cash_acct_id, a.ext_cash_acct_id";&#13;
+query = query + " ORDER BY cash_acct_id";&#13;
+&#13;
+this.queryText = query;</expression>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">75</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">75</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="theme">defaultTheme</property>
+    <parameters>
+        <scalar-parameter name="sys_bizDate" id="105">
+            <text-property name="promptText">当前业务日期</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="sys_institution" id="103">
+            <text-property name="promptText">当前登录机构号</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="sys_userId" id="100">
+            <text-property name="promptText">当前登录用户Id</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="sys_userName" id="102">
+            <text-property name="promptText">当前登录用户名</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="sys_i_code" id="111">
+            <text-property name="promptText">金融工具i_code</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="sys_a_type" id="112">
+            <text-property name="promptText">金融工具a_type</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="sys_m_type" id="113">
+            <text-property name="promptText">金融工具m_type</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="begDate" id="78">
+            <text-property name="helpText">yyyy-MM-dd</text-property>
+            <text-property name="promptText">开始日期</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">yyyy-MM-dd</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="endDate" id="110">
+            <text-property name="promptText">结束日期</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">yyyy-MM-dd</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="accId" id="76">
+            <text-property name="promptText">内部证券账户</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="bizDate" id="79">
+            <text-property name="helpText">yyyy-MM-dd</text-property>
+            <text-property name="promptText">业务日期</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="setDate" id="80">
+            <text-property name="helpText">yyyy-MM-dd</text-property>
+            <text-property name="promptText">结算日期</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="iCode" id="82">
+            <text-property name="promptText">iCode</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="blcType" id="83">
+            <text-property name="promptText">余额类型</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="invType" id="84">
+            <text-property name="promptText">投资类型</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="pTypeList" id="85">
+            <text-property name="promptText">投资类型列表</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="p_class" id="86">
+            <text-property name="promptText">产品分类</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="sysOrdId" id="94">
+            <text-property name="helpText">交易单序号</text-property>
+            <text-property name="promptText">审批单/交易单序号</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="instId" id="95">
+            <text-property name="promptText">主指令号</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="partyId" id="96">
+            <text-property name="promptText">交易对手Id</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="i_id" id="97">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="accCashExtId" id="98">
+            <text-property name="promptText">外部资金账户Id</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="flowId" id="99">
+            <text-property name="promptText">业务流水号</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="81">
+            <method name="beforeOpen"><![CDATA[//importPackage(Packages.java.io);
+//importPackage(Packages.java.util);
+//importPackage(Packages.java.lang); 
+//req = reportContext.getHttpServletRequest();        
+//propPath = "D:\\Work\\BIRT\\xirReport\\db.properties";
+//fin = new java.io.FileInputStream(propPath); 
+//props = new java.util.Properties(); 
+//props.load(fin); 
+//extensionProperties.odaURL = new String(props.getProperty("jdbc.url")); 
+//extensionProperties.odaDriverClass = new String(props.getProperty("jdbc.driver"));
+//extensionProperties.odaUser = new String(props.getProperty("jdbc.username")); 
+//extensionProperties.odaPassword = new String(props.getProperty("jdbc.password")); 
+//fin.close(); ]]></method>
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@191.168.0.55:1521:orcl</property>
+            <property name="odaUser">XIR_TRDJ</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">eHBhcg==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="CashBalance" id="75">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">BEG_DATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">BEG_DATE</text-property>
+                    <text-property name="heading">BEG_DATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">SET_DATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">SET_DATE</text-property>
+                    <text-property name="heading">SET_DATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CURRENCY</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">CURRENCY</text-property>
+                    <text-property name="heading">CURRENCY</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">AMOUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">AMOUNT</text-property>
+                    <text-property name="heading">AMOUNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CASH_ACCT_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">CASH_ACCT_ID</text-property>
+                    <text-property name="heading">CASH_ACCT_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FREEZE_AMOUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">FREEZE_AMOUNT</text-property>
+                    <text-property name="heading">FREEZE_AMOUNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">USABLE_AMOUNT</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">USABLE_AMOUNT</text-property>
+                    <text-property name="heading">USABLE_AMOUNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ACCNAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ACCNAME</text-property>
+                    <text-property name="heading">ACCNAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">EXT_ACCNAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">EXT_ACCNAME</text-property>
+                    <text-property name="heading">EXT_ACCNAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">EXT_ACCID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">EXT_ACCID</text-property>
+                    <text-property name="heading">EXT_ACCID</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">BEG_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">SET_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">CURRENCY</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">AMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">CASH_ACCT_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">FREEZE_AMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">USABLE_AMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">ACCNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">EXT_ACCNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">EXT_ACCID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">BEG_DATE</property>
+                    <property name="nativeName">BEG_DATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">SET_DATE</property>
+                    <property name="nativeName">SET_DATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">CURRENCY</property>
+                    <property name="nativeName">CURRENCY</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">AMOUNT</property>
+                    <property name="nativeName">AMOUNT</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">CASH_ACCT_ID</property>
+                    <property name="nativeName">CASH_ACCT_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">FREEZE_AMOUNT</property>
+                    <property name="nativeName">FREEZE_AMOUNT</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">USABLE_AMOUNT</property>
+                    <property name="nativeName">USABLE_AMOUNT</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">ACCNAME</property>
+                    <property name="nativeName">ACCNAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">EXT_ACCNAME</property>
+                    <property name="nativeName">EXT_ACCNAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">EXT_ACCID</property>
+                    <property name="nativeName">EXT_ACCID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+a.beg_date,
+a.set_date, 
+a.currency, 
+a.amount, 
+a.cash_acct_id,
+a.freeze_amount, 
+a.usable_amount,
+b.accname,
+c.accname AS ext_accname,
+c.accid AS ext_accid
+FROM ttrd_blc_cash_obj a, ttrd_acc_cash b, ttrd_acc_cash_ext c]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <themes>
+        <theme name="defaultTheme" id="4">
+            <styles>
+                <style name="lable_title" id="87">
+                    <property name="backgroundColor">#FFFFFF</property>
+                    <property name="fontSize">x-large</property>
+                    <property name="fontWeight">bold</property>
+                    <property name="fontStyle">normal</property>
+                    <property name="textAlign">center</property>
+                </style>
+                <style name="crosstab" id="88">
+                    <property name="borderBottomColor">#CCCCCC</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1pt</property>
+                    <property name="borderLeftColor">#CCCCCC</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1pt</property>
+                    <property name="borderRightColor">#CCCCCC</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1pt</property>
+                    <property name="borderTopColor">#CCCCCC</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1pt</property>
+                </style>
+                <style name="crosstab-cell" id="89">
+                    <property name="borderBottomColor">#CCCCCC</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1pt</property>
+                    <property name="borderLeftColor">#CCCCCC</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1pt</property>
+                    <property name="borderRightColor">#CCCCCC</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1pt</property>
+                    <property name="borderTopColor">#CCCCCC</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1pt</property>
+                    <property name="width">120px</property>
+                </style>
+                <style name="label" id="90">
+                    <property name="textAlign">center</property>
+                    <property name="verticalAlign">middle</property>
+                </style>
+                <style name="report" id="91">
+                    <property name="fontFamily">sans-serif</property>
+                    <property name="fontSize">10pt</property>
+                </style>
+                <style name="table-cell" id="92">
+                    <property name="borderBottomColor">#CCCCCC</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1pt</property>
+                    <property name="borderLeftColor">#CCCCCC</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1pt</property>
+                    <property name="borderRightColor">#CCCCCC</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1pt</property>
+                    <property name="borderTopColor">#CCCCCC</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1pt</property>
+                    <property name="width">120px</property>
+                </style>
+                <style name="table" id="93">
+                    <property name="borderBottomColor">#CCCCCC</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1pt</property>
+                    <property name="borderLeftColor">#CCCCCC</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1pt</property>
+                    <property name="borderRightColor">#CCCCCC</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1pt</property>
+                    <property name="borderTopColor">#CCCCCC</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1pt</property>
+                </style>
+            </styles>
+        </theme>
+    </themes>
+    <page-setup>
+        <simple-master-page name="NewSimpleMasterPage" id="3"/>
+    </page-setup>
+    <list-property name="images">
+        <structure>
+            <property name="name">sdnx_logo.png</property>
+            <property name="type">image/png</property>
+            <property name="data">
+                iVBORw0KGgoAAAANSUhEUgAAAM4AAAAoCAIAAAA5YFIMAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMA
+                AA7EAAAOxAGVKw4bAAAgAElEQVR4nO18d1gUyfb2qe7pyQkQBANiBkFZRV1XXROiYgDFAAbMOYtZV9ec
+                05oT5oyiYs5xxcCKCUUySJI0MDl0d31/DI4jDOrevXuf+7vfvg9/MNV1Tp2qfiucU1WNMMbwZ8DkfmQz
+                s1ilCpEkcrDn1KqJhII/peEf/P8JzvdmZLHu2AntgSOmmJdsSQGAmaAU6ebK69RBNGYU1cT7bzPyH/wv
+                AH3PqEa/iiuePM1w7wYAgUCIgPr0BGMwYNAhrkS6YIH4l5l/q63/4P80vk01w/Xbiv4DmaJcAuwAkG0l
+                oMeglS5cJlk87++w8h/8D+AbVDM+iSn088eqEgTST5OmbT0AJgaU8pXrxXPC/u1W/l8Exhghmz3z318S
+                /GcK+muVIr7yjC0sKh44lFUVf4tnAIABOCRIlHPnGm7c+ddMKYOXz5+PGNh/aL++l86f+36powf2Dw3u
+                OzS479PoR3+qOJ1Op1ap9HpdcXHxyIH9/X19d27ZDAAqpVKjVjMM8516Zkyc0NXPd/Lokd98JdlZmf17
+                9eza0Tfy5EmbGVRK5ajQgV18O1y6EFX+6aHwvQOCev06d7Y1zz7m5IwZEjokuO+ebVsrKlen02k1mu/8
+                0+v11rIatXr6hHFDQvo9j3laRm1mRsb44UNHDAh58/KlzXK/5haoFiwzJccR4PAtnlnABdApJ82qFHsf
+                Cf6qW5r54cPxYycMAA0aenUL7FlRNmVJCU3TCCGEkMFg2Ln5t6exLx3EgvFTpykURTYNxxhLZTIO53Pd
+                H9y9PWvKFJ1Wu2H7jhatWj+4eych+6N7vboAEDZ+7NOnz5o28wk/eqKMkrzcXBNNW140Qijx/ftjhw4U
+                qLQC/07ZWZnWMwbLYpFIZO/gYEkxmUx3blzL0+g7d+5ss2oMTT+8eyc+M6dXLxvVP3pg//WHjwI6dkhN
+                TjIajRiAQ5JvX78+deyIlgZlcXF7Pz+GYTAAyzCVHJ2cKlcGAL1ON2JA/w/pqRyKMplMZlUEQVAUFyEw
+                mUyWTsXlcvU6XeOmzbaF77cUKhKLP+bmHo08R3HIvUeOW9ujUBSdOnZEbWBCBoV6edvwESukGh2foN13
+                AIHku3kGABiB1Pg+RnvgqGjcyO+Wsg2KomQivtFo4PH5FRpJ00ND+r159VIoECCCIEmyqLCwqqM9y7Jj
+                hw5mWba8CMuyJqPxxPmL3k2amFMy0tPmhYU9fvWmbbMmzVr8ZDToxRKJBD5yuVwA8A8IPHb0eEpiUr36
+                7rMXLrLo0et0A3v3Sk1J4ZCEXqcDAIIkORwOXyCoyuPFPHnc0tsLYwDAGAOfz9cZjL379du0YxcAqFUq
+                tVr9MTdXIpWaDEa9Xpebm8Pjcu3sHaxN5VAcsUQqghxBuX6b9P59cmJCNZnYrVatts2aajQqAhEIIQyY
+                JEgJFx7cvdPSuyEGDBiKDPT82TOXrFoDAAzLJie8T3gfL5PLpVIpxoAIZDQalSXFGINYLBYKhSzGgEFZ
+                UqxQKO3s7a3LRQj1HzwkIvLclQtR6WmpNdxqWh6RJCmTyUm1ikNRYAsVUk138BhrUFQ0pGFQAXAR8Ms/
+                RUBp9xwSjRoGHLIi5WWQm5Ozac0qrUbbd8CAn9u1/0rOpISEnVt+MxlNw8eO9W7cBCEQCoVisVgoFJEk
+                mfnhg3kgqeFWE5sBGLNfWIgxazSaSA4JAMUKxaXzZ9csXfomJa1t0yb7j5+SSCQfc3Ot8wf1C05JSty0
+                ZtXyXxfHv3s3Z8Gv9Rs0KG0iraZEUeRStaqHlxdgYBjmXdwbzLI8Pt/dowHLsgAYAJEkmZ6Wmp2TbPg0
+                GW3duGHZksWV5DKKw7FzsN+1ZfOqZcv6BgcH9QvesmGDSCgAAISQkTaplCUOdrL9u3ZGnDjRJzhkyMhR
+                Zg0njhz++LHA+4eGIaGDWYyBZREiMGCEEEmSAAhjlmEYBAAIqTTaHz71K4QQXyBgWGjn67t5dzjGGBHE
+                s+hHQ/r10el1s1atDgkdYu6iA3v3vH/nnqWfswyr1WkBoEHDRtOnTdHp9PkfP1atWq0iYpWHbaphE62/
+                eA0BzybPWCgRBvaj496Zkt4iEGEwAZiHYgIBhUBIv3hhevWaavLDdxpRVFi4e+sWBY3re3h8nWrZmR92
+                bt2uA2jboYN34yYkydl75BjLsgRJJrx717e7/8fcgoCgoO37DghFIgDAGBsNhrJ1wJgvENA0HRLY/dqD
+                R/WqVJ4/a8bUWXMss5tWo6EBeDxeQnz82mVLcrKzSZLj2dDzwpnTN65cvh8TW6tOHYyxTqstNDJ+jbyP
+                n4sCgAd3bg8I6qlWqQYNG7Flz14wDykACKEZk8bHJuywUK1u/foBPXuyRuOzJ49NRlN9Dw/natWbt/gp
+                JyvrSXS0VCIyS2GMCYKguFRGerpC+aZFy5Zm8bjXrw7u3U0QyLdTl59a//xT65+/s50tYDFweTypTGb+
+                6eDoiFmWZVmJTC6RSs2JHA7HupPGv4sLCehOkBwul2tnby8UiiaMHL545eou3XuYM/D5AnOD83g8m4Xa
+                phqTkEjHJyAoP3MhFgr5P3exO3vU9OyPgja+rEHFcXIjqlVBFIUVJfSHD6yuAGPGcP/R91ONJEm5nR0o
+                FF+ZK0vN5VBymYiv05tnNwDgf5pcwnduz8356OjksHD5SrFEMn9GWHp6Ro0arkvXrCMIG94PTdP+AYHD
+                x4xr7+fn6FTZkl7Z2XnF+o3R0dGPHt4/enB/Sl6hWyW7uYsWDxg8NCMt7cbVKxRFAQCHovoNDG2Rkd68
+                RQuz4P49uzRqtUOlShOmTgMAQIA+xYY6d+tBY9SsWVPzz97BIb2DQ27fuH731k2TyeTt47NuyzYA0Ot0
+                vYJDAMBkNACgkuLikMDuCQlJy9esDhk8VCDgA0BSQsKYIaFKZQmXIhwcKwHAudMRG1atFIvFNltMpVZ3
+                DwiwnvoBgEDIaDSqVSqzR6koLASCIAhCrVSaE83tQ1g5Nlwuz9WtJkkSJIejVWueRv9eotKqlMrMDxnK
+                khIOh5OUkAAAJMlJTkpyrFyZpmkAqFmrtuUF2aYaHZ+AaSUCyZfJiIViqt4PdqcOAkJU86b2l6KwVs1t
+                3hwoDgAABqzXGR8+Vm/ZRL+Os6n5b8L1y5eOHz4EALN++bVOvXparebqxQsv3yc1ql9n/pJlQqGwvAiX
+                y50yY5blp0atzkhPS4yP/+PZs7dvXr2LiyvIz3etUWPs5Kkjxo4zD3he3t6WBS+Xy53z6yKL+K3r165c
+                uCAQCnh8/ub1azHGC5evdKlSBQDy8/KuRJ0nADp26mJtwO/37plMJpFIdP/2LaWyRCqVIYQYmhYIBXK5
+                HACEAiEiCIbFMrnc0dHRLDV7yqTo2Fe1XSoXFRSYX6fBYCguUjAMbbNlVCUqjUZTJlEiEUY/eNCiYelK
+                gGVZgUDA5/PXr1y+ac1q81RmNBqFws89v069ehdv3zX/H3ny5KjQgS7Oleq6u48YEPL492iRSIAIQiAQ
+                iEWiuWFTWYZhGIZh2dvRTxs1bmyWqmACVZc1DgAw6DlO1ezPHCecncwpPN+2TGZ28ZDRdGoapmlSbs9p
+                2ogf2M3h4iWsVdvU/HcgNydn/ozpRoNx/JTJoydOAgChUCSTyaQUkslkNnkGACaT6cDuXe/fvVWr1UUF
+                +VmZmfl5eQqFgmUYkiSrVKs2ZOSoDn6datetl/cxNyM9DWPMIUkPr4bWrqsZxQrFormz9Xqdp1fDn9u1
+                37JpswmgnW/H4EGhAHD14oWNO3Y1a+C+ZPXngQdj/OxJNJfLpbjc1OTkOzduBPbuk/g+PjggQCgURFy6
+                4larltFoAIwRgJlSZqmGjRt369nr7KkTt2/fM69uggcOCh446E+1GMuyPD6/umsNlmUJgtBo1B/S01mW
+                tbO3t3NwwAyLATLS07AtvwoAThw+qDcxP/g09WrYqFXbdtVcawiEwhKFIvrhAxNNt2z9c2UXF5PJhDGW
+                29lZpCqgmkaLgUVf7A2wgEB+aB/Hy906J1nFGTiUMeEFAUIGEg3P72t2b6caNJYuWUj2DvhT9f+XsXT+
+                3Pfv3teo6Vq7Xr0Thw+xLGswGJRKJZ/PVymVB/bs5nK5lriDwWD4oUmTJs2a67Tag3v3KBRFLMMUFhRw
+                KI7RYCRJkqA4GGNFYeHZUyePHdhvMBgwYIrickhSJpfffhLj6ORUxoBfZk5//eKlTC6bvXBRi1atTx07
+                qigqun7lcvCgUINev3/3ThKgW2CgWPJ5lkhNTnoXF8fj8xFCgPHJI4cCe/ep38DT2cX5zpNnF89FTgyb
+                YbOyi1asAoCoMxEslO7dPP794dkzZwR82yskvd7QtFnzPv37Wyeq1bquAT+FHy2NVjx59HtQl046nW7J
+                6rWhw0eYEwP9OmSkZ5ZXeOPK5Xu3b0lF/GGjx3AoauGyFZYadWzZQqfVTps996efbSwfy1INGwz0+0Tg
+                8wGQ2YH69AQBMIbL13mdOnzBwPhkU0I8ASIEPABAIAIA+u2rwj69hQNDZZvXE/Z28Dfj6ePHBoDszMxJ
+                4yfSn2yt4iCXSKQF+fmjR4+xdgtogJmTJjRp1lwskZy7flMskRwK3z1j8lTPunVn/bKQQ1FmUrIsi1nW
+                HB3lcKiHd2/v2b5NKpOVj8uuW7Hs+OGDIpGwVu26nfy78vj8Fq1aX446//jhw9Tk5P27dz5+EuPmVKnv
+                gIHWUrdvXC8qKLCzt0cIyezsbl679vDe3dZt27X383v45NmNK1cmhs0gyLIuvDkszLKsdRwnNiZmzcZN
+                8grc/WIGhvUPLkM1DMCxig/wBQKzv87lfuYrIsnyLmFJcfGS+fPMInb2lawflQZ7ERgM+nJyAOWpptm0
+                3fQ8VjRxDCr7CAHmGzavfuVRtdHYSeakj7pixaBBjolvGLC39lURSBEwmqP7mbRMh6tnkVhkuxn+TQib
+                Mzc3J0cgEAhFIsBYq9VqNZojB/bl5eY6OTtPnjFLLpdTFEUzjEat0umNP7VqCQAEQVRydAQAkuQwLBaK
+                RL6du3B53PIbdSRJFiuKMMbl3/1va9csW7BAIBRwebyc7MzsrKyatWsPGTnqxpXLGq2mf8+AxPfvnBzk
+                v+3e08CrobXgxbORAIAxNuj1waGhF85G7t2+rXXbdj+2bCXhct7FvcnOyrL/MqZlAxgAYNCw4f4BgQRh
+                e3OCZbGknMdAEkipVCYnJmKMCYSSEhJIkuRwOFmZH1KSksw81mt15Jc6WZadNWXS2zev7R0cdDrtuGFD
+                DkecafhDqfNnmTcq2ur8gk90YrJq2XJuIx+iUiXElYLRCEBaKiUFHO1SOST38Jp4jxHuHY2MKfDaUrJu
+                4aUXcg5mmS/GOgxAkGCv//1G8Zipdkf3fKPJ/hr6Dx4CACzL3r9zm2XZ1m3bcbnci+ci01JT5HZ2YXPm
+                vn/3LiM9zdnFpaG3DaeYZVkBRaSnpjZ1r4sQKt9OBEEwDCOVSq1rSNP0mqWLly1ZVs2lcj33+i+fP+eb
+                Z0OAjl38fTt3uX7lslatbtH65xXrN3o3bmKtMPrhgwf37v3YslVOVlZaakpjn2Yeng0jjh4BgPoNGgiE
+                gtScvJgnj7v37PU91WdZlqZpsgKqMSxmvlxyYYwlEuHjhw/b+JS2BkGSPD6fLxD8tnb1+pXLzAzm8flC
+                wedBzqDXzw2bevDQEWd7GcZYJJakpaQEdvI9cDKiTfsO32PnF1RTTpzBqAvp1DQkEXPq1zG9jkVQuqam
+                AOsJYk5wraJKvImXV7kJ7SMT7j15cxd86+zNTJ30KLfI1rKPBLn22F5+gL8gOOh7rPkr2Lh65dx5v8j5
+                1MPYl/XcPViWRQixDAsAR/aHL1u7vo6z472Y2CpVq5aXNTLYzt5hxLhxHA5Vfi3MoaiYp49PHztmzcJ5
+                YdPWbtnapH6dHfsPvouLe3jvvmUpRhDEopWrY548LsjPl8nkZXjGMMzWjespijtm0qTF8+ZiDCqlcsyk
+                yZhlaZp2cqrcvWevpMQkmqYt3kCFQAAAp08cnzFlklQsUpYoywwoEqlYo9UNGDxk655wi20URZmMdJWq
+                1X2aN2MYhsPhFOTlP3vymGEYr0beNWvXok00Bvws+rFaqbKo2rByxcYdu/r37KEsKXkSHe3TrNnS1Wt/
+                mTVz8/q1f5pq+gtXddcvkCBjctKY9A/8rn7G19EWqkmA2evj9NxdClpGzxi7nJlDM0YQyMHIru/k3Cu2
+                SK6jjTY27wkElGrhCn5gV/StmNlfQXGx4sThQzyA1u3a1XP3sGwSm4OofUL6h+/Ynvcx/+De3XN/XVxe
+                nGGxXC4fOW5Cee/SDKFQeHT/ActPlmX/ePZkaP/gles3OLtUiXnypEz++h4eazdvHT140KXzUaMHD9q6
+                d58lEKhWKn+/e3f85Cmt2rRTq1QIgDaZEEIjx09gWZYvEOzYf9CcU1FY+D11RwhhEyMQCAN79+ELhCzD
+                AAAiCIzxrWvXShKTywx3GGONzvCDT5Md+w+ZU54/e9bDt51Wqw0dPsI8RQBAz84dk5JSLFI6vW7J/Pnz
+                Fy8eM3SwXm9iWbbfwEHt/fziXr36HiPBmmqa33aY14sYjPqIc8IRg1Wr1wCwACQBRhWYwn92AgYDxkBS
+                NGMCRAJCYGRzXYSnG8unPEo3lo3DAQAgEJsSYg0Xr/L7VLhlbhM2T0aYw6cYY/bL/rtk3tzE9wlCAXfy
+                9JkAwFodxDAYDN5NfHr07nPk4OG927f5dw/4wcenjFo+RaSnpfq410UIyq80CJIw6g1S2ecJlGXZLXv2
+                NfDyMv+0rE7MWxQ0Tf/x9Em3nr3Wb9sxc9KEw4ePqpQlW/fuc6jkCABqjfrHVq3C5s4rLi7Gn6paWpCt
+                UPM3gRBiMUhlsrWbt5WJgQf5d3qXmGytVqfVlhQXI4DKzi6WRJPJaNZjPY6W2UGet3gpn88HAJ1OiwAw
+                i00mk6NT5XYd/b7TzlKq0UkpxgfRBIgBMAKx9tAx8YJZgqA+2sgjBIjFAumDn+u+cDKB8VPxhNUC2URH
+                NLUflydGSYnYxq4oAsDaoxHfpFqZPQ0en1/qFlkl5uRkmUwmgiAsgwQArF22JHzHLgwwbfZcc815PJ6l
+                fc1HFRatWPk6NvaPV29GDx50KOK0ewNP66JpFkuk0uBBoRwOhXG5CZRDvXn18kLkGZZlzazicDgWnpVW
+                EgFBkjFPHqemJJ87dept3JuHz1+GDh9hZ28/N2zqifMXixW9Nu7Y7d6ggUgsXrt5m1giyc3N+XqDCIRC
+                giAwQHmTbII2mWxut1iTJu7Vy+zsLB6XbNvB15Joc0VPkiS2SuF/0lzR4SipVGbWIBbbGHHAQjXj/d9Z
+                YwEBdgCAgMsoPmg2bJduXau7cJ41qQTb99Yf0LnGgdHphR+AJy5LJoWiad8Rwind9D6t6OJ8BGUzIBCY
+                Hsfg4hIkl9k0AmNM0zSPzz955PDzmGcsyxAEmfXhA0VRBEmeP306IT7evJsZ/fABbaLlcrl7gwZmwdlT
+                J63dvK26XDJj/oLJM2aaTCatRlNSrNBqtQRB0CaaQAgAXKpUPXLm7NSxoy7fuhvg53v9wSO3WrUsBtAM
+                ltvZjZ00haKo8m4BSZCb163Rag2IIKzDAV/kIUmj0TBmSOjHYhUJ0NW/k52DPQB079nLy9t7/fLl+8P3
+                dWnT6v4fL1xr1JDL7aDidwYAiqIivV6fnpKiUilJAJL8xhUQhIBhmIyMdKuDGKiosCAz4wMCsPDPZDKF
+                79yer9YF+nf+ymik1WgyMz/k5eZSJFHRQT2EEEEQt29cz/yQSVEkApSTnQUAXC7v8oWo5KREDJg2MU6V
+                nTp3624WKa2D6cVra34QIFWtXSMY1Fe2aQOTkkYMDa4JcCZwWYdjk5RGDVCCT5kR6BSd3X23tBrNQaT0
+                aHhRYBCm9WVOfCDgsrm5dHIK5dO4Iru5XC6Xy30Z+/zp42hzQI+iKJFYjADevnn9POaZOZHP51evUSNs
+                zjy3WrUBwGQ0vnz+fHC/vtPnzDVvgFy5EBU2fiyHooqLilR6umadOpaGrlWnzulLVw+G7925ZXNOdraF
+                aga9QQ/w+sULT7fqNs0jCEKlVLIAgb37yuTy8hlomlYaGTa/QCaX9wnsMWDosM7dulOfjjy41ay1ZW94
+                YJ8+WzesVyuVFimMMW0ymdiyUxUAhI0fG3X+PJ/iaLVasZjf2KdZmQwmk8nwacA2GAwaDBnpaX6tWiBE
+                WF6N0WjQaY1SAdfysq9EnT9w8nQzT/d1W7ZZr0ppmlaotDoAg8EAAIf375s9dQrFIbUMW95np2mTEYBm
+                aJIkVy769eajx5R54QUgEVAIodUrV5mnYRNAc0/3slRjktMscQ0AAKDApCzq0c8x9nckKY3K+FSudyTg
+                16Azc2jWBAQHAIFB1aiq9/Huv1CIBAB+107ybVsUY0YhoL4834sw6JkP2RVRrUZNt3PXb34RMLYJDAih
+                KtWqWfouSZJHI89VcvwcvhcIhc5VqkgkEqJu3SpVqs5dvMR68ODyeKPGTxg0dJh1QY2bNg2bNFEgENC0
+                yWaxLMvy+fzGTZt2D7QdfZDJ5f6dOnbu4t++UycPTy+beTp28e/Yxd96MUQQhEgs1ukMFLfsOZzqbm5e
+                Xp5isYSiuF16dLccrbNALrerbG9v3nPzbtwkbPJEgUBg9hw/txbGIpG4ra+v5bBMQX6+f4f2O/burVGz
+                lrU2p8rOg0IHGk10PXd3ALB3cGj0g7dUKvVs5D1j3i9lipZK5Y4ODjKZjGGYZWvWTcjJpiysLW3qUito
+                mnao9DnMW3q3oLCdv+HeTQTSz4aCmteuk/3FE0j0RQA2/PXlUZdXYA4PGFNtu6p3QjZXlzhaZ1AtXaNa
+                uACByJo4LJTY7QoXjh4CfzMwxuZoBQYgy0Vc/yYYDQZuBSdnvgKT0ZiVmcmwjINDJeu9QjCvrjD+ShWK
+                FUVGo0ksFgtFfyI8rigqkslk5QPRZYAxNoeKbLopJcXFBqOR4pByO/s/dc/ga4sAxOUgimudwgIU8AEL
+                SCBJYBiNiGeQlN3MRiKR7eHpP3LVAiGE/lMMs+Bf4BkAUFyu9XrRGt90ReV239pIsAW7b24/AADAp/OV
+                tmFzCfE9KK0SEopw2bW8WHf9XPGwcdaJ6vMXsydM6vBa3SRZ3SLZ2CTy95eDB2LV52MguqOnSqaHIRB8
+                STaMgCQq/Sut8w/+Z1A6qpG13ADK+hoE2GmOhZOurpKVCwHA+CRGN3DoMo0KoEgLiAOYD1gH54u1Y+1O
+                HAAOabz3UDFyNAIOAs6XTigG4JHVq/xnqvQP/jtROqpR3l62Jj1EgFS5arHu4HEmM1vRdyCtUapBogEC
+                AdBAqIA0gZ32zBHVklVsXr4ieCjotQgEZYIdGIykswtZu3ZFRuRkZY0aNCA4oNv8GdOVJSWvYmNnT50M
+                AKnJSRNHDi8pLl61ZFGfbv7jhw+zXPxaMGvG0vnzAODF85iw8eN0Wq21wnMREcEB3YP8u/zx5MmVqPN9
+                uncd1Dvo3OkIADi4d8/oIYNHhQ6Ke/1q7/Ztfbr69+/ZY9eWzQCQnJgwc9KEZ4+jJ40aHjZ+7IQRwxbO
+                nmV2ygDg+KGDQf6dxwwepNVonsc8C+3bu0/XzuE7t5ufno041aebf0hgj6sXLwDA4X3hfbt3698z4MK5
+                szRNL/1l3tihQ6aNG5OemvrrnNl9u3edMnZ04vv3AMAyzLRxYzavW4MxXjh71oQRw8LGj504cnj0wwcL
+                Zs24dP7cikULzevpOdOmnD8TsW3ThvHDhg4b2P/apUvmovM+fgwbP7ZXF7/ZUyapVarCgoKZkyaMHhy6
+                YOZ0865JanLy5NGjenfz37tje3Ji4pQxo7RaTX5e3vhhQ7M+fACAw+F7hw8IMZ+gXLdi2fFDBwFgyfy5
+                7+LeRBw92qebf0hA93Urlms1GgB4Fxc3ctCAXl381ixbgjF+HvNs6tjRNE0rigrnTJtsNBoT4uNHDhwQ
+                4Oe7ac3qL16zOUxqep+Yza2UDdJssP/yzyELxDmiKh/rNM4CbjY4lM+QCaAYMsZw934mQLmn9tlgnwlE
+                UUAIrhivX7xwFvGP7Av3ca83N2zqrWtXvevUxBg/exxdVSrK/JDR6odG86aHDQvp16KhJ8Y4Iy3NRSKs
+                V6Wy0Wi8fCGqpqO9oqjIou3WtasuEuGaZUtPHTuWmZExa/LEDj/9uH3TRkc+lRAfPzCoZ/9egVcvXczN
+                zu7RsX2fbv4H9uyqbi/bsHrlH8+e1nCQv37xIvLUyUa1avTp1uXGlcvmI35nI065iAWbVq+6eO5scmJC
+                gxrVpk8Yf2RfeBWJ8MqFqDevXrpIhFs3rl+7fFk1uSQlKSlswlj/tj/v3bHd1V5269rVhjVdF8ycceva
+                1azMTA/XqquWLA7q0smv1U8Y45fPn9txkFdN14+5uTevXunTrYuXW/WzESdjnj6p6+x44eyZzj+3evfm
+                ddaHD9Xl0rs3b/7o6TFt3JjLFy/Gv31rXr8P7N2zTdPGZyNO/ejpMW3c2MT38c4iwe6tWx7eu2s2PiSw
+                R0vvho8e3H8Z+/ze7ZuudlKDwZCTneUk4L178wZj3ManMQVw5eIFjHFQl06u9jKNWt2uuc+ta1cnjx7V
+                oUXz44cOulevOnn0SJ1O17qJ98DevU4dO1q7ssP+XTvv3b4FABtWrSzIz/PxqPvqRWyLhp6hfYLOnDzx
+                9HG09VsunUA59epwW7fQ375MQJlFH0bAYzVqNqm4got6GIAQDh1kfPSs4lgF5of0rmhIAwCCIOzsHbx+
+                +KFq9Wp8gYDkcKRSKQBwOJRUJiMIQiAU1nN35/N5GelpABAZcbJHryDAOC0lRSgQSGUya1cofOeONu07
+                zJxf6qWzLOvq6url7W1fqRJJEnI7uzevX2ekpnbu2g0AfJo1GzJydFFhYeSJ4z5Nm4vFkuD81Q8AAAgc
+                SURBVGqurl7e3vt372zZuk3HLv6lOnds796z15RZswHgzInjWo1m+br1PD7/2uVLkSdPVHdzq+/hMWFq
+                GACcOnr4ctR5sVhStVq1ps1/NBoMJcXFlZyc4t7GtWjd2qVKFQGfX9/DIycrMy0lGQAijh8NHT4iJSnp
+                9o3rIYNCXzz/Q6fR9uzTLz8vj8PhuNWs1bZDhwd37wqEwgZeXq3btuULhakpqe9evWzXvj0A5OZk37t1
+                K/zYiU7+XQ16/fKFC/r2H1DJ0fH1q1diibRVm7YA0Lhp08ePHkVFRk6bPYemaZLDmTx6pNFgkMokMrk8
+                5skTuZ3d1EkTzpw43qVbdwdHRxbjQ+F7HZ2cKIoiScKzUaOQ0MEkh1w6f/7dmzcyMzKOnz1fzbXG6xex
+                kREnJ06b3sC12oHdu5xdXGrXqXf90qViRVH40RMUl0pJStJqtZZT0J89HdGkMZ+oU5YoCDg27+EBAAYl
+                r1lbysdbu3sfAhvXjDGouXUa8wO7foVqACASiXZs2hT36tWchYuMRqNSqQQAgVBo7pcisfj29Wu7tm5Z
+                sHQFAFw+f54giKLCgnu3bnJ5PISQ5Z4PALAMY+3BcSiqsKAgbPzYXn371apTV1lSUrVadXdPT4DSIR0A
+                CILAGMyX28yhL4ZhLFMnAGDMIvRJJwKEECIIsET88Rehf4yxWCK5ee3a5NEjJoZNb+fXSaVU1qlXz9Wt
+                JsasUCy+eDYy4vixpWvXAcDNq1e5XC7D0FcvRAGAyWg0B2Zpmjb77D7Nf7xyMerc6YgevXuTHI7JaKzh
+                5taocWNrt9dcNiIIFrMYswBYrVZptaXu2qxfFkZeufoy9nm/Hl2LCgp4fH4NN7dqrq4AiOSQl86f1WjU
+                FJf7+/17RoOBZZjhY8aePHrkxfPnfIHAfJMVAEiCgzGLMYsQlDYFBsBYp9P6/Nhs9MSJ88KmajUacySF
+                4lJKpdKvVYv3b99ajPz8SviBXfntu7Kg+FYg1RoMBla2ZbXudJQp7Y2tG1YsBqN48RxUwQH/Ui0M8zE3
+                Z9iYMU6VK2/bsL6+h0dRYeHWjes3r1vt6ORkb++QnZnZul37wN6992zfGhsTk5yYwOfz+QLh9SuX8/Py
+                8vPyDu7ZffFcpJkcoSNG3rl5Y92K5aePH0tJSjIajVKZbNYvCyNPnsjMyDDRJgKwskSZ9eEDIBT3+vWx
+                gwc2rl7VvVeQRCJRFBWayadRq62/ITBk5OgLZ89s3bAu6sxpz4aNhCLR0l/mnTl5/Na1q736Bffq2/f9
+                27f7du3csn5dbna2f4+A7KwsD0/PqJt35i9ZRiBUWFAo4PEyM9IzP2QW5ud36d6jna/v7q1b79++nZuT
+                jTF2qux8/87tYoUCY1Cr1QDAsqxKqdRoNI0aN37y++/Poh8F9Q3GGJcUF5MkaTAa3r97CwDOLlVat223
+                asmiy1FRv61e1bFzl0pOlRUKxeIVq0aMLY0eRJ09k5OV5VLFxaA36PV6k9E4c8HCiWEz9Hp9cmLi9SuX
+                K7u4mEffq5cu6PR6N7eaffsPSMz+CBizDJMYHx9x/OjC2TNat23fpkNHl6rVFs2dFRV55vihAz37BlMU
+                Nycre/zUsAYNG716Edu5W3exRDJ26OCoM6dLihXWGyHkokWLSv9FiPujj+5YJNaryx3BrYAiUCydMV/Q
+                t1dRQG/Q0OWlWFAI+wyRLJ3/dT1GoyE7MzN0+AjPRt63rl3tHzq4dr26Z09F0DS9fN3G6jVqJLyPb922
+                Xb8BAx/evatQFHo38Vm+bkOvPn1fvXhR192dy+OlJiXlffzYqm1bHo9Xt757DTe3G5cvxcY+9/D0lNvZ
+                iUTikeMnZKSlAoCHp1dGWvqb1689GzYUSySJ8fEJ79+FhA6ZOmu2VqspLCz07xHA4/HSUlO9vL0tR2c9
+                GzZyruJy+XxUSnJS75CQ9h39rlyIio35Y/iYsSGhg52cnV1ruJ2PPJORlvbL0uU/tmyZlpJcq06dNh18
+                AYBlGI1Gk5uTnfj+fZOmzVQqlW/nLv49Au/fua1SKVv+3ObXFau69wp69+aNh5eXQCDgcXntOvqxDJ2Z
+                kdHW19etVu3C/PymzVv0CApiWVajVuXlfXz54qVLFZf67h4IoTbt2ye8e3f31i1vnyaLV60hCCI7K7Od
+                r6/lmmfkyZPnT0fwePzVmzZXq1Y992OOr19no8FQmJ9Xs3YdtUq5dc8+/4BAhqFZlq3s7Fy3Xv3gQaHF
+                udmt2ralKCo5KSk+7o2ff7dfli0Ti8Wt2rR9eO/u00fRAUFBE6ZNL1YoDHp9+45+Ps1/LClWDBgytF1H
+                v/t3br96Eftjy1bdewVZjvGV/RKRdvf+ojHDCZAioL76CQXMgkIQGGx/7kRRj2DdxVPl78GzUMRr1tb+
+                2jnC7s8F/b7+uZu/8jGcvyL7H8E39+b+D6NsVFo4eqh0ziIMWgxKmwLmDU0WFMKBw+3PHldOnau7eIr4
+                8m4BBgMDRfyO3ewvnv6zPIOvHnn45tO/ovm/AP/l5v0l2P6+mv7sRdWCRca45wCAQPBpJ54FMGIwkU6u
+                0hVLhSMGl4ycpAzfSgIXgPcpgwEDTdpVEU2eKJ43E3G/+wOo/+B/HRV+yg+rtbrTZ/VnL9Av4liFAhiM
+                BALSvSavYzvh4EFkrRqAQR9xVn/xsunZCyY7F2gWiUQcj1q8zh0FA/qRbq7/4Zr8g/9yfPsDpVipYhUK
+                oBkklRCOlWxk0BvY/HwwmpBM9s9G5z+oCN/12eV/8A/+Ov4fM54SYPF5K8YAAAAASUVORK5CYII=
+</property>
+        </structure>
+    </list-property>
+</library>

@@ -1,0 +1,2727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.6.0.v201606072122</property>
+    <html-property name="description">审批单模板</html-property>
+    <list-property name="includeScripts">
+        <property>xir_birt.js</property>
+        <property>sdnx_birt.js</property>
+    </list-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">384</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">384</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">384</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="sysOrdId" id="387">
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">N/A</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@127.0.0.1:1521:orcl</property>
+            <property name="odaUser">xir_trdj</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">eHBhcg==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="DSet" id="384">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">ORD_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ORD_ID</text-property>
+                    <text-property name="heading">ORD_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">INTORDID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">INTORDID</text-property>
+                    <text-property name="heading">INTORDID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">日期</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">日期</text-property>
+                    <text-property name="heading">日期</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">机构名称</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">机构名称</text-property>
+                    <text-property name="heading">机构名称</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">审批单号</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">审批单号</text-property>
+                    <text-property name="heading">审批单号</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">客户号</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">客户号</text-property>
+                    <text-property name="heading">客户号</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">客户全称</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">客户全称</text-property>
+                    <text-property name="heading">客户全称</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">业务种类</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">业务种类</text-property>
+                    <text-property name="heading">业务种类</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">币种</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">币种</text-property>
+                    <text-property name="heading">币种</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">交易类型</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">交易类型</text-property>
+                    <text-property name="heading">交易类型</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">固定方</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">固定方</text-property>
+                    <text-property name="heading">固定方</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">浮动方</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">浮动方</text-property>
+                    <text-property name="heading">浮动方</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">产品名称</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">产品名称</text-property>
+                    <text-property name="heading">产品名称</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">INTORDID_1</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">INTORDID</text-property>
+                    <text-property name="heading">INTORDID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">本方账户名称</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">本方账户名称</text-property>
+                    <text-property name="heading">本方账户名称</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">起息日</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">起息日</text-property>
+                    <text-property name="heading">起息日</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">到期日</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">到期日</text-property>
+                    <text-property name="heading">到期日</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">首规则起息日</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">首规则起息日</text-property>
+                    <text-property name="heading">首规则起息日</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">期限</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">期限</text-property>
+                    <text-property name="heading">期限</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">固定利率</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">固定利率</text-property>
+                    <text-property name="heading">固定利率</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">固定收支频率</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">固定收支频率</text-property>
+                    <text-property name="heading">固定收支频率</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">固定收支调整</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">固定收支调整</text-property>
+                    <text-property name="heading">固定收支调整</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">固定计息基准</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">固定计息基准</text-property>
+                    <text-property name="heading">固定计息基准</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">固定计息频率</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">固定计息频率</text-property>
+                    <text-property name="heading">固定计息频率</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">固定计息调整</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">固定计息调整</text-property>
+                    <text-property name="heading">固定计息调整</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">固定计息方式</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">固定计息方式</text-property>
+                    <text-property name="heading">固定计息方式</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">浮动计息基准</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">浮动计息基准</text-property>
+                    <text-property name="heading">浮动计息基准</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">浮动利率参考</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">浮动利率参考</text-property>
+                    <text-property name="heading">浮动利率参考</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">浮动利差</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">浮动利差</text-property>
+                    <text-property name="heading">浮动利差</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">重置频率</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">重置频率</text-property>
+                    <text-property name="heading">重置频率</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">浮动收支频率</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">浮动收支频率</text-property>
+                    <text-property name="heading">浮动收支频率</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">浮动收支调整</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">浮动收支调整</text-property>
+                    <text-property name="heading">浮动收支调整</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">定息日</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">定息日</text-property>
+                    <text-property name="heading">定息日</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">浮动重置调整</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">浮动重置调整</text-property>
+                    <text-property name="heading">浮动重置调整</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">浮动计息方式</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">浮动计息方式</text-property>
+                    <text-property name="heading">浮动计息方式</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FINALSTUB</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FINALSTUB</text-property>
+                    <text-property name="heading">FINALSTUB</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">手续费收取方式</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">手续费收取方式</text-property>
+                    <text-property name="heading">手续费收取方式</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">手续费类型</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">手续费类型</text-property>
+                    <text-property name="heading">手续费类型</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">手续费</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">手续费</text-property>
+                    <text-property name="heading">手续费</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">本金</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">本金</text-property>
+                    <text-property name="heading">本金</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">经办人</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">经办人</text-property>
+                    <text-property name="heading">经办人</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">ID</property>
+                    <property name="paramName">sysOrdId</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue" type="javascript">N/A</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ORD_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">INTORDID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">日期</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">机构名称</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">审批单号</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">客户号</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">客户全称</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">业务种类</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">币种</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">交易类型</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">固定方</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">浮动方</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">产品名称</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">INTORDID_1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">本方账户名称</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">起息日</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">到期日</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">首规则起息日</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">期限</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">固定利率</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">固定收支频率</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">固定收支调整</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">固定计息基准</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">固定计息频率</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">固定计息调整</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">固定计息方式</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">浮动计息基准</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">浮动利率参考</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">浮动利差</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">重置频率</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">浮动收支频率</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">浮动收支调整</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">33</property>
+                        <property name="name">定息日</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">34</property>
+                        <property name="name">浮动重置调整</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">35</property>
+                        <property name="name">浮动计息方式</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">36</property>
+                        <property name="name">FINALSTUB</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">37</property>
+                        <property name="name">手续费收取方式</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">38</property>
+                        <property name="name">手续费类型</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">39</property>
+                        <property name="name">手续费</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">40</property>
+                        <property name="name">本金</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">41</property>
+                        <property name="name">经办人</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">ORD_ID</property>
+                    <property name="nativeName">ORD_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">INTORDID</property>
+                    <property name="nativeName">INTORDID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">日期</property>
+                    <property name="nativeName">日期</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">机构名称</property>
+                    <property name="nativeName">机构名称</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">审批单号</property>
+                    <property name="nativeName">审批单号</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">客户号</property>
+                    <property name="nativeName">客户号</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">客户全称</property>
+                    <property name="nativeName">客户全称</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">业务种类</property>
+                    <property name="nativeName">业务种类</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">币种</property>
+                    <property name="nativeName">币种</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">交易类型</property>
+                    <property name="nativeName">交易类型</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">固定方</property>
+                    <property name="nativeName">固定方</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">浮动方</property>
+                    <property name="nativeName">浮动方</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">产品名称</property>
+                    <property name="nativeName">产品名称</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">INTORDID_1</property>
+                    <property name="nativeName">INTORDID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">本方账户名称</property>
+                    <property name="nativeName">本方账户名称</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">起息日</property>
+                    <property name="nativeName">起息日</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">到期日</property>
+                    <property name="nativeName">到期日</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">首规则起息日</property>
+                    <property name="nativeName">首规则起息日</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">期限</property>
+                    <property name="nativeName">期限</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">固定利率</property>
+                    <property name="nativeName">固定利率</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">固定收支频率</property>
+                    <property name="nativeName">固定收支频率</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">固定收支调整</property>
+                    <property name="nativeName">固定收支调整</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">固定计息基准</property>
+                    <property name="nativeName">固定计息基准</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">固定计息频率</property>
+                    <property name="nativeName">固定计息频率</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">固定计息调整</property>
+                    <property name="nativeName">固定计息调整</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">固定计息方式</property>
+                    <property name="nativeName">固定计息方式</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">浮动计息基准</property>
+                    <property name="nativeName">浮动计息基准</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">浮动利率参考</property>
+                    <property name="nativeName">浮动利率参考</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">浮动利差</property>
+                    <property name="nativeName">浮动利差</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">重置频率</property>
+                    <property name="nativeName">重置频率</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">浮动收支频率</property>
+                    <property name="nativeName">浮动收支频率</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">32</property>
+                    <property name="name">浮动收支调整</property>
+                    <property name="nativeName">浮动收支调整</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">33</property>
+                    <property name="name">定息日</property>
+                    <property name="nativeName">定息日</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">34</property>
+                    <property name="name">浮动重置调整</property>
+                    <property name="nativeName">浮动重置调整</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">35</property>
+                    <property name="name">浮动计息方式</property>
+                    <property name="nativeName">浮动计息方式</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">36</property>
+                    <property name="name">FINALSTUB</property>
+                    <property name="nativeName">FINALSTUB</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">37</property>
+                    <property name="name">手续费收取方式</property>
+                    <property name="nativeName">手续费收取方式</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">38</property>
+                    <property name="name">手续费类型</property>
+                    <property name="nativeName">手续费类型</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">39</property>
+                    <property name="name">手续费</property>
+                    <property name="nativeName">手续费</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">40</property>
+                    <property name="name">本金</property>
+                    <property name="nativeName">本金</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">41</property>
+                    <property name="name">经办人</property>
+                    <property name="nativeName">经办人</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[WITH SYSORDID AS(
+    SELECT ? ID FROM DUAL
+),
+SYSORDID_ARRAY AS(
+    SELECT REGEXP_SUBSTR(ID,'[^,]+',1,LEVEL) ID FROM SYSORDID CONNECT BY LEVEL<=LENGTH(ID)-LENGTH(REPLACE(ID,',',''))+1
+)     
+ select 
+       T.ORD_ID,
+       T.INTORDID,
+             (SELECT CURR_DATE FROM TTRD_CURRDATE) AS 日期,
+       ii.I_NAME AS 机构名称,
+       t.ORD_ID AS 审批单号,
+       t.partyid AS 客户号,
+       i.I_FULLNAME AS 客户全称,
+       TP.DESCRIPTION AS 业务种类,
+       '人民币' AS 币种,
+        (select description from ttrd_trade_type where trd_type = t.trdtype) as 交易类型,
+         decode(t.trdtype,'0500100','支付方','0500101','收取方') as 固定方,
+        decode(t.trdtype,'0500101','支付方','0500100','收取方') as 浮动方,
+        t.i_name as 产品名称,
+        t.intordid,
+        sa.accname as 本方账户名称,
+        s.start_date as 起息日,
+        s.mtr_date as 到期日,
+        s.first_payment_date as 首规则起息日,
+        to_date(s.mtr_date,'yyyy-mm-dd')-to_date(s.start_date,'yyyy-mm-dd') as 期限,
+        s.fixed_rate*100 as 固定利率,
+        L.DICT_VALUE as 固定收支频率,
+        L1.DICT_VALUE as 固定收支调整,
+        L2.DICT_VALUE as 固定计息基准,
+        L3.DICT_VALUE as 固定计息频率,
+        L4.DICT_VALUE as 固定计息调整,
+        decode(s.FIXED_METHOD,'1','单利','2','复利(不含利差)','3','复利(含利差)') as 固定计息方式,
+        L5.DICT_VALUE as 浮动计息基准,
+        r.r_name ||'('|| r.i_code ||')' as 浮动利率参考,
+        nvl2(s.spread,s.spread*10000,null) as 浮动利差,
+        L6.DICT_VALUE as 重置频率,
+        L7.DICT_VALUE as 浮动收支频率,
+        L8.DICT_VALUE as 浮动收支调整,
+        decode(s.float_fixed_conv,'Preceding','前一工作日','Unadjusted','当日') as 定息日,
+        L9.DICT_VALUE as 浮动重置调整,
+        decode(s.FLOAT_METHOD,'1','单利','2','复利(不含利差)','3','复利(含利差)') as 浮动计息方式,
+        case when s.final_stub='LongFinal' then 'LongStub'
+          when s.final_stub='ShortFinal' then 'ShortStub' end as FinalStub,
+        decode(t.ignore_flag,'0','不收取','1','首期收取','2','非首期收取') as 手续费收取方式,
+        decode(t.ignore_flag,'0',null,'1','手续费(元)','2','手续费率(%)') as 手续费类型,
+        case when t.ignore_flag='1' then t.ordprice
+          when t.ignore_flag='2' then t.ordprice*100 
+          end as 手续费,
+        s.parvalue/10000 as 本金,
+        t.OPERATOR AS 经办人
+        from ttrd_otc_trade t
+        left join ttrd_otc_order o on t.ord_id=o.ord_id
+        left join ttrd_institution i on t.partyid=i.i_id
+        left join ttrd_acc_secu sa on sa.accid=t.secu_accid
+        left join ttrd_institution ii on sa.i_id = ii.i_id
+        left join (select i_code,
+       a_type,
+       m_type,
+       currency,
+       q_type,
+       p_type,
+       p_class,
+       start_date,
+       mtr_date,
+       fst_regular_startdate,
+       parvalue,
+       direction,
+       pay_rate as fixed_rate,
+       pay_freq as fixed_freq,
+       PAY_DAYCONVERSION as fixed_conv,
+       PAY_CALC_FREQ as fixed_cal_freq,
+       PAY_CALC_DAYCONVERSION as fixed_cal_conv,
+       pay_daycount as fixed_daycount,
+       PAY_COMPOUNDINGTYPE as FIXED_METHOD,
+       recv_daycount as float_daycount,
+       recv_u_i_code as float_u_i_code,
+       recv_u_a_type as float_u_a_type,
+       recv_u_m_type as float_u_m_type,
+       recv_reset_freq as  float_reset_freq,
+       RECV_RESET_DAYCONVERSION as  float_reset_conv,
+       RECV_FIXED_DAYCONVERSION as float_fixed_conv,
+       recv_freq as float_freq,
+       recv_rate as spread,
+       RECV_DAYCONVERSION as float_conv,
+       RECV_COMPOUNDINGTYPE as FLOAT_METHOD,
+       RECV_FINALSTUB as FINAL_STUB,
+       i_id,
+       s_type,
+       s_i_code,
+       first_payment_date,
+       inital_rate,
+       payment_calendar,
+       fixing_calendar
+  from ttrd_ir_swap 
+ where direction = '1'
+union
+select i_code,
+       a_type,
+       m_type,
+       currency,
+       q_type,
+       p_type,
+       p_class,
+       start_date,
+       mtr_date,
+       fst_regular_startdate,
+       parvalue,
+       direction,
+       recv_rate as fixed_rate,
+       recv_freq as fixed_freq,
+       RECV_DAYCONVERSION as fixed_conv,
+       RECV_CALC_FREQ as fixed_cal_freq,
+       RECV_CALC_DAYCONVERSION as fixed_cal_conv,
+       RECV_daycount as fixed_daycount,
+       RECV_COMPOUNDINGTYPE as FIXED_METHOD,
+       pay_daycount as float_daycount,
+       pay_u_i_code as float_u_i_code,
+       pay_u_a_type as float_u_a_type,
+       pay_u_m_type as float_u_m_type,
+       pay_reset_freq as  float_reset_freq,
+       PAY_RESET_DAYCONVERSION as  float_reset_conv,
+       PAY_FIXED_DAYCONVERSION as float_fixed_conv,
+       PAY_freq as float_freq,
+       PAY_rate as spread,
+       PAY_DAYCONVERSION as float_conv,
+       PAY_COMPOUNDINGTYPE as FLOAT_METHOD,
+       PAY_FINALSTUB as FINAL_STUB,
+       i_id,
+       s_type,
+       s_i_code,
+       first_payment_date,
+       inital_rate,
+       payment_calendar,
+       fixing_calendar
+  from ttrd_ir_swap
+ where direction = '2') s on s.i_code = t.i_code and s.a_type = t.a_type and s.m_type = t.m_type
+        LEFT JOIN TTRD_P_CLASS pp on pp.p_type=s.p_type and pp.p_class= s.p_class
+        LEFT JOIN tir r on s.float_u_i_code=r.i_code and s.float_u_a_type = r.a_type and s.float_u_m_type =r.m_type
+        left join (select trd_type,description from ttrd_trade_type) dic on dic.trd_type = t.trdtype
+        LEFT JOIN TTRD_OTC_TRADE agentTrade ON t.SYSORDID = agentTrade.ENTRUST_REF_ID
+        LEFT JOIN TTRD_OTC_ORDER O2 ON agentTrade.ORD_ID = O2.ORD_ID
+        LEFT JOIN TTRD_TRADE_TYPE TP ON T.TRDTYPE=TP.TRD_TYPE
+        LEFT JOIN TTRD_DICT_MULT_LANG L ON L.DICT_KEY=s.fixed_freq AND L.DICT_SUB_TYPE='PaymentFreq'
+        LEFT JOIN TTRD_DICT_MULT_LANG L1 ON L1.DICT_KEY=s.fixed_conv AND L1.DICT_SUB_TYPE='PaymentConv'
+        LEFT JOIN TTRD_DICT_MULT_LANG L2 ON L2.DICT_KEY=s.fixed_daycount AND L2.DICT_SUB_TYPE='DayCounter'
+        LEFT JOIN TTRD_DICT_MULT_LANG L3 ON L3.DICT_KEY=s.fixed_cal_freq AND L3.DICT_SUB_TYPE='PaymentFreq'
+        LEFT JOIN TTRD_DICT_MULT_LANG L4 ON L4.DICT_KEY=s.fixed_cal_conv AND L4.DICT_SUB_TYPE='PaymentConv'
+        LEFT JOIN TTRD_DICT_MULT_LANG L5 ON L5.DICT_KEY=s.float_daycount AND L5.DICT_SUB_TYPE='DayCounter'
+        LEFT JOIN TTRD_DICT_MULT_LANG L6 ON L6.DICT_KEY=s.float_reset_freq AND L6.DICT_SUB_TYPE='PaymentFreq'
+        LEFT JOIN TTRD_DICT_MULT_LANG L7 ON L7.DICT_KEY=s.float_freq AND L7.DICT_SUB_TYPE='PaymentFreq'
+        LEFT JOIN TTRD_DICT_MULT_LANG L8 ON L8.DICT_KEY=s.float_conv AND L8.DICT_SUB_TYPE='PaymentConv'
+        LEFT JOIN TTRD_DICT_MULT_LANG L9 ON L9.DICT_KEY=s.float_reset_conv AND L9.DICT_SUB_TYPE='PaymentConv'
+WHERE T.SYSORDID IN (SELECT ID FROM SYSORDID_ARRAY)]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2"/>
+    </page-setup>
+    <body>
+        <table id="354">
+            <property name="dataSet">DSet</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">日期</property>
+                    <text-property name="displayName">日期</text-property>
+                    <expression name="expression" type="javascript">"日期："+dataSetRow["日期"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">机构名称</property>
+                    <text-property name="displayName">机构名称</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["机构名称"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">审批单号</property>
+                    <text-property name="displayName">审批单号</text-property>
+                    <expression name="expression" type="javascript">"审批单号："+dataSetRow["审批单号"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">客户号</property>
+                    <text-property name="displayName">客户号</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["客户号"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">客户全称</property>
+                    <text-property name="displayName">客户全称</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["客户全称"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">业务种类</property>
+                    <text-property name="displayName">业务种类</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["业务种类"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">币种</property>
+                    <text-property name="displayName">币种</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["币种"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">交易类型</property>
+                    <text-property name="displayName">交易类型</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["交易类型"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">固定方</property>
+                    <text-property name="displayName">固定方</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["固定方"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">浮动方</property>
+                    <text-property name="displayName">浮动方</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["浮动方"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">产品名称</property>
+                    <text-property name="displayName">产品名称</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["产品名称"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">本方账户名称</property>
+                    <text-property name="displayName">本方账户名称</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["本方账户名称"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">起息日</property>
+                    <text-property name="displayName">起息日</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["起息日"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">到期日</property>
+                    <text-property name="displayName">到期日</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["到期日"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">期限</property>
+                    <text-property name="displayName">期限</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["期限"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">固定利率</property>
+                    <text-property name="displayName">固定利率</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["固定利率"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">固定收支频率</property>
+                    <text-property name="displayName">固定收支频率</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["固定收支频率"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">固定收支调整</property>
+                    <text-property name="displayName">固定收支调整</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["固定收支调整"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">固定计息基准</property>
+                    <text-property name="displayName">固定计息基准</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["固定计息基准"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">固定计息频率</property>
+                    <text-property name="displayName">固定计息频率</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["固定计息频率"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">固定计息调整</property>
+                    <text-property name="displayName">固定计息调整</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["固定计息调整"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">固定计息方式</property>
+                    <text-property name="displayName">固定计息方式</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["固定计息方式"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">浮动计息基准</property>
+                    <text-property name="displayName">浮动计息基准</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["浮动计息基准"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">浮动利率参考</property>
+                    <text-property name="displayName">浮动利率参考</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["浮动利率参考"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">浮动利差</property>
+                    <text-property name="displayName">浮动利差</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["浮动利差"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">重置频率</property>
+                    <text-property name="displayName">重置频率</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["重置频率"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">浮动收支频率</property>
+                    <text-property name="displayName">浮动收支频率</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["浮动收支频率"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">浮动收支调整</property>
+                    <text-property name="displayName">浮动收支调整</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["浮动收支调整"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">定息日</property>
+                    <text-property name="displayName">定息日</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["定息日"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">浮动重置调整</property>
+                    <text-property name="displayName">浮动重置调整</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["浮动重置调整"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">浮动计息方式</property>
+                    <text-property name="displayName">浮动计息方式</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["浮动计息方式"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">FINALSTUB</property>
+                    <text-property name="displayName">FINALSTUB</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FINALSTUB"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">手续费收取方式</property>
+                    <text-property name="displayName">手续费收取方式</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["手续费收取方式"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">手续费类型</property>
+                    <text-property name="displayName">手续费类型</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["手续费类型"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">手续费</property>
+                    <text-property name="displayName">手续费</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["手续费"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">本金</property>
+                    <text-property name="displayName">本金</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["本金"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">经办人</property>
+                    <text-property name="displayName">经办人</text-property>
+                    <expression name="expression" type="javascript">"经办人："+dataSetRow["经办人"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">首规则起息日</property>
+                    <text-property name="displayName">首规则起息日</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["首规则起息日"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">ORD_ID</property>
+                    <text-property name="displayName">ORD_ID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ORD_ID"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">INTORDID</property>
+                    <text-property name="displayName">INTORDID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["INTORDID"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <column id="361"/>
+            <header>
+                <row id="355">
+                    <property name="height">0.010416666666666666in</property>
+                    <cell id="356">
+                        <property name="verticalAlign">middle</property>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="357">
+                    <property name="height">6.46875in</property>
+                    <cell id="358">
+                        <property name="verticalAlign">middle</property>
+                        <grid id="362">
+                            <property name="height">1.1354166666666667in</property>
+                            <column id="363"/>
+                            <column id="364"/>
+                            <column id="365"/>
+                            <column id="366"/>
+                            <row id="367">
+                                <property name="height">0.2708333333333333in</property>
+                                <cell id="368">
+                                    <property name="colSpan">2</property>
+                                    <property name="rowSpan">1</property>
+                                    <data id="386">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">机构名称</property>
+                                    </data>
+                                </cell>
+                                <cell id="370"/>
+                                <cell id="371"/>
+                            </row>
+                            <row id="372">
+                                <property name="height">0.5729166666666666in</property>
+                                <cell id="373">
+                                    <property name="colSpan">4</property>
+                                    <property name="rowSpan">1</property>
+                                    <label id="388">
+                                        <property name="fontSize">14pt</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="marginTop">10pt</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">利率互换成交单</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </grid>
+                        <grid id="391">
+                            <property name="height">5.03125in</property>
+                            <property name="width">7.864583333333333in</property>
+                            <column id="392">
+                                <property name="width">120px</property>
+                            </column>
+                            <column id="393">
+                                <property name="width">260px</property>
+                            </column>
+                            <column id="394">
+                                <property name="width">120px</property>
+                            </column>
+                            <column id="395">
+                                <property name="width">255px</property>
+                            </column>
+                            <row id="738">
+                                <property name="height">0.2708333333333333in</property>
+                                <cell id="739">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="743">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">成交编号</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="740">
+                                    <property name="colSpan">3</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="745">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">INTORDID</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="396">
+                                <property name="height">0.2708333333333333in</property>
+                                <cell id="397">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="471">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">业务种类</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="398">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="472">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">业务种类</property>
+                                    </data>
+                                </cell>
+                                <cell id="399">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="473">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">币种</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="400">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="474">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">币种</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="401">
+                                <property name="height">0.22916666666666666in</property>
+                                <cell id="402">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="475">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">客户名称</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="403">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="476">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">客户全称</property>
+                                    </data>
+                                </cell>
+                                <cell id="404">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="477">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">客户号</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="405">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="478">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">客户号</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="406">
+                                <property name="height">0.28125in</property>
+                                <cell id="407">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="479">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">产品名称</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="408">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="480">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">产品名称</property>
+                                    </data>
+                                </cell>
+                                <cell id="409">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="481">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">本金(万元)</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="410">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="482">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">本金</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="411">
+                                <property name="height">0.2604166666666667in</property>
+                                <cell id="412">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="483">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">起息日</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="413">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="485">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">起息日</property>
+                                    </data>
+                                </cell>
+                                <cell id="414">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="484">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">到期日</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="415">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="486">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">到期日</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="416">
+                                <property name="height">0.25in</property>
+                                <cell id="417">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="730">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">首规则起息日</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="418">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="731">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">首规则起息日</property>
+                                    </data>
+                                </cell>
+                                <cell id="419">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="487">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">期限(天)</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="420">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="488">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">期限</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="421">
+                                <property name="height">0.25in</property>
+                                <cell id="422">
+                                    <property name="colSpan">4</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="489">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">固定方</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="426">
+                                <property name="height">0.2708333333333333in</property>
+                                <cell id="427">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="490">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">利率类型</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="428">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="491">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">固定</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="429">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="492">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">固定利率(%)</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="430">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="493">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">固定利率</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="431">
+                                <property name="height">0.2604166666666667in</property>
+                                <cell id="432">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="494">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">收支频率</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="433">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="495">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">固定收支频率</property>
+                                    </data>
+                                </cell>
+                                <cell id="434">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="496">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">计息频率</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="435">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="497">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">固定计息频率</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="436">
+                                <property name="height">0.23958333333333334in</property>
+                                <cell id="437">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="498">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">收支调整</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="438">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="499">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">固定收支调整</property>
+                                    </data>
+                                </cell>
+                                <cell id="439">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="500">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">计息调整</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="440">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="501">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">固定计息调整</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="441">
+                                <property name="height">0.22916666666666666in</property>
+                                <cell id="442">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="502">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">计息方式</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="443">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="503">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">固定计息方式</property>
+                                    </data>
+                                </cell>
+                                <cell id="444">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="504">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">计息基准</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="445">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="505">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">固定计息基准</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="451">
+                                <property name="height">0.2604166666666667in</property>
+                                <cell id="452">
+                                    <property name="colSpan">4</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="506">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">浮动方</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="456">
+                                <property name="height">0.2708333333333333in</property>
+                                <cell id="457">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="507">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">利率类型</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="458">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="508">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">浮动</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="459">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="509">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">利率参考</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="460">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="510">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">浮动利率参考</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="511">
+                                <property name="height">0.25in</property>
+                                <cell id="512">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="526">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">收支频率</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="513">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="527">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">浮动收支频率</property>
+                                    </data>
+                                </cell>
+                                <cell id="514">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="528">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">利率利差(BP)</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="515">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="529">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">浮动利差</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="521">
+                                <property name="height">0.28125in</property>
+                                <cell id="522">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="530">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">收支调整</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="523">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="531">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">浮动收支调整</property>
+                                    </data>
+                                </cell>
+                                <cell id="524">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="532">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">定息日</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="525">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="533">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">定息日</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="516">
+                                <property name="height">0.25in</property>
+                                <cell id="517">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="534">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">计息基准</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="518">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="535">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">浮动计息基准</property>
+                                    </data>
+                                </cell>
+                                <cell id="519">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="536">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">重置频率</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="520">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="537">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">重置频率</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="461">
+                                <property name="height">0.3020833333333333in</property>
+                                <cell id="462">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="538">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">计息方式</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="463">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="539">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">浮动计息方式</property>
+                                    </data>
+                                </cell>
+                                <cell id="464">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="540">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">重置调整</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="465">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="541">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">浮动重置调整</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="466">
+                                <property name="height">0.3020833333333333in</property>
+                                <cell id="467">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="542">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">FinalStub</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="468">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="724">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">FINALSTUB</property>
+                                    </data>
+                                </cell>
+                                <cell id="469">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                </cell>
+                                <cell id="470">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                </cell>
+                            </row>
+                            <row id="545">
+                                <property name="height">0.3020833333333333in</property>
+                                <cell id="546">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="555">
+                                        <property name="paddingLeft">5pt</property>
+                                        <text-property name="text">手续费收取方式</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="547">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="556">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">手续费收取方式</property>
+                                    </data>
+                                </cell>
+                                <cell id="548">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="557">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">手续费类型</property>
+                                    </data>
+                                </cell>
+                                <cell id="549">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="558">
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="resultSetColumn">手续费</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </grid>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>

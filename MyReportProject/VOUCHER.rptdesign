@@ -1,0 +1,1564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <list-property name="includeScripts">
+        <property>xir_birt.js</property>
+    </list-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">30</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">30</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">30</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="INST_ID" id="31" extends="xir_j2ee.instId">
+            <text-property name="promptText">主指令号</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="29"
+ extends="xir_j2ee.XIR">
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@10.10.82.66:1521:TMSDB</property>
+            <property name="odaUser">XIR_TRDZY</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">eHBhcg==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="bkInfoDS" id="30">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">SEAL_IMAGE</property>
+                    <expression name="expression">"electTemple/getSealImg.action?orgId=" + row["BKKPG_ORG_ID"] &#13;
++ "&amp;hostFlowId=" + row["FLOW_ID"] &#13;
++ "&amp;isErase=" + row["IS_ERASE"] &#13;
++ "&amp;userAccount=" + row["SET_ERA_USER_ACCOUNT"]&#13;
++ "&amp;sealType=1" &#13;
++ "&amp;orgName="</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">FLOW_ID</property>
+                    <property name="alias">FLOW_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FLOW_ID</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">FLOW_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">HOSTFLOW_NO</property>
+                    <property name="alias">HOSTFLOW_NO</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">HOSTFLOW_NO</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">HOSTFLOW_NO</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">IS_ERASE</property>
+                    <property name="alias">IS_ERASE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">IS_ERASE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">IS_ERASE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ENTRY_DATE</property>
+                    <property name="alias">ENTRY_DATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ENTRY_DATE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">ENTRY_DATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BKKPG_ORG_ID</property>
+                    <property name="alias">BKKPG_ORG_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">BKKPG_ORG_ID</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">BKKPG_ORG_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">H_I_CODE</property>
+                    <property name="alias">H_I_CODE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">H_I_CODE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">H_I_CODE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">OPERATOR_NAME</property>
+                    <property name="alias">OPERATOR_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">OPERATOR_NAME</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">OPERATOR_NAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">I_NAME</property>
+                    <property name="alias">I_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">I_NAME</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">I_NAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TRD_TYPE</property>
+                    <property name="alias">TRD_TYPE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TRD_TYPE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">TRD_TYPE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">TRDTYPE_NAME</property>
+                    <property name="alias">TRDTYPE_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">TRDTYPE_NAME</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">TRDTYPE_NAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">SEND_TIME</property>
+                    <property name="alias">SEND_TIME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">SEND_TIME</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">SEND_TIME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">SET_ERA_USER_ACCOUNT</property>
+                    <property name="alias">SET_ERA_USER_ACCOUNT</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">SET_ERA_USER_ACCOUNT</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">SET_ERA_USER_ACCOUNT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">SET_ERA_USER_NAME</property>
+                    <property name="alias">SET_ERA_USER_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">SET_ERA_USER_NAME</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">SET_ERA_USER_NAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">AUTH_ERA_USER_NAME</property>
+                    <property name="alias">AUTH_ERA_USER_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">AUTH_ERA_USER_NAME</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">AUTH_ERA_USER_NAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">I_FULLNAME</property>
+                    <property name="alias">I_FULLNAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">I_FULLNAME</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">I_FULLNAME</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">instId_1</property>
+                    <property name="paramName">INST_ID</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">instId_2</property>
+                    <property name="paramName">INST_ID</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">2</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">FLOW_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">HOSTFLOW_NO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">IS_ERASE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">ENTRY_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">BKKPG_ORG_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">H_I_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">OPERATOR_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">I_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">TRD_TYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">TRDTYPE_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">SEND_TIME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">SET_ERA_USER_ACCOUNT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">SET_ERA_USER_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">AUTH_ERA_USER_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">I_FULLNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">SEAL_IMAGE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">FLOW_ID</property>
+                    <property name="nativeName">FLOW_ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">HOSTFLOW_NO</property>
+                    <property name="nativeName">HOSTFLOW_NO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">IS_ERASE</property>
+                    <property name="nativeName">IS_ERASE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">ENTRY_DATE</property>
+                    <property name="nativeName">ENTRY_DATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">BKKPG_ORG_ID</property>
+                    <property name="nativeName">BKKPG_ORG_ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">H_I_CODE</property>
+                    <property name="nativeName">H_I_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">OPERATOR_NAME</property>
+                    <property name="nativeName">OPERATOR_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">I_NAME</property>
+                    <property name="nativeName">I_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">TRD_TYPE</property>
+                    <property name="nativeName">TRD_TYPE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">TRDTYPE_NAME</property>
+                    <property name="nativeName">TRDTYPE_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">SEND_TIME</property>
+                    <property name="nativeName">SEND_TIME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">SET_ERA_USER_ACCOUNT</property>
+                    <property name="nativeName">SET_ERA_USER_ACCOUNT</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">SET_ERA_USER_NAME</property>
+                    <property name="nativeName">SET_ERA_USER_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">AUTH_ERA_USER_NAME</property>
+                    <property name="nativeName">AUTH_ERA_USER_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">I_FULLNAME</property>
+                    <property name="nativeName">I_FULLNAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[WITH CTE_SECU_CASH_INST_ID AS (
+	SELECT 
+		DISTINCT 
+		DECODE(SECU_INST_SETGRP_ID, NULL, SECU_INST_ID, '', SECU_INST_ID, '-1', SECU_INST_ID, '0', SECU_INST_ID, SECU_INST_SETGRP_ID) AS INST_ID, 
+		GM.TRD_TYPE, 
+		GM.H_I_CODE, 
+		GM.H_A_TYPE, 
+		GM.H_M_TYPE, 
+		GM.OPERATOR_NAME 
+	FROM (
+		SELECT * FROM TTRD_SET_INSTRUCTION_SECU 
+		UNION ALL 
+		SELECT * FROM TTRD_SET_INSTRUCTION_SECU_HIS 
+	) SECU, (
+		SELECT * FROM TTRD_SET_INSTRUCTION 
+		UNION ALL 
+		SELECT * FROM TTRD_SET_INSTRUCTION_HIS 
+	) M, (
+		SELECT * FROM TTRD_SET_INSTRUCTION 
+		UNION ALL 
+		SELECT * FROM TTRD_SET_INSTRUCTION_HIS 
+	) GM 
+	WHERE GM.INST_ID = ? 
+		AND SECU.INST_ID = M.INST_ID 
+		AND M.INST_GRP_ID = GM.INST_ID 
+	UNION ALL 
+	SELECT 
+		DISTINCT 
+		DECODE(CASH_INST_SETGRP_ID, NULL, CASH_INST_ID, '', CASH_INST_ID, '-1', CASH_INST_ID, '0', CASH_INST_ID, CASH_INST_SETGRP_ID) AS INST_ID, 
+		GM.TRD_TYPE, 
+		GM.H_I_CODE, 
+		GM.H_A_TYPE, 
+		GM.H_M_TYPE, 
+		GM.OPERATOR_NAME 
+	FROM (
+		SELECT * FROM TTRD_SET_INSTRUCTION_CASH 
+		UNION ALL 
+		SELECT * FROM TTRD_SET_INSTRUCTION_CASH_HIS
+	) CASH, (
+		SELECT * FROM TTRD_SET_INSTRUCTION 
+		UNION ALL 
+		SELECT * FROM TTRD_SET_INSTRUCTION_HIS 
+	) M, (
+		SELECT * FROM TTRD_SET_INSTRUCTION 
+		UNION ALL 
+		SELECT * FROM TTRD_SET_INSTRUCTION_HIS 
+	) GM 
+	WHERE GM.INST_ID = ? 
+		AND CASH.INST_ID = M.INST_ID 
+		AND M.INST_GRP_ID = GM.INST_ID 
+) 
+
+
+SELECT 
+	DISTINCT 
+	FLOW_ID, 
+	HOSTFLOW_NO, 
+	IS_ERASE, 
+	ENTRY_DATE, 
+	BKKPG_ORG_ID, 
+	H_I_CODE, 
+	OPERATOR_NAME, 
+	I_NAME, 
+	TRD_TYPE, 
+	TRDTYPE_NAME, 
+	SEND_TIME, 
+	SET_ERA_USER_ACCOUNT, 
+	SET_ERA_USER_NAME, 
+	AUTH_ERA_USER_NAME,
+  i_fullNAME
+FROM (
+	SELECT 
+		E.FLOW_ID, 
+		E.ENTRY_DATE, 
+		E.BKKPG_ORG_ID, 
+		I.H_I_CODE, 
+		I.OPERATOR_NAME, 
+		INSTM.I_NAME, 
+		I.TRD_TYPE, 
+		TRDTYPE.DESCRIPTION AS TRDTYPE_NAME, 
+		NVL(MP.HOSTFLOW_NO, '') AS HOSTFLOW_NO, 
+		NVL(MP.IS_ERASE, 1) AS IS_ERASE, 
+		(
+			SELECT 
+				MAX(L.SEND_TIME) 
+			FROM TTRD_AIDSYS_MSG_LOG L 
+			WHERE L.SEND_NO = MP.SENDFLOW_NO 
+		) AS SEND_TIME, 
+		(
+			SELECT ACCOUNT 
+			FROM TTRD_AUTH_USER 
+			WHERE USER_ID = DECODE(MP.IS_ERASE, 1, BSM.SET_USER_ID, 2, BSM.ERA_USER_ID)
+		) AS SET_ERA_USER_ACCOUNT,
+		(
+			SELECT USER_NAME 
+			FROM TTRD_AUTH_USER 
+			WHERE USER_ID = DECODE(MP.IS_ERASE, 1, BSM.SET_USER_ID, 2, BSM.ERA_USER_ID)
+		) AS SET_ERA_USER_NAME,
+		(
+			SELECT USER_NAME 
+			FROM TTRD_AUTH_USER 
+			WHERE USER_ID = DECODE(MP.IS_ERASE, 2, BSM.AUTH_ERA_USER_ID, NULL)
+		) AS AUTH_ERA_USER_NAME ,
+      y.i_fullNAME
+	FROM (
+		SELECT * FROM TTRD_BOOKKEEPING_ENTRY 
+		UNION 
+		SELECT * FROM TTRD_BOOKKEEPING_ENTRY_HIS 
+	) E 
+	JOIN CTE_SECU_CASH_INST_ID I 
+		ON I.INST_ID = E.INST_ID 
+	LEFT JOIN TTRD_TRADE_TYPE TRDTYPE 
+		ON TRDTYPE.TRD_TYPE = I.TRD_TYPE 
+	LEFT JOIN TTRD_INSTRUMENT INSTM 
+		ON INSTM.I_CODE = I.H_I_CODE 
+		AND INSTM.A_TYPE = I.H_A_TYPE 
+		AND INSTM.M_TYPE = I.H_M_TYPE 
+	LEFT JOIN (
+		SELECT 
+			SENDFLOW_NO, FLOW_NO, HOSTFLOW_NO, IS_ERASE, HIS_FLAG 
+		FROM TTRD_RECORD_FLOWMAPPING 
+		WHERE STATE = 0 AND HIS_FLAG = 0 
+	  UNION 
+    SELECT 
+      SENDFLOW_NO, FLOW_NO, HOSTFLOW_NO, IS_ERASE, HIS_FLAG 
+    FROM TTRD_RECORD_FLOWMAPPING_HIS 
+    WHERE STATE = 0 AND HIS_FLAG = 0 
+  ) MP 
+    ON MP.FLOW_NO = E.FLOW_ID 
+  LEFT JOIN TTRD_BKP_SETTLE_MAPPING BSM 
+    ON BSM.FLOW_ID = E.FLOW_ID 
+  left join TTRD_INSTITUTION y 
+  on y.org_id = E.bkkpg_org_id
+  WHERE E.STATE = '1' AND E.GRP_FLOW_ID = '-1' 
+  
+  UNION 
+
+  SELECT 
+    E.FLOW_ID, 
+    E.ENTRY_DATE, 
+    E.BKKPG_ORG_ID, 
+    I.H_I_CODE, 
+    I.OPERATOR_NAME, 
+    INSTM.I_NAME, 
+    I.TRD_TYPE, 
+    TRDTYPE.DESCRIPTION AS TRDTYPE_NAME, 
+    MP.HOSTFLOW_NO, 
+    MP.IS_ERASE, 
+    (
+      SELECT 
+        MAX(L.SEND_TIME) 
+      FROM TTRD_AIDSYS_MSG_LOG L 
+      WHERE L.SEND_NO = MP.SENDFLOW_NO 
+    ) AS SEND_TIME, 
+    (
+      SELECT ACCOUNT 
+      FROM TTRD_AUTH_USER 
+      WHERE USER_ID = DECODE(MP.IS_ERASE, 1, BSM.SET_USER_ID, 2, BSM.ERA_USER_ID)
+    ) AS SET_ERA_USER_ACCOUNT,
+    (
+      SELECT USER_NAME 
+      FROM TTRD_AUTH_USER 
+      WHERE USER_ID = DECODE(MP.IS_ERASE, 1, BSM.SET_USER_ID, 2, BSM.ERA_USER_ID)
+    ) AS SET_ERA_USER_NAME,
+    (
+      SELECT USER_NAME 
+      FROM TTRD_AUTH_USER 
+      WHERE USER_ID = DECODE(MP.IS_ERASE, 2, BSM.AUTH_ERA_USER_ID, NULL)
+    ) AS AUTH_ERA_USER_NAME ,
+      y.i_fullNAME
+  FROM (
+    SELECT * FROM TTRD_BOOKKEEPING_ENTRY 
+    UNION 
+    SELECT * FROM TTRD_BOOKKEEPING_ENTRY_HIS 
+  ) E 
+  JOIN CTE_SECU_CASH_INST_ID I 
+    ON I.INST_ID = E.INST_ID 
+  LEFT JOIN TTRD_TRADE_TYPE TRDTYPE 
+    ON TRDTYPE.TRD_TYPE = I.TRD_TYPE 
+  LEFT JOIN TTRD_INSTRUMENT INSTM 
+    ON INSTM.I_CODE = I.H_I_CODE 
+    AND INSTM.A_TYPE = I.H_A_TYPE 
+    AND INSTM.M_TYPE = I.H_M_TYPE 
+  JOIN (
+    SELECT 
+      SENDFLOW_NO, FLOW_NO, HOSTFLOW_NO, IS_ERASE, HIS_FLAG 
+    FROM TTRD_RECORD_FLOWMAPPING 
+    WHERE STATE = 0 
+    UNION 
+    SELECT 
+      SENDFLOW_NO, FLOW_NO, HOSTFLOW_NO, IS_ERASE, HIS_FLAG 
+    FROM TTRD_RECORD_FLOWMAPPING_HIS 
+    WHERE STATE = 0 
+  ) MP 
+    ON MP.FLOW_NO = E.FLOW_ID 
+  LEFT JOIN TTRD_BKP_SETTLE_MAPPING BSM 
+    ON BSM.FLOW_ID = E.FLOW_ID 
+  left join TTRD_INSTITUTION y 
+  on y.org_id = E.bkkpg_org_id
+  WHERE E.STATE = '3' AND E.GRP_FLOW_ID = '-1' 
+) 
+ORDER BY FLOW_ID, IS_ERASE ]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>1</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>1</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>1</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="bkEntryDS" id="40">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">ENTRY_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ENTRY_ID</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">ENTRY_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ENTRY_DATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ENTRY_DATE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">ENTRY_DATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FLOW_ID</property>
+                    <property name="alias">FLOW_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FLOW_ID</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">FLOW_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CORE_ACCT_CODE</property>
+                    <property name="alias">CORE_ACCT_CODE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">CORE_ACCT_CODE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">CORE_ACCT_CODE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CORE_ACCT_NAME</property>
+                    <property name="alias">CORE_ACCT_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">CORE_ACCT_NAME</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">CORE_ACCT_NAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">SUBJ_CODE</property>
+                    <property name="alias">SUBJ_CODE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">SUBJ_CODE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">SUBJ_CODE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">BKKPG_ORG_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">BKKPG_ORG_ID</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">BKKPG_ORG_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">DEBIT_CREDIT_FLAG</property>
+                    <property name="alias">DEBIT_CREDIT_FLAG</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">DEBIT_CREDIT_FLAG</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">DEBIT_CREDIT_FLAG</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">RED_BLUE_FLAG</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">RED_BLUE_FLAG</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">RED_BLUE_FLAG</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">STEP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">STEP</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">STEP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">VALUE</property>
+                    <property name="alias">VALUE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">VALUE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">VALUE</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">instId_1</property>
+                    <property name="paramName">INST_ID</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">instId_2</property>
+                    <property name="paramName">INST_ID</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">2</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ENTRY_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">ENTRY_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">FLOW_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">CORE_ACCT_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">CORE_ACCT_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">SUBJ_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">BKKPG_ORG_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">DEBIT_CREDIT_FLAG</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">RED_BLUE_FLAG</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">STEP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">VALUE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">ENTRY_ID</property>
+                    <property name="nativeName">ENTRY_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">ENTRY_DATE</property>
+                    <property name="nativeName">ENTRY_DATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">FLOW_ID</property>
+                    <property name="nativeName">FLOW_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">CORE_ACCT_CODE</property>
+                    <property name="nativeName">CORE_ACCT_CODE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">CORE_ACCT_NAME</property>
+                    <property name="nativeName">CORE_ACCT_NAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">SUBJ_CODE</property>
+                    <property name="nativeName">SUBJ_CODE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">BKKPG_ORG_ID</property>
+                    <property name="nativeName">BKKPG_ORG_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">DEBIT_CREDIT_FLAG</property>
+                    <property name="nativeName">DEBIT_CREDIT_FLAG</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">RED_BLUE_FLAG</property>
+                    <property name="nativeName">RED_BLUE_FLAG</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">STEP</property>
+                    <property name="nativeName">STEP</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">VALUE</property>
+                    <property name="nativeName">VALUE</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[WITH CTE_INST_ID AS (
+	SELECT 
+		DISTINCT 
+		DECODE(SECU_INST_SETGRP_ID, NULL, SECU_INST_ID, '', SECU_INST_ID, '-1', SECU_INST_ID, '0', SECU_INST_ID, SECU_INST_SETGRP_ID) AS INST_ID 
+	FROM (
+		SELECT * FROM TTRD_SET_INSTRUCTION_SECU 
+		UNION ALL 
+		SELECT * FROM TTRD_SET_INSTRUCTION_SECU_HIS 
+	) SECU, (
+		SELECT * FROM TTRD_SET_INSTRUCTION 
+		UNION ALL 
+		SELECT * FROM TTRD_SET_INSTRUCTION_HIS 
+	) M, (
+		SELECT * FROM TTRD_SET_INSTRUCTION 
+		UNION ALL 
+		SELECT * FROM TTRD_SET_INSTRUCTION_HIS 
+	) GM 
+	WHERE GM.INST_ID = ? 
+		AND SECU.INST_ID = M.INST_ID 
+		AND M.INST_GRP_ID = GM.INST_ID 
+	UNION ALL 
+	SELECT 
+		DISTINCT 
+		DECODE(CASH_INST_SETGRP_ID, NULL, CASH_INST_ID, '', CASH_INST_ID, '-1', CASH_INST_ID, '0', CASH_INST_ID, CASH_INST_SETGRP_ID) AS INST_ID 
+	FROM (
+		SELECT * FROM TTRD_SET_INSTRUCTION_CASH 
+		UNION ALL 
+		SELECT * FROM TTRD_SET_INSTRUCTION_CASH_HIS
+	) CASH, (
+		SELECT * FROM TTRD_SET_INSTRUCTION 
+		UNION ALL 
+		SELECT * FROM TTRD_SET_INSTRUCTION_HIS 
+	) M, (
+		SELECT * FROM TTRD_SET_INSTRUCTION 
+		UNION ALL 
+		SELECT * FROM TTRD_SET_INSTRUCTION_HIS 
+	) GM 
+	WHERE GM.INST_ID = ? 
+		AND CASH.INST_ID = M.INST_ID 
+		AND M.INST_GRP_ID = GM.INST_ID 
+)
+SELECT 
+	* 
+FROM (
+	SELECT 
+		E.ENTRY_ID, 
+		E.ENTRY_DATE, 
+		E.FLOW_ID, 
+		E.CORE_ACCT_CODE, 
+		E.CORE_ACCT_NAME, 
+		E.SUBJ_CODE, 
+    E.BKKPG_ORG_ID, 
+    case when  E.DEBIT_CREDIT_FLAG='1' then '借(普通)' else '贷(普通)'  end as DEBIT_CREDIT_FLAG,
+    E.RED_BLUE_FLAG, 
+    E.STEP, 
+    E.VALUE 
+  FROM TTRD_BOOKKEEPING_ENTRY E 
+  JOIN CTE_INST_ID I 
+    ON I.INST_ID = E.INST_ID 
+  WHERE E.STATE = '1' AND E.GRP_FLOW_ID = '-1' 
+
+  UNION 
+
+  SELECT 
+    E.ENTRY_ID, 
+    E.ENTRY_DATE, 
+    E.FLOW_ID, 
+    E.CORE_ACCT_CODE, 
+    E.CORE_ACCT_NAME, 
+    E.SUBJ_CODE, 
+    E.BKKPG_ORG_ID, 
+    case when  E.DEBIT_CREDIT_FLAG='1' then '借(普通)' else '贷(普通)'  end as DEBIT_CREDIT_FLAG,
+    E.RED_BLUE_FLAG, 
+    E.STEP, 
+    E.VALUE 
+  FROM TTRD_BOOKKEEPING_ENTRY_HIS E 
+  JOIN CTE_INST_ID I 
+    ON I.INST_ID = E.INST_ID 
+  WHERE E.STATE = '1' AND E.GRP_FLOW_ID = '-1' 
+)]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="topMargin">10mm</property>
+            <property name="leftMargin">10mm</property>
+            <property name="bottomMargin">0mm</property>
+            <property name="rightMargin">10mm</property>
+            <property name="height">148mm</property>
+            <property name="width">210mm</property>
+            <property name="showHeaderOnFirst">false</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">0in</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="228">
+            <property name="fontFamily">"宋体"</property>
+            <property name="dataSet">bkInfoDS</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">FLOW_ID</property>
+                    <text-property name="displayName">FLOW_ID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FLOW_ID"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">HOSTFLOW_NO</property>
+                    <text-property name="displayName">HOSTFLOW_NO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["HOSTFLOW_NO"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">IS_ERASE</property>
+                    <text-property name="displayName">IS_ERASE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["IS_ERASE"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">ENTRY_DATE</property>
+                    <text-property name="displayName">ENTRY_DATE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ENTRY_DATE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">BKKPG_ORG_ID</property>
+                    <text-property name="displayName">BKKPG_ORG_ID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["BKKPG_ORG_ID"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">H_I_CODE</property>
+                    <text-property name="displayName">H_I_CODE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["H_I_CODE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">OPERATOR_NAME</property>
+                    <text-property name="displayName">OPERATOR_NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["OPERATOR_NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">I_NAME</property>
+                    <text-property name="displayName">I_NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["I_NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">TRD_TYPE</property>
+                    <text-property name="displayName">TRD_TYPE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TRD_TYPE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">TRDTYPE_NAME</property>
+                    <text-property name="displayName">TRDTYPE_NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TRDTYPE_NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">SEND_TIME</property>
+                    <text-property name="displayName">SEND_TIME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["SEND_TIME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">SET_ERA_USER_ACCOUNT</property>
+                    <text-property name="displayName">SET_ERA_USER_ACCOUNT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["SET_ERA_USER_ACCOUNT"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">SET_ERA_USER_NAME</property>
+                    <text-property name="displayName">SET_ERA_USER_NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["SET_ERA_USER_NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">AUTH_ERA_USER_NAME</property>
+                    <text-property name="displayName">AUTH_ERA_USER_NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AUTH_ERA_USER_NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">I_FULLNAME</property>
+                    <text-property name="displayName">I_FULLNAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["I_FULLNAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">SEAL_IMAGE</property>
+                    <text-property name="displayName">SEAL_IMAGE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["SEAL_IMAGE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">1</property>
+            <column id="235"/>
+            <detail>
+                <row id="231">
+                    <cell id="232">
+                        <list id="236">
+                            <property name="fontSize">9pt</property>
+                            <property name="dataSet">bkEntryDS</property>
+                            <header>
+                                <grid id="237">
+                                    <property name="height">1.5in</property>
+                                    <property name="dataSet">bkInfoDS</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">I_FULLNAME</property>
+                                            <text-property name="displayName">I_FULLNAME</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["I_FULLNAME"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">BKKPG_ORG_ID</property>
+                                            <text-property name="displayName">BKKPG_ORG_ID</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["BKKPG_ORG_ID"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">TRD_TYPE</property>
+                                            <text-property name="displayName">TRD_TYPE</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["TRD_TYPE"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">SEND_TIME</property>
+                                            <text-property name="displayName">SEND_TIME</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["SEND_TIME"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <column id="238"/>
+                                    <row id="239">
+                                        <property name="height">8mm</property>
+                                        <cell id="240">
+                                            <property name="fontSize">14pt</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="textAlign">center</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <label id="243">
+                                                <property name="fontFamily">"宋体"</property>
+                                                <property name="fontSize">14pt</property>
+                                                <property name="fontWeight">bold</property>
+                                                <property name="paddingBottom">1pt</property>
+                                                <text-property name="text">资金业务记账凭证</text-property>
+                                            </label>
+                                        </cell>
+                                    </row>
+                                    <row id="241">
+                                        <cell id="242">
+                                            <property name="verticalAlign">middle</property>
+                                            <grid id="244">
+                                                <property name="width">7.208333333333333in</property>
+                                                <column id="245">
+                                                    <property name="width">20mm</property>
+                                                </column>
+                                                <column id="246">
+                                                    <property name="width">70mm</property>
+                                                </column>
+                                                <column id="247">
+                                                    <property name="width">20mm</property>
+                                                </column>
+                                                <column id="250">
+                                                    <property name="width">75mm</property>
+                                                </column>
+                                                <row id="251">
+                                                    <property name="height">5mm</property>
+                                                    <cell id="252">
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">1pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <property name="verticalAlign">middle</property>
+                                                        <label id="253">
+                                                            <property name="fontFamily">"宋体"</property>
+                                                            <property name="fontSize">9pt</property>
+                                                            <property name="fontWeight">normal</property>
+                                                            <text-property name="text">交易机构:</text-property>
+                                                        </label>
+                                                    </cell>
+                                                    <cell id="254">
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">1pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <property name="verticalAlign">middle</property>
+                                                        <data id="377">
+                                                            <property name="resultSetColumn">I_FULLNAME</property>
+                                                        </data>
+                                                    </cell>
+                                                    <cell id="256">
+                                                        <property name="fontFamily">"Arial"</property>
+                                                        <property name="fontSize">9pt</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">1pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <property name="verticalAlign">middle</property>
+                                                        <label id="257">
+                                                            <property name="fontFamily">"宋体"</property>
+                                                            <property name="fontSize">9pt</property>
+                                                            <property name="fontWeight">normal</property>
+                                                            <text-property name="text">机构号:</text-property>
+                                                        </label>
+                                                    </cell>
+                                                    <cell id="258">
+                                                        <property name="colSpan">1</property>
+                                                        <property name="rowSpan">1</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">1pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <property name="verticalAlign">middle</property>
+                                                        <data id="378">
+                                                            <property name="resultSetColumn">BKKPG_ORG_ID</property>
+                                                        </data>
+                                                    </cell>
+                                                </row>
+                                                <row id="264">
+                                                    <property name="height">5mm</property>
+                                                    <cell id="265">
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">1pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <property name="verticalAlign">middle</property>
+                                                        <label id="266">
+                                                            <property name="fontFamily">"宋体"</property>
+                                                            <property name="fontSize">9pt</property>
+                                                            <property name="fontWeight">normal</property>
+                                                            <text-property name="text">业务种类：</text-property>
+                                                        </label>
+                                                    </cell>
+                                                    <cell id="267">
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">1pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <property name="verticalAlign">middle</property>
+                                                        <data id="379">
+                                                            <property name="resultSetColumn">TRD_TYPE</property>
+                                                        </data>
+                                                    </cell>
+                                                    <cell id="269">
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">1pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <property name="verticalAlign">middle</property>
+                                                        <label id="270">
+                                                            <property name="fontFamily">"宋体"</property>
+                                                            <property name="fontSize">9pt</property>
+                                                            <property name="fontWeight">normal</property>
+                                                            <text-property name="text">记账时间:</text-property>
+                                                        </label>
+                                                    </cell>
+                                                    <cell id="271">
+                                                        <property name="colSpan">1</property>
+                                                        <property name="rowSpan">1</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">1pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <property name="verticalAlign">middle</property>
+                                                        <data id="380">
+                                                            <property name="resultSetColumn">SEND_TIME</property>
+                                                        </data>
+                                                    </cell>
+                                                </row>
+                                            </grid>
+                                            <table id="455">
+                                                <property name="dataSet">bkEntryDS</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">ENTRY_ID</property>
+                                                        <text-property name="displayName">ENTRY_ID</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["ENTRY_ID"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="name">ENTRY_DATE</property>
+                                                        <text-property name="displayName">ENTRY_DATE</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["ENTRY_DATE"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="name">FLOW_ID</property>
+                                                        <text-property name="displayName">FLOW_ID</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["FLOW_ID"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="name">CORE_ACCT_CODE</property>
+                                                        <text-property name="displayName">CORE_ACCT_CODE</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["CORE_ACCT_CODE"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="name">CORE_ACCT_NAME</property>
+                                                        <text-property name="displayName">CORE_ACCT_NAME</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["CORE_ACCT_NAME"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="name">SUBJ_CODE</property>
+                                                        <text-property name="displayName">SUBJ_CODE</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["SUBJ_CODE"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="name">BKKPG_ORG_ID</property>
+                                                        <text-property name="displayName">BKKPG_ORG_ID</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["BKKPG_ORG_ID"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="name">DEBIT_CREDIT_FLAG</property>
+                                                        <text-property name="displayName">DEBIT_CREDIT_FLAG</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["DEBIT_CREDIT_FLAG"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="name">RED_BLUE_FLAG</property>
+                                                        <text-property name="displayName">RED_BLUE_FLAG</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["RED_BLUE_FLAG"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="name">STEP</property>
+                                                        <text-property name="displayName">STEP</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["STEP"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="name">VALUE</property>
+                                                        <text-property name="displayName">VALUE</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["VALUE"]</expression>
+                                                        <property name="dataType">decimal</property>
+                                                    </structure>
+                                                </list-property>
+                                                <list-property name="filter">
+                                                    <structure>
+                                                        <property name="operator">eq</property>
+                                                        <expression name="expr" type="javascript">row["FLOW_ID"]</expression>
+                                                        <simple-property-list name="value1">
+                                                            <value>row["FLOW_ID"]</value>
+                                                        </simple-property-list>
+                                                        <property name="updateAggregation">true</property>
+                                                    </structure>
+                                                </list-property>
+                                                <column id="476">
+                                                    <property name="width">20mm</property>
+                                                </column>
+                                                <column id="477">
+                                                    <property name="width">70mm</property>
+                                                </column>
+                                                <column id="478">
+                                                    <property name="width">30mm</property>
+                                                </column>
+                                                <column id="479">
+                                                    <property name="width">65mm</property>
+                                                </column>
+                                                <header>
+                                                    <row id="456">
+                                                        <cell id="457">
+                                                            <label id="447">
+                                                                <property name="textAlign">left</property>
+                                                                <text-property name="text">分录:</text-property>
+                                                            </label>
+                                                        </cell>
+                                                        <cell id="458"/>
+                                                        <cell id="459"/>
+                                                        <cell id="460"/>
+                                                    </row>
+                                                </header>
+                                                <detail>
+                                                    <row id="461">
+                                                        <cell id="462">
+                                                            <data id="452">
+                                                                <property name="resultSetColumn">DEBIT_CREDIT_FLAG</property>
+                                                            </data>
+                                                        </cell>
+                                                        <cell id="463">
+                                                            <data id="451">
+                                                                <property name="resultSetColumn">CORE_ACCT_NAME</property>
+                                                            </data>
+                                                        </cell>
+                                                        <cell id="464">
+                                                            <data id="454">
+                                                                <property name="resultSetColumn">SUBJ_CODE</property>
+                                                            </data>
+                                                        </cell>
+                                                        <cell id="465">
+                                                            <data id="449">
+                                                                <property name="resultSetColumn">VALUE</property>
+                                                            </data>
+                                                        </cell>
+                                                    </row>
+                                                </detail>
+                                            </table>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </header>
+                            <footer>
+                                <table id="397">
+                                    <property name="dataSet">bkInfoDS</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">FLOW_ID</property>
+                                            <text-property name="displayName">FLOW_ID</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["FLOW_ID"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">HOSTFLOW_NO</property>
+                                            <text-property name="displayName">HOSTFLOW_NO</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["HOSTFLOW_NO"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">IS_ERASE</property>
+                                            <text-property name="displayName">IS_ERASE</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["IS_ERASE"]</expression>
+                                            <property name="dataType">decimal</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">ENTRY_DATE</property>
+                                            <text-property name="displayName">ENTRY_DATE</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["ENTRY_DATE"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">BKKPG_ORG_ID</property>
+                                            <text-property name="displayName">BKKPG_ORG_ID</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["BKKPG_ORG_ID"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">H_I_CODE</property>
+                                            <text-property name="displayName">H_I_CODE</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["H_I_CODE"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">OPERATOR_NAME</property>
+                                            <text-property name="displayName">OPERATOR_NAME</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["OPERATOR_NAME"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">I_NAME</property>
+                                            <text-property name="displayName">I_NAME</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["I_NAME"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">TRD_TYPE</property>
+                                            <text-property name="displayName">TRD_TYPE</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["TRD_TYPE"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">TRDTYPE_NAME</property>
+                                            <text-property name="displayName">TRDTYPE_NAME</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["TRDTYPE_NAME"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">SEND_TIME</property>
+                                            <text-property name="displayName">SEND_TIME</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["SEND_TIME"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">SET_ERA_USER_ACCOUNT</property>
+                                            <text-property name="displayName">SET_ERA_USER_ACCOUNT</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["SET_ERA_USER_ACCOUNT"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">SET_ERA_USER_NAME</property>
+                                            <text-property name="displayName">SET_ERA_USER_NAME</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["SET_ERA_USER_NAME"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">AUTH_ERA_USER_NAME</property>
+                                            <text-property name="displayName">AUTH_ERA_USER_NAME</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["AUTH_ERA_USER_NAME"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">I_FULLNAME</property>
+                                            <text-property name="displayName">I_FULLNAME</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["I_FULLNAME"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">SEAL_IMAGE</property>
+                                            <text-property name="displayName">SEAL_IMAGE</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["SEAL_IMAGE"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <column id="418">
+                                        <property name="width">22mm</property>
+                                    </column>
+                                    <column id="419">
+                                        <property name="width">68mm</property>
+                                    </column>
+                                    <column id="420">
+                                        <property name="width">30mm</property>
+                                    </column>
+                                    <column id="421">
+                                        <property name="width">65mm</property>
+                                    </column>
+                                    <header>
+                                        <row id="398">
+                                            <cell id="399">
+                                                <label id="358">
+                                                    <property name="textAlign">left</property>
+                                                    <text-property name="text">资金流水号:</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="400">
+                                                <data id="381">
+                                                    <property name="textAlign">left</property>
+                                                    <property name="resultSetColumn">FLOW_ID</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="401">
+                                                <label id="391">
+                                                    <property name="textAlign">left</property>
+                                                    <text-property name="text">核心流水号</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="402">
+                                                <data id="392">
+                                                    <property name="textAlign">left</property>
+                                                    <property name="resultSetColumn">HOSTFLOW_NO</property>
+                                                </data>
+                                            </cell>
+                                        </row>
+                                    </header>
+                                    <detail>
+                                        <row id="403">
+                                            <cell id="404">
+                                                <label id="359">
+                                                    <property name="fontWeight">bold</property>
+                                                    <text-property name="text">记账经办:</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="405">
+                                                <data id="383">
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="resultSetColumn">OPERATOR_NAME</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="406">
+                                                <label id="360">
+                                                    <property name="fontWeight">bold</property>
+                                                    <text-property name="text">记账复合:</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="407">
+                                                <data id="382">
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="resultSetColumn">SET_ERA_USER_NAME</property>
+                                                </data>
+                                            </cell>
+                                        </row>
+                                    </detail>
+                                </table>
+                            </footer>
+                        </list>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>

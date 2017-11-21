@@ -1,0 +1,3162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <list-property name="includeScripts">
+        <property>sdnx_birt.js</property>
+        <property>xir_birt.js</property>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">birt.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="instId" id="588" extends="xir_j2ee.instId">
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="505"
+ extends="xir_j2ee.XIR"/>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="bkpInfoDS_IN" id="196">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">instId_1</property>
+                    <property name="paramName">instId</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">RECORD_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">BKKPG_ORG_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">ACCOUNT_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">FLOW_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">OPERATOR_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">ACCT_USER</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">ACCT_USER_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">ACCT_USER_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">CURRENCY</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">RECORD_ID</property>
+                    <property name="nativeName">RECORD_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">BKKPG_ORG_ID</property>
+                    <property name="nativeName">BKKPG_ORG_ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">ACCOUNT_DATE</property>
+                    <property name="nativeName">ACCOUNT_DATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">FLOW_ID</property>
+                    <property name="nativeName">FLOW_ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">OPERATOR_NAME</property>
+                    <property name="nativeName">OPERATOR_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">ACCT_USER</property>
+                    <property name="nativeName">ACCT_USER</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">ACCT_USER_NAME</property>
+                    <property name="nativeName">ACCT_USER_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">ACCT_USER_CODE</property>
+                    <property name="nativeName">ACCT_USER_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">CURRENCY</property>
+                    <property name="nativeName">CURRENCY</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[--获取手工记账表内记账凭证基本信息
+SELECT 
+	R.RECORD_ID, 
+	R.BKKPG_ORG_ID, 
+	R.ACCOUNT_DATE, 
+	R.FLOW_ID, 
+	R.CREATE_USER_NAME AS OPERATOR_NAME, 
+	R.ACCT_USER, 
+	R.ACCT_USER_NAME, 
+	U.ACCOUNT AS ACCT_USER_CODE, 
+	E.CURRENCY
+FROM TTRD_MANUAL_BK_RECORD R 
+JOIN TTRD_MANUAL_BK_ENTRY E 
+	ON R.FLOW_ID = E.FLOW_ID 
+LEFT JOIN TTRD_AUTH_USER U 
+	ON U.USER_ID = R.ACCT_USER 
+WHERE ROWNUM = 1 AND R.RECORD_ID = ? AND E.STATE = '1' 
+	AND E.DEBIT_CREDIT_FLAG IN ('1','2') 
+]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>INST_ID</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>16</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>INST_ID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>INST_ID</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TRD_TYPE</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TRD_TYPE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TRD_TYPE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>OPERATOR_ID</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>OPERATOR_ID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>OPERATOR_ID</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>OPERATOR_NAME</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>32</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>OPERATOR_NAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>OPERATOR_NAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>32</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="bkpEntryDS_IN" id="347">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">ENTRY_ID</property>
+                    <property name="alias">ENTRY_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ENTRY_ID</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">ENTRY_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CORE_ACCT_CODE</property>
+                    <property name="alias">CORE_ACCT_CODE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">CORE_ACCT_CODE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">CORE_ACCT_CODE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">DEBIT_CREDIT_FLAG</property>
+                    <property name="alias">DEBIT_CREDIT_FLAG</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">DEBIT_CREDIT_FLAG</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">DEBIT_CREDIT_FLAG</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">RED_BLUE_FLAG</property>
+                    <property name="alias">RED_BLUE_FLAG</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">RED_BLUE_FLAG</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">RED_BLUE_FLAG</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">DEBIT_VALUE</property>
+                    <property name="alias">DEBIT_VALUE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">DEBIT_VALUE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">DEBIT_VALUE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CREDIT_VALUE</property>
+                    <property name="alias">CREDIT_VALUE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CREDIT_VALUE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">CREDIT_VALUE</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">instId_1</property>
+                    <property name="paramName">instId</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ENTRY_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">CORE_ACCT_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">CORE_ACCT_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">SUBJ_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">DEBIT_CREDIT_FLAG</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">RED_BLUE_FLAG</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">DEBIT_VALUE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">CREDIT_VALUE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">ENTRY_ID</property>
+                    <property name="nativeName">ENTRY_ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">CORE_ACCT_CODE</property>
+                    <property name="nativeName">CORE_ACCT_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">CORE_ACCT_NAME</property>
+                    <property name="nativeName">CORE_ACCT_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">SUBJ_CODE</property>
+                    <property name="nativeName">SUBJ_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">DEBIT_CREDIT_FLAG</property>
+                    <property name="nativeName">DEBIT_CREDIT_FLAG</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">RED_BLUE_FLAG</property>
+                    <property name="nativeName">RED_BLUE_FLAG</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">DEBIT_VALUE</property>
+                    <property name="nativeName">DEBIT_VALUE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">CREDIT_VALUE</property>
+                    <property name="nativeName">CREDIT_VALUE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[--获取手工记账表内分录
+SELECT 
+	E.ENTRY_ID, 
+	E.CORE_ACCT_CODE, 
+	D.ACTING_ENTRY_NAME_3 AS CORE_ACCT_NAME, 
+	E.SUBJ_CODE, 
+	E.DEBIT_CREDIT_FLAG, 
+	E.RED_BLUE_FLAG, 
+	CASE WHEN E.DEBIT_CREDIT_FLAG = '1' THEN 
+		E.VALUE
+	ELSE 0 END AS DEBIT_VALUE, 
+	CASE WHEN E.DEBIT_CREDIT_FLAG = '2' THEN 
+		E.VALUE
+	ELSE 0 END AS CREDIT_VALUE 
+FROM TTRD_MANUAL_BK_ENTRY E 
+JOIN TTRD_MANUAL_BK_RECORD R 
+	ON R.FLOW_ID = E.FLOW_ID 
+LEFT JOIN TTRD_ACCOUNTING_ENTRY_DEF D 
+	ON E.SUBJ_CODE = D.ACTING_ENTRY_CODE_3 
+WHERE R.RECORD_ID = ? AND E.STATE = '1' AND E.DEBIT_CREDIT_FLAG IN ('1', '2') 
+ORDER BY E.DEBIT_CREDIT_FLAG]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ENTRY_ID</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ENTRY_ID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ENTRY_ID</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CORE_ACCT_CODE</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CORE_ACCT_CODE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CORE_ACCT_CODE</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DEBIT_CREDIT_FLAG</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>1</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DEBIT_CREDIT_FLAG</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DEBIT_CREDIT_FLAG</design:label>
+            <design:formattingHints>
+              <design:displaySize>1</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>RED_BLUE_FLAG</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>1</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>RED_BLUE_FLAG</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>RED_BLUE_FLAG</design:label>
+            <design:formattingHints>
+              <design:displaySize>1</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DEBIT_VALUE</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DEBIT_VALUE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DEBIT_VALUE</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CREDIT_VALUE</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CREDIT_VALUE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CREDIT_VALUE</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="bkpEntryDS_OUT" id="502">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">instId_1</property>
+                    <property name="paramName">instId</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ENTRY_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">CORE_ACCT_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">CORE_ACCT_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">SUBJ_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">DEBIT_CREDIT_FLAG</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">RED_BLUE_FLAG</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">RECEIVE_VALUE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">PAY_VALUE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">ENTRY_ID</property>
+                    <property name="nativeName">ENTRY_ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">CORE_ACCT_CODE</property>
+                    <property name="nativeName">CORE_ACCT_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">CORE_ACCT_NAME</property>
+                    <property name="nativeName">CORE_ACCT_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">SUBJ_CODE</property>
+                    <property name="nativeName">SUBJ_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">DEBIT_CREDIT_FLAG</property>
+                    <property name="nativeName">DEBIT_CREDIT_FLAG</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">RED_BLUE_FLAG</property>
+                    <property name="nativeName">RED_BLUE_FLAG</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">RECEIVE_VALUE</property>
+                    <property name="nativeName">RECEIVE_VALUE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">PAY_VALUE</property>
+                    <property name="nativeName">PAY_VALUE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[--获取手工记账表外分录
+SELECT 
+	E.ENTRY_ID, 
+	E.CORE_ACCT_CODE, 
+	D.ACTING_ENTRY_NAME_3 AS CORE_ACCT_NAME, 
+	E.SUBJ_CODE, 
+	E.DEBIT_CREDIT_FLAG, 
+	E.RED_BLUE_FLAG, 
+	CASE WHEN E.DEBIT_CREDIT_FLAG = '3' THEN 
+		E.VALUE
+	ELSE 0 END AS RECEIVE_VALUE, 
+	CASE WHEN E.DEBIT_CREDIT_FLAG = '4' THEN 
+		E.VALUE
+	ELSE 0 END AS PAY_VALUE
+FROM TTRD_MANUAL_BK_ENTRY E 
+JOIN TTRD_MANUAL_BK_RECORD R 
+	ON R.FLOW_ID = E.FLOW_ID 
+LEFT JOIN TTRD_ACCOUNTING_ENTRY_DEF D 
+	ON E.SUBJ_CODE = D.ACTING_ENTRY_CODE_3 
+WHERE R.RECORD_ID = ? AND E.STATE = '1' AND E.DEBIT_CREDIT_FLAG IN ('3', '4') 
+ORDER BY E.DEBIT_CREDIT_FLAG]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="bkpInfoDS_OUT" id="503">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">instId_1</property>
+                    <property name="paramName">instId</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">RECORD_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">BKKPG_ORG_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">ACCOUNT_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">FLOW_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">OPERATOR_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">ACCT_USER</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">ACCT_USER_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">ACCT_USER_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">CURRENCY</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">RECORD_ID</property>
+                    <property name="nativeName">RECORD_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">BKKPG_ORG_ID</property>
+                    <property name="nativeName">BKKPG_ORG_ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">ACCOUNT_DATE</property>
+                    <property name="nativeName">ACCOUNT_DATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">FLOW_ID</property>
+                    <property name="nativeName">FLOW_ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">OPERATOR_NAME</property>
+                    <property name="nativeName">OPERATOR_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">ACCT_USER</property>
+                    <property name="nativeName">ACCT_USER</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">ACCT_USER_NAME</property>
+                    <property name="nativeName">ACCT_USER_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">ACCT_USER_CODE</property>
+                    <property name="nativeName">ACCT_USER_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">CURRENCY</property>
+                    <property name="nativeName">CURRENCY</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[--获取手工记账表外记账凭证基本信息
+SELECT 
+	R.RECORD_ID, 
+	R.BKKPG_ORG_ID, 
+	R.ACCOUNT_DATE, 
+	R.FLOW_ID, 
+	R.CREATE_USER_NAME AS OPERATOR_NAME, 
+	R.ACCT_USER, 
+	R.ACCT_USER_NAME, 
+	U.ACCOUNT AS ACCT_USER_CODE, 
+	E.CURRENCY
+FROM TTRD_MANUAL_BK_RECORD R 
+JOIN TTRD_MANUAL_BK_ENTRY E 
+	ON R.FLOW_ID = E.FLOW_ID 
+LEFT JOIN TTRD_AUTH_USER U 
+	ON U.USER_ID = R.ACCT_USER 
+WHERE ROWNUM = 1 AND R.RECORD_ID = ? AND E.STATE = '1' 
+	AND E.DEBIT_CREDIT_FLAG IN ('3','4') 
+]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="topMargin">10mm</property>
+            <property name="leftMargin">10mm</property>
+            <property name="bottomMargin">5mm</property>
+            <property name="rightMargin">10mm</property>
+            <property name="fontSize">10.5pt</property>
+            <property name="height">93mm</property>
+            <property name="width">210mm</property>
+            <property name="showHeaderOnFirst">false</property>
+            <property name="showFooterOnLast">true</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">6mm</property>
+            <page-footer>
+                <grid id="553">
+                    <property name="fontFamily">serif</property>
+                    <property name="fontSize">10pt</property>
+                    <property name="marginLeft">5mm</property>
+                    <property name="width">170mm</property>
+                    <property name="dataSet">bkpInfoDS_IN</property>
+                    <list-property name="visibility">
+                        <structure>
+                            <property name="format">all</property>
+                            <expression name="valueExpr" type="javascript">Total.count() > 0 ? false : true;</expression>
+                        </structure>
+                    </list-property>
+                    <list-property name="boundDataColumns">
+                        <structure>
+                            <property name="name">ACCT_USER_NAME</property>
+                            <text-property name="displayName">复核人</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["ACCT_USER_NAME"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">OPERATOR_NAME</property>
+                            <text-property name="displayName">经办人</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["OPERATOR_NAME"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                    </list-property>
+                    <column id="554">
+                        <property name="width">20mm</property>
+                    </column>
+                    <column id="555">
+                        <property name="width">40mm</property>
+                    </column>
+                    <column id="556">
+                        <property name="width">20mm</property>
+                    </column>
+                    <column id="557">
+                        <property name="width">40mm</property>
+                    </column>
+                    <column id="558">
+                        <property name="width">20mm</property>
+                    </column>
+                    <column id="559">
+                        <property name="width">30mm</property>
+                    </column>
+                    <row id="560">
+                        <property name="verticalAlign">middle</property>
+                        <property name="height">6mm</property>
+                        <cell id="561">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="textAlign">center</property>
+                            <label id="567">
+                                <property name="style">noprint</property>
+                                <property name="fontFamily">serif</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <text-property name="text">主管</text-property>
+                            </label>
+                        </cell>
+                        <cell id="562">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                        </cell>
+                        <cell id="563">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="textAlign">center</property>
+                            <label id="568">
+                                <property name="style">noprint</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <text-property name="text">复核</text-property>
+                            </label>
+                        </cell>
+                        <cell id="564">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <data id="570">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="resultSetColumn">ACCT_USER_NAME</property>
+                            </data>
+                        </cell>
+                        <cell id="565">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="textAlign">center</property>
+                            <label id="569">
+                                <property name="style">noprint</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <text-property name="text">录入</text-property>
+                            </label>
+                        </cell>
+                        <cell id="566">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <data id="571">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="resultSetColumn">OPERATOR_NAME</property>
+                            </data>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <list name="表内凭证" id="119">
+            <property name="masterPage">Simple MasterPage</property>
+            <property name="dataSet">bkpInfoDS_IN</property>
+            <list-property name="visibility">
+                <structure>
+                    <property name="format">all</property>
+                    <expression name="valueExpr" type="javascript">Total.count() > 0 ? false : true;</expression>
+                </structure>
+            </list-property>
+            <structure name="toc"/>
+            <header>
+                <grid id="120">
+                    <property name="marginTop">6mm</property>
+                    <property name="marginLeft">5mm</property>
+                    <property name="width">170mm</property>
+                    <property name="dataSet">bkpInfoDS_IN</property>
+                    <list-property name="boundDataColumns">
+                        <structure>
+                            <property name="name">BKKPG_ORG_ID</property>
+                            <text-property name="displayName">记账机构号</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["BKKPG_ORG_ID"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">REAL_SET_DATE</property>
+                            <text-property name="displayName">记账日期</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["ACCOUNT_DATE"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">FLOW_ID</property>
+                            <text-property name="displayName">流水号</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["FLOW_ID"] ? dataSetRow["FLOW_ID"].substr(17,7) : '';</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">ACCT_USER_CODE</property>
+                            <text-property name="displayName">记账柜员号</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["ACCT_USER_CODE"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">CURRENCY</property>
+                            <text-property name="displayName">币种</text-property>
+                            <expression name="expression" type="javascript">getCurrencyName(dataSetRow["CURRENCY"])</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                    </list-property>
+                    <column id="121">
+                        <property name="width">25mm</property>
+                    </column>
+                    <column id="122">
+                        <property name="width">42mm</property>
+                    </column>
+                    <column id="123">
+                        <property name="width">25mm</property>
+                    </column>
+                    <column id="124">
+                        <property name="width">35mm</property>
+                    </column>
+                    <column id="125">
+                        <property name="width">20mm</property>
+                    </column>
+                    <column id="126">
+                        <property name="width">23mm</property>
+                    </column>
+                    <row id="127">
+                        <property name="verticalAlign">middle</property>
+                        <property name="height">7mm</property>
+                        <cell id="128">
+                            <property name="colSpan">6</property>
+                            <property name="rowSpan">1</property>
+                            <property name="fontSize">12pt</property>
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <label id="589">
+                                <property name="textAlign">center</property>
+                                <text-property name="text">手工记账业务记账凭证</text-property>
+                            </label>
+                        </cell>
+                    </row>
+                    <row id="134">
+                        <property name="verticalAlign">middle</property>
+                        <property name="height">4mm</property>
+                        <cell id="135">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="textAlign">center</property>
+                            <label id="199">
+                                <property name="style">noprint</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <text-property name="text">机构代号：</text-property>
+                            </label>
+                        </cell>
+                        <cell id="136">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <data id="509">
+                                <property name="resultSetColumn">BKKPG_ORG_ID</property>
+                            </data>
+                        </cell>
+                        <cell id="137">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="textAlign">center</property>
+                            <label id="201">
+                                <property name="style">noprint</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <text-property name="text">记账时间：</text-property>
+                            </label>
+                        </cell>
+                        <cell id="138">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <data id="510">
+                                <property name="resultSetColumn">REAL_SET_DATE</property>
+                            </data>
+                        </cell>
+                        <cell id="139">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="textAlign">center</property>
+                            <label id="203">
+                                <property name="style">noprint</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <text-property name="text">流水号：</text-property>
+                            </label>
+                        </cell>
+                        <cell id="140">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <data id="511">
+                                <property name="resultSetColumn">FLOW_ID</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="141">
+                        <property name="verticalAlign">middle</property>
+                        <property name="height">4mm</property>
+                        <cell id="142">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="textAlign">center</property>
+                            <label id="200">
+                                <property name="style">noprint</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <text-property name="text">柜员代号：</text-property>
+                            </label>
+                        </cell>
+                        <cell id="143">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <data id="512">
+                                <property name="resultSetColumn">ACCT_USER_CODE</property>
+                            </data>
+                        </cell>
+                        <cell id="144">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="textAlign">center</property>
+                            <label id="202">
+                                <property name="style">noprint</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <text-property name="text">主管代号：</text-property>
+                            </label>
+                        </cell>
+                        <cell id="145">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                        </cell>
+                        <cell id="146">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="textAlign">center</property>
+                            <label id="204">
+                                <property name="style">noprint</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <text-property name="text">币别：</text-property>
+                            </label>
+                        </cell>
+                        <cell id="147">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <data id="513">
+                                <property name="resultSetColumn">CURRENCY</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="572">
+                        <property name="verticalAlign">middle</property>
+                        <property name="height">9mm</property>
+                        <cell id="573">
+                            <property name="colSpan">6</property>
+                            <property name="rowSpan">1</property>
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                        </cell>
+                    </row>
+                </grid>
+            </header>
+            <detail>
+                <table name="表内分录" id="220">
+                    <property name="marginLeft">5mm</property>
+                    <property name="verticalAlign">bottom</property>
+                    <property name="pageBreakAfter">auto</property>
+                    <property name="pageBreakBefore">avoid</property>
+                    <property name="pageBreakInside">avoid</property>
+                    <property name="width">170mm</property>
+                    <property name="dataSet">bkpEntryDS_IN</property>
+                    <list-property name="boundDataColumns">
+                        <structure>
+                            <property name="name">D_SEQ_IN</property>
+                            <text-property name="displayName">序号</text-property>
+                            <expression name="expression" type="javascript">row.__rownum + 1</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">CREDIT_VALUE</property>
+                            <text-property name="displayName">贷方</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["CREDIT_VALUE"] * (dataSetRow["RED_BLUE_FLAG"] == '2' ? -1 : 1)</expression>
+                            <property name="dataType">decimal</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">CORE_ACCT_NAME</property>
+                            <text-property name="displayName">科目名称</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["CORE_ACCT_NAME"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">DEBIT_VALUE</property>
+                            <text-property name="displayName">借方</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["DEBIT_VALUE"] * (dataSetRow["RED_BLUE_FLAG"] == '2' ? -1 : 1)</expression>
+                            <property name="dataType">decimal</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">CORE_ACCT_CODE</property>
+                            <text-property name="displayName">核心账号</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["CORE_ACCT_CODE"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">AG_DEBIT_SUM</property>
+                            <text-property name="displayName">借方合计</text-property>
+                            <property name="dataType">float</property>
+                            <property name="aggregateFunction">SUM</property>
+                            <list-property name="arguments">
+                                <structure>
+                                    <property name="name">Expression</property>
+                                    <expression name="value" type="javascript">dataSetRow["DEBIT_VALUE"] * (dataSetRow["RED_BLUE_FLAG"] == '2' ? -1 : 1)</expression>
+                                </structure>
+                            </list-property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">AG_CREDIT_SUM</property>
+                            <text-property name="displayName">贷方合计</text-property>
+                            <property name="dataType">float</property>
+                            <property name="aggregateFunction">SUM</property>
+                            <list-property name="arguments">
+                                <structure>
+                                    <property name="name">Expression</property>
+                                    <expression name="value" type="javascript">dataSetRow["CREDIT_VALUE"] * (dataSetRow["RED_BLUE_FLAG"] == '2' ? -1 : 1)</expression>
+                                </structure>
+                            </list-property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                    </list-property>
+                    <property name="pageBreakInterval">6</property>
+                    <column id="239">
+                        <property name="width">9mm</property>
+                    </column>
+                    <column id="240">
+                        <property name="width">45mm</property>
+                    </column>
+                    <column id="241">
+                        <property name="width">60mm</property>
+                    </column>
+                    <column id="242">
+                        <property name="width">28mm</property>
+                    </column>
+                    <column id="243">
+                        <property name="width">28mm</property>
+                    </column>
+                    <header>
+                        <row id="221">
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">6mm</property>
+                            <cell id="222">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="269">
+                                    <property name="style">noprint</property>
+                                    <text-property name="text">序号</text-property>
+                                </label>
+                            </cell>
+                            <cell id="223">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="271">
+                                    <property name="style">noprint</property>
+                                    <text-property name="text">账号或科目代号</text-property>
+                                </label>
+                            </cell>
+                            <cell id="224">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="272">
+                                    <property name="style">noprint</property>
+                                    <text-property name="text">摘要</text-property>
+                                </label>
+                            </cell>
+                            <cell id="225">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="273">
+                                    <property name="style">noprint</property>
+                                    <text-property name="text">借方</text-property>
+                                </label>
+                            </cell>
+                            <cell id="226">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="274">
+                                    <property name="style">noprint</property>
+                                    <text-property name="text">贷方</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </header>
+                    <detail>
+                        <row id="227">
+                            <property name="fontSize">9pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">4.5mm</property>
+                            <cell id="228">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="textAlign">center</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <data id="348">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="resultSetColumn">D_SEQ_IN</property>
+                                </data>
+                            </cell>
+                            <cell id="229">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <data id="406">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="resultSetColumn">CORE_ACCT_CODE</property>
+                                </data>
+                            </cell>
+                            <cell id="230">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <data id="401">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="canShrink">false</property>
+                                    <property name="resultSetColumn">CORE_ACCT_NAME</property>
+                                </data>
+                            </cell>
+                            <cell id="231">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="textAlign">right</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <data id="403">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <structure name="numberFormat">
+                                        <property name="category">Fixed</property>
+                                        <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <list-property name="visibility">
+                                        <structure>
+                                            <property name="format">all</property>
+                                            <expression name="valueExpr" type="javascript">row["DEBIT_VALUE"] != 0 ? false : true;</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">DEBIT_VALUE</property>
+                                </data>
+                            </cell>
+                            <cell id="232">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="textAlign">right</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <data id="405">
+                                    <structure name="numberFormat">
+                                        <property name="category">Fixed</property>
+                                        <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <list-property name="visibility">
+                                        <structure>
+                                            <property name="format">all</property>
+                                            <expression name="valueExpr" type="javascript">row["CREDIT_VALUE"] != 0 ? false : true;</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">CREDIT_VALUE</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </detail>
+                    <footer>
+                        <row id="288">
+                            <property name="fontSize">9pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">4.5mm</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">(row.__rownum % 6) >= 0 ? true : false;</expression>
+                                </structure>
+                            </list-property>
+                            <cell id="289">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="350">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="290">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="416">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="291">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="417">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="292">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="418">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="293">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="419">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="294">
+                            <property name="fontSize">9pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">4.5mm</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">(row.__rownum % 6) >= 1 ? true : false;</expression>
+                                </structure>
+                            </list-property>
+                            <cell id="295">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="436">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="296">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="420">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="297">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="427">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="298">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="428">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="299">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="429">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="300">
+                            <property name="fontSize">9pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">4.5mm</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">(row.__rownum % 6) >= 2 ? true : false;</expression>
+                                </structure>
+                            </list-property>
+                            <cell id="301">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="437">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="302">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="421">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="303">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="426">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="304">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="431">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="305">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="430">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="306">
+                            <property name="fontSize">9pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">4.5mm</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">(row.__rownum % 6) >= 3  ? true : false;</expression>
+                                </structure>
+                            </list-property>
+                            <cell id="307">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="438">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="308">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="422">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="309">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="425">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="310">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="432">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="311">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="433">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="282">
+                            <property name="fontSize">9pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">4.5mm</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">(row.__rownum % 6) >= 4  ? true : false;</expression>
+                                </structure>
+                            </list-property>
+                            <cell id="283">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="439">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="284">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="423">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="285">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="424">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="286">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="435">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="287">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="434">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="590">
+                            <property name="fontSize">9pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">4.5mm</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">(row.__rownum % 6) >= 5  ? true : false;</expression>
+                                </structure>
+                            </list-property>
+                            <cell id="591">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="596">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="592">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="597">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="593">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="598">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="594">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="599">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="595">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="600">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="233">
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">5mm</property>
+                            <cell id="234">
+                                <property name="colSpan">5</property>
+                                <property name="rowSpan">1</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <grid id="519">
+                                    <property name="width">170mm</property>
+                                    <column id="520">
+                                        <property name="width">20mm</property>
+                                    </column>
+                                    <column id="521">
+                                        <property name="width">10mm</property>
+                                    </column>
+                                    <column id="522">
+                                        <property name="width">35mm</property>
+                                    </column>
+                                    <column id="523">
+                                        <property name="width">35mm</property>
+                                    </column>
+                                    <column id="524">
+                                        <property name="width">35mm</property>
+                                    </column>
+                                    <column id="525">
+                                        <property name="width">35mm</property>
+                                    </column>
+                                    <row id="526">
+                                        <cell id="527">
+                                            <property name="textAlign">center</property>
+                                            <label id="533">
+                                                <property name="style">noprint</property>
+                                                <text-property name="text">附件</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="528"/>
+                                        <cell id="529">
+                                            <label id="534">
+                                                <property name="style">noprint</property>
+                                                <text-property name="text">张</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="530">
+                                            <property name="textAlign">center</property>
+                                            <label id="535">
+                                                <property name="style">noprint</property>
+                                                <text-property name="text">合计</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="531">
+                                            <property name="textAlign">right</property>
+                                            <data id="581">
+                                                <structure name="numberFormat">
+                                                    <property name="category">Fixed</property>
+                                                    <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                                </structure>
+                                                <list-property name="visibility">
+                                                    <structure>
+                                                        <property name="format">all</property>
+                                                        <expression name="valueExpr" type="javascript">row["AG_DEBIT_SUM"] != 0 ? false : true;</expression>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">AG_DEBIT_SUM</property>
+                                            </data>
+                                        </cell>
+                                        <cell id="532">
+                                            <property name="textAlign">right</property>
+                                            <data id="582">
+                                                <structure name="numberFormat">
+                                                    <property name="category">Fixed</property>
+                                                    <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                                </structure>
+                                                <list-property name="visibility">
+                                                    <structure>
+                                                        <property name="format">all</property>
+                                                        <expression name="valueExpr" type="javascript">row["AG_CREDIT_SUM"] != 0 ? false : true;</expression>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">AG_CREDIT_SUM</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                    </footer>
+                </table>
+            </detail>
+        </list>
+        <list name="表外凭证" id="468">
+            <property name="masterPage">Simple MasterPage</property>
+            <property name="dataSet">bkpInfoDS_OUT</property>
+            <list-property name="visibility">
+                <structure>
+                    <property name="format">all</property>
+                    <expression name="valueExpr" type="javascript">Total.count() > 0 ? false : true;</expression>
+                </structure>
+            </list-property>
+            <header>
+                <grid id="469">
+                    <property name="marginTop">6mm</property>
+                    <property name="marginLeft">5mm</property>
+                    <property name="width">170mm</property>
+                    <property name="dataSet">bkpInfoDS_OUT</property>
+                    <list-property name="boundDataColumns">
+                        <structure>
+                            <property name="name">BKKPG_ORG_ID</property>
+                            <text-property name="displayName">记账机构号</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["BKKPG_ORG_ID"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">ENTRY_DATE</property>
+                            <text-property name="displayName">记账日期</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["ACCOUNT_DATE"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">FLOW_ID</property>
+                            <text-property name="displayName">流水号</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["FLOW_ID"] ? dataSetRow["FLOW_ID"].substr(17,7) : '';</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">CURRENCY</property>
+                            <text-property name="displayName">币种</text-property>
+                            <expression name="expression" type="javascript">getCurrencyName(dataSetRow["CURRENCY"])</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">ACCT_USER_CODE</property>
+                            <text-property name="displayName">记账柜员号</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["ACCT_USER_CODE"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                    </list-property>
+                    <column id="470">
+                        <property name="width">25mm</property>
+                    </column>
+                    <column id="471">
+                        <property name="width">42mm</property>
+                    </column>
+                    <column id="472">
+                        <property name="width">25mm</property>
+                    </column>
+                    <column id="473">
+                        <property name="width">35mm</property>
+                    </column>
+                    <column id="474">
+                        <property name="width">20mm</property>
+                    </column>
+                    <column id="475">
+                        <property name="width">23mm</property>
+                    </column>
+                    <row id="476">
+                        <property name="verticalAlign">middle</property>
+                        <property name="height">7mm</property>
+                        <cell id="477">
+                            <property name="colSpan">6</property>
+                            <property name="rowSpan">1</property>
+                            <property name="fontSize">12pt</property>
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <label id="501">
+                                <property name="textAlign">center</property>
+                                <text-property name="text">表外科目记账凭证</text-property>
+                            </label>
+                        </cell>
+                    </row>
+                    <row id="479">
+                        <property name="verticalAlign">middle</property>
+                        <property name="height">4mm</property>
+                        <cell id="480">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="textAlign">center</property>
+                            <label id="481">
+                                <property name="style">noprint</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <text-property name="text">机构代号：</text-property>
+                            </label>
+                        </cell>
+                        <cell id="482">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <data id="514">
+                                <property name="resultSetColumn">BKKPG_ORG_ID</property>
+                            </data>
+                        </cell>
+                        <cell id="483">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="textAlign">center</property>
+                            <label id="484">
+                                <property name="style">noprint</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <text-property name="text">记账时间：</text-property>
+                            </label>
+                        </cell>
+                        <cell id="485">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <data id="515">
+                                <property name="resultSetColumn">ENTRY_DATE</property>
+                            </data>
+                        </cell>
+                        <cell id="486">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="textAlign">center</property>
+                            <label id="487">
+                                <property name="style">noprint</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <text-property name="text">流水号：</text-property>
+                            </label>
+                        </cell>
+                        <cell id="488">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <data id="516">
+                                <property name="resultSetColumn">FLOW_ID</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="489">
+                        <property name="verticalAlign">middle</property>
+                        <property name="height">4mm</property>
+                        <cell id="490">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="textAlign">center</property>
+                            <label id="491">
+                                <property name="style">noprint</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <text-property name="text">柜员代号：</text-property>
+                            </label>
+                        </cell>
+                        <cell id="492">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <data id="518">
+                                <property name="resultSetColumn">ACCT_USER_CODE</property>
+                            </data>
+                        </cell>
+                        <cell id="493">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="textAlign">center</property>
+                            <label id="494">
+                                <property name="style">noprint</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <text-property name="text">主管代号：</text-property>
+                            </label>
+                        </cell>
+                        <cell id="495">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                        </cell>
+                        <cell id="496">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <property name="textAlign">center</property>
+                            <label id="497">
+                                <property name="style">noprint</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <text-property name="text">币别：</text-property>
+                            </label>
+                        </cell>
+                        <cell id="498">
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                            <data id="517">
+                                <property name="resultSetColumn">CURRENCY</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="499">
+                        <property name="verticalAlign">middle</property>
+                        <property name="height">9mm</property>
+                        <cell id="500">
+                            <property name="colSpan">6</property>
+                            <property name="rowSpan">1</property>
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingLeft">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="paddingRight">0pt</property>
+                        </cell>
+                    </row>
+                </grid>
+            </header>
+            <detail>
+                <table name="表外分录" id="245">
+                    <property name="marginLeft">5mm</property>
+                    <property name="pageBreakAfter">auto</property>
+                    <property name="pageBreakBefore">auto</property>
+                    <property name="width">170mm</property>
+                    <property name="dataSet">bkpEntryDS_OUT</property>
+                    <list-property name="boundDataColumns">
+                        <structure>
+                            <property name="name">D_SEQ_OUT</property>
+                            <text-property name="displayName">序号</text-property>
+                            <expression name="expression" type="javascript">row.__rownum + 1</expression>
+                            <property name="dataType">integer</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">CORE_ACCT_CODE</property>
+                            <text-property name="displayName">核心账号</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["CORE_ACCT_CODE"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">CORE_ACCT_NAME</property>
+                            <text-property name="displayName">科目名称</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["CORE_ACCT_NAME"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">RECEIVE_VALUE</property>
+                            <text-property name="displayName">收方</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["RECEIVE_VALUE"] * (dataSetRow["RED_BLUE_FLAG"] == '2' ? -1 : 1)</expression>
+                            <property name="dataType">decimal</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">PAY_VALUE</property>
+                            <text-property name="displayName">付方</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["PAY_VALUE"] * (dataSetRow["RED_BLUE_FLAG"] == '2' ? -1 : 1)</expression>
+                            <property name="dataType">decimal</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">AG_RECEIVE_SUM</property>
+                            <text-property name="displayName">收方合计</text-property>
+                            <property name="dataType">float</property>
+                            <property name="aggregateFunction">SUM</property>
+                            <list-property name="arguments">
+                                <structure>
+                                    <property name="name">Expression</property>
+                                    <expression name="value" type="javascript">dataSetRow["RECEIVE_VALUE"] * (dataSetRow["RED_BLUE_FLAG"] == '2' ? -1 : 1)</expression>
+                                </structure>
+                            </list-property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">AG_PAY_SUM</property>
+                            <text-property name="displayName">付方合计</text-property>
+                            <property name="dataType">float</property>
+                            <property name="aggregateFunction">SUM</property>
+                            <list-property name="arguments">
+                                <structure>
+                                    <property name="name">Expression</property>
+                                    <expression name="value" type="javascript">dataSetRow["PAY_VALUE"] * (dataSetRow["RED_BLUE_FLAG"] == '2' ? -1 : 1)</expression>
+                                </structure>
+                            </list-property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                    </list-property>
+                    <property name="pageBreakInterval">6</property>
+                    <column id="264">
+                        <property name="width">9mm</property>
+                    </column>
+                    <column id="265">
+                        <property name="width">45mm</property>
+                    </column>
+                    <column id="266">
+                        <property name="width">60mm</property>
+                    </column>
+                    <column id="267">
+                        <property name="width">28mm</property>
+                    </column>
+                    <column id="268">
+                        <property name="width">28mm</property>
+                    </column>
+                    <header>
+                        <row id="246">
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">6mm</property>
+                            <cell id="247">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="275">
+                                    <property name="style">noprint</property>
+                                    <text-property name="text">序号</text-property>
+                                </label>
+                            </cell>
+                            <cell id="248">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="276">
+                                    <property name="style">noprint</property>
+                                    <text-property name="text">账号或科目代号</text-property>
+                                </label>
+                            </cell>
+                            <cell id="249">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="277">
+                                    <property name="style">noprint</property>
+                                    <text-property name="text">摘要</text-property>
+                                </label>
+                            </cell>
+                            <cell id="250">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="278">
+                                    <property name="style">noprint</property>
+                                    <text-property name="text">收方</text-property>
+                                </label>
+                            </cell>
+                            <cell id="251">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="280">
+                                    <property name="style">noprint</property>
+                                    <text-property name="text">付方</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </header>
+                    <detail>
+                        <row id="252">
+                            <property name="fontSize">9pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">4.5mm</property>
+                            <cell id="253">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="textAlign">center</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <data id="349">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="resultSetColumn">D_SEQ_OUT</property>
+                                </data>
+                            </cell>
+                            <cell id="254">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <data id="408">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="resultSetColumn">CORE_ACCT_CODE</property>
+                                </data>
+                            </cell>
+                            <cell id="255">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <data id="409">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="resultSetColumn">CORE_ACCT_NAME</property>
+                                </data>
+                            </cell>
+                            <cell id="256">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="textAlign">right</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <data id="507">
+                                    <structure name="numberFormat">
+                                        <property name="category">Fixed</property>
+                                        <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <list-property name="visibility">
+                                        <structure>
+                                            <property name="format">all</property>
+                                            <expression name="valueExpr" type="javascript">row["RECEIVE_VALUE"] != 0 ? false : true;</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">RECEIVE_VALUE</property>
+                                </data>
+                            </cell>
+                            <cell id="257">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="textAlign">right</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <data id="508">
+                                    <structure name="numberFormat">
+                                        <property name="category">Fixed</property>
+                                        <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <list-property name="visibility">
+                                        <structure>
+                                            <property name="format">all</property>
+                                            <expression name="valueExpr" type="javascript">row["PAY_VALUE"] != 0 ? false : true;</expression>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">PAY_VALUE</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </detail>
+                    <footer>
+                        <row id="313">
+                            <property name="fontSize">9pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">4.5mm</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">(row.__rownum % 6) >= 0  ? true : false;</expression>
+                                </structure>
+                            </list-property>
+                            <cell id="314">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="440">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="315">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="449">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="316">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="450">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="317">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="459">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="318">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="460">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="337">
+                            <property name="fontSize">9pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">4.5mm</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">(row.__rownum % 6) >= 1  ? true : false;</expression>
+                                </structure>
+                            </list-property>
+                            <cell id="338">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="441">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="339">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="448">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="340">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="451">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="341">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="458">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="342">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="461">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="331">
+                            <property name="fontSize">9pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">4.5mm</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">(row.__rownum % 6) >= 2  ? true : false;</expression>
+                                </structure>
+                            </list-property>
+                            <cell id="332">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="442">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="333">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="447">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="334">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="452">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="335">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="457">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="336">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="466">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="325">
+                            <property name="fontSize">9pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">4.5mm</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">(row.__rownum % 6) >= 3  ? true : false;</expression>
+                                </structure>
+                            </list-property>
+                            <cell id="326">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="443">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="327">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="446">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="328">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="453">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="329">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="456">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="330">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="464">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="319">
+                            <property name="fontSize">9pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">4.5mm</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">(row.__rownum % 6) >= 4  ? true : false;</expression>
+                                </structure>
+                            </list-property>
+                            <cell id="320">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="444">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="321">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="445">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="322">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="454">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="323">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="455">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="324">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="465">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="601">
+                            <property name="fontSize">9pt</property>
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">4.5mm</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">(row.__rownum % 6) >= 5  ? true : false;</expression>
+                                </structure>
+                            </list-property>
+                            <cell id="602">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="607">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="603">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="608">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="604">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="609">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="605">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="610">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                            <cell id="606">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <label id="611">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <text-property name="text"></text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="258">
+                            <property name="verticalAlign">middle</property>
+                            <property name="height">5mm</property>
+                            <cell id="259">
+                                <property name="colSpan">5</property>
+                                <property name="rowSpan">1</property>
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <grid id="536">
+                                    <column id="537">
+                                        <property name="width">20mm</property>
+                                    </column>
+                                    <column id="538">
+                                        <property name="width">10mm</property>
+                                    </column>
+                                    <column id="539">
+                                        <property name="width">35mm</property>
+                                    </column>
+                                    <column id="540">
+                                        <property name="width">35mm</property>
+                                    </column>
+                                    <column id="541">
+                                        <property name="width">35mm</property>
+                                    </column>
+                                    <column id="542">
+                                        <property name="width">35mm</property>
+                                    </column>
+                                    <row id="543">
+                                        <cell id="544">
+                                            <property name="textAlign">center</property>
+                                            <label id="545">
+                                                <property name="style">noprint</property>
+                                                <text-property name="text">附件</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="546"/>
+                                        <cell id="547">
+                                            <label id="548">
+                                                <property name="style">noprint</property>
+                                                <text-property name="text">张</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="549">
+                                            <property name="textAlign">center</property>
+                                            <label id="550">
+                                                <property name="style">noprint</property>
+                                                <text-property name="text">合计</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="551">
+                                            <property name="textAlign">right</property>
+                                            <data id="584">
+                                                <structure name="numberFormat">
+                                                    <property name="category">Fixed</property>
+                                                    <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                                </structure>
+                                                <list-property name="visibility">
+                                                    <structure>
+                                                        <property name="format">all</property>
+                                                        <expression name="valueExpr" type="javascript">row["AG_RECEIVE_SUM"] != 0 ? false : true;</expression>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">AG_RECEIVE_SUM</property>
+                                            </data>
+                                        </cell>
+                                        <cell id="552">
+                                            <property name="textAlign">right</property>
+                                            <data id="585">
+                                                <structure name="numberFormat">
+                                                    <property name="category">Fixed</property>
+                                                    <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                                </structure>
+                                                <list-property name="visibility">
+                                                    <structure>
+                                                        <property name="format">all</property>
+                                                        <expression name="valueExpr" type="javascript">row["AG_PAY_SUM"] != 0 ? false : true;</expression>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">AG_PAY_SUM</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                    </footer>
+                </table>
+            </detail>
+        </list>
+    </body>
+</report>

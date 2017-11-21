@@ -1,0 +1,2261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.0.v201405191524 Build &lt;4.4.0.v20140606-1451></property>
+    <list-property name="includeScripts">
+        <property>xir_birt.js</property>
+    </list-property>
+    <property name="units">in</property>
+    <property name="theme">xir_j2ee.defaultTheme</property>
+    <property name="iconFile">/templates/first_report.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.firstreport</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="dsUrl" id="722">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="header" id="823">
+            <text-property name="promptText">页眉名称</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <script-data-source name="ds" id="790">
+            <method name="open"><![CDATA[// This will track your current row later on
+count = 0;
+controller = new Packages.com.actuate.json.JSONParser();
+// Load the JSON Source
+controller.loadData(params['dsUrl']);
+// Calculate the total rows we will have
+totalCount = controller.getChildCount("data")]]></method>
+        </script-data-source>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="bondTradeSheet" id="452">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">intOrdId</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">accName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">trdType</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">partyId</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">partyName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">settleType</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">i_code</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">i_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">p_class</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">issuer</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">ytm</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">netPrice</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">fullPrice</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">ordAmount</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">issueDate</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">startDate</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">mtrDate</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">listDate</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">term</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">paymentFreq</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">coupon</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">iCodeBench</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">ordDate</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">settleDays</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">operator</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">executor</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">trdTypeName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">settleTypeName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">BP</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">count</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">aiAmount</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">32</property>
+                    <property name="name">investType</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">33</property>
+                    <property name="name">r_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">34</property>
+                    <property name="name">reportName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">35</property>
+                    <property name="name">extRating</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">36</property>
+                    <property name="name">issuerRating</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">37</property>
+                    <property name="name">couponType</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">38</property>
+                    <property name="name">couponTypeText</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">intOrdId</property>
+                </structure>
+                <structure>
+                    <property name="columnName">accName</property>
+                </structure>
+                <structure>
+                    <property name="columnName">trdType</property>
+                </structure>
+                <structure>
+                    <property name="columnName">partyId</property>
+                </structure>
+                <structure>
+                    <property name="columnName">partyName</property>
+                </structure>
+                <structure>
+                    <property name="columnName">settleType</property>
+                </structure>
+                <structure>
+                    <property name="columnName">i_code</property>
+                </structure>
+                <structure>
+                    <property name="columnName">i_name</property>
+                </structure>
+                <structure>
+                    <property name="columnName">p_class</property>
+                </structure>
+                <structure>
+                    <property name="columnName">issuer</property>
+                </structure>
+                <structure>
+                    <property name="columnName">ytm</property>
+                </structure>
+                <structure>
+                    <property name="columnName">netPrice</property>
+                </structure>
+                <structure>
+                    <property name="columnName">fullPrice</property>
+                </structure>
+                <structure>
+                    <property name="columnName">ordAmount</property>
+                </structure>
+                <structure>
+                    <property name="columnName">issueDate</property>
+                </structure>
+                <structure>
+                    <property name="columnName">startDate</property>
+                </structure>
+                <structure>
+                    <property name="columnName">mtrDate</property>
+                </structure>
+                <structure>
+                    <property name="columnName">listDate</property>
+                </structure>
+                <structure>
+                    <property name="columnName">term</property>
+                </structure>
+                <structure>
+                    <property name="columnName">paymentFreq</property>
+                </structure>
+                <structure>
+                    <property name="columnName">coupon</property>
+                </structure>
+                <structure>
+                    <property name="columnName">iCodeBench</property>
+                </structure>
+                <structure>
+                    <property name="columnName">ordDate</property>
+                </structure>
+                <structure>
+                    <property name="columnName">settleDays</property>
+                </structure>
+                <structure>
+                    <property name="columnName">operator</property>
+                </structure>
+                <structure>
+                    <property name="columnName">executor</property>
+                </structure>
+                <structure>
+                    <property name="columnName">trdTypeName</property>
+                </structure>
+                <structure>
+                    <property name="columnName">settleTypeName</property>
+                </structure>
+                <structure>
+                    <property name="columnName">BP</property>
+                </structure>
+                <structure>
+                    <property name="columnName">count</property>
+                </structure>
+                <structure>
+                    <property name="columnName">aiAmount</property>
+                </structure>
+                <structure>
+                    <property name="columnName">investType</property>
+                </structure>
+                <structure>
+                    <property name="columnName">r_name</property>
+                </structure>
+                <structure>
+                    <property name="columnName">reportName</property>
+                </structure>
+                <structure>
+                    <property name="columnName">extRating</property>
+                </structure>
+                <structure>
+                    <property name="columnName">issuerRating</property>
+                </structure>
+                <structure>
+                    <property name="columnName">couponType</property>
+                </structure>
+                <structure>
+                    <property name="columnName">couponTypeText</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">intOrdId</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">accName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">trdType</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">partyId</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">partyName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">settleType</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">i_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">i_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">p_class</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">issuer</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">ytm</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">netPrice</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">fullPrice</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">ordAmount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">issueDate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">startDate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">mtrDate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">listDate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">term</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">paymentFreq</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">coupon</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">iCodeBench</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">ordDate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">settleDays</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">operator</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">executor</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">trdTypeName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">settleTypeName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">BP</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">count</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">aiAmount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">investType</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">33</property>
+                        <property name="name">r_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">34</property>
+                        <property name="name">reportName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">35</property>
+                        <property name="name">extRating</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">36</property>
+                        <property name="name">issuerRating</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">37</property>
+                        <property name="name">couponType</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">38</property>
+                        <property name="name">couponTypeText</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ds</property>
+            <method name="fetch"><![CDATA[if (count < totalCount) {
+	trdType = controller.getValue("data", "trdType", count);
+	pType = trdType.substring(0,4);
+	if(pType == "0005" || pType == "0006" || pType == "1105" || pType == "1106" || pType == "1205" || pType == "1206") {
+		dataSetRow["reportName"] = "直接融资买卖成交单";
+	} else if(pType == "0000" || pType == "0001" || pType == "1100" || pType == "1101" || pType == "1200" || pType == "1201") {
+		dataSetRow["reportName"] = "债券买卖成交单";
+	}
+	
+	dataSetRow["intOrdId"] = controller.getValue("data", "intOrdId", count);
+	dataSetRow["accName"] = controller.getValue("data", "cashAcc/accName", count);
+	dataSetRow["trdType"] = trdType;
+	dataSetRow["partyName"] = controller.getValue("data", "partyTrader/partyName", count);
+	dataSetRow["partyId"] = controller.getValue("data", "partyTrader/partyId", count);
+	dataSetRow["settleType"] = controller.getValue("data", "settleType", count);
+	dataSetRow["i_code"] = controller.getValue("data", "instrument/i_code", count);
+	dataSetRow["i_name"] = controller.getValue("data", "instrument/fullName", count);
+	dataSetRow["p_class"] = controller.getValue("data", "instrument/p_class", count);
+	dataSetRow["issuer"] = controller.getValue("data", "instrument/issuer", count);
+	dataSetRow["count"] = controller.getValue("data", "count", count);
+	dataSetRow["ytm"] = FloatMul((controller.getValue("data", "bndYTM", count)) * 1, 100);
+	dataSetRow["netPrice"] = controller.getValue("data", "netPrice", count);
+	dataSetRow["fullPrice"] = controller.getValue("data", "fullPrice", count);
+	dataSetRow["aiAmount"] = controller.getValue("data", "aiAmount", count);
+	dataSetRow["ordAmount"] = controller.getValue("data", "amount", count);
+	dataSetRow["issueDate"] = controller.getValue("data", "instrument/issueDate", count);
+	dataSetRow["startDate"] = controller.getValue("data", "instrument/startDate", count);
+	dataSetRow["mtrDate"] = controller.getValue("data", "instrument/mtrDate", count);
+	dataSetRow["listDate"] = controller.getValue("data", "instrument/listDate", count);
+	if(controller.getValue("data", "instrument/term", count) != "null") {
+		termStr = controller.getValue("data", "instrument/term", count);
+		lastStr = termStr.substring(termStr.length()-1);
+		if(lastStr == "Y") {
+			dataSetRow["term"] = termStr.substring(0, termStr.length()-1) + "年";
+		}
+		else if(lastStr == "M") {
+			dataSetRow["term"] = termStr.substring(0, termStr.length()-1) + "月";
+		}
+		else if(lastStr == "D") {
+			dataSetRow["term"] = termStr.substring(0, termStr.length()-1) + "天";
+		}
+	}
+	paymentFreq = controller.getValue("data", "instrument/paymentFreq", count);
+	cashTimes = controller.getValue("data", "instrument/cashTimes", count);
+	if(paymentFreq != "null" || cashTimes != "null") {
+		if(paymentFreq == "0D" || cashTimes == "0") {
+			dataSetRow["paymentFreq"] = "利随本清";
+		}
+		else if(paymentFreq == "1Y" || cashTimes == "1") {
+			dataSetRow["paymentFreq"] = "每年一次";
+		}
+		else if(paymentFreq == "6M" || cashTimes == "2") {
+			dataSetRow["paymentFreq"] = "半年一次";
+		}
+		else if(paymentFreq == "3M" || cashTimes == "4") {
+			dataSetRow["paymentFreq"] = "每季一次";
+		}
+		else if(paymentFreq == "1M" || cashTimes == "12") {
+			dataSetRow["paymentFreq"] = "每月一次";
+		}
+		else if(paymentFreq == "-1") {
+			dataSetRow["paymentFreq"] = "不结息";
+		}
+	}
+	dataSetRow["investType"] = controller.getValue("data", "investType", count);
+	dataSetRow["extRating"] = controller.getValue("data", "instrument/extRating", count);
+	dataSetRow["issuerRating"] = controller.getValue("data", "instrument/issuerRating", count);
+	//dataSetRow["dayCounter"] = controller.getValue("data", "instrument/dayCounterText", count);
+	dataSetRow["r_name"] = controller.getValue("data", "instrument/interestRate/i_name", count);
+	dataSetRow["ordDate"] = controller.getValue("data", "ordDate", count);
+	setDay = controller.getValue("data", "settleDays", count);
+	if(setDay!='null') {
+		if(setDay == '0') {
+			dataSetRow["settleDays"] = "T+0";
+		} else if(setDay == '1') {
+			dataSetRow["settleDays"] = "T+1";
+		}
+	}
+	dataSetRow["operator"] = controller.getValue("data", "operator", count);
+	couponType = controller.getValue("data", "instrument/couponType", count);
+	var coupon = controller.getValue("data", "instrument/coupon", count);
+
+	if(couponType == 1) {
+		// 这里的coupon需要先乘上1 
+		dataSetRow["coupon"] = FloatMul(coupon * 1, 100) ;
+		dataSetRow["couponTypeText"] = "固定利率";
+	} else if(couponType == 2) {
+		dataSetRow["BP"] = FloatMul(coupon * 1, 10000);
+		dataSetRow["couponTypeText"] = "浮动利率";
+	} else if(couponType == 3) {
+		dataSetRow["couponTypeText"] = "零息票";
+	}
+	dataSetRow["executor"] = controller.getValue("data", "executor", count);
+	dataSetRow["trdTypeName"] = controller.getValue("data", "trdTypeName", count);
+	dataSetRow["settleTypeName"] = controller.getValue("data", "settleTypeName", count);
+	setTypeName = controller.getValue("data", "settleTypeName", count);
+	if(setTypeName!='null') {
+		if(setTypeName == '00000000'){
+			dataSetRow["settleTypeName"] = '券款对付(DVP)';
+		} else if(setTypeName == '0001') {
+			dataSetRow["settleTypeName"] = '见券付款(PAD)';
+		} else if(setTypeName == '0002') {
+			dataSetRow["settleTypeName"] = '见款付券(DAP)';
+		} else if(setTypeName == '0003') {
+			dataSetRow["settleTypeName"] = '纯券过户(FOP)';
+		} else if(setTypeName == '0004') {
+			dataSetRow["settleTypeName"] = '净额券款对付(NDVP)';
+		}
+	}
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="110">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="246">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="247">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="NewTableStyle" id="254">
+            <property name="borderBottomStyle">groove</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">groove</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">groove</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">groove</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+        <style name="GridStyle" id="668">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="rightMargin">1.1354166666666667in</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="520">
+            <property name="borderBottomStyle">none</property>
+            <property name="borderLeftStyle">none</property>
+            <property name="borderRightStyle">none</property>
+            <property name="borderTopStyle">none</property>
+            <property name="marginTop">0px</property>
+            <property name="marginLeft">auto</property>
+            <property name="marginBottom">0px</property>
+            <property name="marginRight">auto</property>
+            <property name="width">6.760416666666667in</property>
+            <column id="521">
+                <property name="textAlign">left</property>
+                <property name="width">1.5729166666666667in</property>
+            </column>
+            <column id="522">
+                <property name="textAlign">left</property>
+                <property name="width">1.875in</property>
+            </column>
+            <column id="523">
+                <property name="textAlign">left</property>
+                <property name="width">1.5104166666666667in</property>
+            </column>
+            <column id="524">
+                <property name="textAlign">left</property>
+                <property name="width">1.8020833333333333in</property>
+            </column>
+            <row id="733">
+                <property name="borderBottomStyle">none</property>
+                <property name="borderLeftStyle">none</property>
+                <property name="borderRightStyle">none</property>
+                <property name="borderTopStyle">none</property>
+                <cell id="734">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">none</property>
+                    <property name="borderLeftStyle">none</property>
+                    <property name="borderRightStyle">none</property>
+                    <property name="borderTopStyle">none</property>
+                    <text-data id="959">
+                        <expression name="valueExpr">params["header"].value</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+            </row>
+            <row id="728">
+                <property name="borderBottomStyle">none</property>
+                <property name="borderLeftStyle">none</property>
+                <property name="borderRightStyle">none</property>
+                <property name="borderTopStyle">none</property>
+                <cell id="729">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">none</property>
+                    <property name="borderLeftStyle">none</property>
+                    <property name="borderRightStyle">none</property>
+                    <property name="borderTopStyle">none</property>
+                    <data id="961">
+                        <property name="fontFamily">"宋体"</property>
+                        <property name="fontSize">26pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">center</property>
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">reportName</property>
+                                <text-property name="displayName">reportName</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["reportName"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">reportName</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="525">
+                <cell id="526">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="626">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[成交单编号]]></text-property>
+                    </text>
+                </cell>
+                <cell id="527">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <property name="width">585px</property>
+                    <data id="687">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">intOrdId</property>
+                                <text-property name="displayName">intOrdId</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["intOrdId"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">intOrdId</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="530">
+                <cell id="531">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="627">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[理财单元]]></text-property>
+                    </text>
+                </cell>
+                <cell id="532">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="688">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">accName</property>
+                                <text-property name="displayName">accName</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["accName"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">accName</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="535">
+                <cell id="536">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="628">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[业务种类]]></text-property>
+                    </text>
+                </cell>
+                <cell id="537">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="793">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">trdTypeName</property>
+                                <text-property name="displayName">trdTypeName</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["trdTypeName"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">trdTypeName</property>
+                    </data>
+                </cell>
+                <cell id="538">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="646">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[客户编号]]></text-property>
+                    </text>
+                </cell>
+                <cell id="539">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="690">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">partyId</property>
+                                <text-property name="displayName">partyId</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["partyId"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">partyId</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="540">
+                <cell id="541">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="629">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[客户全称]]></text-property>
+                    </text>
+                </cell>
+                <cell id="542">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="691">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">partyName</property>
+                                <text-property name="displayName">partyName</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["partyName"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">partyName</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="545">
+                <cell id="546">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="630">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[结算方式]]></text-property>
+                    </text>
+                </cell>
+                <cell id="547">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="794">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">settleTypeName</property>
+                                <text-property name="displayName">settleTypeName</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["settleTypeName"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">settleTypeName</property>
+                    </data>
+                </cell>
+                <cell id="548">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="648">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[投资类型]]></text-property>
+                    </text>
+                </cell>
+                <cell id="549">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="807">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">investType</property>
+                                <text-property name="displayName">investType</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["investType"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">investType</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="550">
+                <cell id="551">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="631">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[债券代码]]></text-property>
+                    </text>
+                </cell>
+                <cell id="552">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="694">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">i_code</property>
+                                <text-property name="displayName">i_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["i_code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">i_code</property>
+                    </data>
+                </cell>
+                <cell id="553">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="649">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[债券名称]]></text-property>
+                    </text>
+                </cell>
+                <cell id="554">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="695">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">i_name</property>
+                                <text-property name="displayName">i_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["i_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">i_name</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="555">
+                <cell id="556">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="632">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[债券性质]]></text-property>
+                    </text>
+                </cell>
+                <cell id="557">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="696">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">p_class</property>
+                                <text-property name="displayName">p_class</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["p_class"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">p_class</property>
+                    </data>
+                </cell>
+                <cell id="558">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="650">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[债券发行人]]></text-property>
+                    </text>
+                </cell>
+                <cell id="559">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="697">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">issuer</property>
+                                <text-property name="displayName">issuer</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["issuer"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">issuer</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="560">
+                <cell id="561">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="633">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[券面总额(万元)]]></text-property>
+                    </text>
+                </cell>
+                <cell id="562">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="805">
+                        <structure name="numberFormat">
+                            <property name="category">Currency</property>
+                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                        </structure>
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">count</property>
+                                <text-property name="displayName">count</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["count"]*0.01</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">count</property>
+                    </data>
+                </cell>
+                <cell id="563">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="651">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[到期收益率(%)]]></text-property>
+                    </text>
+                </cell>
+                <cell id="564">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="699">
+                        <structure name="numberFormat">
+                            <property name="category">Currency</property>
+                            <property name="pattern">###0.0000{RoundingMode=HALF_UP}</property>
+                        </structure>
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">ytm</property>
+                                <text-property name="displayName">ytm</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["ytm"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">ytm</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="565">
+                <cell id="566">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="634">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[净价(元)]]></text-property>
+                    </text>
+                </cell>
+                <cell id="567">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="700">
+                        <structure name="numberFormat">
+                            <property name="category">Currency</property>
+                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                        </structure>
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">netPrice</property>
+                                <text-property name="displayName">netPrice</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["netPrice"]</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">netPrice</property>
+                    </data>
+                </cell>
+                <cell id="568">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="652">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[全价(元)]]></text-property>
+                    </text>
+                </cell>
+                <cell id="569">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="701">
+                        <structure name="numberFormat">
+                            <property name="category">Currency</property>
+                            <property name="pattern">#,##0.0000{RoundingMode=HALF_UP}</property>
+                        </structure>
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">fullPrice</property>
+                                <text-property name="displayName">fullPrice</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["fullPrice"]</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">fullPrice</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="570">
+                <cell id="571">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="635">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[总应计利息(元)]]></text-property>
+                    </text>
+                </cell>
+                <cell id="572">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="806">
+                        <structure name="numberFormat">
+                            <property name="category">Currency</property>
+                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                        </structure>
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">aiAmount</property>
+                                <text-property name="displayName">aiAmount</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["aiAmount"]</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">aiAmount</property>
+                    </data>
+                </cell>
+                <cell id="573">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="653">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[结算金额(元)]]></text-property>
+                    </text>
+                </cell>
+                <cell id="574">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="705">
+                        <structure name="numberFormat">
+                            <property name="category">Currency</property>
+                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            <property name="locale">zh_Hans_CN</property>
+                        </structure>
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">ordAmount</property>
+                                <text-property name="displayName">ordAmount</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["ordAmount"]</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">ordAmount</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="575">
+                <cell id="576">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">none</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">none</property>
+                    <text id="636">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[发行日期]]></text-property>
+                    </text>
+                </cell>
+                <cell id="577">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">none</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">none</property>
+                    <data id="702">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">issueDate</property>
+                                <text-property name="displayName">issueDate</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["issueDate"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">issueDate</property>
+                    </data>
+                </cell>
+                <cell id="578">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">none</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">none</property>
+                    <text id="654">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[起息日期]]></text-property>
+                    </text>
+                </cell>
+                <cell id="579">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">none</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">none</property>
+                    <data id="706">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">startDate</property>
+                                <text-property name="displayName">startDate</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["startDate"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">startDate</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="580">
+                <cell id="581">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="637">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[到期日期]]></text-property>
+                    </text>
+                </cell>
+                <cell id="582">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="707">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">mtrDate</property>
+                                <text-property name="displayName">mtrDate</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["mtrDate"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">mtrDate</property>
+                    </data>
+                </cell>
+                <cell id="583">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="655">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[上市流通日]]></text-property>
+                    </text>
+                </cell>
+                <cell id="584">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="708">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">listDate</property>
+                                <text-property name="displayName">listDate</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["listDate"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">listDate</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="585">
+                <cell id="586">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="638">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[债券期限]]></text-property>
+                    </text>
+                </cell>
+                <cell id="587">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="709">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">term</property>
+                                <text-property name="displayName">term</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["term"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">term</property>
+                    </data>
+                </cell>
+                <cell id="588">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="656">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[付息频率]]></text-property>
+                    </text>
+                </cell>
+                <cell id="589">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="710">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">paymentFreq</property>
+                                <text-property name="displayName">paymentFreq</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["paymentFreq"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">paymentFreq</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="590">
+                <cell id="591">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="639">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[付息方式]]></text-property>
+                    </text>
+                </cell>
+                <cell id="592">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="967">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">couponTypeText</property>
+                                <text-property name="displayName">couponTypeText</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["couponTypeText"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">couponTypeText</property>
+                    </data>
+                </cell>
+                <cell id="593">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="657">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[票面利率(%)]]></text-property>
+                    </text>
+                </cell>
+                <cell id="594">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="711">
+                        <structure name="numberFormat">
+                            <property name="category">Currency</property>
+                            <property name="pattern">###0.00{RoundingMode=HALF_UP}</property>
+                        </structure>
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">coupon</property>
+                                <text-property name="displayName">coupon</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["coupon"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">coupon</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="595">
+                <cell id="596">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="640">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[基准利率]]></text-property>
+                    </text>
+                </cell>
+                <cell id="597">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="960">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">r_name</property>
+                                <text-property name="displayName">r_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["r_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">r_name</property>
+                    </data>
+                </cell>
+                <cell id="598">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="658">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[基本利差(BP)]]></text-property>
+                    </text>
+                </cell>
+                <cell id="599">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="795">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">BP</property>
+                                <text-property name="displayName">BP</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["BP"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">BP</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="600">
+                <cell id="601">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="641">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[赎回权选择]]></text-property>
+                    </text>
+                </cell>
+                <cell id="602">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                </cell>
+                <cell id="603">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="659">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[下次赎回日]]></text-property>
+                    </text>
+                </cell>
+                <cell id="604">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                </cell>
+            </row>
+            <row id="605">
+                <cell id="606">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="642">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[债券主体评级]]></text-property>
+                    </text>
+                </cell>
+                <cell id="607">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="966">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">issuerRating</property>
+                                <text-property name="displayName">issuerRating</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["issuerRating"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">issuerRating</property>
+                    </data>
+                </cell>
+                <cell id="608">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="660">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[债券信用评级]]></text-property>
+                    </text>
+                </cell>
+                <cell id="609">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="965">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">extRating</property>
+                                <text-property name="displayName">extRating</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["extRating"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">extRating</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="610">
+                <cell id="611">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="643">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[交易日期]]></text-property>
+                    </text>
+                </cell>
+                <cell id="612">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="791">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">ordDate</property>
+                                <text-property name="displayName">ordDate</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["ordDate"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">ordDate</property>
+                    </data>
+                </cell>
+                <cell id="613">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="661">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[清算速度]]></text-property>
+                    </text>
+                </cell>
+                <cell id="614">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="803">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">settleDays</property>
+                                <text-property name="displayName">settleDays</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["settleDays"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">settleDays</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="615">
+                <cell id="616">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="644">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[执行人]]></text-property>
+                    </text>
+                </cell>
+                <cell id="617">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="714">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">operator</property>
+                                <text-property name="displayName">operator</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["operator"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">operator</property>
+                    </data>
+                </cell>
+                <cell id="618">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <text id="662">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[交易确认人]]></text-property>
+                    </text>
+                </cell>
+                <cell id="619">
+                    <property name="style">GridStyle</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <data id="715">
+                        <property name="dataSet">bondTradeSheet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">executor</property>
+                                <text-property name="displayName">executor</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["executor"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">executor</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="716">
+                <property name="borderBottomStyle">none</property>
+                <property name="borderLeftStyle">none</property>
+                <property name="borderRightStyle">none</property>
+                <property name="borderTopStyle">none</property>
+                <cell id="717">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">GridStyle</property>
+                    <property name="fontFamily">"新宋体"</property>
+                    <property name="fontSize">10.5px</property>
+                    <property name="borderBottomStyle">none</property>
+                    <property name="borderLeftStyle">none</property>
+                    <property name="borderRightStyle">none</property>
+                    <property name="borderTopStyle">none</property>
+                    <property name="whiteSpace">nowrap</property>
+                    <grid id="782">
+                        <column id="783">
+                            <property name="width">0.6458333333333334in</property>
+                        </column>
+                        <column id="784">
+                            <property name="width">6.25in</property>
+                        </column>
+                        <row id="785">
+                            <cell id="786">
+                                <text id="788">
+                                    <property name="width">55px</property>
+                                    <property name="contentType">auto</property>
+                                    <text-property name="content"><![CDATA[打印日期：]]></text-property>
+                                </text>
+                            </cell>
+                            <cell id="787">
+                                <text-data id="789">
+                                    <property name="whiteSpace">nowrap</property>
+                                    <expression name="valueExpr">Formatter.format(BirtDateTime.today(),  "yyyy年MM月dd日");</expression>
+                                    <property name="contentType">html</property>
+                                </text-data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="796">
+                <property name="borderBottomStyle">none</property>
+                <property name="borderLeftStyle">none</property>
+                <property name="borderRightStyle">none</property>
+                <property name="borderTopStyle">none</property>
+                <cell id="797">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">GridStyle</property>
+                    <property name="fontFamily">"新宋体"</property>
+                    <property name="fontSize">10.5px</property>
+                    <property name="borderBottomStyle">none</property>
+                    <property name="borderLeftStyle">none</property>
+                    <property name="borderRightStyle">none</property>
+                    <property name="borderTopStyle">none</property>
+                    <property name="whiteSpace">nowrap</property>
+                    <text id="801">
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[<script>
+ //Web.ExecWB(6,1) 
+ document.execCommand('print','true','true');
+ window.opener="anyone";
+ window.close();
+</script>]]></text-property>
+                    </text>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>

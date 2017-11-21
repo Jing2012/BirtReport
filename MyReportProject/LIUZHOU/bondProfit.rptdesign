@@ -1,0 +1,3687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="4"
+ extends="xir_j2ee.XIR">
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@191.168.1.106:1521:xirjava</property>
+            <property name="odaUser">XIR_TRDlz</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">eHBhcg==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="DataSet" id="5">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">序号</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">序号</text-property>
+                    <text-property name="heading">序号</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">券种</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">券种</text-property>
+                    <text-property name="heading">券种</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">代码</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">代码</text-property>
+                    <text-property name="heading">代码</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">券面总额（万元）</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">券面总额（万元）</text-property>
+                    <text-property name="heading">券面总额（万元）</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">票面利率（%）</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">票面利率（%）</text-property>
+                    <text-property name="heading">票面利率（%）</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">息票类型</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">息票类型</text-property>
+                    <text-property name="heading">息票类型</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">基准利率</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">基准利率</text-property>
+                    <text-property name="heading">基准利率</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">当前基准利率值</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">当前基准利率值</text-property>
+                    <text-property name="heading">当前基准利率值</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">当前利差</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">当前利差</text-property>
+                    <text-property name="heading">当前利差</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">分销或现券</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">分销或现券</text-property>
+                    <text-property name="heading">分销或现券</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">买入日</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">买入日</text-property>
+                    <text-property name="heading">买入日</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">起息日</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">起息日</text-property>
+                    <text-property name="heading">起息日</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">到期日</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">到期日</text-property>
+                    <text-property name="heading">到期日</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">买入净价</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">买入净价</text-property>
+                    <text-property name="heading">买入净价</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">买入净价金额</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">买入净价金额</text-property>
+                    <text-property name="heading">买入净价金额</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">买入全价</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">买入全价</text-property>
+                    <text-property name="heading">买入全价</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">买入全价金额</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">买入全价金额</text-property>
+                    <text-property name="heading">买入全价金额</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">买入收益率（%）</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">买入收益率（%）</text-property>
+                    <text-property name="heading">买入收益率（%）</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">估价净价</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">估价净价</text-property>
+                    <text-property name="heading">估价净价</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">总市值(按净值计)</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">总市值(按净值计)</text-property>
+                    <text-property name="heading">总市值(按净值计)</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">净价估值偏离度</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">净价估值偏离度</text-property>
+                    <text-property name="heading">净价估值偏离度</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">净价估值损益</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">净价估值损益</text-property>
+                    <text-property name="heading">净价估值损益</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">当前收益率（%）</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">当前收益率（%）</text-property>
+                    <text-property name="heading">当前收益率（%）</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">浮盈（亏）%</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">浮盈（亏）%</text-property>
+                    <text-property name="heading">浮盈（亏）%</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">所属分类账户</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">所属分类账户</text-property>
+                    <text-property name="heading">所属分类账户</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">浮盈（亏）金额</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">浮盈（亏）金额</text-property>
+                    <text-property name="heading">浮盈（亏）金额</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">序号</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">券种</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">代码</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">券面总额（万元）</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">票面利率（%）</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">息票类型</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">基准利率</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">当前基准利率值</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">当前利差</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">分销或现券</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">买入日</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">起息日</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">到期日</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">买入净价</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">买入净价金额</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">买入全价</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">买入全价金额</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">买入收益率（%）</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">估价净价</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">总市值(按净值计)</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">净价估值偏离度</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">净价估值损益</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">当前收益率（%）</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">浮盈（亏）%</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">所属分类账户</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">浮盈（亏）金额</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">序号</property>
+                    <property name="nativeName">序号</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">券种</property>
+                    <property name="nativeName">券种</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">代码</property>
+                    <property name="nativeName">代码</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">券面总额（万元）</property>
+                    <property name="nativeName">券面总额（万元）</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">票面利率（%）</property>
+                    <property name="nativeName">票面利率（%）</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">息票类型</property>
+                    <property name="nativeName">息票类型</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">基准利率</property>
+                    <property name="nativeName">基准利率</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">当前基准利率值</property>
+                    <property name="nativeName">当前基准利率值</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">当前利差</property>
+                    <property name="nativeName">当前利差</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">分销或现券</property>
+                    <property name="nativeName">分销或现券</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">买入日</property>
+                    <property name="nativeName">买入日</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">起息日</property>
+                    <property name="nativeName">起息日</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">到期日</property>
+                    <property name="nativeName">到期日</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">买入净价</property>
+                    <property name="nativeName">买入净价</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">买入净价金额</property>
+                    <property name="nativeName">买入净价金额</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">买入全价</property>
+                    <property name="nativeName">买入全价</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">买入全价金额</property>
+                    <property name="nativeName">买入全价金额</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">买入收益率（%）</property>
+                    <property name="nativeName">买入收益率（%）</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">估价净价</property>
+                    <property name="nativeName">估价净价</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">总市值(按净值计)</property>
+                    <property name="nativeName">总市值(按净值计)</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">净价估值偏离度</property>
+                    <property name="nativeName">净价估值偏离度</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">净价估值损益</property>
+                    <property name="nativeName">净价估值损益</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">当前收益率（%）</property>
+                    <property name="nativeName">当前收益率（%）</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">浮盈（亏）%</property>
+                    <property name="nativeName">浮盈（亏）%</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">所属分类账户</property>
+                    <property name="nativeName">所属分类账户</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">浮盈（亏）金额</property>
+                    <property name="nativeName">浮盈（亏）金额</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[--《09：债券、同业存单资产明细表（表样）-3.xls》债券盈亏分析表
+select 
+rownum "序号",
+tbnd.p_class "券种",
+tbnd.i_code "代码",
+obj.REAL_VOLUME*coalesce(tbnd.b_par_value,100)/10000 "券面总额（万元）",
+decode(tbnd.B_COUPON_TYPE, '1' , tbnd.b_coupon) "票面利率（%）",
+CASE WHEN tbnd.B_COUPON_TYPE = '1' THEN '固定利率' 
+     WHEN tbnd.B_COUPON_TYPE = '2' THEN '浮动利率' 
+     WHEN tbnd.B_COUPON_TYPE = '3' THEN '零息票' ELSE '' END AS "息票类型",
+tir.r_name||tir.i_code "基准利率",
+tirs.dp_close "当前基准利率值",
+decode(tbnd.B_COUPON_TYPE, '2' , tbnd.b_coupon *10000) "当前利差",
+ttype.description "分销或现券",
+trd.orddate "买入日",
+trd.setdate "起息日",
+tbnd.b_mtr_date "到期日",
+trd.bnd_netprice "买入净价",
+trd.ordcount*trd.bnd_netprice "买入净价金额",
+trd.ordprice "买入全价",
+trd.ordamount "买入全价金额",
+trd.bnd_ytm "买入收益率（%）",
+eval.netprice "估价净价",
+obj.REAL_VOLUME * coalesce(eval.netprice,100) "总市值(按净值计)",
+(eval.netprice-trd.bnd_netprice)/eval.netprice "净价估值偏离度",
+(eval.netprice-trd.bnd_netprice)*obj.real_volume "净价估值损益",
+obj.AMRT_YTM "当前收益率（%）",
+((eval.fullprice-trd.ordprice)*obj.real_volume+obj.prft_ir)/trd.ordamount "浮盈（亏）%",
+--"预警状态",
+--"卖出日期",
+--"卖出净价",
+--"卖出净价金额",
+--"卖出全价",
+--"卖出全价金额",
+--"卖出收益率（%）",
+--"实际盈（亏）%",
+--"买卖损益",
+--"实际盈（亏）金额",
+act.typename "所属分类账户",
+(eval.fullprice-trd.ordprice)*obj.real_volume+obj.prft_ir "浮盈（亏）金额"
+from (
+select * from ttrd_accounting_secu_obj where beg_date='2017-06-23'
+union all
+select * from ttrd_accounting_secu_obj_his where beg_date='2017-06-23')  obj
+left join ttrd_otc_trade trd on obj.trade_id=trd.intordid
+left join ttrd_trade_type ttype on trd.trdtype=ttype.trd_type
+left join tcb_bond_eval eval on obj.i_code=eval.i_code and obj.a_type=eval.a_type and obj.m_type=eval.m_type and eval.beg_date<=obj.beg_date and eval.end_date>obj.beg_date
+left join ttrd_acc_secu acc on obj.secu_acct_id=acc.accid
+left join tbnd on  obj.i_code=tbnd.i_code and obj.a_type=tbnd.a_type and obj.m_type=tbnd.m_type
+left join ttrd_p_type p on p.p_type=tbnd.p_type
+LEFT JOIN tir ON tbnd.i_code_bench=tir.i_code
+left join TTRD_ACCTG_ACCOUNT_TYPE act on act.typeid = acc.acting_type
+LEFT JOIN tir_series tirs ON tirs.i_code=tir.i_code AND tirs.beg_date<=obj.beg_date AND tirs.end_date>obj.beg_date
+where trd.trdtype in ('0000000','0000001','0202100','0202101')
+]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>序号</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>序号</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>序号</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>券种</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>60</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>券种</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>券种</design:label>
+            <design:formattingHints>
+              <design:displaySize>60</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>代码</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>代码</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>代码</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>券面总额（万元）</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>券面总额（万元）</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>券面总额（万元）</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>票面利率（%）</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>票面利率（%）</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>票面利率（%）</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>息票类型</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>4</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>息票类型</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>息票类型</design:label>
+            <design:formattingHints>
+              <design:displaySize>4</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>基准利率</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>230</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>基准利率</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>基准利率</design:label>
+            <design:formattingHints>
+              <design:displaySize>230</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>当前基准利率值</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>15</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>当前基准利率值</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>当前基准利率值</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>当前利差</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>当前利差</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>当前利差</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>分销或现券</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>100</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>分销或现券</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>分销或现券</design:label>
+            <design:formattingHints>
+              <design:displaySize>100</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>买入日</design:name>
+              <design:position>11</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>买入日</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>买入日</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>起息日</design:name>
+              <design:position>12</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>起息日</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>起息日</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>到期日</design:name>
+              <design:position>13</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>到期日</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>到期日</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>买入净价</design:name>
+              <design:position>14</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>6</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>买入净价</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>买入净价</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>买入净价金额</design:name>
+              <design:position>15</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>买入净价金额</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>买入净价金额</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>买入全价</design:name>
+              <design:position>16</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>12</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>买入全价</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>买入全价</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>买入全价金额</design:name>
+              <design:position>17</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>买入全价金额</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>买入全价金额</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>买入收益率（%）</design:name>
+              <design:position>18</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>15</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>买入收益率（%）</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>买入收益率（%）</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>估价净价</design:name>
+              <design:position>19</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>估价净价</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>估价净价</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>总市值(按净值计)</design:name>
+              <design:position>20</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>总市值(按净值计)</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>总市值(按净值计)</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>净价估值偏离度</design:name>
+              <design:position>21</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>净价估值偏离度</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>净价估值偏离度</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>净价估值损益</design:name>
+              <design:position>22</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>净价估值损益</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>净价估值损益</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>浮盈（亏）%</design:name>
+              <design:position>23</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>浮盈（亏）%</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>浮盈（亏）%</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>浮盈（亏）金额</design:name>
+              <design:position>24</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>浮盈（亏）金额</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>浮盈（亏）金额</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>OBJ_ID</design:name>
+              <design:position>25</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>OBJ_ID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>OBJ_ID</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TSK_ID</design:name>
+              <design:position>26</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TSK_ID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TSK_ID</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>BEG_DATE</design:name>
+              <design:position>27</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>BEG_DATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>BEG_DATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>END_DATE</design:name>
+              <design:position>28</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>END_DATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>END_DATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>EXT_SECU_ACCT_ID</design:name>
+              <design:position>29</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>EXT_SECU_ACCT_ID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>EXT_SECU_ACCT_ID</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>SECU_ACCT_ID</design:name>
+              <design:position>30</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>SECU_ACCT_ID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>SECU_ACCT_ID</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TRADE_GRP_ID</design:name>
+              <design:position>31</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TRADE_GRP_ID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TRADE_GRP_ID</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>I_CODE</design:name>
+              <design:position>32</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>I_CODE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>I_CODE</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>A_TYPE</design:name>
+              <design:position>33</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>A_TYPE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>A_TYPE</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>M_TYPE</design:name>
+              <design:position>34</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>M_TYPE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>M_TYPE</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TRADE_ID</design:name>
+              <design:position>35</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TRADE_ID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TRADE_ID</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>EXTRA_DIM</design:name>
+              <design:position>36</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>EXTRA_DIM</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>EXTRA_DIM</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>REAL_VOLUME</design:name>
+              <design:position>37</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>REAL_VOLUME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>REAL_VOLUME</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>REAL_AMOUNT</design:name>
+              <design:position>38</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>REAL_AMOUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>REAL_AMOUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>REAL_CP</design:name>
+              <design:position>39</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>REAL_CP</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>REAL_CP</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AI</design:name>
+              <design:position>40</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AI</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AI</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AI_COST</design:name>
+              <design:position>41</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AI_COST</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AI_COST</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CHG_FV</design:name>
+              <design:position>42</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CHG_FV</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CHG_FV</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DUE_AMOUNT</design:name>
+              <design:position>43</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DUE_AMOUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DUE_AMOUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DUE_CP</design:name>
+              <design:position>44</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DUE_CP</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DUE_CP</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DUE_AI</design:name>
+              <design:position>45</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DUE_AI</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DUE_AI</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AMRT_COUNT</design:name>
+              <design:position>46</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>8</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AMRT_COUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AMRT_COUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AMRT_DATE</design:name>
+              <design:position>47</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AMRT_DATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AMRT_DATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AMRT_IR</design:name>
+              <design:position>48</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AMRT_IR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AMRT_IR</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PRFT_FV</design:name>
+              <design:position>49</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRFT_FV</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRFT_FV</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PRFT_TRD</design:name>
+              <design:position>50</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRFT_TRD</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRFT_TRD</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PRFT_IR</design:name>
+              <design:position>51</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRFT_IR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRFT_IR</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PRFT_IR_AI</design:name>
+              <design:position>52</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRFT_IR_AI</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRFT_IR_AI</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PRFT_IR_AMRT</design:name>
+              <design:position>53</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRFT_IR_AMRT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRFT_IR_AMRT</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PRFT_IR_AI_HLD</design:name>
+              <design:position>54</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRFT_IR_AI_HLD</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRFT_IR_AI_HLD</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PRFT_IR_AMRT_HLD</design:name>
+              <design:position>55</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRFT_IR_AMRT_HLD</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRFT_IR_AMRT_HLD</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>RECLASS_PRFT_FV</design:name>
+              <design:position>56</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>RECLASS_PRFT_FV</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>RECLASS_PRFT_FV</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>IMPAIR</design:name>
+              <design:position>57</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>IMPAIR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>IMPAIR</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PRFT_IMPAIR</design:name>
+              <design:position>58</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRFT_IMPAIR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRFT_IMPAIR</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>REAL_MARGIN</design:name>
+              <design:position>59</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>REAL_MARGIN</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>REAL_MARGIN</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>OPEN_TIME</design:name>
+              <design:position>60</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>OPEN_TIME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>OPEN_TIME</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>UPDATE_TIME</design:name>
+              <design:position>61</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>UPDATE_TIME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>UPDATE_TIME</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PRFT_FEE</design:name>
+              <design:position>62</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRFT_FEE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRFT_FEE</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DUE_FEE</design:name>
+              <design:position>63</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DUE_FEE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DUE_FEE</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>FEE</design:name>
+              <design:position>64</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>FEE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>FEE</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AMRT_COST_CP</design:name>
+              <design:position>65</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>15</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AMRT_COST_CP</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AMRT_COST_CP</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AMRT_COST_AI</design:name>
+              <design:position>66</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>15</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AMRT_COST_AI</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AMRT_COST_AI</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AMRT_IR_HP</design:name>
+              <design:position>67</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>15</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AMRT_IR_HP</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AMRT_IR_HP</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AMRT_YTM</design:name>
+              <design:position>68</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>15</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AMRT_YTM</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AMRT_YTM</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>INVEST_YTM</design:name>
+              <design:position>69</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>15</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>INVEST_YTM</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>INVEST_YTM</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>OPEN_YTM</design:name>
+              <design:position>70</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>15</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>OPEN_YTM</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>OPEN_YTM</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>FUTURE_AI</design:name>
+              <design:position>71</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>FUTURE_AI</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>FUTURE_AI</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>REAL_CP_NOAMRT</design:name>
+              <design:position>72</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>REAL_CP_NOAMRT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>REAL_CP_NOAMRT</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CHG_FV_NOAMRT</design:name>
+              <design:position>73</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CHG_FV_NOAMRT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CHG_FV_NOAMRT</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PRFT_FV_NOAMRT</design:name>
+              <design:position>74</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRFT_FV_NOAMRT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRFT_FV_NOAMRT</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PRFT_TRD_NOAMRT</design:name>
+              <design:position>75</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRFT_TRD_NOAMRT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRFT_TRD_NOAMRT</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AMRT_METHOD</design:name>
+              <design:position>76</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>38</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AMRT_METHOD</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AMRT_METHOD</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>REAL_VOLUME_TERMCUR</design:name>
+              <design:position>77</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>REAL_VOLUME_TERMCUR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>REAL_VOLUME_TERMCUR</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>REAL_AMOUNT_TERMCUR</design:name>
+              <design:position>78</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>REAL_AMOUNT_TERMCUR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>REAL_AMOUNT_TERMCUR</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DUE_AMOUNT_TERMCUR</design:name>
+              <design:position>79</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DUE_AMOUNT_TERMCUR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DUE_AMOUNT_TERMCUR</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>REAL_CP_TERMCUR</design:name>
+              <design:position>80</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>REAL_CP_TERMCUR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>REAL_CP_TERMCUR</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DUE_CP_TERMCUR</design:name>
+              <design:position>81</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DUE_CP_TERMCUR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DUE_CP_TERMCUR</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PRFT_IR_AMRT_RC</design:name>
+              <design:position>82</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRFT_IR_AMRT_RC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRFT_IR_AMRT_RC</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PRFT_IR_AMRT_HLD_RC</design:name>
+              <design:position>83</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRFT_IR_AMRT_HLD_RC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRFT_IR_AMRT_HLD_RC</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AMRT_COST_CP_RC</design:name>
+              <design:position>84</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>15</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AMRT_COST_CP_RC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AMRT_COST_CP_RC</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AMRT_YTM_RC</design:name>
+              <design:position>85</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>15</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AMRT_YTM_RC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AMRT_YTM_RC</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AMRT_IR_HP_RC</design:name>
+              <design:position>86</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>15</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AMRT_IR_HP_RC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AMRT_IR_HP_RC</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CALC_DATE</design:name>
+              <design:position>87</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CALC_DATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CALC_DATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>IPR_STATE</design:name>
+              <design:position>88</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>4</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>IPR_STATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>IPR_STATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>IPR_PRFT_CP</design:name>
+              <design:position>89</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>IPR_PRFT_CP</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>IPR_PRFT_CP</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>IPR_PRFT_AI</design:name>
+              <design:position>90</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>IPR_PRFT_AI</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>IPR_PRFT_AI</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>IPR_CP</design:name>
+              <design:position>91</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>IPR_CP</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>IPR_CP</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>IPR_HX_CP</design:name>
+              <design:position>92</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>IPR_HX_CP</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>IPR_HX_CP</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>IPR_HX_AI</design:name>
+              <design:position>93</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>IPR_HX_AI</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>IPR_HX_AI</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>IPR_HX_DUE_AI</design:name>
+              <design:position>94</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>IPR_HX_DUE_AI</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>IPR_HX_DUE_AI</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>IPR_BW_AI</design:name>
+              <design:position>95</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>IPR_BW_AI</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>IPR_BW_AI</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>IPR_BW_DUE_AI</design:name>
+              <design:position>96</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>IPR_BW_DUE_AI</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>IPR_BW_DUE_AI</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AMRT_DATE_RC</design:name>
+              <design:position>97</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AMRT_DATE_RC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AMRT_DATE_RC</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AMRT_COST_AI_RC</design:name>
+              <design:position>98</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>15</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AMRT_COST_AI_RC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AMRT_COST_AI_RC</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>OPEN_DATE_RC</design:name>
+              <design:position>99</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>OPEN_DATE_RC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>OPEN_DATE_RC</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PRFT_IR_AI_CALC_TAX</design:name>
+              <design:position>100</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRFT_IR_AI_CALC_TAX</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRFT_IR_AI_CALC_TAX</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TAX_AI</design:name>
+              <design:position>101</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TAX_AI</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TAX_AI</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TAX_DUE_AI</design:name>
+              <design:position>102</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TAX_DUE_AI</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TAX_DUE_AI</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TAX_FEE</design:name>
+              <design:position>103</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TAX_FEE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TAX_FEE</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>FV_CURRENCY</design:name>
+              <design:position>104</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>3</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>FV_CURRENCY</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>FV_CURRENCY</design:label>
+            <design:formattingHints>
+              <design:displaySize>3</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>SET_DATE</design:name>
+              <design:position>105</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>SET_DATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>SET_DATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PRFT_FV_CASH</design:name>
+              <design:position>106</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>31</design:precision>
+            <design:scale>8</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PRFT_FV_CASH</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PRFT_FV_CASH</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="网格" id="859">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="height">11in</property>
+            <property name="width">1200mm</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="6">
+            <column id="7"/>
+            <column id="8"/>
+            <column id="9"/>
+            <column id="10"/>
+            <column id="11"/>
+            <column id="12"/>
+            <column id="13"/>
+            <column id="14"/>
+            <column id="15"/>
+            <column id="16"/>
+            <column id="17"/>
+            <column id="18"/>
+            <column id="19"/>
+            <column id="20"/>
+            <column id="21"/>
+            <column id="22"/>
+            <column id="23"/>
+            <column id="24"/>
+            <column id="25"/>
+            <column id="26"/>
+            <column id="27"/>
+            <column id="28"/>
+            <column id="29"/>
+            <column id="30"/>
+            <column id="31"/>
+            <column id="32"/>
+            <column id="33"/>
+            <column id="34"/>
+            <column id="35"/>
+            <column id="36"/>
+            <column id="37"/>
+            <column id="38"/>
+            <column id="39"/>
+            <column id="40"/>
+            <column id="41"/>
+            <column id="42"/>
+            <row id="43">
+                <cell id="44">
+                    <property name="colSpan">36</property>
+                    <property name="rowSpan">1</property>
+                    <label id="672">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">柳州银行     年可供出售、交易性金融资产债券盈亏情况表</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="80">
+                <cell id="81">
+                    <property name="colSpan">36</property>
+                    <property name="rowSpan">1</property>
+                    <label id="673">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">年 月  日</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="117">
+                <cell id="118">
+                    <label id="674">
+                        <text-property name="text">填报单位：</text-property>
+                    </label>
+                </cell>
+                <cell id="119"/>
+                <cell id="120"/>
+                <cell id="121"/>
+                <cell id="122"/>
+                <cell id="123"/>
+                <cell id="124"/>
+                <cell id="125"/>
+                <cell id="126"/>
+                <cell id="127"/>
+                <cell id="128"/>
+                <cell id="129"/>
+                <cell id="130"/>
+                <cell id="131"/>
+                <cell id="132"/>
+                <cell id="133"/>
+                <cell id="134"/>
+                <cell id="135"/>
+                <cell id="136"/>
+                <cell id="137"/>
+                <cell id="138"/>
+                <cell id="139"/>
+                <cell id="140"/>
+                <cell id="141"/>
+                <cell id="142"/>
+                <cell id="143"/>
+                <cell id="144"/>
+                <cell id="145"/>
+                <cell id="146"/>
+                <cell id="147"/>
+                <cell id="148"/>
+                <cell id="149"/>
+                <cell id="150"/>
+                <cell id="151"/>
+                <cell id="152"/>
+                <cell id="153"/>
+            </row>
+            <row id="154">
+                <cell id="155">
+                    <property name="colSpan">36</property>
+                    <property name="rowSpan">1</property>
+                    <table id="675">
+                        <property name="dataSet">DataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">代码</property>
+                                <text-property name="displayName">代码</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["代码"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">息票类型</property>
+                                <text-property name="displayName">息票类型</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["息票类型"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">买入净价</property>
+                                <text-property name="displayName">买入净价</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["买入净价"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">买入净价金额</property>
+                                <text-property name="displayName">买入净价金额</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["买入净价金额"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">买入全价</property>
+                                <text-property name="displayName">买入全价</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["买入全价"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">买入全价金额</property>
+                                <text-property name="displayName">买入全价金额</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["买入全价金额"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">买入收益率（%）</property>
+                                <text-property name="displayName">买入收益率（%）</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["买入收益率（%）"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">买入日</property>
+                                <text-property name="displayName">买入日</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["买入日"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">起息日</property>
+                                <text-property name="displayName">起息日</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["起息日"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">票面利率（%）</property>
+                                <text-property name="displayName">票面利率（%）</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["票面利率（%）"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">券面总额（万元）</property>
+                                <text-property name="displayName">券面总额（万元）</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["券面总额（万元）"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">序号</property>
+                                <text-property name="displayName">序号</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["序号"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">券种</property>
+                                <text-property name="displayName">券种</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["券种"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">基准利率</property>
+                                <text-property name="displayName">基准利率</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["基准利率"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">当前基准利率值</property>
+                                <text-property name="displayName">当前基准利率值</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["当前基准利率值"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">当前利差</property>
+                                <text-property name="displayName">当前利差</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["当前利差"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">分销或现券</property>
+                                <text-property name="displayName">分销或现券</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["分销或现券"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">到期日</property>
+                                <text-property name="displayName">到期日</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["到期日"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">净价估值损益</property>
+                                <text-property name="displayName">净价估值损益</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["净价估值损益"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">净价估值偏离度</property>
+                                <text-property name="displayName">净价估值偏离度</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["净价估值偏离度"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">估价净价</property>
+                                <text-property name="displayName">估价净价</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["估价净价"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">总市值(按净值计)</property>
+                                <text-property name="displayName">总市值(按净值计)</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["总市值(按净值计)"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">浮盈（亏）%</property>
+                                <text-property name="displayName">浮盈（亏）%</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["浮盈（亏）%"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">浮盈（亏）金额</property>
+                                <text-property name="displayName">浮盈（亏）金额</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["浮盈（亏）金额"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">所属分类账户</property>
+                                <text-property name="displayName">所属分类账户</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["所属分类账户"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">当前收益率（%）</property>
+                                <text-property name="displayName">当前收益率（%）</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["当前收益率（%）"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                        </list-property>
+                        <column id="787"/>
+                        <column id="788"/>
+                        <column id="789"/>
+                        <column id="790"/>
+                        <column id="791"/>
+                        <column id="792"/>
+                        <column id="793"/>
+                        <column id="794"/>
+                        <column id="795"/>
+                        <column id="796"/>
+                        <column id="797"/>
+                        <column id="798"/>
+                        <column id="799"/>
+                        <column id="800"/>
+                        <column id="801"/>
+                        <column id="802"/>
+                        <column id="803"/>
+                        <column id="804"/>
+                        <column id="805"/>
+                        <column id="806"/>
+                        <column id="807"/>
+                        <column id="808"/>
+                        <column id="809"/>
+                        <column id="810"/>
+                        <column id="811"/>
+                        <column id="812"/>
+                        <column id="813"/>
+                        <column id="814"/>
+                        <column id="815"/>
+                        <column id="816"/>
+                        <column id="817"/>
+                        <column id="818"/>
+                        <column id="819"/>
+                        <column id="820"/>
+                        <column id="821"/>
+                        <column id="822"/>
+                        <header>
+                            <row id="676">
+                                <cell id="677">
+                                    <property name="style">网格</property>
+                                    <label id="823">
+                                        <text-property name="text">序号</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="678">
+                                    <property name="style">网格</property>
+                                    <label id="824">
+                                        <text-property name="text">券种</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="679">
+                                    <property name="style">网格</property>
+                                    <label id="825">
+                                        <text-property name="text">代码</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="680">
+                                    <property name="style">网格</property>
+                                    <label id="826">
+                                        <text-property name="text">券面总额(万元)</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="681">
+                                    <property name="style">网格</property>
+                                    <label id="827">
+                                        <text-property name="text">票面利率（%）</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="682">
+                                    <property name="style">网格</property>
+                                    <label id="828">
+                                        <text-property name="text">息票类型</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="683">
+                                    <property name="style">网格</property>
+                                    <label id="829">
+                                        <text-property name="text">基准利率</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="684">
+                                    <property name="style">网格</property>
+                                    <label id="830">
+                                        <text-property name="text">当前基准利率值</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="685">
+                                    <property name="style">网格</property>
+                                    <label id="831">
+                                        <text-property name="text">当前利差</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="686">
+                                    <property name="style">网格</property>
+                                    <label id="832">
+                                        <text-property name="text">分销或现券</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="687">
+                                    <property name="style">网格</property>
+                                    <label id="833">
+                                        <text-property name="text">买入日</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="688">
+                                    <property name="style">网格</property>
+                                    <label id="834">
+                                        <text-property name="text">起息日</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="689">
+                                    <property name="style">网格</property>
+                                    <label id="835">
+                                        <text-property name="text">到期日</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="690">
+                                    <property name="style">网格</property>
+                                    <label id="836">
+                                        <text-property name="text">买入净价</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="691">
+                                    <property name="style">网格</property>
+                                    <label id="837">
+                                        <text-property name="text">买入净价金额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="692">
+                                    <property name="style">网格</property>
+                                    <label id="838">
+                                        <text-property name="text">买入全价</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="693">
+                                    <property name="style">网格</property>
+                                    <label id="839">
+                                        <text-property name="text">买入全价金额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="694">
+                                    <property name="style">网格</property>
+                                    <label id="840">
+                                        <text-property name="text">买入收益率(%)</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="695">
+                                    <property name="style">网格</property>
+                                    <label id="841">
+                                        <text-property name="text">估价净价</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="696">
+                                    <property name="style">网格</property>
+                                    <label id="842">
+                                        <text-property name="text">总市值(按净值计)</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="697">
+                                    <property name="style">网格</property>
+                                    <label id="843">
+                                        <text-property name="text">净价估值偏离度</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="698">
+                                    <property name="style">网格</property>
+                                    <label id="844">
+                                        <text-property name="text">净价估值损益</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="699">
+                                    <property name="style">网格</property>
+                                    <label id="845">
+                                        <text-property name="text">当前收益率（%）</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="700">
+                                    <property name="style">网格</property>
+                                    <label id="846">
+                                        <text-property name="text">浮盈（亏）%</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="701">
+                                    <property name="style">网格</property>
+                                    <label id="847">
+                                        <text-property name="text">预警状态</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="702">
+                                    <property name="style">网格</property>
+                                    <label id="848">
+                                        <text-property name="text">浮盈（亏）金额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="703">
+                                    <property name="style">网格</property>
+                                    <label id="849">
+                                        <text-property name="text">卖出日期</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="704">
+                                    <property name="style">网格</property>
+                                    <label id="850">
+                                        <text-property name="text">卖出净价</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="705">
+                                    <property name="style">网格</property>
+                                    <label id="851">
+                                        <text-property name="text">卖出净价金额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="706">
+                                    <property name="style">网格</property>
+                                    <label id="852">
+                                        <text-property name="text">卖出全价</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="707">
+                                    <property name="style">网格</property>
+                                    <label id="853">
+                                        <text-property name="text">卖出全价金额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="708">
+                                    <property name="style">网格</property>
+                                    <label id="854">
+                                        <text-property name="text">卖出收益率（%）</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="709">
+                                    <property name="style">网格</property>
+                                    <label id="855">
+                                        <text-property name="text">实际盈（亏）%</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="710">
+                                    <property name="style">网格</property>
+                                    <label id="856">
+                                        <text-property name="text">买卖损益</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="711">
+                                    <property name="style">网格</property>
+                                    <label id="857">
+                                        <text-property name="text">实际盈（亏）金额</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="712">
+                                    <property name="style">网格</property>
+                                    <label id="858">
+                                        <text-property name="text">所属分类账户</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="713">
+                                <cell id="714">
+                                    <property name="style">网格</property>
+                                    <data id="871">
+                                        <property name="resultSetColumn">序号</property>
+                                    </data>
+                                </cell>
+                                <cell id="715">
+                                    <property name="style">网格</property>
+                                    <data id="872">
+                                        <property name="resultSetColumn">券种</property>
+                                    </data>
+                                </cell>
+                                <cell id="716">
+                                    <property name="style">网格</property>
+                                    <data id="860">
+                                        <property name="resultSetColumn">代码</property>
+                                    </data>
+                                </cell>
+                                <cell id="717">
+                                    <property name="style">网格</property>
+                                    <data id="870">
+                                        <property name="resultSetColumn">券面总额（万元）</property>
+                                    </data>
+                                </cell>
+                                <cell id="718">
+                                    <property name="style">网格</property>
+                                    <data id="869">
+                                        <property name="resultSetColumn">票面利率（%）</property>
+                                    </data>
+                                </cell>
+                                <cell id="719">
+                                    <property name="style">网格</property>
+                                    <data id="861">
+                                        <property name="resultSetColumn">息票类型</property>
+                                    </data>
+                                </cell>
+                                <cell id="720">
+                                    <property name="style">网格</property>
+                                    <data id="873">
+                                        <property name="resultSetColumn">基准利率</property>
+                                    </data>
+                                </cell>
+                                <cell id="721">
+                                    <property name="style">网格</property>
+                                    <data id="874">
+                                        <property name="resultSetColumn">当前基准利率值</property>
+                                    </data>
+                                </cell>
+                                <cell id="722">
+                                    <property name="style">网格</property>
+                                    <data id="875">
+                                        <property name="resultSetColumn">当前利差</property>
+                                    </data>
+                                </cell>
+                                <cell id="723">
+                                    <property name="style">网格</property>
+                                    <data id="876">
+                                        <property name="resultSetColumn">分销或现券</property>
+                                    </data>
+                                </cell>
+                                <cell id="724">
+                                    <property name="style">网格</property>
+                                    <data id="867">
+                                        <property name="resultSetColumn">买入日</property>
+                                    </data>
+                                </cell>
+                                <cell id="725">
+                                    <property name="style">网格</property>
+                                    <data id="868">
+                                        <property name="resultSetColumn">起息日</property>
+                                    </data>
+                                </cell>
+                                <cell id="726">
+                                    <property name="style">网格</property>
+                                    <data id="877">
+                                        <property name="resultSetColumn">到期日</property>
+                                    </data>
+                                </cell>
+                                <cell id="727">
+                                    <property name="style">网格</property>
+                                    <data id="862">
+                                        <property name="resultSetColumn">买入净价</property>
+                                    </data>
+                                </cell>
+                                <cell id="728">
+                                    <property name="style">网格</property>
+                                    <data id="863">
+                                        <property name="resultSetColumn">买入净价金额</property>
+                                    </data>
+                                </cell>
+                                <cell id="729">
+                                    <property name="style">网格</property>
+                                    <data id="864">
+                                        <property name="resultSetColumn">买入全价</property>
+                                    </data>
+                                </cell>
+                                <cell id="730">
+                                    <property name="style">网格</property>
+                                    <data id="865">
+                                        <property name="resultSetColumn">买入全价金额</property>
+                                    </data>
+                                </cell>
+                                <cell id="731">
+                                    <property name="style">网格</property>
+                                    <data id="866">
+                                        <property name="resultSetColumn">买入收益率（%）</property>
+                                    </data>
+                                </cell>
+                                <cell id="732">
+                                    <property name="style">网格</property>
+                                    <data id="880">
+                                        <property name="resultSetColumn">估价净价</property>
+                                    </data>
+                                </cell>
+                                <cell id="733">
+                                    <property name="style">网格</property>
+                                    <data id="881">
+                                        <property name="resultSetColumn">总市值(按净值计)</property>
+                                    </data>
+                                </cell>
+                                <cell id="734">
+                                    <property name="style">网格</property>
+                                    <data id="879">
+                                        <property name="resultSetColumn">净价估值偏离度</property>
+                                    </data>
+                                </cell>
+                                <cell id="735">
+                                    <property name="style">网格</property>
+                                    <data id="878">
+                                        <property name="resultSetColumn">净价估值损益</property>
+                                    </data>
+                                </cell>
+                                <cell id="736">
+                                    <property name="style">网格</property>
+                                    <data id="885">
+                                        <property name="resultSetColumn">当前收益率（%）</property>
+                                    </data>
+                                </cell>
+                                <cell id="737">
+                                    <property name="style">网格</property>
+                                    <data id="882">
+                                        <property name="resultSetColumn">浮盈（亏）%</property>
+                                    </data>
+                                </cell>
+                                <cell id="738">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="739">
+                                    <property name="style">网格</property>
+                                    <data id="883">
+                                        <property name="resultSetColumn">浮盈（亏）金额</property>
+                                    </data>
+                                </cell>
+                                <cell id="740">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="741">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="742">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="743">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="744">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="745">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="746">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="747">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="748">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="749">
+                                    <property name="style">网格</property>
+                                    <data id="884">
+                                        <property name="resultSetColumn">所属分类账户</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                        <footer>
+                            <row id="750">
+                                <cell id="751">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="752">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="753">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="754">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="755">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="756">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="757">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="758">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="759">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="760">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="761">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="762">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="763">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="764">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="765">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="766">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="767">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="768">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="769">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="770">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="771">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="772">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="773">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="774">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="775">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="776">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="777">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="778">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="779">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="780">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="781">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="782">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="783">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="784">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="785">
+                                    <property name="style">网格</property>
+                                </cell>
+                                <cell id="786">
+                                    <property name="style">网格</property>
+                                </cell>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+            </row>
+            <row id="635">
+                <cell id="636"/>
+                <cell id="637"/>
+                <cell id="638"/>
+                <cell id="639"/>
+                <cell id="640"/>
+                <cell id="641"/>
+                <cell id="642"/>
+                <cell id="643"/>
+                <cell id="644"/>
+                <cell id="645"/>
+                <cell id="646"/>
+                <cell id="647"/>
+                <cell id="648"/>
+                <cell id="649"/>
+                <cell id="650"/>
+                <cell id="651"/>
+                <cell id="652"/>
+                <cell id="653"/>
+                <cell id="654"/>
+                <cell id="655"/>
+                <cell id="656"/>
+                <cell id="657"/>
+                <cell id="658"/>
+                <cell id="659"/>
+                <cell id="660"/>
+                <cell id="661"/>
+                <cell id="662"/>
+                <cell id="663"/>
+                <cell id="664"/>
+                <cell id="665"/>
+                <cell id="666"/>
+                <cell id="667"/>
+                <cell id="668"/>
+                <cell id="669"/>
+                <cell id="670"/>
+                <cell id="671"/>
+            </row>
+        </grid>
+    </body>
+</report>

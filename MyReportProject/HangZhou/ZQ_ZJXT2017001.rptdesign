@@ -1,0 +1,1785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.6.0.v201606072122</property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="BEGDATE" id="6">
+            <text-property name="promptText">日期</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">yyyy-MM-dd</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="sys_institutionTree" id="7">
+            <text-property name="promptText">机构</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="4"
+ extends="xir_j2ee.XIR">
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.68.73.155:1521:orcl</property>
+            <property name="odaUser">XIR_TRDJ</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">eHBhcg==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="5">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">BEGDATE</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_2</property>
+                    <property name="paramName">sys_institutionTree</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_3</property>
+                    <property name="paramName">sys_institutionTree</property>
+                    <property name="dataType">string</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">资产代码</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">资产名称</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">投资类型</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">债券评级</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">账面价值(元)</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">净价成本(元)</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">面额(元)</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">公允价值</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">公允价值变动(元)</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">建仓时间</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">到期日</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">下一重定价日</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">利息类型</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">基准利率类型</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">发行主体分类</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">冻结余额</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">对应担保交易</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">有市价</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">债券配比1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">债券配比2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">原始期限1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">原始期限2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">原始期限3</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">债券配比3</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">是否财政部代发</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">账户性质</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">是否经过两家外部评级</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">债券性质</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">发行人</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">发行人评级</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">是否金融同业</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">是否企业</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">资产代码</property>
+                    <property name="nativeName">资产代码</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">资产名称</property>
+                    <property name="nativeName">资产名称</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">投资类型</property>
+                    <property name="nativeName">投资类型</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">债券评级</property>
+                    <property name="nativeName">债券评级</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">账面价值(元)</property>
+                    <property name="nativeName">账面价值(元)</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">净价成本(元)</property>
+                    <property name="nativeName">净价成本(元)</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">面额(元)</property>
+                    <property name="nativeName">面额(元)</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">公允价值</property>
+                    <property name="nativeName">公允价值</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">公允价值变动(元)</property>
+                    <property name="nativeName">公允价值变动(元)</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">建仓时间</property>
+                    <property name="nativeName">建仓时间</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">到期日</property>
+                    <property name="nativeName">到期日</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">下一重定价日</property>
+                    <property name="nativeName">下一重定价日</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">利息类型</property>
+                    <property name="nativeName">利息类型</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">基准利率类型</property>
+                    <property name="nativeName">基准利率类型</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">发行主体分类</property>
+                    <property name="nativeName">发行主体分类</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">冻结余额</property>
+                    <property name="nativeName">冻结余额</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">对应担保交易</property>
+                    <property name="nativeName">对应担保交易</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">有市价</property>
+                    <property name="nativeName">有市价</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">债券配比1</property>
+                    <property name="nativeName">债券配比1</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">债券配比2</property>
+                    <property name="nativeName">债券配比2</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">原始期限1</property>
+                    <property name="nativeName">原始期限1</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">原始期限2</property>
+                    <property name="nativeName">原始期限2</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">原始期限3</property>
+                    <property name="nativeName">原始期限3</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">债券配比3</property>
+                    <property name="nativeName">债券配比3</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">是否财政部代发</property>
+                    <property name="nativeName">是否财政部代发</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">账户性质</property>
+                    <property name="nativeName">账户性质</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">是否经过两家外部评级</property>
+                    <property name="nativeName">是否经过两家外部评级</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">债券性质</property>
+                    <property name="nativeName">债券性质</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">发行人</property>
+                    <property name="nativeName">发行人</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">发行人评级</property>
+                    <property name="nativeName">发行人评级</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">是否金融同业</property>
+                    <property name="nativeName">是否金融同业</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">32</property>
+                    <property name="name">是否企业</property>
+                    <property name="nativeName">是否企业</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[WITH INPUTDT AS (SELECT ? BEGDATE FROM DUAL)
+SELECT 
+I_CODE "资产代码",
+B_NAME "资产名称",
+ACCOUNTNAME "投资类型",
+B_GRADE "债券评级",
+(REAL_CP + AI1 + AMRT_IR + CHG_FV1) "账面价值(元)",
+REAL_CP "净价成本(元)",
+AMOUNT "面额(元)",
+'' "公允价值",
+CHG_FV1 "公允价值变动(元)",
+OPEN_TIME "建仓时间",
+MATER_DATE "到期日",
+AD_FIXINGDATE "下一重定价日",
+DECODE(B_COUPON_TYPE,'1','固定利率','2','浮动利率','3','零息票利率') "利息类型",
+i_code_bench "基准利率类型",
+T_PATH "发行主体分类",
+FREEZE_VOLUME "冻结余额",
+'' "对应担保交易",
+'' "有市价",
+'' "债券配比1",
+'' "债券配比2",
+'' "原始期限1",
+'' "原始期限2",
+'' "原始期限3",
+'' "债券配比3",
+'' "是否财政部代发",
+'' "账户性质",
+'' "是否经过两家外部评级",
+P_CLASS "债券性质",
+B_ISSUER "发行人",
+GRADE "发行人评级",
+'' "是否金融同业",
+'' "是否企业"
+
+  FROM (SELECT T1.*,
+                T2.B_NAME,
+                S1.ACCNAME AS ACCOUNTNAME,
+                S2.ACCNAME,
+                TT.DESCRIPTION TRDTYPE,
+                T2.B_CASH_TIMES,
+                CASE WHEN T2.B_CASH_TIMES = 0 AND S1.ACCNAME <> '交易类' THEN T1.AI + T1.DUE_AI
+                  ELSE 0 END AS AI1,
+                CASE WHEN S1.ACCNAME = '持有到期类' OR S1.ACCNAME = '应收款项类' THEN 0
+                  ELSE T1.CHG_FV END AS CHG_FV1,
+                CASE WHEN T2.B_ISSUE_MODE = '2' THEN
+                   ROUND(T1.REAL_AMOUNT / T2.B_ISSUE_PRICE * 100.0, 2)
+                  ELSE T1.REAL_AMOUNT END AS AMOUNT,
+                TRADE.INSID,
+                DT.MATER_DATE,
+                TBSI.AD_FIXINGDATE,
+                DT.P_CLASS,
+                DT.B_GRADE,
+                DT.B_ISSUER,
+                DT.GRADE,
+                DT.B_COUPON_TYPE,
+                DT.B_EMBOPT_TYPE,
+                DT.NETPRICE,
+                DT.FULLPRICE,
+                DT.i_code_bench,
+                DT.T_PATH,
+                BLC.FREEZE_VOLUME,
+                CASE WHEN dt.RATINGTIMES >=2 THEN '是' ELSE '否' END AS RATINGTIMES,
+                ROUND((TO_DATE(DT.MATER_DATE,'YYYY-MM-DD')-TO_DATE(T1.BEG_DATE,'YYYY-MM-DD'))/365,6) MK_MATURITY
+          FROM (SELECT O.OBJ_ID,
+                        O.BEG_DATE,
+                        O.END_DATE,
+                        O.TSK_ID,
+                        O.SECU_ACCT_ID,
+                        O.EXT_SECU_ACCT_ID,
+                        O.I_CODE,
+                        O.M_TYPE,
+                        O.A_TYPE,
+                        O.TRADE_GRP_ID,
+                        O.TRADE_ID,
+                        O.REAL_AMOUNT + O.DUE_AMOUNT REAL_AMOUNT,
+                        O.REAL_CP + O.DUE_CP REAL_CP,
+                        O.AI,
+                        O.AI_COST,
+                        O.DUE_AI,
+                        (O.REAL_CP + O.AMRT_IR + O.IMPAIR + O.CHG_FV) FV,
+                        O.AMRT_DATE,
+                        O.AMRT_YTM,
+                        O.AMRT_IR,
+                        O.INVEST_YTM,
+                        O.PRFT_FV,
+                        O.PRFT_IR,
+                        O.OPEN_TIME,
+                        O.PRFT_TRD,
+                        O.UPDATE_TIME,
+                        O.CHG_FV 
+                   FROM TTRD_ACCOUNTING_SECU_OBJ_HIS O
+                  WHERE O.BEG_DATE = (SELECT BEGDATE FROM INPUTDT)
+                    AND O.A_TYPE IN ('SPT_BD', 'SPT_ABS', 'SPT_CB')
+                    AND (O.REAL_AMOUNT + O.DUE_AMOUNT) <> 0
+                    ) T1
+         INNER JOIN (SELECT I_CODE, A_TYPE, M_TYPE, B_NAME, B_CASH_TIMES, B_ISSUE_MODE, B_ISSUE_PRICE
+                       FROM TBND WHERE M_TYPE IN ('X_CNBD', 'NONE')
+                     UNION
+                     SELECT B.I_CODE, B.A_TYPE, B.M_TYPE, B.BOND_NAME B_NAME, A0.B_CASH_TIMES, A0.B_ISSUE_MODE, A0.B_ISSUE_PRICE
+                       FROM TTRD_BIDD_BOND_CODE B
+                      INNER JOIN TTRD_BIDD_BOND A0 ON A0.D_CODE = B.D_CODE
+                        AND A0.YH_CODE = B.I_CODE
+                        AND B.M_TYPE IN ('X_CNBD', 'NONE')
+                      INNER JOIN TBND T ON T.D_CODE = A0.D_CODE
+                        AND T.M_TYPE = A0.M_TYPE
+                        AND T.B_ISSUER = A0.B_ISSUER
+                        AND T.I_CODE <> A0.YH_CODE) T2
+            ON T1.I_CODE = T2.I_CODE
+           AND T1.A_TYPE = T2.A_TYPE
+           AND T1.M_TYPE = T2.M_TYPE
+         INNER JOIN TTRD_ACC_SECU S1
+            ON S1.ACCID = SECU_ACCT_ID
+         INNER JOIN TTRD_OTC_TRADE TRADE
+            ON TRADE.INTORDID = TRADE_ID
+           AND TRADE.ORDSTATUS = 4
+         INNER JOIN TTRD_TRADE_TYPE TT ON TRADE.TRDTYPE=TT.TRD_TYPE
+         INNER JOIN TTRD_ACC_SECU S2
+            ON S2.ACCID = TRADE.SECU_ACCID        
+          LEFT JOIN (SELECT I_CODE,A_TYPE,M_TYPE,MIN(AD_FIXINGDATE) AD_FIXINGDATE FROM TBSI_ACCRUALDETAIL 
+                     WHERE AD_STARTDATE>(SELECT BEGDATE FROM INPUTDT)
+                     GROUP BY I_CODE,A_TYPE,M_TYPE) TBSI
+            ON T1.A_TYPE = TBSI.A_TYPE
+           AND T1.M_TYPE = TBSI.M_TYPE
+           AND T1.I_CODE = TBSI.I_CODE
+           AND T1.A_TYPE IN ('SPT_BD', 'SPT_ABS', 'SPT_CB')
+          LEFT JOIN (SELECT B.I_CODE,
+                            B.A_TYPE,
+                            B.M_TYPE,
+                            b.i_code_bench,
+                            B.P_CLASS,
+                            B.B_ISSUER,
+                            B.B_MTR_DATE MATER_DATE,
+                            CR.GRADE,
+                            B.B_COUPON_TYPE,
+                            B.B_EMBOPT_TYPE,
+                            BR.B_GRADE,
+                            br.RATINGTIMES,
+                            BE.NETPRICE,
+                            BE.FULLPRICE,
+                            P.T_PATH
+                       FROM TBND B
+                       LEFT JOIN (SELECT A.*,b.RATINGTIMES FROM TBND_EXT_RATING A
+                                  LEFT JOIN (SELECT I_CODE,A_TYPE,M_TYPE,COUNT(1) RATINGTIMES 
+                                             FROM TBND_EXT_RATING F 
+                                             GROUP BY I_CODE,A_TYPE,M_TYPE HAVING COUNT(1) >1) B
+                                       ON a.i_code=b.i_code AND a.a_type=b.a_type AND a.m_type=b.m_type
+                                  WHERE A.BEG_DATE <= (SELECT BEGDATE FROM INPUTDT) 
+                                    AND A.END_DATE > (SELECT BEGDATE FROM INPUTDT)) BR
+                         ON B.I_CODE = BR.I_CODE
+                        AND B.A_TYPE = BR.A_TYPE
+                        AND B.M_TYPE = BR.M_TYPE
+                       LEFT JOIN (SELECT * FROM TCOMPANY_RATING 
+                                  WHERE BEG_DATE <= (SELECT BEGDATE FROM INPUTDT)
+                                    AND END_DATE > (SELECT BEGDATE FROM INPUTDT)) CR
+                         ON B.B_ISSUER = CR.COMP_NAME
+                       LEFT JOIN (SELECT * FROM TCB_BOND_EVAL
+                      WHERE BEG_DATE <= (SELECT BEGDATE FROM INPUTDT)
+                        AND END_DATE > (SELECT BEGDATE FROM INPUTDT)) BE
+                         ON B.I_CODE = BE.I_CODE
+                        AND B.A_TYPE = BE.A_TYPE
+                        AND B.M_TYPE = BE.M_TYPE
+                       LEFT JOIN TTRD_INSTITUTION P ON P.I_ID=B.ISSUER_ID ) DT
+            ON T1.A_TYPE = DT.A_TYPE
+           AND T1.M_TYPE = DT.M_TYPE
+           AND T1.I_CODE = DT.I_CODE
+          LEFT JOIN (SELECT SUM(FREEZE_VOLUME) FREEZE_VOLUME,I_CODE,A_TYPE,M_TYPE
+                     FROM TTRD_BLC_SECU_OBJ 
+                     WHERE BEG_DATE=(SELECT BEGDATE FROM INPUTDT) 
+                     GROUP BY I_CODE,A_TYPE,M_TYPE
+                     UNION ALL 
+                     SELECT SUM(FREEZE_VOLUME) FREEZE_VOLUME,I_CODE,A_TYPE,M_TYPE
+                     FROM TTRD_BLC_SECU_OBJ_HIS
+                     WHERE BEG_DATE=(SELECT BEGDATE FROM INPUTDT) 
+                     GROUP BY I_CODE,A_TYPE,M_TYPE
+                     )BLC
+            ON T1.A_TYPE = BLC.A_TYPE
+           AND T1.M_TYPE = BLC.M_TYPE
+           AND T1.I_CODE = BLC.I_CODE
+           WHERE S2.ACCID=DECODE(?,NULL,s2.accid,'',s2.accid,'null',s2.accid,?)
+           --AND T1.I_CODE||','||T1.A_TYPE||','||T1.M_TYPE = DECODE(?,NULL,T1.I_CODE||','||T1.A_TYPE||','||T1.M_TYPE,'',T1.I_CODE||','||T1.A_TYPE||','||T1.M_TYPE,'null',T1.I_CODE||','||T1.A_TYPE||','||T1.M_TYPE,?)
+          
+)]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="topMargin">10mm</property>
+            <property name="leftMargin">10mm</property>
+            <property name="rightMargin">10mm</property>
+            <property name="height">297mm</property>
+            <property name="width">800mm</property>
+            <property name="showHeaderOnFirst">false</property>
+            <property name="showFooterOnLast">false</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">0in</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="8">
+            <property name="fontFamily">"宋体"</property>
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">资产代码</property>
+                    <text-property name="displayName">资产代码</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["资产代码"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">资产名称</property>
+                    <text-property name="displayName">资产名称</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["资产名称"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">投资类型</property>
+                    <text-property name="displayName">投资类型</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["投资类型"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">债券评级</property>
+                    <text-property name="displayName">债券评级</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["债券评级"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">账面价值(元)</property>
+                    <text-property name="displayName">账面价值(元)</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["账面价值(元)"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">净价成本(元)</property>
+                    <text-property name="displayName">净价成本(元)</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["净价成本(元)"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">面额(元)</property>
+                    <text-property name="displayName">面额(元)</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["面额(元)"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">公允价值</property>
+                    <text-property name="displayName">公允价值</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["公允价值"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">公允价值变动(元)</property>
+                    <text-property name="displayName">公允价值变动(元)</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["公允价值变动(元)"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">建仓时间</property>
+                    <text-property name="displayName">建仓时间</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["建仓时间"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">到期日</property>
+                    <text-property name="displayName">到期日</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["到期日"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">下一重定价日</property>
+                    <text-property name="displayName">下一重定价日</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["下一重定价日"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">利息类型</property>
+                    <text-property name="displayName">利息类型</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["利息类型"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">基准利率类型</property>
+                    <text-property name="displayName">基准利率类型</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["基准利率类型"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">发行主体分类</property>
+                    <text-property name="displayName">发行主体分类</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["发行主体分类"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">冻结余额</property>
+                    <text-property name="displayName">冻结余额</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["冻结余额"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">对应担保交易</property>
+                    <text-property name="displayName">对应担保交易</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["对应担保交易"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">有市价</property>
+                    <text-property name="displayName">有市价</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["有市价"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">债券配比1</property>
+                    <text-property name="displayName">债券配比1</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["债券配比1"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">债券配比2</property>
+                    <text-property name="displayName">债券配比2</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["债券配比2"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">原始期限1</property>
+                    <text-property name="displayName">原始期限1</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["原始期限1"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">原始期限2</property>
+                    <text-property name="displayName">原始期限2</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["原始期限2"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">原始期限3</property>
+                    <text-property name="displayName">原始期限3</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["原始期限3"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">债券配比3</property>
+                    <text-property name="displayName">债券配比3</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["债券配比3"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">是否财政部代发</property>
+                    <text-property name="displayName">是否财政部代发</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["是否财政部代发"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">账户性质</property>
+                    <text-property name="displayName">账户性质</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["账户性质"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">是否经过两家外部评级</property>
+                    <text-property name="displayName">是否经过两家外部评级</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["是否经过两家外部评级"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">债券性质</property>
+                    <text-property name="displayName">债券性质</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["债券性质"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">发行人</property>
+                    <text-property name="displayName">发行人</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["发行人"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">发行人评级</property>
+                    <text-property name="displayName">发行人评级</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["发行人评级"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">是否金融同业</property>
+                    <text-property name="displayName">是否金融同业</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["是否金融同业"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">是否企业</property>
+                    <text-property name="displayName">是否企业</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["是否企业"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="repeatHeader">false</property>
+            <property name="pageBreakInterval">0</property>
+            <column id="172"/>
+            <column id="173"/>
+            <column id="174"/>
+            <column id="175"/>
+            <column id="176"/>
+            <column id="177"/>
+            <column id="178"/>
+            <column id="179"/>
+            <column id="180"/>
+            <column id="181"/>
+            <column id="182"/>
+            <column id="183"/>
+            <column id="184"/>
+            <column id="185"/>
+            <column id="186"/>
+            <column id="187"/>
+            <column id="188"/>
+            <column id="189"/>
+            <column id="190"/>
+            <column id="191"/>
+            <column id="192"/>
+            <column id="193"/>
+            <column id="194"/>
+            <column id="195"/>
+            <column id="196"/>
+            <column id="197"/>
+            <column id="198"/>
+            <column id="199"/>
+            <column id="200"/>
+            <column id="201"/>
+            <column id="202"/>
+            <column id="203"/>
+            <header>
+                <row id="9">
+                    <cell id="10">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="11">
+                            <text-property name="text">资产代码</text-property>
+                        </label>
+                    </cell>
+                    <cell id="12">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="13">
+                            <text-property name="text">资产名称</text-property>
+                        </label>
+                    </cell>
+                    <cell id="14">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="15">
+                            <text-property name="text">投资类型</text-property>
+                        </label>
+                    </cell>
+                    <cell id="16">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="17">
+                            <text-property name="text">债券评级</text-property>
+                        </label>
+                    </cell>
+                    <cell id="18">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="19">
+                            <text-property name="text">账面价值(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="20">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="21">
+                            <text-property name="text">净价成本(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="22">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="23">
+                            <text-property name="text">面额(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="24">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="25">
+                            <text-property name="text">公允价值</text-property>
+                        </label>
+                    </cell>
+                    <cell id="26">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="27">
+                            <text-property name="text">公允价值变动(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="28">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="29">
+                            <text-property name="text">建仓时间</text-property>
+                        </label>
+                    </cell>
+                    <cell id="30">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="31">
+                            <text-property name="text">到期日</text-property>
+                        </label>
+                    </cell>
+                    <cell id="32">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="33">
+                            <text-property name="text">下一重定价日</text-property>
+                        </label>
+                    </cell>
+                    <cell id="34">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="35">
+                            <text-property name="text">利息类型</text-property>
+                        </label>
+                    </cell>
+                    <cell id="36">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="37">
+                            <text-property name="text">基准利率类型</text-property>
+                        </label>
+                    </cell>
+                    <cell id="38">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="39">
+                            <text-property name="text">发行主体分类</text-property>
+                        </label>
+                    </cell>
+                    <cell id="40">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="41">
+                            <text-property name="text">冻结余额</text-property>
+                        </label>
+                    </cell>
+                    <cell id="42">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="43">
+                            <text-property name="text">对应担保交易</text-property>
+                        </label>
+                    </cell>
+                    <cell id="44">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="45">
+                            <text-property name="text">有市价</text-property>
+                        </label>
+                    </cell>
+                    <cell id="46">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="47">
+                            <text-property name="text">债券配比1</text-property>
+                        </label>
+                    </cell>
+                    <cell id="48">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="49">
+                            <text-property name="text">债券配比2</text-property>
+                        </label>
+                    </cell>
+                    <cell id="50">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="51">
+                            <text-property name="text">原始期限1</text-property>
+                        </label>
+                    </cell>
+                    <cell id="52">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="53">
+                            <text-property name="text">原始期限2</text-property>
+                        </label>
+                    </cell>
+                    <cell id="54">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="55">
+                            <text-property name="text">原始期限3</text-property>
+                        </label>
+                    </cell>
+                    <cell id="56">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="57">
+                            <text-property name="text">债券配比3</text-property>
+                        </label>
+                    </cell>
+                    <cell id="58">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="59">
+                            <text-property name="text">是否财政部代发</text-property>
+                        </label>
+                    </cell>
+                    <cell id="60">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="61">
+                            <text-property name="text">账户性质</text-property>
+                        </label>
+                    </cell>
+                    <cell id="62">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="63">
+                            <text-property name="text">是否经过两家外部评级</text-property>
+                        </label>
+                    </cell>
+                    <cell id="64">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="65">
+                            <text-property name="text">债券性质</text-property>
+                        </label>
+                    </cell>
+                    <cell id="66">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="67">
+                            <text-property name="text">发行人</text-property>
+                        </label>
+                    </cell>
+                    <cell id="68">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="69">
+                            <text-property name="text">发行人评级</text-property>
+                        </label>
+                    </cell>
+                    <cell id="70">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="71">
+                            <text-property name="text">是否金融同业</text-property>
+                        </label>
+                    </cell>
+                    <cell id="72">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <label id="73">
+                            <text-property name="text">是否企业</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="74">
+                    <cell id="75">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="76">
+                            <property name="resultSetColumn">资产代码</property>
+                        </data>
+                    </cell>
+                    <cell id="77">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="78">
+                            <property name="resultSetColumn">资产名称</property>
+                        </data>
+                    </cell>
+                    <cell id="79">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="80">
+                            <property name="resultSetColumn">投资类型</property>
+                        </data>
+                    </cell>
+                    <cell id="81">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="82">
+                            <property name="resultSetColumn">债券评级</property>
+                        </data>
+                    </cell>
+                    <cell id="83">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="84">
+                            <property name="resultSetColumn">账面价值(元)</property>
+                        </data>
+                    </cell>
+                    <cell id="85">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="86">
+                            <property name="resultSetColumn">净价成本(元)</property>
+                        </data>
+                    </cell>
+                    <cell id="87">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="88">
+                            <property name="resultSetColumn">面额(元)</property>
+                        </data>
+                    </cell>
+                    <cell id="89">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="90">
+                            <property name="resultSetColumn">公允价值</property>
+                        </data>
+                    </cell>
+                    <cell id="91">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="92">
+                            <property name="resultSetColumn">公允价值变动(元)</property>
+                        </data>
+                    </cell>
+                    <cell id="93">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="94">
+                            <property name="resultSetColumn">建仓时间</property>
+                        </data>
+                    </cell>
+                    <cell id="95">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="96">
+                            <property name="resultSetColumn">到期日</property>
+                        </data>
+                    </cell>
+                    <cell id="97">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="98">
+                            <property name="resultSetColumn">下一重定价日</property>
+                        </data>
+                    </cell>
+                    <cell id="99">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="100">
+                            <property name="resultSetColumn">利息类型</property>
+                        </data>
+                    </cell>
+                    <cell id="101">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="102">
+                            <property name="resultSetColumn">基准利率类型</property>
+                        </data>
+                    </cell>
+                    <cell id="103">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="104">
+                            <property name="resultSetColumn">发行主体分类</property>
+                        </data>
+                    </cell>
+                    <cell id="105">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="106">
+                            <property name="resultSetColumn">冻结余额</property>
+                        </data>
+                    </cell>
+                    <cell id="107">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="108">
+                            <property name="resultSetColumn">对应担保交易</property>
+                        </data>
+                    </cell>
+                    <cell id="109">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="110">
+                            <property name="resultSetColumn">有市价</property>
+                        </data>
+                    </cell>
+                    <cell id="111">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="112">
+                            <property name="resultSetColumn">债券配比1</property>
+                        </data>
+                    </cell>
+                    <cell id="113">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="114">
+                            <property name="resultSetColumn">债券配比2</property>
+                        </data>
+                    </cell>
+                    <cell id="115">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="116">
+                            <property name="resultSetColumn">原始期限1</property>
+                        </data>
+                    </cell>
+                    <cell id="117">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="118">
+                            <property name="resultSetColumn">原始期限2</property>
+                        </data>
+                    </cell>
+                    <cell id="119">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="120">
+                            <property name="resultSetColumn">原始期限3</property>
+                        </data>
+                    </cell>
+                    <cell id="121">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="122">
+                            <property name="resultSetColumn">债券配比3</property>
+                        </data>
+                    </cell>
+                    <cell id="123">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="124">
+                            <property name="resultSetColumn">是否财政部代发</property>
+                        </data>
+                    </cell>
+                    <cell id="125">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="126">
+                            <property name="resultSetColumn">账户性质</property>
+                        </data>
+                    </cell>
+                    <cell id="127">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="128">
+                            <property name="resultSetColumn">是否经过两家外部评级</property>
+                        </data>
+                    </cell>
+                    <cell id="129">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="130">
+                            <property name="resultSetColumn">债券性质</property>
+                        </data>
+                    </cell>
+                    <cell id="131">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="132">
+                            <property name="resultSetColumn">发行人</property>
+                        </data>
+                    </cell>
+                    <cell id="133">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="134">
+                            <property name="resultSetColumn">发行人评级</property>
+                        </data>
+                    </cell>
+                    <cell id="135">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="136">
+                            <property name="resultSetColumn">是否金融同业</property>
+                        </data>
+                    </cell>
+                    <cell id="137">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="verticalAlign">middle</property>
+                        <data id="138">
+                            <property name="resultSetColumn">是否企业</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>

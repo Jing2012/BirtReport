@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.0.v201306041519 Build &lt;4.3.0.v20130613-1152></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="dsUrl" id="143">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <script-data-source name="Data Source" id="131">
+            <method name="open"><![CDATA[// This will track your current row later on
+count = 0;
+controller = new Packages.com.actuate.json.JSONParser();
+// Load the JSON Source
+controller.loadData(params['dsUrl']);
+// Calculate the total rows we will have
+totalCount = controller.getChildCount("data")]]></method>
+        </script-data-source>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="Data Set" id="132">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">0</property>
+                    <property name="name">begDate</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">unitName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">pTypeName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">pClass</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">realCp1</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">fv1</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">rate1</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">realCp2</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">fv2</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">rate2</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">begDate</property>
+                </structure>
+                <structure>
+                    <property name="columnName">unitName</property>
+                </structure>
+                <structure>
+                    <property name="columnName">pTypeName</property>
+                </structure>
+                <structure>
+                    <property name="columnName">pClass</property>
+                </structure>
+                <structure>
+                    <property name="columnName">realCp1</property>
+                </structure>
+                <structure>
+                    <property name="columnName">fv1</property>
+                </structure>
+                <structure>
+                    <property name="columnName">rate1</property>
+                </structure>
+                <structure>
+                    <property name="columnName">realCp2</property>
+                </structure>
+                <structure>
+                    <property name="columnName">fv2</property>
+                </structure>
+                <structure>
+                    <property name="columnName">rate2</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">begDate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">unitName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">pTypeName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">pClass</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">realCp1</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">fv1</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">rate1</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">realCp2</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">fv2</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">rate2</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <method name="fetch"><![CDATA[if (count < totalCount) {
+	for(var key in row){
+		var value = controller.getValue("data", key, count);
+		if(value!=null &amp;&amp; value!=''){
+		    row[key] = value;
+		}
+	}
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="62">
+            <property name="fontSize">x-large</property>
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">业务单元资产配置表</text-property>
+        </label>
+        <table id="63">
+            <property name="width">11.947916666666666in</property>
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">begDate</property>
+                    <text-property name="displayName">begDate</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["begDate"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">unitName</property>
+                    <text-property name="displayName">unitName</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["unitName"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">pTypeName</property>
+                    <text-property name="displayName">pTypeName</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["pTypeName"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">pClass</property>
+                    <text-property name="displayName">pClass</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["pClass"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">realCp1</property>
+                    <text-property name="displayName">realCp1</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["realCp1"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">fv1</property>
+                    <text-property name="displayName">fv1</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["fv1"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">rate1</property>
+                    <text-property name="displayName">rate1</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["rate1"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">realCp2</property>
+                    <text-property name="displayName">realCp2</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["realCp2"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">fv2</property>
+                    <text-property name="displayName">fv2</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["fv2"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">rate2</property>
+                    <text-property name="displayName">rate2</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["rate2"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <column id="97">
+                <property name="width">0.9791666666666666in</property>
+            </column>
+            <column id="98">
+                <property name="width">1.4270833333333333in</property>
+            </column>
+            <column id="99">
+                <property name="width">1.2604166666666667in</property>
+            </column>
+            <column id="100">
+                <property name="width">1.3125in</property>
+            </column>
+            <column id="101">
+                <property name="width">1.25in</property>
+            </column>
+            <column id="102">
+                <property name="width">1.2604166666666667in</property>
+            </column>
+            <column id="103">
+                <property name="width">1.0520833333333333in</property>
+            </column>
+            <column id="104">
+                <property name="width">1.21875in</property>
+            </column>
+            <column id="105">
+                <property name="width">1.21875in</property>
+            </column>
+            <column id="106">
+                <property name="width">0.96875in</property>
+            </column>
+            <header>
+                <row id="64">
+                    <cell id="65">
+                        <property name="colSpan">1</property>
+                        <property name="rowSpan">2</property>
+                        <label id="118">
+                            <text-property name="text">查询日期</text-property>
+                        </label>
+                    </cell>
+                    <cell id="66">
+                        <property name="colSpan">1</property>
+                        <property name="rowSpan">2</property>
+                        <label id="119">
+                            <text-property name="text">业务单元</text-property>
+                        </label>
+                    </cell>
+                    <cell id="67">
+                        <property name="colSpan">1</property>
+                        <property name="rowSpan">2</property>
+                        <label id="120">
+                            <text-property name="text">产品类型</text-property>
+                        </label>
+                    </cell>
+                    <cell id="68">
+                        <property name="colSpan">1</property>
+                        <property name="rowSpan">2</property>
+                        <label id="121">
+                            <text-property name="text">产品分类</text-property>
+                        </label>
+                    </cell>
+                    <cell id="69">
+                        <property name="colSpan">3</property>
+                        <property name="rowSpan">1</property>
+                        <label id="122">
+                            <text-property name="text">项目不穿透</text-property>
+                        </label>
+                    </cell>
+                    <cell id="72">
+                        <property name="colSpan">3</property>
+                        <property name="rowSpan">1</property>
+                        <label id="123"/>
+                    </cell>
+                </row>
+                <row id="107">
+                    <cell id="112">
+                        <label id="124">
+                            <text-property name="text">成本(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="113">
+                        <label id="125">
+                            <text-property name="text">市值(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="114">
+                        <label id="126">
+                            <text-property name="text">占比%</text-property>
+                        </label>
+                    </cell>
+                    <cell id="115">
+                        <label id="127">
+                            <text-property name="text">成本(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="116">
+                        <label id="128">
+                            <text-property name="text">市值(元)</text-property>
+                        </label>
+                    </cell>
+                    <cell id="117">
+                        <label id="129">
+                            <text-property name="text">占比%</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="75">
+                    <cell id="76">
+                        <data id="133">
+                            <property name="resultSetColumn">begDate</property>
+                        </data>
+                    </cell>
+                    <cell id="77">
+                        <data id="134">
+                            <property name="resultSetColumn">unitName</property>
+                        </data>
+                    </cell>
+                    <cell id="78">
+                        <data id="135">
+                            <property name="resultSetColumn">pTypeName</property>
+                        </data>
+                    </cell>
+                    <cell id="79">
+                        <data id="136">
+                            <property name="resultSetColumn">pClass</property>
+                        </data>
+                    </cell>
+                    <cell id="80">
+                        <data id="137">
+                            <property name="resultSetColumn">realCp1</property>
+                        </data>
+                    </cell>
+                    <cell id="81">
+                        <data id="138">
+                            <property name="resultSetColumn">fv1</property>
+                        </data>
+                    </cell>
+                    <cell id="82">
+                        <data id="139">
+                            <property name="resultSetColumn">rate1</property>
+                        </data>
+                    </cell>
+                    <cell id="83">
+                        <data id="140">
+                            <property name="resultSetColumn">realCp2</property>
+                        </data>
+                    </cell>
+                    <cell id="84">
+                        <data id="141">
+                            <property name="resultSetColumn">fv2</property>
+                        </data>
+                    </cell>
+                    <cell id="85">
+                        <data id="142">
+                            <property name="resultSetColumn">rate2</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>

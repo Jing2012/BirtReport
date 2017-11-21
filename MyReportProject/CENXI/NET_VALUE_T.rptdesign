@@ -1,0 +1,1548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <html-property name="description">交易单模板</html-property>
+    <list-property name="includeScripts">
+        <property>sdnx_birt.js</property>
+        <property>xir_birt.js</property>
+    </list-property>
+    <property name="units">in</property>
+    <text-property name="displayName">TRD_Template</text-property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">birt.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="sysOrdId" id="93" extends="xir_j2ee.sysOrdId">
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="92"
+ extends="xir_j2ee.XIR"/>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="tradeDS" id="31">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">机构名称</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">机构名称</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">机构名称</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">业务种类</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">业务种类</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">业务种类</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">客户号</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">客户号</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">客户号</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">客户全称</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">客户全称</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">客户全称</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">结算方式</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">结算方式</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">结算方式</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">项目资产代码</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">项目资产代码</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">项目资产代码</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">票面总额</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">票面总额</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">票面总额</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">净价</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">净价</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">净价</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">结算日期</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">结算日期</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">结算日期</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">交易日期</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">交易日期</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">交易日期</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">结算金额</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">结算金额</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">结算金额</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">总应计利息</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">总应计利息</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">总应计利息</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">执行人</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">执行人</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">执行人</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">交易确认人</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">交易确认人</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">交易确认人</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">清算速度</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">清算速度</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">清算速度</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">成交单编号</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">成交单编号</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">成交单编号</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">数量</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">数量</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">数量</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">产品分类</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">产品分类</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">产品分类</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">实际用信人</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">实际用信人</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">实际用信人</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">信用风险</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">信用风险</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">信用风险</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">兑付日</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">兑付日</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">兑付日</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">授信权重</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">授信权重</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">授信权重</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">sysOrdId</property>
+                    <property name="paramName">sysOrdId</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">机构名称</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">业务种类</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">客户号</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">客户全称</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">结算方式</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">项目资产代码</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">票面总额</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">净价</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">结算日期</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">交易日期</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">结算金额</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">总应计利息</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">执行人</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">交易确认人</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">清算速度</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">成交单编号</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">数量</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">产品分类</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">实际用信人</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">信用风险</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">兑付日</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">授信权重</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">机构名称</property>
+                    <property name="nativeName">机构名称</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">业务种类</property>
+                    <property name="nativeName">业务种类</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">客户号</property>
+                    <property name="nativeName">客户号</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">客户全称</property>
+                    <property name="nativeName">客户全称</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">结算方式</property>
+                    <property name="nativeName">结算方式</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">项目资产代码</property>
+                    <property name="nativeName">项目资产代码</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">票面总额</property>
+                    <property name="nativeName">票面总额</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">净价</property>
+                    <property name="nativeName">净价</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">结算日期</property>
+                    <property name="nativeName">结算日期</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">交易日期</property>
+                    <property name="nativeName">交易日期</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">结算金额</property>
+                    <property name="nativeName">结算金额</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">总应计利息</property>
+                    <property name="nativeName">总应计利息</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">执行人</property>
+                    <property name="nativeName">执行人</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">交易确认人</property>
+                    <property name="nativeName">交易确认人</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">清算速度</property>
+                    <property name="nativeName">清算速度</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">成交单编号</property>
+                    <property name="nativeName">成交单编号</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">数量</property>
+                    <property name="nativeName">数量</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">产品分类</property>
+                    <property name="nativeName">产品分类</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">实际用信人</property>
+                    <property name="nativeName">实际用信人</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">信用风险</property>
+                    <property name="nativeName">信用风险</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">兑付日</property>
+                    <property name="nativeName">兑付日</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">授信权重</property>
+                    <property name="nativeName">授信权重</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select i.i_name as 机构名称,
+       tr_type.description as 业务种类,
+       tr.partyid as 客户号,
+       ii.i_fullname as 客户全称,
+       tr.bnd_settype as 结算方式,
+       tr.i_name as 项目资产代码,
+       TRIM(to_char(cast(tr.ordcount as decimal(31,6)),'9,999,999,999,990.99')) as 票面总额,
+       TRIM(to_char(cast(tr.bnd_netprice as decimal(31,6)),'9,999,999,999,990.9999')) as 净价,
+       tr.setdate as 结算日期,
+       tr.orddate as 交易日期,
+       TRIM(to_char(cast(tr.ordamount as decimal(31,6)),'9,999,999,999,990.99')) as 结算金额,
+       TRIM(to_char(cast(tr.bnd_aiamount as decimal(31,6)),'9,999,999,999,990.99')) as 总应计利息,
+       tr.operator as 执行人,
+       tr.trader as 交易确认人,
+       'T+' || to_char(tr.setdays) 清算速度,
+       tr.intordid as 成交单编号,
+       TRIM(to_char(cast(tr.ordcount as decimal(31,6)),'9,999,999,999,990')) as 数量,
+       b.p_class as 产品分类,
+       b.issuer as 实际用信人，
+       risk.p_name as 信用风险，
+       xmltype.getStringVal(xmltype.extract(
+       		extension.columns_ext,'/FVS/FV[@id="biz_honour"]/v/text()'))
+       as 兑付日,
+       xmltype.getStringVal(xmltype.extract(
+       		extension.columns_ext,'/FVS/FV[@id="biz_creditweight"]/v/text()'))
+       as 授信权重
+  FROM TTRD_OTC_TRADE tr
+  LEFT JOIN ttrd_auth_user u
+    on tr.operator_id = u.user_id
+  LEFT JOIN TTRD_INSTITUTION i
+    ON u.i_id = TO_CHAR(i.i_id)
+  left join ttrd_institution ii
+    on tr.partyid = ii.i_id
+  LEFT JOIN ttrd_trade_type tr_type
+    on tr.trdtype = tr_type.trd_type
+  LEFT JOIN ttrd_equity b
+    on tr.i_code = b.i_code
+   and tr.m_type = b.m_type
+   and tr.a_type = b.a_type
+  LEFT join TTRD_CREDIT_RISK_REVIEW risk
+    on risk.review_no = tr.seatno_cp
+  LEFT join ttrd_otc_biz_extension extension
+    on extension.biz_id = (tr.i_code || ',' || tr.a_type || ',' || tr.m_type)
+    and extension.biz_tablename = 'TTRD_EQUITY'
+     where tr.sysordid = ?
+   and tr.ref_sysordid is null]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>SYSORDID</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>16</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>SYSORDID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>SYSORDID</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ORD_ID</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>50</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ORD_ID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ORD_ID</design:label>
+            <design:formattingHints>
+              <design:displaySize>50</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>INTORDID</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>INTORDID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>INTORDID</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ORDDATE</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ORDDATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ORDDATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TRDTYPE</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TRDTYPE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TRDTYPE</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TRDTYPE_NAME</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>32</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TRDTYPE_NAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TRDTYPE_NAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>32</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TRADER</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TRADER</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TRADER</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PARTYID</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PARTYID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PARTYID</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>I_CODE</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>I_CODE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>I_CODE</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>A_TYPE</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>A_TYPE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>A_TYPE</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>M_TYPE</design:name>
+              <design:position>11</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>M_TYPE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>M_TYPE</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TRD_REMARK</design:name>
+              <design:position>12</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>2000</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TRD_REMARK</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TRD_REMARK</design:label>
+            <design:formattingHints>
+              <design:displaySize>2000</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>I_FULLNAME</design:name>
+              <design:position>13</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>I_FULLNAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>I_FULLNAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="fontSize">10.5pt</property>
+            <property name="showFooterOnLast">false</property>
+            <property name="headerHeight">0.57in</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="4">
+            <property name="fontFamily">"宋体"</property>
+            <property name="fontSize">10.5pt</property>
+            <property name="dataSet">tradeDS</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">机构名称</property>
+                    <text-property name="displayName">机构名称</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["机构名称"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">业务种类</property>
+                    <text-property name="displayName">业务种类</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["业务种类"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">客户号</property>
+                    <text-property name="displayName">客户号</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["客户号"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">客户全称</property>
+                    <text-property name="displayName">客户全称</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["客户全称"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">结算方式</property>
+                    <text-property name="displayName">结算方式</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["结算方式"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">项目资产代码</property>
+                    <text-property name="displayName">项目资产代码</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["项目资产代码"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">票面总额</property>
+                    <text-property name="displayName">票面总额</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["票面总额"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">净价</property>
+                    <text-property name="displayName">净价</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["净价"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">结算日期</property>
+                    <text-property name="displayName">结算日期</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["结算日期"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">交易日期</property>
+                    <text-property name="displayName">交易日期</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["交易日期"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">结算金额</property>
+                    <text-property name="displayName">结算金额</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["结算金额"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">总应计利息</property>
+                    <text-property name="displayName">总应计利息</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["总应计利息"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">执行人</property>
+                    <text-property name="displayName">执行人</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["执行人"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">交易确认人</property>
+                    <text-property name="displayName">交易确认人</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["交易确认人"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">清算速度</property>
+                    <text-property name="displayName">清算速度</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["清算速度"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">成交单编号</property>
+                    <text-property name="displayName">成交单编号</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["成交单编号"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">数量</property>
+                    <text-property name="displayName">数量</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["数量"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">产品分类</property>
+                    <text-property name="displayName">产品分类</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["产品分类"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">实际用信人</property>
+                    <text-property name="displayName">实际用信人</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["实际用信人"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">信用风险</property>
+                    <text-property name="displayName">信用风险</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["信用风险"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">兑付日</property>
+                    <text-property name="displayName">兑付日</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["兑付日"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">授信权重</property>
+                    <text-property name="displayName">授信权重</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["授信权重"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="5"/>
+            <row id="6">
+                <cell id="7">
+                    <property name="paddingTop">1pt</property>
+                    <property name="paddingBottom">1pt</property>
+                    <table id="94">
+                        <property name="width">7.40625in</property>
+                        <column id="110">
+                            <property name="width">3.6979166666666665in</property>
+                        </column>
+                        <column id="111">
+                            <property name="width">0.010416666666666666in</property>
+                        </column>
+                        <column id="112">
+                            <property name="width">1.8541666666666667in</property>
+                        </column>
+                        <column id="113">
+                            <property name="width">1.84375in</property>
+                        </column>
+                        <header>
+                            <row id="95">
+                                <property name="height">6mm</property>
+                                <cell id="96">
+                                    <property name="colSpan">4</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="textAlign">left</property>
+                                    <data id="325">
+                                        <property name="resultSetColumn">机构名称</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </header>
+                        <footer>
+                            <row id="105">
+                                <property name="height">10mm</property>
+                                <cell id="106">
+                                    <property name="colSpan">4</property>
+                                    <property name="rowSpan">1</property>
+                                    <label id="115">
+                                        <property name="fontFamily">"宋体"</property>
+                                        <property name="fontSize">14pt</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">净值型产品交易成交单</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+            </row>
+            <row id="8">
+                <property name="height">4.395833333333333in</property>
+                <cell id="9">
+                    <property name="paddingTop">1pt</property>
+                    <property name="paddingLeft">1pt</property>
+                    <property name="paddingBottom">1pt</property>
+                    <property name="paddingRight">1pt</property>
+                    <grid id="34">
+                        <column id="35">
+                            <property name="width">35mm</property>
+                        </column>
+                        <column id="36">
+                            <property name="width">55mm</property>
+                        </column>
+                        <column id="37">
+                            <property name="width">35mm</property>
+                        </column>
+                        <column id="38">
+                            <property name="width">60mm</property>
+                        </column>
+                        <row id="68">
+                            <property name="height">6mm</property>
+                            <cell id="69">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="60">
+                                    <text-property name="text">成交编号</text-property>
+                                </label>
+                            </cell>
+                            <cell id="70">
+                                <property name="colSpan">3</property>
+                                <property name="rowSpan">1</property>
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="311">
+                                    <property name="resultSetColumn">成交单编号</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="126">
+                            <property name="height">6mm</property>
+                            <cell id="127">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="191">
+                                    <text-property name="text">业务种类</text-property>
+                                </label>
+                            </cell>
+                            <cell id="128">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="317">
+                                    <property name="resultSetColumn">业务种类</property>
+                                </data>
+                            </cell>
+                            <cell id="129">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="206">
+                                    <text-property name="text">客户号</text-property>
+                                </label>
+                            </cell>
+                            <cell id="130">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="316">
+                                    <property name="resultSetColumn">客户号</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="136">
+                            <property name="height">6mm</property>
+                            <cell id="137">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="192">
+                                    <text-property name="text">客户全称</text-property>
+                                </label>
+                            </cell>
+                            <cell id="138">
+                                <property name="colSpan">3</property>
+                                <property name="rowSpan">1</property>
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="318">
+                                    <property name="resultSetColumn">客户全称</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="161">
+                            <property name="height">6mm</property>
+                            <cell id="162">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="193">
+                                    <text-property name="text">交易日期</text-property>
+                                </label>
+                            </cell>
+                            <cell id="163">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="313">
+                                    <property name="resultSetColumn">交易日期</property>
+                                </data>
+                            </cell>
+                            <cell id="164">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="207">
+                                    <text-property name="text">结算日期</text-property>
+                                </label>
+                            </cell>
+                            <cell id="165">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="321">
+                                    <property name="resultSetColumn">结算日期</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="176">
+                            <property name="height">6mm</property>
+                            <cell id="177">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="194">
+                                    <text-property name="text">产品分类</text-property>
+                                </label>
+                            </cell>
+                            <cell id="178">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="310">
+                                    <property name="resultSetColumn">产品分类</property>
+                                </data>
+                            </cell>
+                            <cell id="179">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="208">
+                                    <text-property name="text">净值型项目资产</text-property>
+                                </label>
+                            </cell>
+                            <cell id="180">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="324">
+                                    <property name="resultSetColumn">项目资产代码</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="181">
+                            <property name="height">6mm</property>
+                            <cell id="182">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="195">
+                                    <text-property name="text">数量(份)</text-property>
+                                </label>
+                            </cell>
+                            <cell id="183">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="319">
+                                    <property name="resultSetColumn">数量</property>
+                                </data>
+                            </cell>
+                            <cell id="184">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="209">
+                                    <text-property name="text">净价(元)</text-property>
+                                </label>
+                            </cell>
+                            <cell id="185">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="315">
+                                    <property name="resultSetColumn">净价</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="186">
+                            <property name="height">6mm</property>
+                            <cell id="187">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="196">
+                                    <text-property name="text">清算速度</text-property>
+                                </label>
+                            </cell>
+                            <cell id="188">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="322">
+                                    <property name="resultSetColumn">清算速度</property>
+                                </data>
+                            </cell>
+                            <cell id="189">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="210">
+                                    <text-property name="text">结算金额(元)</text-property>
+                                </label>
+                            </cell>
+                            <cell id="190">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="320">
+                                    <property name="resultSetColumn">结算金额</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="166">
+                            <property name="height">6mm</property>
+                            <cell id="167">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="197">
+                                    <text-property name="text">信用风险</text-property>
+                                </label>
+                            </cell>
+                            <cell id="168">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="323">
+                                    <property name="resultSetColumn">信用风险</property>
+                                </data>
+                            </cell>
+                            <cell id="169">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="211">
+                                    <text-property name="text">授信权重(%)</text-property>
+                                </label>
+                            </cell>
+                            <cell id="170">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="326">
+                                    <property name="resultSetColumn">授信权重</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="171">
+                            <property name="height">6mm</property>
+                            <cell id="172">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="198">
+                                    <text-property name="text">实际用信人</text-property>
+                                </label>
+                            </cell>
+                            <cell id="173">
+                                <property name="colSpan">3</property>
+                                <property name="rowSpan">1</property>
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="314">
+                                    <property name="resultSetColumn">实际用信人</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="156">
+                            <property name="height">6mm</property>
+                            <cell id="157">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="200">
+                                    <text-property name="text">兑付日</text-property>
+                                </label>
+                            </cell>
+                            <cell id="158">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="312">
+                                    <property name="resultSetColumn">兑付日</property>
+                                </data>
+                            </cell>
+                            <cell id="159">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                            </cell>
+                            <cell id="160">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+        </grid>
+    </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">sdnx_logo.png</property>
+            <property name="type">image/png</property>
+            <property name="libReference">xir_j2ee.sdnx_logo.png</property>
+        </structure>
+    </list-property>
+</report>

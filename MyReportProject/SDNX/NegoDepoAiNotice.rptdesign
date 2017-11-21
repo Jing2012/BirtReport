@@ -1,0 +1,1003 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">fixed layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">birt.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="instId" id="241" extends="xir_j2ee.instId">
+            <property name="dataType">string</property>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="162"
+ extends="xir_j2ee.XIR"/>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="aiInfoDS" id="144">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">instId</property>
+                    <property name="paramName">instId</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">INST_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">CAL_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">PI_CALCSTARTDATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">PI_CALCENDDATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">I_FULLNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">PARTY_ACCT_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">ACCT_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">ACCT_USER_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">INST_ID</property>
+                    <property name="nativeName">INST_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">CAL_DATE</property>
+                    <property name="nativeName">CAL_DATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">PI_CALCSTARTDATE</property>
+                    <property name="nativeName">PI_CALCSTARTDATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">PI_CALCENDDATE</property>
+                    <property name="nativeName">PI_CALCENDDATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">I_FULLNAME</property>
+                    <property name="nativeName">I_FULLNAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">PARTY_ACCT_CODE</property>
+                    <property name="nativeName">PARTY_ACCT_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">ACCT_CODE</property>
+                    <property name="nativeName">ACCT_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">ACCT_USER_NAME</property>
+                    <property name="nativeName">ACCT_USER_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+	M.INST_ID, 
+	M.CAL_DATE, 
+	PI.PI_CALCSTARTDATE, 
+	PI.PI_CALCENDDATE, 
+	T.I_FULLNAME, 
+	C.PARTY_ACCT_CODE, 
+	C.ACCT_CODE, 
+	U.USER_NAME AS ACCT_USER_NAME 
+FROM (
+	SELECT * FROM TTRD_SET_INSTRUCTION 
+	UNION ALL 
+	SELECT * FROM TTRD_SET_INSTRUCTION_HIS 
+) M  
+JOIN (
+	SELECT * FROM TTRD_SET_INSTRUCTION_CASH 
+	UNION ALL 
+	SELECT * FROM TTRD_SET_INSTRUCTION_CASH_HIS 
+) C
+	ON C.INST_ID = M.INST_ID 
+JOIN TBSI_PAYMENTINFO PI 
+	ON PI.PI_PAYMENTDATE = M.CAL_DATE 
+	AND PI.I_CODE = M.H_I_CODE AND PI.A_TYPE = M.H_A_TYPE AND PI.M_TYPE = M.H_M_TYPE 
+LEFT JOIN TTRD_INSTITUTION T 
+	ON T.I_ID = M.PARTY_ID
+LEFT JOIN TTRD_AUTH_USER U 
+	ON U.USER_ID = M.ACCOUNT_USER 
+WHERE M.INST_ID = ?]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ACCID</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ACCID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ACCID</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ACCNAME</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>60</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ACCNAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ACCNAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>60</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>I_FULLNAME</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>I_FULLNAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>I_FULLNAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="aiDetailDS" id="145">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">I_CODE</property>
+                    <property name="alias">I_CODE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">I_CODE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">I_CODE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">A_TYPE</property>
+                    <property name="alias">A_TYPE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">A_TYPE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">A_TYPE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">M_TYPE</property>
+                    <property name="alias">M_TYPE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">M_TYPE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">M_TYPE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">AD_ACTUALRATE</property>
+                    <property name="alias">AD_ACTUALRATE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">AD_ACTUALRATE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">AD_ACTUALRATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">AGGREGATION</property>
+                    <property name="alias">AGGREGATION</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">AGGREGATION</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">AGGREGATION</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">AI</property>
+                    <property name="alias">AI</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">AI</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">AI</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">LV</property>
+                    <property name="alias">LV</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">LV</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">LV</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">instId_1</property>
+                    <property name="paramName">instId</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">instId_2</property>
+                    <property name="paramName">instId</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">2</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">I_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">A_TYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">M_TYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">AD_ACTUALRATE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">ACC_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">AGGREGATION</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">AI</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">LV</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">I_CODE</property>
+                    <property name="nativeName">I_CODE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">A_TYPE</property>
+                    <property name="nativeName">A_TYPE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">M_TYPE</property>
+                    <property name="nativeName">M_TYPE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">AD_ACTUALRATE</property>
+                    <property name="nativeName">AD_ACTUALRATE</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">ACC_CODE</property>
+                    <property name="nativeName">ACC_CODE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">AGGREGATION</property>
+                    <property name="nativeName">AGGREGATION</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">AI</property>
+                    <property name="nativeName">AI</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">LV</property>
+                    <property name="nativeName">LV</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">0</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[WITH CTE_ACCRUALDETAIL(
+	I_CODE, A_TYPE, M_TYPE, 
+	AD_STARTDATE, 
+	AD_ENDDATE, 
+	AD_ACTUALRATE, 
+	AD_YEARFRACTION, 
+	LV
+) AS (
+	SELECT 
+		AD.I_CODE, AD.A_TYPE, AD.M_TYPE, 
+		AD.AD_STARTDATE, 
+		AD.AD_ENDDATE, 
+		AD.AD_ACTUALRATE, 
+		AD.AD_YEARFRACTION, 
+		1 
+	FROM TBSI_ACCRUALDETAIL AD 
+	JOIN TBSI_PAYMENTINFO PI 
+		ON PI.I_CODE = AD.I_CODE 
+		AND PI.A_TYPE = AD.A_TYPE 
+		AND PI.M_TYPE = AD.M_TYPE 
+		AND AD.AD_STARTDATE = PI.PI_CALCSTARTDATE
+	JOIN (
+		SELECT * FROM TTRD_SET_INSTRUCTION 
+		UNION ALL 
+		SELECT * FROM TTRD_SET_INSTRUCTION_HIS 
+	) M 
+		ON M.CAL_DATE = PI.PI_PAYMENTDATE 
+		AND M.H_I_CODE = AD.I_CODE 
+		AND M.H_A_TYPE = AD.A_TYPE 
+		AND M.H_M_TYPE = AD.M_TYPE 
+	WHERE M.INST_ID = ? 
+	UNION ALL 
+	SELECT 
+		AD.I_CODE, AD.A_TYPE, AD.M_TYPE, 
+		AD.AD_STARTDATE, 
+		AD.AD_ENDDATE, 
+		AD.AD_ACTUALRATE, 
+		AD.AD_YEARFRACTION, 
+		CASE WHEN B.AD_ACTUALRATE <> AD.AD_ACTUALRATE 
+			THEN B.LV + 1 
+		ELSE B.LV END AS LV 
+	FROM TBSI_ACCRUALDETAIL AD 
+	JOIN TBSI_PAYMENTINFO PI 
+		ON PI.I_CODE = AD.I_CODE 
+		AND PI.A_TYPE = AD.A_TYPE 
+		AND PI.M_TYPE = AD.M_TYPE 
+		AND AD.AD_STARTDATE > PI.PI_CALCSTARTDATE 
+		AND AD.AD_ENDDATE <= PI.PI_CALCENDDATE 
+	JOIN (
+		SELECT * FROM TTRD_SET_INSTRUCTION 
+		UNION ALL 
+		SELECT * FROM TTRD_SET_INSTRUCTION_HIS 
+	) M 
+		ON M.CAL_DATE = PI.PI_PAYMENTDATE 
+		AND M.H_I_CODE = AD.I_CODE 
+		AND M.H_A_TYPE = AD.A_TYPE 
+		AND M.H_M_TYPE = AD.M_TYPE 
+	JOIN CTE_ACCRUALDETAIL B 
+		ON AD.AD_STARTDATE = B.AD_ENDDATE 
+	WHERE M.INST_ID = ? 
+)
+SELECT 
+	I_CODE,A_TYPE, M_TYPE, 
+	AD_ACTUALRATE, 
+	ACC_CODE, 
+	SUM(AGGREGATION) AGGREGATION, 
+	SUM(AI) AI, 
+	LV
+FROM (
+	SELECT 
+		I_CODE,A_TYPE, M_TYPE, 
+		AD_STARTDATE, 
+		AD_ENDDATE, 
+		ACC_CODE, 
+		SUM(ABS(REAL_AMOUNT)) AGGREGATION, 
+		AVG(AD_ACTUALRATE) AD_ACTUALRATE, 
+		AVG(AD_YEARFRACTION) AD_YEARFRACTION, 
+		AVG(LV) LV, 
+		SUM(ABS(REAL_AMOUNT)) * AVG(AD_ACTUALRATE) * AVG(AD_YEARFRACTION) / COUNT(1) AI 
+	FROM (
+		SELECT 
+			AD.*, BEG_DATE, O.REAL_AMOUNT, O.ACC_CODE 
+		FROM CTE_ACCRUALDETAIL AD
+		JOIN (
+			SELECT 
+				S.BEG_DATE, 
+				S.I_CODE, S.A_TYPE, S.M_TYPE, 
+				COALESCE(CX.EXHACC, S.I_CODE) AS ACC_CODE, 
+				CASE WHEN TI.P_TYPE IN ('0305','0309') AND COALESCE(C.REAL_AMOUNT, S.REAL_AMOUNT) > 0 
+					THEN 0 
+				WHEN TI.P_TYPE IN ('0300','0304','0308') AND COALESCE(C.REAL_AMOUNT, S.REAL_AMOUNT) < 0 
+					THEN 0 
+				ELSE COALESCE(C.REAL_AMOUNT, S.REAL_AMOUNT) END REAL_AMOUNT 
+			FROM TTRD_ACCOUNTING_SECU_OBJ_HIS S
+			LEFT JOIN TTRD_ACCOUNTING_CASH_OBJ_HIS C 
+				ON S.BEG_DATE = C.BEG_DATE
+				AND S.EXT_SECU_ACCT_ID = C.EXT_CASH_ACCT_ID 
+				AND S.SECU_ACCT_ID = C.CASH_ACCT_ID
+			LEFT JOIN TTRD_INSTRUMENT TI 
+				ON TI.I_CODE = S.I_CODE 
+				AND TI.A_TYPE = S.A_TYPE 
+				AND TI.M_TYPE = S.M_TYPE 
+			LEFT JOIN TTRD_ACC_CASH_EXT CX 
+				ON CX.ACCID = S.EXT_SECU_ACCT_ID 
+		) O 
+			ON AD.I_CODE = O.I_CODE 
+			AND AD.A_TYPE = O.A_TYPE 
+			AND AD.M_TYPE = O.M_TYPE 
+			AND O.BEG_DATE >= AD.AD_STARTDATE 
+			AND O.BEG_DATE < AD.AD_ENDDATE 
+	) 
+	GROUP BY I_CODE, A_TYPE, M_TYPE, AD_STARTDATE, AD_ENDDATE, ACC_CODE 
+) 
+GROUP BY I_CODE, A_TYPE, M_TYPE, AD_ACTUALRATE, LV, ACC_CODE  
+ORDER BY LV]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>EXHACC</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>EXHACC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>EXHACC</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>RATE</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>RATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>RATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>SUM(DTL.AMOUNT)</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>SUM(DTL.AMOUNT)</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>SUM(DTL.AMOUNT)</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="noprint" id="137">
+            <property name="display">none</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="topMargin">10mm</property>
+            <property name="leftMargin">10mm</property>
+            <property name="bottomMargin">10mm</property>
+            <property name="rightMargin">10mm</property>
+            <property name="height">93mm</property>
+            <property name="width">200mm</property>
+            <property name="showHeaderOnFirst">false</property>
+            <property name="showFooterOnLast">true</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">8mm</property>
+            <page-footer>
+                <grid id="163">
+                    <property name="dataSet">aiInfoDS</property>
+                    <list-property name="boundDataColumns">
+                        <structure>
+                            <property name="name">ACCT_USER_NAME</property>
+                            <text-property name="displayName">复核人</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["ACCT_USER_NAME"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                    </list-property>
+                    <column id="164">
+                        <property name="width">60mm</property>
+                    </column>
+                    <column id="165">
+                        <property name="width">30mm</property>
+                    </column>
+                    <column id="166">
+                        <property name="width">20mm</property>
+                    </column>
+                    <column id="167"/>
+                    <row id="168">
+                        <property name="height">6mm</property>
+                        <cell id="169">
+                            <property name="textAlign">right</property>
+                            <label id="174">
+                                <property name="style">noprint</property>
+                                <text-property name="text">复核</text-property>
+                            </label>
+                        </cell>
+                        <cell id="170">
+                            <data id="499">
+                                <property name="resultSetColumn">ACCT_USER_NAME</property>
+                            </data>
+                        </cell>
+                        <cell id="171">
+                            <property name="textAlign">right</property>
+                            <label id="175">
+                                <property name="style">noprint</property>
+                                <text-property name="text">打印</text-property>
+                            </label>
+                        </cell>
+                        <cell id="172"/>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="362">
+            <property name="marginTop">5mm</property>
+            <property name="marginLeft">5mm</property>
+            <property name="pageBreakAfter">avoid</property>
+            <property name="pageBreakBefore">avoid</property>
+            <property name="pageBreakInside">avoid</property>
+            <property name="width">165mm</property>
+            <property name="dataSet">aiInfoDS</property>
+            <list-property name="visibility">
+                <structure>
+                    <property name="format">all</property>
+                    <expression name="valueExpr" type="javascript">Total.count() > 0 ? false : true;</expression>
+                </structure>
+            </list-property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">I_FULLNAME</property>
+                    <text-property name="displayName">I_FULLNAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["I_FULLNAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">PARTY_ACCT_CODE</property>
+                    <text-property name="displayName">PARTY_ACCT_CODE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PARTY_ACCT_CODE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">D_TERM_RANGE</property>
+                    <text-property name="displayName">计息起止日期</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PI_CALCSTARTDATE"] + ' 至 ' + dataSetRow["PI_CALCENDDATE"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">D_DATE</property>
+                    <text-property name="displayName">计算日期</text-property>
+                    <expression name="expression" type="javascript">BirtDateTime.year(new Date(dataSetRow["CAL_DATE"].replace(new RegExp("\\-","gi"),'/'))) + '    ' +&#13;
+BirtDateTime.month(new Date(dataSetRow["CAL_DATE"].replace(new RegExp("\\-","gi"),'/'))) + '    ' + &#13;
+BirtDateTime.day(new Date(dataSetRow["CAL_DATE"].replace(new RegExp("\\-","gi"),'/')))</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <column id="363"/>
+            <column id="498">
+                <property name="width">25mm</property>
+            </column>
+            <row id="365">
+                <property name="height">15mm</property>
+                <cell id="366">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <property name="textAlign">center</property>
+                    <property name="verticalAlign">bottom</property>
+                    <data id="501">
+                        <property name="resultSetColumn">D_DATE</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="368">
+                <property name="whiteSpace">nowrap</property>
+                <property name="pageBreakAfter">avoid</property>
+                <property name="pageBreakBefore">avoid</property>
+                <cell id="369">
+                    <property name="paddingTop">0pt</property>
+                    <property name="paddingLeft">0pt</property>
+                    <property name="paddingBottom">0pt</property>
+                    <property name="paddingRight">0pt</property>
+                    <grid id="374">
+                        <property name="pageBreakAfter">avoid</property>
+                        <property name="pageBreakBefore">avoid</property>
+                        <property name="dataSet">aiInfoDS</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">I_FULLNAME</property>
+                                <text-property name="displayName">单位名称</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["I_FULLNAME"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">PARTY_ACCT_CODE</property>
+                                <text-property name="displayName">结算户账号</text-property>
+                                <expression name="expression" type="javascript">(dataSetRow["PARTY_ACCT_CODE"] == null || dataSetRow["PARTY_ACCT_CODE"] == '-1') ? dataSetRow["ACCT_CODE"] : dataSetRow["PARTY_ACCT_CODE"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <column id="375">
+                            <property name="width">30mm</property>
+                        </column>
+                        <column id="376"/>
+                        <row id="377">
+                            <property name="height">6mm</property>
+                            <cell id="378">
+                                <property name="style">data-cell</property>
+                                <property name="textAlign">center</property>
+                                <label id="415">
+                                    <property name="style">noprint</property>
+                                    <text-property name="text">单位名称</text-property>
+                                </label>
+                            </cell>
+                            <cell id="379">
+                                <property name="style">data-cell</property>
+                                <data id="428">
+                                    <property name="resultSetColumn">I_FULLNAME</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="380">
+                            <property name="height">6mm</property>
+                            <cell id="381">
+                                <property name="style">data-cell</property>
+                                <property name="textAlign">center</property>
+                                <label id="416">
+                                    <property name="style">noprint</property>
+                                    <text-property name="text">结算户账号</text-property>
+                                </label>
+                            </cell>
+                            <cell id="382">
+                                <property name="style">data-cell</property>
+                                <data id="429">
+                                    <property name="resultSetColumn">PARTY_ACCT_CODE</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="383">
+                            <property name="height">6mm</property>
+                            <cell id="384">
+                                <property name="style">data-cell</property>
+                            </cell>
+                            <cell id="385">
+                                <property name="style">data-cell</property>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="496">
+                    <property name="paddingTop">0pt</property>
+                    <property name="paddingLeft">0pt</property>
+                    <property name="paddingBottom">0pt</property>
+                    <property name="paddingRight">0pt</property>
+                </cell>
+            </row>
+            <row id="371">
+                <property name="pageBreakAfter">avoid</property>
+                <property name="pageBreakBefore">avoid</property>
+                <cell id="372">
+                    <property name="paddingTop">0pt</property>
+                    <property name="paddingLeft">0pt</property>
+                    <property name="paddingBottom">0pt</property>
+                    <property name="paddingRight">0pt</property>
+                    <grid id="456">
+                        <column id="457">
+                            <property name="width">42mm</property>
+                        </column>
+                        <column id="458"/>
+                        <row id="459">
+                            <property name="height">6mm</property>
+                            <cell id="460">
+                                <property name="style">data-cell</property>
+                                <label id="485">
+                                    <property name="style">noprint</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">计息起止日期</text-property>
+                                </label>
+                            </cell>
+                            <cell id="461">
+                                <property name="style">data-cell</property>
+                                <data id="494">
+                                    <property name="resultSetColumn">D_TERM_RANGE</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="462">
+                            <cell id="463">
+                                <property name="colSpan">2</property>
+                                <property name="rowSpan">1</property>
+                                <table id="465">
+                                    <property name="dataSet">aiDetailDS</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">AGGREGATION</property>
+                                            <text-property name="displayName">分段积数</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["AGGREGATION"]</expression>
+                                            <property name="dataType">decimal</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">AD_ACTUALRATE</property>
+                                            <text-property name="displayName">分段利率</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["AD_ACTUALRATE"] * 100</expression>
+                                            <property name="dataType">decimal</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">AI</property>
+                                            <text-property name="displayName">分段利息</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["AI"]</expression>
+                                            <property name="dataType">decimal</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">ACC_CODE</property>
+                                            <text-property name="displayName">存款户账号</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["ACC_CODE"]</expression>
+                                            <property name="dataType">string</property>
+                                            <property name="allowExport">true</property>
+                                        </structure>
+                                    </list-property>
+                                    <column id="481">
+                                        <property name="width">42mm</property>
+                                    </column>
+                                    <column id="482">
+                                        <property name="width">38mm</property>
+                                    </column>
+                                    <column id="483">
+                                        <property name="width">26mm</property>
+                                    </column>
+                                    <column id="484"/>
+                                    <header>
+                                        <row id="466">
+                                            <property name="height">6mm</property>
+                                            <cell id="467">
+                                                <property name="style">data-cell</property>
+                                                <label id="486">
+                                                    <property name="style">noprint</property>
+                                                    <text-property name="text">存款户账号</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="468">
+                                                <property name="style">data-cell</property>
+                                                <label id="487">
+                                                    <property name="style">noprint</property>
+                                                    <text-property name="text">计息总积数</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="469">
+                                                <property name="style">data-cell</property>
+                                                <label id="488">
+                                                    <property name="style">noprint</property>
+                                                    <text-property name="text">利率</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="470">
+                                                <property name="style">data-cell</property>
+                                                <label id="489">
+                                                    <property name="style">noprint</property>
+                                                    <text-property name="text">利息金额</text-property>
+                                                </label>
+                                            </cell>
+                                        </row>
+                                    </header>
+                                    <detail>
+                                        <row id="471">
+                                            <property name="height">6mm</property>
+                                            <cell id="472">
+                                                <property name="style">data-cell</property>
+                                                <property name="paddingRight">0mm</property>
+                                                <data id="500">
+                                                    <property name="resultSetColumn">ACC_CODE</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="473">
+                                                <property name="style">data-cell</property>
+                                                <property name="textAlign">right</property>
+                                                <data id="490">
+                                                    <structure name="numberFormat">
+                                                        <property name="category">Fixed</property>
+                                                        <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                                    </structure>
+                                                    <property name="resultSetColumn">AGGREGATION</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="474">
+                                                <property name="style">data-cell</property>
+                                                <property name="paddingRight">6mm</property>
+                                                <property name="textAlign">right</property>
+                                                <data id="491">
+                                                    <structure name="numberFormat">
+                                                        <property name="category">Fixed</property>
+                                                        <property name="pattern">###0.0000{RoundingMode=HALF_UP}</property>
+                                                    </structure>
+                                                    <property name="resultSetColumn">AD_ACTUALRATE</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="475">
+                                                <property name="style">data-cell</property>
+                                                <property name="textAlign">right</property>
+                                                <data id="492">
+                                                    <structure name="numberFormat">
+                                                        <property name="category">Fixed</property>
+                                                        <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                                    </structure>
+                                                    <property name="resultSetColumn">AI</property>
+                                                </data>
+                                            </cell>
+                                        </row>
+                                    </detail>
+                                </table>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="497">
+                    <property name="paddingTop">0pt</property>
+                    <property name="paddingLeft">0pt</property>
+                    <property name="paddingBottom">0pt</property>
+                    <property name="paddingRight">0pt</property>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>

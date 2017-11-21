@@ -1,0 +1,1060 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <list-property name="includeScripts">
+        <property>sdnx_birt.js</property>
+        <property>xir_birt.js</property>
+    </list-property>
+    <property name="units">in</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">xir_j2ee.rptlibrary</property>
+            <property name="namespace">xir_j2ee</property>
+        </structure>
+    </list-property>
+    <list-property name="cssStyleSheets">
+        <structure>
+            <property name="fileName">birt.css</property>
+            <property name="useExternalCss">false</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="sys_institution" id="627" extends="xir_j2ee.sys_institution">
+            <property name="dataType">string</property>
+        </scalar-parameter>
+        <scalar-parameter name="sys_bizDate" id="679" extends="xir_j2ee.sys_bizDate"/>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="XIR" id="3"
+ extends="xir_j2ee.XIR"/>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="rptDS" id="288">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">i_id_1</property>
+                    <property name="paramName">sys_institution</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">bizDate_1</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">2</property>
+                    <expression name="defaultValue" type="javascript">Formatter.format(params["sys_bizDate"].value, 'yyyy-MM-dd')</expression>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">I_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">I_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">P_CLASS</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">TERM_TYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">MTR_SET_AMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">START_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">MTR_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">EXTORDID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">RATE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">P_I_CODE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">AMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">DISCOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">I_FULLNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">B_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">XIR</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">I_CODE</property>
+                    <property name="nativeName">I_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">I_NAME</property>
+                    <property name="nativeName">I_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">P_CLASS</property>
+                    <property name="nativeName">P_CLASS</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">TERM_TYPE</property>
+                    <property name="nativeName">TERM_TYPE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">MTR_SET_AMOUNT</property>
+                    <property name="nativeName">MTR_SET_AMOUNT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">START_DATE</property>
+                    <property name="nativeName">START_DATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">MTR_DATE</property>
+                    <property name="nativeName">MTR_DATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">EXTORDID</property>
+                    <property name="nativeName">EXTORDID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">RATE</property>
+                    <property name="nativeName">RATE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">P_I_CODE</property>
+                    <property name="nativeName">P_I_CODE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">AMOUNT</property>
+                    <property name="nativeName">AMOUNT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">DISCOUNT</property>
+                    <property name="nativeName">DISCOUNT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">I_FULLNAME</property>
+                    <property name="nativeName">I_FULLNAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">B_NAME</property>
+                    <property name="nativeName">B_NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+	INSTM.I_CODE, 
+	INSTM.I_NAME, 
+	INSTM.P_CLASS, 
+	NVL(CLB.REPO_TRADE_VARIETY, LB.REPO_TRADE_VARIETY) AS TERM_TYPE, 
+	NVL(CLB.MTR_SET_AMOUNT, 0) AS MTR_SET_AMOUNT, 
+	INSTM.START_DATE, 
+	INSTM.MTR_DATE, 
+	TRD.EXTORDID, 
+	TRD.BND_YTM AS RATE, 
+	PBND.P_I_CODE, 
+	PBND.AMOUNT, 
+	PBND.DISCOUNT, 
+	INSTU.I_FULLNAME, 
+	TBND.B_NAME 
+FROM TTRD_ACCOUNTING_SECU_OBJ ASOBJ 
+JOIN TTRD_ACC_SECU ACCS 
+	ON ACCS.ACCID = ASOBJ.SECU_ACCT_ID 
+JOIN TTRD_INSTRUMENT INSTM 
+	ON INSTM.I_CODE = ASOBJ.I_CODE 
+	AND INSTM.A_TYPE = ASOBJ.A_TYPE 
+	AND INSTM.M_TYPE = ASOBJ.M_TYPE 
+JOIN TTRD_OTC_TRADE TRD 
+	ON TRD.INTORDID = ASOBJ.TRADE_ID 
+JOIN TTRD_PLEDGEBOND PBND 
+	ON PBND.I_CODE = INSTM.I_CODE 
+	AND PBND.A_TYPE = INSTM.A_TYPE 
+	AND PBND.M_TYPE = INSTM.M_TYPE 
+LEFT JOIN TTRD_CASHLB CLB 
+	ON CLB.I_CODE = INSTM.I_CODE 
+	AND CLB.A_TYPE = INSTM.A_TYPE 
+	AND CLB.M_TYPE = INSTM.M_TYPE
+LEFT JOIN TTRD_LB LB 
+	ON LB.I_CODE = INSTM.I_CODE 
+	AND LB.A_TYPE = INSTM.A_TYPE 
+	AND LB.M_TYPE = INSTM.M_TYPE 
+LEFT JOIN TTRD_INSTITUTION INSTU 
+	ON INSTU.I_ID = TRD.PARTYID 
+LEFT JOIN TBND TBND
+	ON TBND.I_CODE = PBND.P_I_CODE 
+	AND TBND.A_TYPE = PBND.P_A_TYPE 
+	AND TBND.M_TYPE = PBND.P_M_TYPE 
+WHERE ACCS.I_ID = ?  
+	AND INSTM.MTR_DATE = ?
+	AND INSTM.P_TYPE IN ('0123','2000') 
+	AND TRD.TRDTYPE IN ('0123101', '2000100')
+	AND ABS(ASOBJ.REAL_AMOUNT + ASOBJ.DUE_AMOUNT) >= 0.01 ]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="topMargin">10mm</property>
+            <property name="leftMargin">10mm</property>
+            <property name="bottomMargin">10mm</property>
+            <property name="rightMargin">10mm</property>
+            <property name="fontSize">10.5pt</property>
+            <property name="height">297mm</property>
+            <property name="width">460mm</property>
+            <property name="showHeaderOnFirst">false</property>
+            <property name="showFooterOnLast">false</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">0in</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <list id="91">
+            <property name="fontFamily">"宋体"</property>
+            <header>
+                <grid id="581">
+                    <property name="marginTop">5mm</property>
+                    <property name="marginLeft">5mm</property>
+                    <property name="width">430mm</property>
+                    <column id="582"/>
+                    <row id="583">
+                        <property name="height">10mm</property>
+                        <cell id="584">
+                            <property name="textAlign">center</property>
+                            <property name="verticalAlign">middle</property>
+                            <label id="585">
+                                <property name="fontSize">14pt</property>
+                                <property name="fontWeight">bold</property>
+                                <text-property name="text">待解质押券明细</text-property>
+                            </label>
+                        </cell>
+                    </row>
+                </grid>
+            </header>
+            <detail>
+                <table id="628">
+                    <property name="marginLeft">5mm</property>
+                    <property name="width">430mm</property>
+                    <property name="dataSet">rptDS</property>
+                    <list-property name="boundDataColumns">
+                        <structure>
+                            <property name="name">START_DATE</property>
+                            <text-property name="displayName">START_DATE</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["START_DATE"]</expression>
+                            <property name="dataType">string</property>
+                        </structure>
+                        <structure>
+                            <property name="name">EXTORDID</property>
+                            <text-property name="displayName">EXTORDID</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["EXTORDID"]</expression>
+                            <property name="dataType">string</property>
+                        </structure>
+                        <structure>
+                            <property name="name">I_NAME</property>
+                            <text-property name="displayName">I_NAME</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["I_NAME"]</expression>
+                            <property name="dataType">string</property>
+                        </structure>
+                        <structure>
+                            <property name="name">P_CLASS</property>
+                            <text-property name="displayName">P_CLASS</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["P_CLASS"]</expression>
+                            <property name="dataType">string</property>
+                        </structure>
+                        <structure>
+                            <property name="name">TERM_TYPE</property>
+                            <text-property name="displayName">TERM_TYPE</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["TERM_TYPE"]</expression>
+                            <property name="dataType">string</property>
+                        </structure>
+                        <structure>
+                            <property name="name">MTR_DATE</property>
+                            <text-property name="displayName">MTR_DATE</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["MTR_DATE"]</expression>
+                            <property name="dataType">string</property>
+                        </structure>
+                        <structure>
+                            <property name="name">MTR_SET_AMOUNT</property>
+                            <text-property name="displayName">MTR_SET_AMOUNT</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["MTR_SET_AMOUNT"]</expression>
+                            <property name="dataType">decimal</property>
+                        </structure>
+                        <structure>
+                            <property name="name">P_I_CODE</property>
+                            <text-property name="displayName">P_I_CODE</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["P_I_CODE"]</expression>
+                            <property name="dataType">string</property>
+                        </structure>
+                        <structure>
+                            <property name="name">AMOUNT</property>
+                            <text-property name="displayName">AMOUNT</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["AMOUNT"] / 10000</expression>
+                            <property name="dataType">decimal</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">DISCOUNT</property>
+                            <text-property name="displayName">DISCOUNT</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["DISCOUNT"]</expression>
+                            <property name="dataType">decimal</property>
+                        </structure>
+                        <structure>
+                            <property name="name">D_FST_SET_AMOUNT</property>
+                            <expression name="expression" type="javascript">dataSetRow["AMOUNT"] * dataSetRow["DISCOUNT"] / 1000000</expression>
+                            <property name="dataType">float</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">B_NAME</property>
+                            <text-property name="displayName">B_NAME</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["B_NAME"]</expression>
+                            <property name="dataType">string</property>
+                        </structure>
+                        <structure>
+                            <property name="name">I_FULLNAME</property>
+                            <text-property name="displayName">I_FULLNAME</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["I_FULLNAME"]</expression>
+                            <property name="dataType">string</property>
+                        </structure>
+                        <structure>
+                            <property name="name">RATE</property>
+                            <text-property name="displayName">RATE</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["RATE"] * 100</expression>
+                            <property name="dataType">decimal</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                        <structure>
+                            <property name="name">I_CODE</property>
+                            <expression name="expression" type="javascript">dataSetRow["I_CODE"]</expression>
+                            <property name="dataType">string</property>
+                            <property name="allowExport">true</property>
+                        </structure>
+                    </list-property>
+                    <column id="659">
+                        <property name="width">25mm</property>
+                    </column>
+                    <column id="683">
+                        <property name="width">40mm</property>
+                    </column>
+                    <column id="660">
+                        <property name="width">40mm</property>
+                    </column>
+                    <column id="661">
+                        <property name="width">40mm</property>
+                    </column>
+                    <column id="662">
+                        <property name="width">20mm</property>
+                    </column>
+                    <column id="663">
+                        <property name="width">25mm</property>
+                    </column>
+                    <column id="664">
+                        <property name="width">30mm</property>
+                    </column>
+                    <column id="707">
+                        <property name="width">30mm</property>
+                    </column>
+                    <column id="712">
+                        <property name="width">30mm</property>
+                    </column>
+                    <column id="665">
+                        <property name="width">20mm</property>
+                    </column>
+                    <column id="666">
+                        <property name="width">30mm</property>
+                    </column>
+                    <column id="688">
+                        <property name="width">40mm</property>
+                    </column>
+                    <column id="701">
+                        <property name="width">40mm</property>
+                    </column>
+                    <column id="697">
+                        <property name="width">20mm</property>
+                    </column>
+                    <header>
+                        <row id="629">
+                            <property name="height">8mm</property>
+                            <cell id="630">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <text id="715">
+                                    <property name="contentType">auto</property>
+                                    <text-property name="content"><![CDATA[首期
+交割日]]></text-property>
+                                </text>
+                            </cell>
+                            <cell id="680">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <label id="684">
+                                    <text-property name="text">外部成交编号</text-property>
+                                </label>
+                            </cell>
+                            <cell id="631">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <label id="669">
+                                    <text-property name="text">产品名称</text-property>
+                                </label>
+                            </cell>
+                            <cell id="632">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <label id="670">
+                                    <text-property name="text">产品分类</text-property>
+                                </label>
+                            </cell>
+                            <cell id="633">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <label id="671">
+                                    <text-property name="text">交易品种</text-property>
+                                </label>
+                            </cell>
+                            <cell id="634">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <label id="672">
+                                    <text-property name="text">到期日</text-property>
+                                </label>
+                            </cell>
+                            <cell id="635">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <text id="677">
+                                    <property name="contentType">auto</property>
+                                    <text-property name="content"><![CDATA[到期结算
+金额(元)]]></text-property>
+                                </text>
+                            </cell>
+                            <cell id="704">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <label id="675">
+                                    <text-property name="text">质押券代码</text-property>
+                                </label>
+                            </cell>
+                            <cell id="709">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <text id="678">
+                                    <property name="contentType">auto</property>
+                                    <text-property name="content"><![CDATA[质押券
+面额(万元)]]></text-property>
+                                </text>
+                            </cell>
+                            <cell id="636">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <label id="689">
+                                    <text-property name="text">折算比例(%)</text-property>
+                                </label>
+                            </cell>
+                            <cell id="637">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <text id="714">
+                                    <property name="contentType">auto</property>
+                                    <text-property name="content"><![CDATA[首期结算
+金额(万元)]]></text-property>
+                                </text>
+                            </cell>
+                            <cell id="685">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <label id="703">
+                                    <text-property name="text">质押券简称</text-property>
+                                </label>
+                            </cell>
+                            <cell id="698">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <label id="708">
+                                    <text-property name="text">对手方</text-property>
+                                </label>
+                            </cell>
+                            <cell id="694">
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <label id="702">
+                                    <text-property name="text">回购利率(%)</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </header>
+                    <group id="761">
+                        <property name="groupName">NewTableGroup1</property>
+                        <expression name="keyExpr" type="javascript">row["I_CODE"]</expression>
+                        <structure name="toc">
+                            <expression name="expressionValue" type="javascript">row["I_CODE"]</expression>
+                        </structure>
+                        <property name="hideDetail">false</property>
+                        <header>
+                            <row id="762">
+                                <cell id="763">
+                                    <property name="drop">all</property>
+                                    <property name="style">data-cell</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="716">
+                                        <property name="resultSetColumn">START_DATE</property>
+                                    </data>
+                                </cell>
+                                <cell id="764">
+                                    <property name="drop">all</property>
+                                    <property name="style">data-cell</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="792">
+                                        <property name="resultSetColumn">EXTORDID</property>
+                                    </data>
+                                </cell>
+                                <cell id="765">
+                                    <property name="drop">all</property>
+                                    <property name="style">data-cell</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="749">
+                                        <property name="resultSetColumn">I_NAME</property>
+                                    </data>
+                                </cell>
+                                <cell id="766">
+                                    <property name="drop">all</property>
+                                    <property name="style">data-cell</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="750">
+                                        <property name="resultSetColumn">P_CLASS</property>
+                                    </data>
+                                </cell>
+                                <cell id="767">
+                                    <property name="drop">all</property>
+                                    <property name="style">data-cell</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="751">
+                                        <property name="resultSetColumn">TERM_TYPE</property>
+                                    </data>
+                                </cell>
+                                <cell id="768">
+                                    <property name="drop">all</property>
+                                    <property name="style">data-cell</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="752">
+                                        <property name="resultSetColumn">MTR_DATE</property>
+                                    </data>
+                                </cell>
+                                <cell id="769">
+                                    <property name="drop">all</property>
+                                    <property name="style">data-cell</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="textAlign">right</property>
+                                    <data id="753">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <list-property name="visibility">
+                                            <structure>
+                                                <property name="format">all</property>
+                                                <expression name="valueExpr" type="javascript">isNaN(row["MTR_SET_AMOUNT"]) || row["MTR_SET_AMOUNT"] &lt; 0.01</expression>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">MTR_SET_AMOUNT</property>
+                                    </data>
+                                </cell>
+                                <cell id="770">
+                                    <property name="style">data-cell</property>
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopStyle">none</property>
+                                </cell>
+                                <cell id="771">
+                                    <property name="style">data-cell</property>
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopStyle">none</property>
+                                </cell>
+                                <cell id="772">
+                                    <property name="style">data-cell</property>
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopStyle">none</property>
+                                </cell>
+                                <cell id="773">
+                                    <property name="style">data-cell</property>
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopStyle">none</property>
+                                </cell>
+                                <cell id="774">
+                                    <property name="style">data-cell</property>
+                                    <property name="borderBottomStyle">none</property>
+                                    <property name="borderLeftStyle">none</property>
+                                    <property name="borderRightStyle">none</property>
+                                    <property name="borderTopStyle">none</property>
+                                </cell>
+                                <cell id="775">
+                                    <property name="drop">all</property>
+                                    <property name="style">data-cell</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="759">
+                                        <property name="resultSetColumn">I_FULLNAME</property>
+                                    </data>
+                                </cell>
+                                <cell id="776">
+                                    <property name="drop">all</property>
+                                    <property name="style">data-cell</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <property name="textAlign">right</property>
+                                    <data id="760">
+                                        <structure name="numberFormat">
+                                            <property name="category">Fixed</property>
+                                            <property name="pattern">###0.00{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="resultSetColumn">RATE</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </header>
+                    </group>
+                    <detail>
+                        <row id="639">
+                            <property name="height">6mm</property>
+                            <cell id="640">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                            </cell>
+                            <cell id="681">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                            </cell>
+                            <cell id="641">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                            </cell>
+                            <cell id="642">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                            </cell>
+                            <cell id="643">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                            </cell>
+                            <cell id="644">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                            </cell>
+                            <cell id="645">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="textAlign">right</property>
+                                <property name="verticalAlign">middle</property>
+                            </cell>
+                            <cell id="705">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <data id="754">
+                                    <property name="resultSetColumn">P_I_CODE</property>
+                                </data>
+                            </cell>
+                            <cell id="710">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="textAlign">right</property>
+                                <property name="verticalAlign">middle</property>
+                                <data id="755">
+                                    <property name="resultSetColumn">AMOUNT</property>
+                                </data>
+                            </cell>
+                            <cell id="646">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="textAlign">right</property>
+                                <property name="verticalAlign">middle</property>
+                                <data id="756">
+                                    <structure name="numberFormat">
+                                        <property name="category">Fixed</property>
+                                        <property name="pattern">###0.00{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <property name="resultSetColumn">DISCOUNT</property>
+                                </data>
+                            </cell>
+                            <cell id="647">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="textAlign">right</property>
+                                <property name="verticalAlign">middle</property>
+                                <data id="757">
+                                    <structure name="numberFormat">
+                                        <property name="category">Fixed</property>
+                                        <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <property name="resultSetColumn">D_FST_SET_AMOUNT</property>
+                                </data>
+                            </cell>
+                            <cell id="686">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                                <data id="758">
+                                    <property name="resultSetColumn">B_NAME</property>
+                                </data>
+                            </cell>
+                            <cell id="699">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="verticalAlign">middle</property>
+                            </cell>
+                            <cell id="695">
+                                <property name="style">data-cell</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="textAlign">right</property>
+                                <property name="verticalAlign">middle</property>
+                            </cell>
+                        </row>
+                    </detail>
+                </table>
+            </detail>
+        </list>
+    </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">sdnx_logo.png</property>
+            <property name="type">image/png</property>
+            <property name="libReference">xir_j2ee.sdnx_logo.png</property>
+        </structure>
+    </list-property>
+</report>

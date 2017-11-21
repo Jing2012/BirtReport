@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+
+@media print {
+	.noprint { 
+		display: none; 
+	}
+}
+
+.big-title {
+	line-height: 8mm; 
+	font-size: 22pt; 
+	font-weight: bold; 
+	text-align: center; 
+}
+
+.data-cell { 
+	line-height: 6mm; 
+	padding: 0mm 2mm 0mm 2mm; 
+	vertical-align: middle;
+}
